@@ -5,7 +5,7 @@ sudo apt-get -y install curl zsh vim tmux
 
 read -p "Install desktop utilities? (y/n): " RESP
 if [ "$RESP" = "y" ]; then
-    sudo apt-get -y install iceweasel
+    sudo apt-get -y install firefox
 fi
 
 read -p "Install development tools? (y/n): " RESP
