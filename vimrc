@@ -1,3 +1,17 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'tpope/vim-rails.git'
+
+filetype plugin indent on     " required
+
 set tabstop=4
 set nu
 set shiftwidth=4
