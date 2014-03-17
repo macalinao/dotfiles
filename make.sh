@@ -7,7 +7,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="vim vimrc oh-my-zsh zshrc"    # list of files/folders to symlink in homedir
+files="gradle vim vimrc oh-my-zsh zshrc"    # list of files/folders to symlink in homedir
 
 ##########
 
