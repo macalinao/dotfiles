@@ -17,3 +17,5 @@ set nu
 set shiftwidth=4
 set expandtab
 syntax on
+
+map <Leader> <Plug>(easymotion-prefix)
