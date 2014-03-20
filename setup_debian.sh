@@ -4,7 +4,7 @@ sudo apt-get -y install zsh vim tmux xfce4 xfce4-goodies
 
 read -p "Install social utilities? (y/n): " RESP
 if [ "$RESP" = "y" ]; then
-    sudo apt-get -y install pidgin xchat chromium
+    sudo apt-get -y install pidgin xchat chromium chromium-browser
 fi
 
 read -p "Install development tools? (y/n): " RESP
