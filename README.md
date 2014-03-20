@@ -1,5 +1,5 @@
 dotfiles
 ========
 
-My dotfiles. Run make.sh to install them.
+My dotfiles. Run link.sh to install them.
 

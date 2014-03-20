@@ -16,6 +16,9 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export EDITOR=vim
 
+# Fix tab completion http://stackoverflow.com/questions/564648/zsh-tab-completion-for-cd
+zstyle ':completion:*' special-dirs true
+
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "$HOME/.gvm/bin/gvm-init.sh" ]] && source "$HOME/.gvm/bin/gvm-init.sh"
 
