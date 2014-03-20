@@ -6,7 +6,7 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 ZSH_THEME="bira"
 
-alias gitac="git add -A . && git commit -sam"
+alias gac="git add -A . && git commit -sam"
 plugins=(git gradle)
 
 source $ZSH/oh-my-zsh.sh
