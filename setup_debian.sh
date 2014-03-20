@@ -26,3 +26,5 @@ if [ "$RESP" = "y" ]; then
     n latest
     cd ..
 fi
+
+rm -rf ~/tmp
