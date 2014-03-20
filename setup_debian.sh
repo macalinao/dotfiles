@@ -1,6 +1,7 @@
 # Temp directory
-mkdir ~/tmp
-cd ~/tmp
+TEMP_DIR= "~/tmp-deb"
+mkdir $TEMP_DIR
+cd $TEMP_DIR
 
 # Mandatory stuff
 apt-get -y install zsh vim tmux xfce4 xfce4-goodies
@@ -27,4 +28,4 @@ if [ "$RESP" = "y" ]; then
     cd ..
 fi
 
-rm -rf ~/tmp
+rm -rf $TEMP_DIR
