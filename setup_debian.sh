@@ -9,6 +9,6 @@ fi
 
 read -p "Install development tools? (y/n): " RESP
 if [ "$RESP" = "y" ]; then
-    sudo apt-get install openjdk-7-jdk openjdk-7-jre netbeans
+    sudo apt-get install openjdk-7-jdk openjdk-7-jre 
     sudo apt-get install python
 fi
