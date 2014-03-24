@@ -28,4 +28,6 @@ if [ "$RESP" = "y" ]; then
     cd ..
 fi
 
+chsh -s $(which zsh)
+
 rm -rf $TEMP_DIR
