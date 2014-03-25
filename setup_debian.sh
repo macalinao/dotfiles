@@ -9,7 +9,7 @@ apt-get -y install curl zsh vim tmux xfce4 xfce4-goodies synapse
 
 read -p "Install social utilities? (y/n): " RESP
 if [ "$RESP" = "y" ]; then
-    apt-get -y install pidgin xchat chromium chromium-browser
+    apt-get -y install pidgin xchat iceweasel
 fi
 
 read -p "Install development tools? (y/n): " RESP
