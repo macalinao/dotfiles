@@ -22,3 +22,5 @@ zstyle ':completion:*' special-dirs true
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "$HOME/.gvm/bin/gvm-init.sh" ]] && source "$HOME/.gvm/bin/gvm-init.sh"
 
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

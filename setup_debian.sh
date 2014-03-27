@@ -27,6 +27,9 @@ if [ "$RESP" = "y" ]; then
     make install
     n latest
     cd ..
+
+    # Ruby
+    curl -L https://get.rvm.io | bash -s stable --ruby
 fi
 
 chsh -s $(which zsh)
