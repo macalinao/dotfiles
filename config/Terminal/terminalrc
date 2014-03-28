@@ -1,5 +1,5 @@
 [Configuration]
-ColorPalette2=#aa0f00000000
+ColorPalette2=#dcdc32322f2f
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
 MiscBordersDefault=TRUE
@@ -16,13 +16,9 @@ MiscTabCloseButtons=TRUE
 MiscTabCloseMiddleClick=TRUE
 MiscTabPosition=GTK_POS_TOP
 MiscHighlightUrls=TRUE
-
-[Configuration]
-ColorCursor=#0f0f49499999
-ColorForeground=#838394949696
-ColorBackground=#00002b2b3636
+ColorCursor=#ee00ee00ee00
+ColorForeground=#ee00ee00ee00
 ColorPalette1=#070736364242
-ColorPalette2=#dcdc32322f2f
 ColorPalette3=#858599990000
 ColorPalette4=#b5b589890000
 ColorPalette5=#26268b8bd2d2
@@ -38,8 +34,6 @@ ColorPalette14=#6c6c7171c4c4
 ColorPalette15=#9393a1a1a1a1
 ColorPalette16=#fdfdf6f6e3e3
 Term=xterm-color
-[Configuration]
-ColorCursor=#ee00ee00ee00
-ColorForeground=#ee00ee00ee00
-ColorBackground=#000000000000
 ColorPalette=#000000000000;#ffbb00112200;#aa11cc665599;#ffddaa333311;#66ffbb33dd22;#dd338811cc33;#7766cc77bb77;#ee00ee00ee00;#bb00bb00bb00;#ffbb00112200;#aa11cc665599;#ffddaa333311;#66ffbb33dd22;#dd338811cc33;#7766cc77bb77;#ffffffffffff
+FontName=Menlo for Powerline 12
+
