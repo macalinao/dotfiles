@@ -1,0 +1,11 @@
+[Global]
+RulesHint=false
+ShowFullPath=false
+ShowIcons=true
+SortFoldersFirst=true
+SortCaseSensitive=true
+MenuBar=true
+ToolBar=true
+NavigationBar=None
+UseTabs=false
+
