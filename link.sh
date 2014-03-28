@@ -30,4 +30,7 @@ for file in $files; do
 done
 
 echo "Installing fonts..."
-fc-cache -f -v
+fc-cache -fv ~/.fonts
+
+echo "Setting global gitignore..."
+git config --global core.excludesFile ~/.gitignore_global
