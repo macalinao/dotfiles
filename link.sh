@@ -7,7 +7,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="config gitignore_global gradle themes vim vimrc oh-my-zsh zshrc"    # list of files/folders to symlink in homedir
+files="config fonts gitignore_global gradle themes vim vimrc oh-my-zsh zshrc"    # list of files/folders to symlink in homedir
 
 ##########
 
@@ -28,3 +28,6 @@ for file in $files; do
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
+
+echo "Installing fonts..."
+fc-cache -f -v
