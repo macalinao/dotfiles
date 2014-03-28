@@ -10,6 +10,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-rails.git'
 Bundle 'tfnico/vim-gradle'
+Bundle 'plasticboy/vim-markdown'
 
 filetype plugin indent on     " required
 
