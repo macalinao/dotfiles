@@ -4,28 +4,29 @@ mkdir $TEMP_DIR
 cd $TEMP_DIR
 
 # Mandatory stuff
-apt-get -y install curl zsh vim tmux synapse
-apt-get -y install xfce4 xfce4-goodies gtk2-engines-murrine
+sudo apt-get -y install curl zsh vim tmux synapse
+sudo apt-get -y install xfce4 xfce4-goodies gtk2-engines-murrine
 # Git is already installed -- no need to worry.
 
 read -p "Install social utilities? (y/n): " RESP
 if [ "$RESP" = "y" ]; then
-    apt-get -y install pidgin xchat iceweasel
+    sudo apt-get -y install pidgin xchat iceweasel
 fi
 
 read -p "Install development tools? (y/n): " RESP
 if [ "$RESP" = "y" ]; then
-    apt-get -y install openjdk-7-jdk openjdk-7-jre 
-    apt-get -y install python
-    curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py -L | python
+    sudo apt-get -y install openjdk-7-jdk openjdk-7-jre 
+    sudo apt-get -y install python
+    curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py -L | sudo python
+    pip install --user git+git://github.com/Lokaltog/powerline
 
     # GVM - gradle/groovy
-    curl -s get.gvmtool.net | sh
+    curl -s get.gvmtool.net | bash
     
     # Node
     git clone https://github.com/visionmedia/n.git
     cd n
-    make install
+    sudo make install
     n latest
     cd ..
 
