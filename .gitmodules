@@ -7,3 +7,6 @@
 [submodule "themes/Greybird"]
 	path = themes/Greybird
 	url = https://github.com/shimmerproject/Greybird.git
+[submodule "powerline"]
+	path = powerline
+	url = git@github.com:Lokaltog/powerline.git

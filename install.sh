@@ -3,18 +3,21 @@
 # This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
 ############################
 
-dir=~/dotfiles                    # dotfiles directory
-files="config fonts gitignore_global gradle themes vim vimrc oh-my-zsh zshrc"    # list of files/folders to symlink in homedir
+dir=~/dotfiles
+files="config fonts gitignore_global gradle powerline themes tmux.conf vim vimrc oh-my-zsh zshrc"
 
-# change to the dotfiles directory
 echo "Changing to the $dir directory"
 cd $dir
 echo "...done"
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
 for file in $files; do
-    echo "Creating symlink to $file in home directory."
-    ln -s $HOME/.$file $dir/$file/
+    echo "Creating symlink for $dir/$file at $HOME/.$file."
+    if [ -L $HOME/.$file ]
+    then
+        unlink $HOME/.$file
+    fi
+    ln -s $dir/$file $HOME/.$file
 done
 
 echo "Installing fonts..."
