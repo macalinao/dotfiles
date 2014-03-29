@@ -1,0 +1,25 @@
+{
+	"default_module": "powerline.segments.common",
+	"segment_data": {
+		"date": {
+			"before": "⌚ "
+		}
+	},
+	"segments": {
+		"right": [
+            {
+                "name": "external_ip"
+            },
+			{
+				"name": "date",
+				"args": {
+					"format": "%Y-%m-%d %H:%M:%S",
+					"istime": true
+				}
+			},
+			{
+				"name": "hostname"
+			}
+		]
+	}
+}
