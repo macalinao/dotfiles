@@ -24,3 +24,6 @@ zstyle ':completion:*' special-dirs true
 
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+if [ -d "$HOME/.local/bin" ]; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
