@@ -17,6 +17,7 @@ read -p "Install development tools? (y/n): " RESP
 if [ "$RESP" = "y" ]; then
     apt-get -y install openjdk-7-jdk openjdk-7-jre 
     apt-get -y install python
+    curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py -L | python
 
     # GVM - gradle/groovy
     curl -s get.gvmtool.net | sh
