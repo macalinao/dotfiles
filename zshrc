@@ -19,11 +19,11 @@ export EDITOR=vim
 # Fix tab completion http://stackoverflow.com/questions/564648/zsh-tab-completion-for-cd
 zstyle ':completion:*' special-dirs true
 
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "$HOME/.gvm/bin/gvm-init.sh" ]] && source "$HOME/.gvm/bin/gvm-init.sh"
-
-
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "$HOME/.gvm/bin/gvm-init.sh" ]] && source "$HOME/.gvm/bin/gvm-init.sh"
+
