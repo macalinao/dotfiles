@@ -1,2 +1,4 @@
+.nb-gradle/
 .gradletaskcache
+*.swo
 *.swp
