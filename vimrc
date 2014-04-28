@@ -12,6 +12,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tfnico/vim-gradle'
 Bundle 'plasticboy/vim-markdown'
+Bundle 'kchmck/vim-coffee-script'
 
 filetype plugin indent on     " required
 
