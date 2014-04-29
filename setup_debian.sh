@@ -10,7 +10,7 @@ sudo apt-get -y install xfce4 xfce4-goodies gtk2-engines-murrine
 
 read -p "Install desktop utilities? (y/n): " RESP
 if [ "$RESP" = "y" ]; then
-    sudo apt-get -y install pidgin pidgin-otr iceweasel
+    sudo apt-get -y install iceweasel
 fi
 
 read -p "Install development tools? (y/n): " RESP
