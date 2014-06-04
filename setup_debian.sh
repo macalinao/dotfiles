@@ -4,6 +4,7 @@ mkdir $TEMP_DIR
 cd $TEMP_DIR
 
 # Mandatory stuff
+sudo apt-get -y install unzip
 sudo apt-get -y install curl zsh vim tmux synapse
 sudo apt-get -y install xfce4 xfce4-goodies gtk2-engines-murrine
 # Git is already installed -- no need to worry.
@@ -27,7 +28,7 @@ if [ "$RESP" = "y" ]; then
     git clone https://github.com/visionmedia/n.git
     cd n
     sudo make install
-    n latest
+    sudo n latest
     cd ..
 
     # Ruby
