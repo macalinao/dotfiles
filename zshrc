@@ -29,4 +29,4 @@ fi
 [[ -s "$HOME/.gvm/bin/gvm-init.sh" ]] && source "$HOME/.gvm/bin/gvm-init.sh"
 
 # Android
-export PATH=/usr/local/android-sdk-linux/platform-tools:usr/local/android-sdk-linux/tools:$PATH
+export PATH="/usr/local/android-sdk-linux/platform-tools:/usr/local/android-sdk-linux/tools:$PATH"
