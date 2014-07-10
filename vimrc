@@ -13,12 +13,14 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'tfnico/vim-gradle'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'wavded/vim-stylus'
 
 filetype plugin indent on     " required
 
-set tabstop=4
+set tabstop=2
 set nu
-set shiftwidth=4
+set shiftwidth=2
 set expandtab
 syntax on
 

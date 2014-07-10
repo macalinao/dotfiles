@@ -30,3 +30,6 @@ fi
 
 # Android
 export PATH="/usr/local/android-sdk-linux/platform-tools:/usr/local/android-sdk-linux/tools:$PATH"
+
+# NPM
+export PATH=$HOME/npm/bin:$PATH
