@@ -32,3 +32,5 @@ set splitbelow
 set splitright
 
 map <Leader> <Plug>(easymotion-prefix)
+autocmd BufWritePre *.py :%s/\s\+$//e
+
