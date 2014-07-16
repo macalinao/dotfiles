@@ -14,6 +14,7 @@ Bundle 'plasticboy/vim-markdown'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'wavded/vim-stylus'
+Bundle "wookiehangover/jshint.vim"
 
 filetype plugin indent on     " required
 
