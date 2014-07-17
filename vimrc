@@ -16,6 +16,7 @@ Bundle "digitaltoad/vim-jade"
 Bundle "wavded/vim-stylus"
 Bundle "wookiehangover/jshint.vim"
 Bundle "Chiel92/vim-autoformat"
+Bundle "christoomey/vim-tmux-navigator"
 
 filetype plugin indent on     " required
 
