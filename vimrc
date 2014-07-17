@@ -38,4 +38,6 @@ let g:formatprg_args_json = "-s 2"
 noremap <F3> :Autoformat<CR><CR>
 
 " Ignore
-let g:ctrlp_custom_ignore = 'node_modules'
+let g:ctrlp_custom_ignore = {
+  \ 'dir': 'node_modules\|bower_components'
+  \ }
