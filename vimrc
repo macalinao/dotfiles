@@ -36,3 +36,6 @@ autocmd BufWritePre *.py :%s/\s\+$//e
 let g:formatprg_args_js = "-s 2"
 let g:formatprg_args_json = "-s 2"
 noremap <F3> :Autoformat<CR><CR>
+
+" Ignore
+let g:ctrlp_custom_ignore = 'node_modules'
