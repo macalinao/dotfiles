@@ -1,10 +1,10 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-set rtp+=~/.vim/bundle/Vundle/
+set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
 
-Bundle "gmarik/Vundle"
+Bundle "gmarik/Vundle.vim"
 
 Bundle "tpope/vim-fugitive"
 Bundle "Lokaltog/vim-easymotion"
