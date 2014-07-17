@@ -4,7 +4,7 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
+Bundle 'gmarik/Vundle'
 
 Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
@@ -14,7 +14,8 @@ Bundle 'plasticboy/vim-markdown'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'wavded/vim-stylus'
-Bundle "wookiehangover/jshint.vim"
+Bundle 'wookiehangover/jshint.vim'
+Bundle 'Chiel92/vim-autoformat'
 
 filetype plugin indent on     " required
 
