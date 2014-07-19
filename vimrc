@@ -37,7 +37,7 @@ noremap <F6> :JSHint<CR>
 " Formatting stuff
 let g:formatprg_args_js = "-s 2"
 let g:formatprg_args_json = "-s 2"
-noremap <F3> :Autoformat<CR><CR>
+noremap <F3> :Autoformat<CR>
 
 " Ignore
 let g:ctrlp_custom_ignore = {
