@@ -14,7 +14,6 @@ Bundle "plasticboy/vim-markdown"
 Bundle "kchmck/vim-coffee-script"
 Bundle "digitaltoad/vim-jade"
 Bundle "wavded/vim-stylus"
-Bundle "wookiehangover/jshint.vim"
 Bundle "Chiel92/vim-autoformat"
 Bundle "christoomey/vim-tmux-navigator"
 
