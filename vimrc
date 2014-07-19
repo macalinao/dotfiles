@@ -16,6 +16,7 @@ Bundle "digitaltoad/vim-jade"
 Bundle "wavded/vim-stylus"
 Bundle "Chiel92/vim-autoformat"
 Bundle "christoomey/vim-tmux-navigator"
+Bundle "Shutnik/jshint2.vim"
 
 filetype plugin indent on     " required
 
@@ -30,6 +31,8 @@ set splitright
 
 map <Leader> <Plug>(easymotion-prefix)
 autocmd BufWritePre *.py :%s/\s\+$//e
+
+noremap <F6> :JSHint<CR>
 
 " Formatting stuff
 let g:formatprg_args_js = "-s 2"
