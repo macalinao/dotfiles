@@ -18,6 +18,7 @@ Bundle "wavded/vim-stylus"
 Bundle "Chiel92/vim-autoformat"
 Bundle "christoomey/vim-tmux-navigator"
 Bundle "Shutnik/jshint2.vim"
+Bundle "Valloric/YouCompleteMe"
 
 filetype plugin indent on
 
