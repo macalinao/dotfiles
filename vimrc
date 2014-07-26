@@ -19,10 +19,9 @@ Bundle 'Chiel92/vim-autoformat'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'Shutnik/jshint2.vim'
 Bundle 'bling/vim-airline'
-Bundle 'altercation/vim-colors-solarized'
+Bundle 'jelera/vim-javascript-syntax'
 
 syntax enable
-colorscheme solarized
 set background=dark
 
 filetype plugin indent on
