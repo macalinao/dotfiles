@@ -1,24 +1,23 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible
+filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
 
-Bundle "gmarik/Vundle.vim"
+Bundle 'gmarik/Vundle.vim'
 
-Bundle "tpope/vim-fugitive"
-Bundle "Lokaltog/vim-easymotion"
-Bundle "kien/ctrlp.vim"
-Bundle "tfnico/vim-gradle"
-Bundle "godlygeek/tabular"
-Bundle "plasticboy/vim-markdown"
-Bundle "kchmck/vim-coffee-script"
-Bundle "digitaltoad/vim-jade"
-Bundle "wavded/vim-stylus"
-Bundle "Chiel92/vim-autoformat"
-Bundle "christoomey/vim-tmux-navigator"
-Bundle "Shutnik/jshint2.vim"
-" Bundle "Valloric/YouCompleteMe"
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'kien/ctrlp.vim'
+Bundle 'tfnico/vim-gradle'
+Bundle 'godlygeek/tabular'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'wavded/vim-stylus'
+Bundle 'Chiel92/vim-autoformat'
+Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'Shutnik/jshint2.vim'
 
 filetype plugin indent on
 
@@ -38,8 +37,8 @@ noremap <F6> :JSHint<CR>
 let g:vim_markdown_folding_disabled=1
 
 " Formatting stuff
-let g:formatprg_args_js = "-s 2"
-let g:formatprg_args_json = "-s 2"
+let g:formatprg_args_js = '-s 2'
+let g:formatprg_args_json = '-s 2'
 noremap <F3> :Autoformat<CR>
 
 " Ignore
