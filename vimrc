@@ -19,6 +19,11 @@ Bundle 'Chiel92/vim-autoformat'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'Shutnik/jshint2.vim'
 Bundle 'bling/vim-airline'
+Bundle 'altercation/vim-colors-solarized'
+
+syntax enable
+colorscheme solarized
+set background=dark
 
 filetype plugin indent on
 
@@ -26,7 +31,6 @@ set tabstop=2
 set nu
 set shiftwidth=2
 set expandtab
-syntax on
 
 set splitbelow
 set splitright
