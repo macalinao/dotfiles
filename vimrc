@@ -18,6 +18,7 @@ Bundle 'wavded/vim-stylus'
 Bundle 'Chiel92/vim-autoformat'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'Shutnik/jshint2.vim'
+Bundle 'bling/vim-airline'
 
 filetype plugin indent on
 
@@ -45,3 +46,10 @@ noremap <F3> :Autoformat<CR>
 let g:ctrlp_custom_ignore = {
   \ 'dir': 'node_modules\|bower_components'
   \ }
+
+" Airline
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
