@@ -7,6 +7,7 @@ call vundle#rc()
 Bundle 'gmarik/Vundle.vim'
 
 Bundle 'tpope/vim-fugitive'
+Bundle 'brk3/groovyindent'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tfnico/vim-gradle'
