@@ -21,6 +21,7 @@ Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'Shutnik/jshint2.vim'
 Bundle 'bling/vim-airline'
 Bundle 'jelera/vim-javascript-syntax'
+Bundle 'editorconfig/editorconfig-vim'
 
 syntax enable
 set background=dark
