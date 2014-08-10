@@ -1,7 +1,14 @@
 autostart/
+configstore/
+dconf/
 enchant/
+google-chrome/
+menus/
+pulse/
 Thunar/
 mousepad/
+update-notifier/
 xfce4/
+hub
 user-dirs.dirs
 user-dirs.locale

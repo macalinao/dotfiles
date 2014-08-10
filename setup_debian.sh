@@ -29,6 +29,7 @@ if [ "$RESP" = "y" ]; then
     cd n
     sudo make install
     sudo n latest
+    npm config set prefix ~/npm
     cd ..
 
     # Ruby
