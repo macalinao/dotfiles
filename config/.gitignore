@@ -3,12 +3,15 @@ configstore/
 dconf/
 enchant/
 google-chrome/
+gtk-2.0/
 menus/
+orage/
 pulse/
 Thunar/
 mousepad/
 update-notifier/
 xfce4/
 hub
+travisify.json
 user-dirs.dirs
 user-dirs.locale
