@@ -4,7 +4,7 @@
 ############################
 
 dir=~/dotfiles
-files="config fonts gitignore_global gradle powerline themes tmux.conf up-config vim vimrc oh-my-zsh Xmodmap zshrc"
+files="config fonts gitignore_global gradle powerline themes tmux.conf up-config vim vimrc oh-my-zsh xinitrc Xmodmap zshrc"
 
 echo "Changing to the $dir directory"
 cd $dir
