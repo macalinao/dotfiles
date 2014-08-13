@@ -60,3 +60,6 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.space = "\ua0"
 set laststatus=2
+
+" Auto close HTML
+autocmd BufRead,BufNewFile *.html iabbrev </ </<C-X><C-O>
