@@ -17,8 +17,7 @@ fi
 read -p "Install development tools? (y/n): " RESP
 if [ "$RESP" = "y" ]; then
     sudo apt-get -y install openjdk-7-jdk openjdk-7-jre 
-    sudo apt-get -y install python
-    curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py -L | sudo python
+    sudo apt-get -y install python python-pip
     pip install --user git+git://github.com/Lokaltog/powerline
 
     # GVM - gradle/groovy
