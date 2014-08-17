@@ -22,6 +22,7 @@ Bundle 'Shutnik/jshint2.vim'
 Bundle 'bling/vim-airline'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'editorconfig/editorconfig-vim'
+Bundle 'tpope/vim-abolish'
 
 syntax enable
 set background=dark

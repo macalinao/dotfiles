@@ -1,5 +1,7 @@
 .nb-gradle/
+.idea/
 .gradle/
 .gradletasknamecache
+main.iml
 *.swo
 *.swp

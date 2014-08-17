@@ -13,7 +13,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/dotfiles/bin:/usr/local/bin:$PATH
 export EDITOR=vim
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
 
