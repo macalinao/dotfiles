@@ -33,3 +33,6 @@ export PATH="/usr/local/android-sdk-linux/platform-tools:/usr/local/android-sdk-
 
 # NPM
 export PATH=$HOME/npm/bin:$PATH
+
+# Resty
+source ~/dotfiles/etc/resty
