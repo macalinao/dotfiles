@@ -5,7 +5,7 @@ cd $TEMP_DIR
 
 # Mandatory stuff
 sudo apt-get -y install unzip
-sudo apt-get -y install curl zsh vim tmux synapse
+sudo apt-get -y install curl zsh vim tmux
 # Git is already installed -- no need to worry.
 
 read -p "Install desktop utilities? (y/n): " RESP
