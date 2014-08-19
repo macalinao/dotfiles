@@ -1,8 +1,3 @@
-# Temp directory
-TEMP_DIR= "~/tmp-deb"
-mkdir $TEMP_DIR
-cd $TEMP_DIR
-
 # Mandatory stuff
 sudo apt-get -y install unzip
 sudo apt-get -y install curl zsh vim tmux
@@ -31,5 +26,3 @@ if [ "$RESP" = "y" ]; then
 fi
 
 chsh -s $(which zsh)
-
-rm -rf $TEMP_DIR
