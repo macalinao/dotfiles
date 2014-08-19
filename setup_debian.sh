@@ -23,12 +23,8 @@ if [ "$RESP" = "y" ]; then
     curl -s get.gvmtool.net | bash
     
     # Node
-    git clone https://github.com/visionmedia/n.git
-    cd n
-    sudo make install
     sudo n latest
     npm config set prefix ~/npm
-    cd ..
 
     # Ruby
     curl -L https://get.rvm.io | bash -s stable --ruby
