@@ -20,6 +20,7 @@ if [ "$RESP" = "y" ]; then
     # Node
     sudo n latest
     npm config set prefix ~/npm
+    npm install -g yo mocha jshint derulo js-beautify ionic cordova gulp grunt-cli bower
 
     # Ruby
     curl -L https://get.rvm.io | bash -s stable --ruby
