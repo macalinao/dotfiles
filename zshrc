@@ -7,7 +7,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="agnoster"
 
 alias gac="git add -A . && git commit -am"
-plugins=(git gradle)
+plugins=(git gitignore gradle)
 
 source $ZSH/oh-my-zsh.sh
 
