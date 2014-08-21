@@ -11,6 +11,8 @@ fi
 read -p "Install development tools? (y/n): " RESP
 if [ "$RESP" = "y" ]; then
     sudo apt-get -y install openjdk-7-jdk openjdk-7-jre 
+
+    # Python
     sudo apt-get -y install python python-pip
     pip install --user git+git://github.com/Lokaltog/powerline
 
@@ -24,6 +26,7 @@ if [ "$RESP" = "y" ]; then
 
     # Ruby
     curl -L https://get.rvm.io | bash -s stable --ruby
+    gem install hub
 fi
 
 chsh -s $(which zsh)
