@@ -23,6 +23,7 @@ Bundle 'bling/vim-airline'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'tpope/vim-abolish'
+Bundle 'jplaut/vim-arduino-ino'
 
 syntax enable
 set background=dark
