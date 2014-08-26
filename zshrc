@@ -37,5 +37,5 @@ export PATH=$HOME/npm/bin:$PATH
 # Resty
 source ~/dotfiles/etc/resty
 
-# Mantra
 mantra
+alias x=exit
