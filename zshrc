@@ -7,7 +7,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="agnoster"
 
 alias gac="git add -A . && git commit -am"
-plugins=(git gradle)
+plugins=(git gitignore gradle)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -30,9 +30,13 @@ fi
 
 # Android
 export PATH="/usr/local/android-sdk-linux/platform-tools:/usr/local/android-sdk-linux/tools:$PATH"
+export ANDROID_HOME="/usr/local/android-sdk-linux/"
 
 # NPM
 export PATH=$HOME/npm/bin:$PATH
 
 # Resty
 source ~/dotfiles/etc/resty
+
+mantra
+alias x=exit

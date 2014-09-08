@@ -1,6 +1,8 @@
 autostart/
+calibre/
 configstore/
 dconf/
+deluge/
 enchant/
 google-chrome/
 gtk-2.0/
