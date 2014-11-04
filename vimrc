@@ -24,6 +24,7 @@ Bundle 'jelera/vim-javascript-syntax'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'tpope/vim-abolish'
 Bundle 'jplaut/vim-arduino-ino'
+Bundle 'groenewege/vim-less'
 
 syntax enable
 set background=dark
@@ -51,7 +52,7 @@ noremap <F3> :Autoformat<CR>
 
 " Ignore
 let g:ctrlp_custom_ignore = {
-  \ 'dir': 'node_modules\|bower_components'
+  \ 'dir': 'node_modules\|bower_components\|dist'
   \ }
 
 " Airline
