@@ -7,7 +7,7 @@ MiscCursorBlinks=FALSE
 MiscCursorShape=TERMINAL_CURSOR_SHAPE_BLOCK
 MiscDefaultGeometry=80x24
 MiscInheritGeometry=FALSE
-MiscMenubarDefault=TRUE
+MiscMenubarDefault=FALSE
 MiscMouseAutohide=FALSE
 MiscToolbarsDefault=FALSE
 MiscConfirmClose=TRUE
@@ -35,5 +35,6 @@ ColorPalette15=#9393a1a1a1a1
 ColorPalette16=#fdfdf6f6e3e3
 Term=xterm-color
 ColorPalette=#000000000000;#ffbb00112200;#aa11cc665599;#ffddaa333311;#66ffbb33dd22;#dd338811cc33;#7766cc77bb77;#ee00ee00ee00;#bb00bb00bb00;#ffbb00112200;#aa11cc665599;#ffddaa333311;#66ffbb33dd22;#dd338811cc33;#7766cc77bb77;#ffffffffffff
-FontName=Monospace 11
+FontName=Monospace 7
+ScrollingBar=TERMINAL_SCROLLBAR_NONE
 

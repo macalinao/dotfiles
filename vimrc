@@ -66,3 +66,7 @@ set laststatus=2
 
 " Auto close HTML
 autocmd BufRead,BufNewFile *.html iabbrev </ </<C-X><C-O>
+
+" Spell check md
+autocmd BufRead,BufNewFile *.md setlocal spell
+
