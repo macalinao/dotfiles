@@ -69,3 +69,6 @@ autocmd BufRead,BufNewFile *.html iabbrev </ </<C-X><C-O>
 " Spell check md
 autocmd BufRead,BufNewFile *.md setlocal spell
 
+map Y y$
+
+
