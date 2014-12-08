@@ -6,7 +6,6 @@ call vundle#rc()
 
 Bundle 'gmarik/Vundle.vim'
 
-Bundle 'tpope/vim-fugitive'
 Bundle 'brk3/groovyindent'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'kien/ctrlp.vim'
@@ -25,6 +24,7 @@ Bundle 'editorconfig/editorconfig-vim'
 Bundle 'tpope/vim-abolish'
 Bundle 'jplaut/vim-arduino-ino'
 Bundle 'groenewege/vim-less'
+Bundle 'mxw/vim-jsx'
 
 syntax enable
 set background=dark
