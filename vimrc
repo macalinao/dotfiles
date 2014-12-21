@@ -65,7 +65,7 @@ let g:airline_symbols.space = "\ua0"
 set laststatus=2
 
 " Auto close HTML
-autocmd BufRead,BufNewFile *.html iabbrev </ </<C-X><C-O>
+autocmd BufRead,BufNewFile *.html,*.erb iabbrev </ </<C-X><C-O>
 
 " Spell check md
 autocmd BufRead,BufNewFile *.md setlocal spell
