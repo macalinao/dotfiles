@@ -25,6 +25,7 @@ Bundle 'tpope/vim-abolish'
 Bundle 'jplaut/vim-arduino-ino'
 Bundle 'groenewege/vim-less'
 Bundle 'mxw/vim-jsx'
+Bundle 'bronson/vim-trailing-whitespace'
 
 syntax enable
 set background=dark
