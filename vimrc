@@ -73,4 +73,8 @@ autocmd BufRead,BufNewFile *.md setlocal spell
 
 map Y y$
 
+augroup vagrant
+  au!
+  au BufRead,BufNewFile Vagrantfile set filetype=ruby
+augroup END
 
