@@ -49,6 +49,7 @@ let g:vim_markdown_folding_disabled=1
 " Formatting stuff
 let g:formatprg_args_js = '-s 2'
 let g:formatprg_args_json = '-s 2'
+let g:formatprg_args_css = '-f - -N -s 2'
 noremap <F3> :Autoformat<CR>
 
 " Ignore
@@ -77,4 +78,3 @@ augroup vagrant
   au!
   au BufRead,BufNewFile Vagrantfile set filetype=ruby
 augroup END
-
