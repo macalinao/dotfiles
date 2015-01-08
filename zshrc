@@ -22,7 +22,7 @@ zstyle ':completion:*' special-dirs true
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 if [ -d "$HOME/.local/bin" ]; then
-    PATH="$HOME/.local/bin:$PATH"
+  PATH="$HOME/.local/bin:$PATH"
 fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
@@ -37,6 +37,9 @@ export PATH=$HOME/npm/bin:$PATH
 
 # Resty
 source ~/dotfiles/etc/resty
+
+# Transfer.sh
+source ~/dotfiles/etc/transfer
 
 motivate | yosay
 alias x=exit
@@ -53,4 +56,3 @@ elif type complete &>/dev/null; then
   }
   complete -F _azure_complette azure
 fi
-
