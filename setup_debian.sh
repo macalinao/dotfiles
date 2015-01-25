@@ -20,7 +20,9 @@ if [ "$RESP" = "y" ]; then
     curl -s get.gvmtool.net | bash
     
     # Node
-    sudo n latest
+    curl https://raw.githubusercontent.com/creationix/nvm/v0.23.2/install.sh | bash
+    source ~/.nvm/nvm.sh
+    nvm install iojs-v1.0.4
     npm config set prefix ~/npm
     npm install -g yo mocha jshint derulo js-beautify ionic cordova gulp grunt-cli bower lice-js mantra
 

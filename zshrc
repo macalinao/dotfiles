@@ -56,3 +56,5 @@ elif type complete &>/dev/null; then
   }
   complete -F _azure_complette azure
 fi
+
+source ~/.nvm/nvm.sh
