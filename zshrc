@@ -58,5 +58,5 @@ elif type complete &>/dev/null; then
 fi
 
 alias say="echo $1 | espeak"
-alias mars="java -jar /opt/mars.jar"
+alias mars="java -jar ~/dotfiles/opt/Mars4_5.jar"
 source ~/.nvm/nvm.sh
