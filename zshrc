@@ -6,8 +6,6 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 ZSH_THEME="agnoster"
 
-source ~/.nvm/nvm.sh
-
 alias gac="git add -A . && git commit -am"
 plugins=(git gitignore gradle)
 
