@@ -81,3 +81,6 @@ augroup vagrant
 augroup END
 
 autocmd BufWritePre * :%s/\s\+$//e
+
+" Mac stuff
+set backspace=eol,indent,start
