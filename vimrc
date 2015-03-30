@@ -6,6 +6,7 @@ call vundle#rc()
 
 Bundle 'gmarik/Vundle.vim'
 
+Bundle 'pangloss/vim-javascript'
 Bundle 'brk3/groovyindent'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'kien/ctrlp.vim'
@@ -19,13 +20,13 @@ Bundle 'Chiel92/vim-autoformat'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'Shutnik/jshint2.vim'
 Bundle 'bling/vim-airline'
-Bundle 'jelera/vim-javascript-syntax'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'tpope/vim-abolish'
 Bundle 'jplaut/vim-arduino-ino'
 Bundle 'groenewege/vim-less'
 Bundle 'mxw/vim-jsx'
 Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'tpope/vim-surround'
 
 syntax enable
 set background=dark

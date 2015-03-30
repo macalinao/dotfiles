@@ -15,7 +15,6 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH=$HOME/bin:$HOME/dotfiles/bin:/usr/local/bin:$PATH
 export EDITOR=vim
-export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
 
 # Fix tab completion http://stackoverflow.com/questions/564648/zsh-tab-completion-for-cd
 zstyle ':completion:*' special-dirs true
@@ -59,3 +58,5 @@ fi
 
 alias say="echo $1 | espeak"
 alias mars="java -jar ~/dotfiles/opt/Mars4_5.jar"
+
+export JAVA_HOME=/usr/lib/jvm/java-7-openjdk
