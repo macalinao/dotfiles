@@ -28,6 +28,7 @@ Bundle 'mxw/vim-jsx'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
+Bundle 'JazzCore/ctrlp-cmatcher'
 
 syntax enable
 set background=dark
