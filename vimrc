@@ -27,6 +27,7 @@ Bundle 'groenewege/vim-less'
 Bundle 'mxw/vim-jsx'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-fugitive'
 
 syntax enable
 set background=dark
@@ -70,6 +71,7 @@ set laststatus=2
 " Auto close HTML
 autocmd BufRead,BufNewFile *.html,*.erb,*.ejs iabbrev </ </<C-X><C-O>
 au BufRead,BufNewFile *.ejs set filetype=html
+au BufRead,BufNewFile *.es6 set filetype=js
 
 " Spell check md
 autocmd BufRead,BufNewFile *.md setlocal spell
@@ -81,7 +83,8 @@ augroup vagrant
   au BufRead,BufNewFile Vagrantfile set filetype=ruby
 augroup END
 
-autocmd BufWritePre * :%s/\s\+$//e
+" Whitespace removal
+" autocmd BufWritePre * :%s/\s\+$//e
 
 " Mac stuff
 set backspace=eol,indent,start

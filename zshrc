@@ -34,6 +34,9 @@ export ANDROID_HOME="/usr/local/android-sdk-linux/"
 # NPM
 export PATH=$HOME/npm/bin:$PATH
 
+# Android
+export PATH=$HOME/Library/Android/sdk/tools:$PATH
+
 # Resty
 source ~/dotfiles/etc/resty
 
@@ -56,7 +59,6 @@ elif type complete &>/dev/null; then
   complete -F _azure_complette azure
 fi
 
-alias say="echo $1 | espeak"
 alias mars="java -jar ~/dotfiles/opt/Mars4_5.jar"
 
-export JAVA_HOME=/usr/lib/jvm/java-7-openjdk
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home
