@@ -89,3 +89,7 @@ augroup END
 
 " Mac stuff
 set backspace=eol,indent,start
+
+inoremap <C-c> CtrlPBufTag
+
+let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
