@@ -66,3 +66,5 @@ alias mars="java -jar ~/dotfiles/opt/Mars4_5.jar"
 alias ctags="`brew --prefix`/bin/ctags"
 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home
+
+alias c=clear
