@@ -29,9 +29,11 @@ Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
 Bundle 'JazzCore/ctrlp-cmatcher'
+Bundle 'altercation/vim-colors-solarized'
 
 syntax enable
 set background=dark
+colorscheme solarized
 
 filetype plugin indent on
 
