@@ -36,6 +36,7 @@ export PATH=$HOME/npm/bin:$PATH
 
 # Android
 export PATH=$HOME/Library/Android/sdk/tools:$PATH
+export PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
 
 # Resty
 source ~/dotfiles/etc/resty
@@ -60,5 +61,8 @@ elif type complete &>/dev/null; then
 fi
 
 alias mars="java -jar ~/dotfiles/opt/Mars4_5.jar"
+
+# Ctags
+alias ctags="`brew --prefix`/bin/ctags"
 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home

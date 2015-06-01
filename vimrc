@@ -84,12 +84,14 @@ augroup vagrant
   au BufRead,BufNewFile Vagrantfile set filetype=ruby
 augroup END
 
+au BufRead,BufNewFile Guardfile set filetype=ruby
+
 " Whitespace removal
 " autocmd BufWritePre * :%s/\s\+$//e
 
 " Mac stuff
 set backspace=eol,indent,start
 
-inoremap <C-c> CtrlPBufTag
+nnoremap <C-f> :CtrlPBufTag<CR>
 
 let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
