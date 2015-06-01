@@ -93,5 +93,6 @@ au BufRead,BufNewFile Guardfile set filetype=ruby
 set backspace=eol,indent,start
 
 nnoremap <C-f> :CtrlPBufTag<CR>
+nnoremap <C-t> :tab split<CR>
 
 let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
