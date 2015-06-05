@@ -30,6 +30,8 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
 Bundle 'JazzCore/ctrlp-cmatcher'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
 
 syntax enable
 set background=dark
@@ -98,3 +100,6 @@ nnoremap <C-f> :CtrlPBufTag<CR>
 nnoremap <C-t> :tab split<CR>
 
 let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
+
+" Gist stuff
+let g:gist_clip_command = 'pbcopy'
