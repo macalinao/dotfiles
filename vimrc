@@ -6,6 +6,7 @@ call vundle#rc()
 
 Bundle 'gmarik/Vundle.vim'
 
+Bundle 'tpope/vim-rails'
 Bundle 'pangloss/vim-javascript'
 Bundle 'brk3/groovyindent'
 Bundle 'Lokaltog/vim-easymotion'
