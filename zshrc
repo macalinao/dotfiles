@@ -70,4 +70,4 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home
 alias c=clear
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-alias yolo=git push origin master -f
+alias yolo="git push origin master -f"
