@@ -71,3 +71,4 @@ alias c=clear
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 alias yolo="git push origin master -f"
+alias swag="git push origin staging -f"
