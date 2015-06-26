@@ -72,3 +72,4 @@ alias c=clear
 
 alias yolo="git push origin master -f"
 alias swag="git push origin staging -f"
+alias kukuku="git push heroku master -f"
