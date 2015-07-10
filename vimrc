@@ -34,6 +34,7 @@ Bundle 'JazzCore/ctrlp-cmatcher'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
+Bundle 'rainerborene/vim-reek'
 
 syntax enable
 set background=dark
@@ -105,3 +106,6 @@ let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 
 " Gist stuff
 let g:gist_clip_command = 'pbcopy'
+
+" run reek on demand
+let g:reek_on_loading = 0
