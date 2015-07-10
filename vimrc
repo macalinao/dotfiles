@@ -35,6 +35,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 Bundle 'rainerborene/vim-reek'
+Bundle 'fatih/vim-go'
 
 syntax enable
 set background=dark
