@@ -36,6 +36,8 @@ Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 Bundle 'rainerborene/vim-reek'
 Bundle 'fatih/vim-go'
+Bundle 'rking/ag.vim'
+Bundle 'elixir-lang/vim-elixir'
 
 syntax enable
 set background=dark
