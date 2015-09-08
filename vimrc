@@ -38,6 +38,7 @@ Bundle 'rainerborene/vim-reek'
 Bundle 'fatih/vim-go'
 Bundle 'rking/ag.vim'
 Bundle 'elixir-lang/vim-elixir'
+Bundle 'ngmy/vim-rubocop'
 
 syntax enable
 set background=dark
