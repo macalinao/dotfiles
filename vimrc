@@ -59,6 +59,8 @@ autocmd BufWritePre *.py :%s/\s\+$//e
 
 noremap <F6> :JSHint<CR>
 let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_math=1
+let g:vim_markdown_frontmatter=1
 
 " Formatting stuff
 let g:formatprg_args_js = '-s 2'
