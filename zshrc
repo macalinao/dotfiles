@@ -78,3 +78,6 @@ alias gs=gst
 export GOPATH=~/gocode
 export PATH=~/gocode/bin:$PATH
 
+md2pdf() {
+  pandoc $1 -o `basename $1 .md`.pdf
+}
