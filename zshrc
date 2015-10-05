@@ -82,5 +82,5 @@ md2pdf() {
   pandoc $1 -o `basename $1 .md`.pdf
 }
 
-export HISTFILESIZE=
-export HISTSIZE=
+export HISTFILESIZE=1000000
+export HISTSIZE=1000000
