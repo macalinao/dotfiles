@@ -38,9 +38,6 @@ export PATH=$HOME/npm/bin:$PATH
 export PATH=$HOME/Library/Android/sdk/tools:$PATH
 export PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
 
-# Resty
-source ~/dotfiles/etc/resty
-
 # Transfer.sh
 source ~/dotfiles/etc/transfer
 
