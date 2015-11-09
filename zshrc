@@ -79,7 +79,8 @@ md2pdf() {
   pandoc $1 -o `basename $1 .md`.pdf
 }
 
-export HISTFILESIZE=1000000
-export HISTSIZE=1000000
-
 DYLD_LIBRARY_PATH=/opt/oracle/instantclient_11_2
+export HISTFILESIZE=10000000
+export HISTSIZE=10000000
+
+alias vi=vim
