@@ -39,6 +39,7 @@ Bundle 'fatih/vim-go'
 Bundle 'rking/ag.vim'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'ngmy/vim-rubocop'
+Bundle 'motus/pig.vim'
 
 syntax enable
 set background=dark
