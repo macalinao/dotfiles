@@ -62,7 +62,7 @@ alias mars="java -jar ~/dotfiles/opt/Mars4_5.jar"
 # Ctags
 alias ctags="`brew --prefix`/bin/ctags"
 
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home
 
 alias c=clear
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -81,3 +81,5 @@ md2pdf() {
 
 export HISTFILESIZE=1000000
 export HISTSIZE=1000000
+
+DYLD_LIBRARY_PATH=/opt/oracle/instantclient_11_2
