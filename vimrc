@@ -38,8 +38,10 @@ Bundle 'fatih/vim-go'
 Bundle 'rking/ag.vim'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'ngmy/vim-rubocop'
-Bundle 'derekwyatt/vim-scala'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'motus/pig.vim'
+Bundle 'derekwyatt/vim-scala'
+Bundle 'autowitch/hive.vim'
 
 syntax enable
 set background=dark
@@ -71,7 +73,7 @@ noremap <F3> :Autoformat<CR>
 
 " Ignore
 let g:ctrlp_custom_ignore = {
-  \ 'dir': 'node_modules\|bower_components\|dist'
+  \ 'dir': 'node_modules\|bower_components\|dist\|target'
   \ }
 
 " Airline
@@ -116,3 +118,6 @@ let g:gist_clip_command = 'pbcopy'
 
 " run reek on demand
 let g:reek_on_loading = 0
+
+" hive
+au BufNewFile,BufRead *.hql set filetype=hive expandtab
