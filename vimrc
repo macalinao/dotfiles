@@ -31,7 +31,6 @@ Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
 Bundle 'JazzCore/ctrlp-cmatcher'
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 Bundle 'rainerborene/vim-reek'
@@ -39,6 +38,8 @@ Bundle 'fatih/vim-go'
 Bundle 'rking/ag.vim'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'ngmy/vim-rubocop'
+Bundle 'derekwyatt/vim-scala'
+Bundle 'altercation/vim-colors-solarized'
 
 syntax enable
 set background=dark
