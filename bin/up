@@ -1,9 +1,0 @@
-#!/bin/sh
-IFS=',' read dest baseurl < ~/.up-config
-if [ -z "$1" ]
-then
-    echo "usage: up file"
-    exit 1
-fi
-scp $1 $dest
-echo "$baseurl$(basename $1)"
