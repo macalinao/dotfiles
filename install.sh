@@ -16,5 +16,7 @@ for file in $files; do
     ln -s $dir/$file $HOME/.$file
 done
 
-echo "Setting global gitignore..."
+echo "Setting global Git settings..."
+git config --global user.name "Ian Macalinao"
+git config --global user.email "me@ian.pw"
 git config --global core.excludesFile ~/.gitignore_global
