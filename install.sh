@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-dir=$(dirname $0)
+dir=$(dirname $0)/../
 files="config fonts gitignore_global themes tmux.conf vim vimrc oh-my-zsh zshrc"
 
 echo "Changing to the $dir directory"
