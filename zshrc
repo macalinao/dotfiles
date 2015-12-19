@@ -1,17 +1,11 @@
-# Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
 ZSH_THEME="agnoster"
 
 alias gac="git add -A . && git commit -am"
 plugins=(git gitignore gradle bundler rails)
 
 source $ZSH/oh-my-zsh.sh
-
-# User configuration
 
 export PATH=$HOME/bin:$HOME/dotfiles/bin:/usr/local/bin:$PATH
 export EDITOR=vim
