@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 dir=$(dirname $0)
-files="config fonts gitignore_global themes tmux.conf up-config vim vimrc oh-my-zsh xinitrc Xmodmap zshrc"
+files="config fonts gitignore_global themes tmux.conf up-config vim vimrc oh-my-zsh zshrc"
 
 echo "Changing to the $dir directory"
 cd $dir
