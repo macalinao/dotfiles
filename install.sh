@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
-dir=$(dirname $0)/../
+cd $(dirname $0)/../
 files="fonts gitignore_global tmux.conf vim vimrc oh-my-zsh zshrc"
-
-cd $dir
 
 for file in $files; do
     echo "Creating symlink for $dir/$file at $HOME/.$file."
