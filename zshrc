@@ -57,8 +57,6 @@ elif type complete &>/dev/null; then
   complete -F _azure_complette azure
 fi
 
-alias mars="java -jar ~/dotfiles/opt/Mars4_5.jar"
-
 # Ctags
 alias ctags="`brew --prefix`/bin/ctags"
 
