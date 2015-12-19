@@ -1,9 +1,6 @@
-#!/bin/bash
-############################
-# This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
-############################
+#!/usr/bin/env bash
 
-dir=~/dotfiles
+dir=$(dirname $0)
 files="config fonts gitignore_global themes tmux.conf up-config vim vimrc oh-my-zsh xinitrc Xmodmap zshrc"
 
 echo "Changing to the $dir directory"
