@@ -17,8 +17,5 @@ for file in $files; do
     ln -s $dir/$file $HOME/.$file
 done
 
-echo "Installing fonts..."
-fc-cache -fv ~/.fonts
-
 echo "Setting global gitignore..."
 git config --global core.excludesFile ~/.gitignore_global

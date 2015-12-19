@@ -32,3 +32,6 @@ if [ "$RESP" = "y" ]; then
 fi
 
 chsh -s $(which zsh)
+
+echo "Installing fonts..."
+fc-cache -fv ~/.fonts
