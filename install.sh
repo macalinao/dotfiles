@@ -1,14 +1,18 @@
 #!/usr/bin/env bash
 
-cd $(dirname $0)/../
-files="fonts gitignore_global tmux.conf vim vimrc oh-my-zsh zshrc"
+pushd `dirname $0` > /dev/null
+DIR=`pwd`
+popd > /dev/null
 
-for file in $files; do
-  echo "Creating symlink for $dir/$file at $HOME/.$file."
-  if [ -L $HOME/.$file ]; then
-    unlink $HOME/.$file
+cd $DIR
+FILES="fonts gitignore_global tmux.conf vim vimrc oh-my-zsh zshrc"
+
+for FILE in $FILES; do
+  echo "Creating symlink for $dir/$FILE at $HOME/.$FILE."
+  if [ -L $HOME/.$FILE ]; then
+    unlink $HOME/.$FILE
   fi
-  ln -s $dir/$file $HOME/.$file
+  ln -s $DIR/$FILE $HOME/.$FILE
 done
 
 echo "Setting global Git settings..."
