@@ -66,3 +66,4 @@ alias vi=vim
 
 # added by travis gem
 [ -f /Users/ian/.travis/travis.sh ] && source /Users/ian/.travis/travis.sh
+source ~/dotfiles/zshrc_extra
