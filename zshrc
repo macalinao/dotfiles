@@ -1,6 +1,6 @@
 ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="agnoster"
+ZSH_THEME="robbyrussell"
 
 alias gac="git add -A . && git commit -am"
 plugins=(git gitignore gradle bundler rails)
