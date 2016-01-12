@@ -52,6 +52,3 @@ export HISTFILESIZE=10000000
 export HISTSIZE=10000000
 
 alias vi=vim
-
-# added by travis gem
-[ -f /Users/ian/.travis/travis.sh ] && source /Users/ian/.travis/travis.sh
