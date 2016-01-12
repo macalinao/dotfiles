@@ -24,7 +24,6 @@ export PATH=$HOME/npm/bin:$PATH
 # Transfer.sh
 source ~/dotfiles/etc/transfer
 
-motivate | yosay
 alias x=exit
 
 # Ctags
