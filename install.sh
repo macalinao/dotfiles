@@ -5,7 +5,7 @@ DIR=`pwd`
 popd > /dev/null
 
 cd $DIR
-FILES="fonts gitignore_global tmux.conf vim vimrc oh-my-zsh zshrc"
+FILES="fonts gitignore_global tmux.conf vim vimrc"
 
 for FILE in $FILES; do
   echo "Creating symlink for $dir/$FILE at $HOME/.$FILE."
@@ -14,6 +14,8 @@ for FILE in $FILES; do
   fi
   ln -s $DIR/$FILE $HOME/.$FILE
 done
+
+echo "source ~/dotfiles/zshrc" >> ~/.zshrc
 
 echo "Setting global Git settings..."
 git config --global user.name "Ian Macalinao"
