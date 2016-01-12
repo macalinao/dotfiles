@@ -21,10 +21,6 @@ fi
 # NPM
 export PATH=$HOME/npm/bin:$PATH
 
-# Android
-export PATH=$HOME/Library/Android/sdk/tools:$PATH
-export PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
-
 # Transfer.sh
 source ~/dotfiles/etc/transfer
 
