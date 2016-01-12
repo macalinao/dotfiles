@@ -18,10 +18,6 @@ if [ -d "$HOME/.local/bin" ]; then
   PATH="$HOME/.local/bin:$PATH"
 fi
 
-# Android
-export PATH="/usr/local/android-sdk-linux/platform-tools:/usr/local/android-sdk-linux/tools:$PATH"
-export ANDROID_HOME="/usr/local/android-sdk-linux/"
-
 # NPM
 export PATH=$HOME/npm/bin:$PATH
 
