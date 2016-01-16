@@ -42,6 +42,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'motus/pig.vim'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'autowitch/hive.vim'
+Bundle 'solarnz/thrift.vim'
 
 syntax enable
 set background=dark
