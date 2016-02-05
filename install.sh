@@ -5,7 +5,7 @@ DIR=`pwd`
 popd > /dev/null
 
 cd $DIR
-FILES="gitignore_global vim vimrc"
+FILES="spacemacs gitignore_global vim vimrc"
 
 for FILE in $FILES; do
   echo "Creating symlink for $dir/$FILE at $HOME/.$FILE."
