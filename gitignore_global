@@ -8,3 +8,4 @@ main.iml
 *.swp
 npm-debug.log
 .tmp
+.tern-port

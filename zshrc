@@ -51,3 +51,4 @@ export HISTFILESIZE=10000000
 export HISTSIZE=10000000
 
 alias vi=vim
+alias e="emacsclient -n"
