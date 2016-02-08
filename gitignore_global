@@ -7,3 +7,4 @@ main.iml
 *.swo
 *.swp
 npm-debug.log
+.tmp
