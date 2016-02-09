@@ -36,6 +36,8 @@ values."
             shell-default-height 30
             shell-default-position 'bottom
             shell-default-shell 'ansi-term)
+     yaml
+     javascript
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
@@ -243,6 +245,10 @@ values."
 It is called immediately after `dotspacemacs/init'.  You are free to put almost
 any user code here.  The exception is org related code, which should be placed
 in `dotspacemacs/user-config'."
+  (use-package server
+    :config
+    (progn
+      (unless (server-running-p) (server-start))))
   )
 
 (defun dotspacemacs/user-config ()
@@ -252,7 +258,8 @@ layers configuration. You are free to put any user code."
   (global-hl-line-mode -1)
   (global-linum-mode)
   (setq system-uses-terminfo nil)
-  )
+  (setq-default js2-basic-offset 2)
+  (setq-default js-indent-level 2))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
