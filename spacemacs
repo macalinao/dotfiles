@@ -257,6 +257,7 @@ layers configuration. You are free to put any user code."
   (global-hl-line-mode -1)
   (global-linum-mode)
   (setq system-uses-terminfo nil)
+  (setq-default js2-basic-offset 2)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
