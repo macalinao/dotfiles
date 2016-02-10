@@ -24,23 +24,19 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      ;; auto-completion
-     ;; better-defaults
      emacs-lisp
      themes-megapack
      git
      markdown
      org
      go
+     games
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom
             shell-default-shell 'ansi-term)
      yaml
      javascript
-     ;; spell-checking
-     ;; syntax-checking
-     ;; version-control
-     spotify
    )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -258,6 +254,7 @@ layers configuration. You are free to put any user code."
   (global-linum-mode)
   (setq system-uses-terminfo nil)
   (setq-default js2-basic-offset 2)
+  (global-set-key [(control h)] 'delete-backward-char)
   (setq-default js-indent-level 2))
 
 ;; Do not write anything past this comment. This is where Emacs will
