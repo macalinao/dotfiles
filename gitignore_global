@@ -9,3 +9,4 @@ main.iml
 npm-debug.log
 .tmp
 .tern-port
+.#*
