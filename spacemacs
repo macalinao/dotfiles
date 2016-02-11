@@ -246,6 +246,10 @@ in `dotspacemacs/user-config'."
     :config
     (progn
       (unless (server-running-p) (server-start))))
+
+  (use-package sh-mode
+    :mode (("\\.sh\\'" . sh-mode)
+           ("zshrc" . sh-mode)))
   )
 
 (defun dotspacemacs/user-config ()
