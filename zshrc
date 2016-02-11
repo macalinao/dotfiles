@@ -39,8 +39,8 @@ alias swag="git push origin staging -f"
 alias kukuku="git push heroku master -f"
 alias gs=gst
 
-export GOPATH=~/gocode
-export PATH=~/gocode/bin:$PATH
+export GOPATH=$HOME/gocode
+export PATH=$GOPATH/bin:$PATH
 
 md2pdf() {
   pandoc $1 -o `basename $1 .md`.pdf
