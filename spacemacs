@@ -256,6 +256,19 @@ in `dotspacemacs/user-config'."
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
+
+  (defun js-indent-2 ()
+    (interactive)
+    (setq-default js-indent-level 2)
+    (setq-default js2-basic-offset 2)
+    (print "JS indentation set to 2"))
+
+  (defun js-indent-4 ()
+    (interactive)
+    (setq-default js-indent-level 4)
+    (setq-default js2-basic-offset 4)
+    (print "JS indentation set to 4"))
+
   (global-hl-line-mode -1)
   (global-linum-mode)
   (setq system-uses-terminfo nil)
