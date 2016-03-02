@@ -24,7 +24,6 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      ;; auto-completion
-     python
      emacs-lisp
      themes-megapack
      git
@@ -270,6 +269,7 @@ layers configuration. You are free to put any user code."
     (setq-default js2-basic-offset 4)
     (print "JS indentation set to 4"))
 
+  (setq gofmt-command "goimports")
   (global-hl-line-mode -1)
   (global-linum-mode)
   (setq system-uses-terminfo nil)
