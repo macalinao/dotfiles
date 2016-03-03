@@ -44,6 +44,10 @@ md2pdf() {
   pandoc $1 -o `basename $1 .md`.pdf
 }
 
+imalison_localip() {
+  ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'
+}
+
 export HISTFILESIZE=10000000
 export HISTSIZE=10000000
 
