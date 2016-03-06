@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
 
-pushd `dirname $0` > /dev/null
-DIR=`pwd`
-popd > /dev/null
+DIR=$(dirname $0)
 
 cd $DIR
-FILES="atom jsbeautifyrc spacemacs gitignore_global vim vimrc"
+FILES="atom gitconfig jsbeautifyrc spacemacs vim vimrc"
 
 for FILE in $FILES; do
   echo "Creating symlink for $dir/$FILE at $HOME/.$FILE."
@@ -17,8 +15,3 @@ done
 
 echo "source ~/dotfiles/zshrc" >> ~/.zshrc
 echo "source ~/dotfiles/tmux.conf" >> ~/.tmux.conf
-
-echo "Setting global Git settings..."
-git config --global user.name "Ian Macalinao"
-git config --global user.email "me@ian.pw"
-git config --global core.excludesFile ~/.gitignore_global
