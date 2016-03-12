@@ -55,3 +55,7 @@ alias vi=vim
 alias e="emacsclient -n"
 
 alias grt="git root"
+
+gj() {
+  cd `git root`
+}
