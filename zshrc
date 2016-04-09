@@ -56,6 +56,8 @@ alias e="emacsclient -n"
 
 alias grt="git root"
 
+export GO15VENDOREXPERIMENT=1
+
 gj() {
   cd `git root`
 }
