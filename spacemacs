@@ -34,6 +34,7 @@ values."
      org
      go
      games
+     react
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom
@@ -259,17 +260,25 @@ in `dotspacemacs/user-config'."
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
 
+  (defun js-indent (indent-width)
+    (setq-default
+      ;; js2-mode
+      js2-basic-offset indent-width
+      ;; web-mode
+      css-indent-offset indent-width
+      web-mode-markup-indent-offset indent-width
+      web-mode-css-indent-offset indent-width
+      web-mode-code-indent-offset indent-width
+      web-mode-attr-indent-offset indent-width)
+    (print (format "JS indentation set to %d." indent-width)))
+
   (defun js-indent-2 ()
     (interactive)
-    (setq-default js-indent-level 2)
-    (setq-default js2-basic-offset 2)
-    (print "JS indentation set to 2"))
+    (js-indent 2))
 
   (defun js-indent-4 ()
     (interactive)
-    (setq-default js-indent-level 4)
-    (setq-default js2-basic-offset 4)
-    (print "JS indentation set to 4"))
+    (js-indent 4))
 
   (setq gofmt-command "goimports")
   (global-hl-line-mode -1)
