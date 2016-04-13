@@ -74,4 +74,3 @@ killport() {
     lsof -wni tcp:$1 | tail -n 1 | awk '{ print $2; }' | xargs kill -9
   fi
 }
->>>>>>> Add kill process on port function
