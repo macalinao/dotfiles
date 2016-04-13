@@ -61,3 +61,5 @@ export GO15VENDOREXPERIMENT=1
 gj() {
   cd `git root`
 }
+
+sev() { cd $GOPATH/src/code.uber.internal/everything/$1 }
