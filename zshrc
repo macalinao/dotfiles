@@ -62,4 +62,16 @@ gj() {
   cd `git root`
 }
 
-sev() { cd $GOPATH/src/code.uber.internal/everything/$1 }
+sev() {
+  cd $GOPATH/src/code.uber.internal/everything/$1
+}
+
+killport() {
+  if [ "$#" -ne 1 ]; then 
+    echo "Kills whatever process is running on a port with a SIGTERM."
+    echo "Usage: killport <port>"
+  else
+    lsof -wni tcp:$1 | tail -n 1 | awk '{ print $2; }' | xargs kill -9
+  fi
+}
+>>>>>>> Add kill process on port function
