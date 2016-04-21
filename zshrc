@@ -67,10 +67,19 @@ sev() {
 }
 
 killport() {
-  if [ "$#" -ne 1 ]; then 
+  if [ "$#" -ne 1 ]; then
     echo "Kills whatever process is running on a port with a SIGTERM."
     echo "Usage: killport <port>"
   else
     lsof -wni tcp:$1 | tail -n 1 | awk '{ print $2; }' | xargs kill -9
+  fi
+}
+
+tunnelport() {
+  if [ "$#" -ne 2 ]; then
+    echo "Tunnels a local port to the corresponding remote port on a machine."
+    echo "Usage: tunnelport <port> <host>"
+  else
+    ssh -fN -L $1":localhost:"$1 $2
   fi
 }
