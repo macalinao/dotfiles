@@ -50,5 +50,7 @@ sev() {
   cd $GOPATH/src/code.uber.internal/everything/$1
 }
 
-source $HOME/dotfiles/util/git.sh
-source $HOME/dotfiles/util/net.sh
+DOTFILES=$HOME/dotfiles
+
+source $DOTFILES/util/git.sh
+source $DOTFILES/util/net.sh
