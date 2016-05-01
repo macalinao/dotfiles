@@ -20,9 +20,6 @@ fi
 # NPM
 export PATH=$HOME/npm/bin:$PATH
 
-# Transfer.sh
-source ~/dotfiles/util/transfer.sh
-
 alias x=exit
 
 alias c=clear
@@ -50,3 +47,4 @@ DOTFILES=$HOME/dotfiles
 
 source $DOTFILES/util/git.sh
 source $DOTFILES/util/net.sh
+source $DOTFILES/util/transfer.sh
