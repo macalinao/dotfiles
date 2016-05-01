@@ -2,7 +2,6 @@ ZSH=$HOME/dotfiles/oh-my-zsh
 
 ZSH_THEME="robbyrussell"
 
-alias gac="git add -A . && git commit -am"
 plugins=(git gitignore gradle bundler rails)
 
 source $ZSH/oh-my-zsh.sh
@@ -32,11 +31,6 @@ alias ctags="`brew --prefix`/bin/ctags"
 alias c=clear
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-alias yolo="git push origin master -f"
-alias swag="git push origin staging -f"
-alias kukuku="git push heroku master -f"
-alias gs=gst
-
 export GOPATH=$HOME/gocode
 export PATH=$GOPATH/bin:$PATH
 
@@ -50,16 +44,11 @@ export HISTSIZE=10000000
 alias vi=vim
 alias e="emacsclient -n"
 
-alias grt="git root"
-
 export GO15VENDOREXPERIMENT=1
-
-gj() {
-  cd `git root`
-}
 
 sev() {
   cd $GOPATH/src/code.uber.internal/everything/$1
 }
 
+source $HOME/dotfiles/util/git.sh
 source $HOME/dotfiles/util/net.sh
