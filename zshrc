@@ -25,11 +25,7 @@ source ~/dotfiles/util/transfer.sh
 
 alias x=exit
 
-# Ctags
-alias ctags="`brew --prefix`/bin/ctags"
-
 alias c=clear
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export GOPATH=$HOME/gocode
 export PATH=$GOPATH/bin:$PATH
