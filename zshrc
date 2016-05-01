@@ -22,7 +22,7 @@ fi
 export PATH=$HOME/npm/bin:$PATH
 
 # Transfer.sh
-source ~/dotfiles/etc/transfer
+source ~/dotfiles/util/transfer.sh
 
 alias x=exit
 
@@ -44,10 +44,6 @@ md2pdf() {
   pandoc $1 -o `basename $1 .md`.pdf
 }
 
-imalison_localip() {
-  ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'
-}
-
 export HISTFILESIZE=10000000
 export HISTSIZE=10000000
 
@@ -66,20 +62,4 @@ sev() {
   cd $GOPATH/src/code.uber.internal/everything/$1
 }
 
-killport() {
-  if [ "$#" -ne 1 ]; then
-    echo "Kills whatever process is running on a port with a SIGTERM."
-    echo "Usage: killport <port>"
-  else
-    lsof -wni tcp:$1 | tail -n 1 | awk '{ print $2; }' | xargs kill -9
-  fi
-}
-
-tunnelport() {
-  if [ "$#" -ne 2 ]; then
-    echo "Tunnels a local port to the corresponding remote port on a machine."
-    echo "Usage: tunnelport <port> <host>"
-  else
-    ssh -fN -L $1":localhost:"$1 $2
-  fi
-}
+source $HOME/dotfiles/util/net.sh
