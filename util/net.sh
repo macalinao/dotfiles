@@ -1,7 +1,7 @@
 lsport() {
     if [ "$#" -ne 1 ]; then
-        echo "Gets the pid of the process running on the given port."
-        echo "Usage: pidport <port>"
+        echo "Gets information about processes running on the given port."
+        echo "Usage: lsport <port>"
     else
         lsof -wni tcp:$1
     fi
