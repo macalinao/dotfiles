@@ -47,4 +47,5 @@ DOTFILES=$HOME/dotfiles
 
 source $DOTFILES/util/git.sh
 source $DOTFILES/util/net.sh
+source $DOTFILES/util/os.sh
 source $DOTFILES/util/transfer.sh
