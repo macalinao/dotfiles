@@ -24,6 +24,7 @@ values."
      ruby
      emacs-lisp
      themes-megapack
+     php
      git
      markdown
      html
