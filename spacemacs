@@ -286,11 +286,11 @@ layers configuration. You are free to put any user code."
 
   (js-indent-2)
 
+  ;; Find all org agenda files
   (setq org-agenda-files
-    '(
-      "~/org/freelance"
-      "~/org/life"
-    ))
+    (remove-if
+      (lambda (s) (string-match "\\\." s))
+      (directory-files "~/org" 1)))
 
   (add-to-list 'auto-mode-alist '("\\.restclient\\'" . restclient-mode))
   (setq gofmt-command "goimports")
