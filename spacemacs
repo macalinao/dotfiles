@@ -286,7 +286,11 @@ layers configuration. You are free to put any user code."
 
   (js-indent-2)
 
-  (setq org-agenda-files '("~/org"))
+  (setq org-agenda-files
+    '(
+      "~/org/freelance"
+      "~/org/life"
+    ))
 
   (add-to-list 'auto-mode-alist '("\\.restclient\\'" . restclient-mode))
   (setq gofmt-command "goimports")
