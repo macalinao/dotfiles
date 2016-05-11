@@ -1,10 +1,7 @@
-ZSH=$HOME/dotfiles/oh-my-zsh
+setopt auto_cd
+export CLICOLOR=1
 
-ZSH_THEME="robbyrussell"
-
-plugins=(git gitignore gradle bundler rails)
-
-source $ZSH/oh-my-zsh.sh
+export PS1="[%* - %D] %d %% "
 
 export PATH=$HOME/bin:$HOME/dotfiles/bin:/usr/local/bin:$PATH
 export EDITOR=emacsclient

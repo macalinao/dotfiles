@@ -1,17 +1,23 @@
 #!/usr/bin/env bash
 
-DIR=$(dirname $0)
+DOTFILES=$HOME/dotfiles
 
-cd $DIR
-FILES="atom gitconfig jsbeautifyrc spacemacs vim vimrc"
-
-for FILE in $FILES; do
-  echo "Creating symlink for $dir/$FILE at $HOME/.$FILE."
-  if [ -L $HOME/.$FILE ]; then
-    unlink $HOME/.$FILE
-  fi
-  ln -s $DIR/$FILE $HOME/.$FILE
+for FILE in $(ls $DOTFILES/dotfiles); do
+    BASE=`basename $FILE`
+    SOURCE=$DOTFILES/dotfiles/$BASE
+    TARGET=$HOME/.$BASE
+    echo "Creating symlink for $SOURCE at $TARGET"
+    if [ -L $TARGET ]; then
+        unlink $TARGET
+    fi
+    ln -s $SOURCE $TARGET
 done
 
-echo "source ~/dotfiles/zshrc" >> ~/.zshrc
-echo "source ~/dotfiles/tmux.conf" >> ~/.tmux.conf
+APPENDS=(zshrc)
+
+for APPEND in APPENDS; do
+    SOURCE="source $DOTFILES/dotfiles/$APPEND"
+    if ! grep -Fxq "$SOURCE" $HOME/.$APPEND; then
+        echo "$SOURCE" >> $HOME/.$APPEND
+    fi
+done
