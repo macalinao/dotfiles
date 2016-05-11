@@ -23,11 +23,6 @@ alias e="emacsclient -n"
 # Fix tab completion http://stackoverflow.com/questions/564648/zsh-tab-completion-for-cd
 zstyle ':completion:*' special-dirs true
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-if [ -d "$HOME/.local/bin" ]; then
-  PATH="$HOME/.local/bin:$PATH"
-fi
-
 alias x=exit
 
 alias c=clear
