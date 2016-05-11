@@ -10,6 +10,10 @@ export PS1="%F{blue}%n@%m %B%F{green}%120<...<%~
 
 export PATH=$HOME/bin:$HOME/dotfiles/bin:/usr/local/bin:$PATH
 
+# Home/end
+bindkey "${terminfo[khome]}" beginning-of-line
+bindkey "${terminfo[kend]}" end-of-line
+
 # Editor
 export EDITOR=emacsclient
 alias vi=vim
