@@ -1,5 +1,5 @@
 DOTFILES=$HOME/dotfiles
-source $DOTFILES/lib/zsh_init.sh
+source $DOTFILES/lib/shell/zsh.sh
 
 for UTIL in $(ls $DOTFILES/util/*.sh); do
   source $UTIL
