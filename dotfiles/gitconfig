@@ -49,7 +49,7 @@
 	which-branch = "!wb() { b="$(git symbolic-ref HEAD)" && echo ${b#refs/heads/}; }; wb"
 
 [core]
-	excludesFile = /Users/ian/dotfiles/etc/gitignore_global
+	excludesFile = ~/dotfiles/etc/gitignore_global
 
 [include]
 	path = ~/.gitconfig.custom
