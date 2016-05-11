@@ -1,14 +1,10 @@
 DOTFILES=$HOME/dotfiles
 source $DOTFILES/lib/zsh_init.sh
 
-# Editor
-export EDITOR=emacsclient
-alias vi=vim
-alias e="emacsclient -n"
-
 for UTIL in $(ls $DOTFILES/util/*.sh); do
   source $UTIL
 done
 
+source $DOTFILES/lib/editor.sh
 source $DOTFILES/lib/lang/go.sh
 source $DOTFILES/lib/lang/ruby.sh
