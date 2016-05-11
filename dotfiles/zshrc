@@ -10,7 +10,8 @@ export PS1="%F{blue}%n@%m %B%F{green}%120<...<%~
 
 export PATH=$HOME/bin:$HOME/dotfiles/bin:/usr/local/bin:$PATH
 
-# Home/end
+# Keybinds
+bindkey -e
 bindkey "${terminfo[khome]}" beginning-of-line
 bindkey "${terminfo[kend]}" end-of-line
 
