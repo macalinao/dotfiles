@@ -3,7 +3,10 @@ alias gs=gst
 
 alias grt="git root"
 
-alias gac="git add -A . && git commit -am"
+gac() {
+    git add -A $(git root) && git commit -am
+}
+
 alias gd="git diff"
 
 gj() {
