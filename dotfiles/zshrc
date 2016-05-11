@@ -1,7 +1,8 @@
 setopt auto_cd
 export CLICOLOR=1
-
-export PS1="[%* - %D] %d %% "
+autoload -Uz promptinit
+promptinit
+prompt adam1
 
 export PATH=$HOME/bin:$HOME/dotfiles/bin:/usr/local/bin:$PATH
 export EDITOR=emacsclient
