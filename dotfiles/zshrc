@@ -6,10 +6,6 @@ export EDITOR=emacsclient
 alias vi=vim
 alias e="emacsclient -n"
 
-md2pdf() {
-  pandoc $1 -o `basename $1 .md`.pdf
-}
-
 for UTIL in $(ls $DOTFILES/util/*.sh); do
   source $UTIL
 done
