@@ -23,9 +23,6 @@ alias e="emacsclient -n"
 # Fix tab completion http://stackoverflow.com/questions/564648/zsh-tab-completion-for-cd
 zstyle ':completion:*' special-dirs true
 
-alias x=exit
-alias c=clear
-
 md2pdf() {
   pandoc $1 -o `basename $1 .md`.pdf
 }
