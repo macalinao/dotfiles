@@ -39,10 +39,6 @@ export HISTSIZE=10000000
 
 export GO15VENDOREXPERIMENT=1
 
-sev() {
-  cd $GOPATH/src/code.uber.internal/everything/$1
-}
-
 DOTFILES=$HOME/dotfiles
 
 for UTIL in $(ls $DOTFILES/util/*.sh); do
