@@ -14,6 +14,8 @@ export PATH=$HOME/bin:$HOME/dotfiles/bin:/usr/local/bin:$PATH
 bindkey -e
 bindkey "${terminfo[khome]}" beginning-of-line
 bindkey "${terminfo[kend]}" end-of-line
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
 bindkey '^R' history-incremental-search-backward
 
 # Fix tab completion http://stackoverflow.com/questions/564648/zsh-tab-completion-for-cd
