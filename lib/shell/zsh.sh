@@ -19,5 +19,11 @@ bindkey '^R' history-incremental-search-backward
 # Fix tab completion http://stackoverflow.com/questions/564648/zsh-tab-completion-for-cd
 zstyle ':completion:*' special-dirs true
 
-export HISTFILESIZE=10000000
-export HISTSIZE=10000000
+# History
+export HISTSIZE=100000
+export HISTFILESIZE=100000
+export SAVEHIST=100000
+export HISTFILE=~/.zsh_history
+setopt INC_APPEND_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt EXTENDED_HISTORY
