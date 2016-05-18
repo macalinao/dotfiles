@@ -1,4 +1,5 @@
 DOTFILES=$HOME/dotfiles
+source $DOTFILES/lib/shell/bash.sh
 
 for UTIL in $(ls $DOTFILES/util/*.sh); do
   source $UTIL
