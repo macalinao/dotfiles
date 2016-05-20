@@ -4,7 +4,7 @@ alias gs=gst
 alias grt="git root"
 
 gac() {
-    git add -A $(git root) && git commit -am $1
+    git add -A $(git root) && git commit -m "$@"
 }
 
 alias gd="git diff"
