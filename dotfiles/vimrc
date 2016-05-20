@@ -46,7 +46,6 @@ Bundle 'solarnz/thrift.vim'
 
 syntax enable
 set background=dark
-colorscheme solarized
 
 filetype plugin indent on
 
@@ -76,15 +75,6 @@ noremap <F3> :Autoformat<CR>
 let g:ctrlp_custom_ignore = {
   \ 'dir': 'node_modules\|bower_components\|dist\|target'
   \ }
-
-" Airline
-let g:airline_theme='murmur'
-let g:airline_powerline_fonts=1
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-let g:airline_symbols.space = "\ua0"
-set laststatus=2
 
 " Auto close HTML
 autocmd BufRead,BufNewFile *.html,*.erb,*.ejs iabbrev </ </<C-X><C-O>
