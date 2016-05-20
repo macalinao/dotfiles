@@ -13,7 +13,7 @@ for FILE in $(ls $DOTFILES/dotfiles); do
     ln -s $SOURCE $TARGET
 done
 
-APPENDS=(zshrc)
+APPENDS=(tmux.conf zshrc)
 
 for APPEND in APPENDS; do
     SOURCE="source $DOTFILES/dotfiles/$APPEND"
