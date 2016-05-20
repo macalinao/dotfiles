@@ -13,11 +13,12 @@ for FILE in $(ls $DOTFILES/dotfiles); do
     ln -s $SOURCE $TARGET
 done
 
-APPENDS=(tmux.conf zshrc)
+SOURCE="source $DOTFILES/dotfiles/lib/bashrc"
+if ! grep -Fxq "$SOURCE" $HOME/.bashrc; then
+    echo "$SOURCE" >> $HOME/.bashrc
+fi
 
-for APPEND in APPENDS; do
-    SOURCE="source $DOTFILES/dotfiles/$APPEND"
-    if ! grep -Fxq "$SOURCE" $HOME/.$APPEND; then
-        echo "$SOURCE" >> $HOME/.$APPEND
-    fi
-done
+SOURCE="source $DOTFILES/dotfiles/lib/zshrc"
+if ! grep -Fxq "$SOURCE" $HOME/.zshrc; then
+    echo "$SOURCE" >> $HOME/.zshrc
+fi
