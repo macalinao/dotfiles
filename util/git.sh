@@ -12,3 +12,7 @@ alias gd="git diff"
 gj() {
     cd `git root`
 }
+
+gi() {
+    curl -L -s https://www.gitignore.io/api/\$@
+}
