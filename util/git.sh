@@ -16,3 +16,5 @@ gj() {
 gi() {
     curl -L -s https://www.gitignore.io/api/$@
 }
+
+alias glog='git log --oneline --decorate --graph'
