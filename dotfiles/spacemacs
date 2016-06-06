@@ -289,6 +289,17 @@ layers configuration. You are free to put any user code."
       (lambda (s) (string-match "\\\." s))
       (directory-files "~/org" 1)))
 
+  ;; http://stackoverflow.com/questions/2416655/file-path-to-clipboard-in-emacs
+  (defun simplyianm:copy-file-name-to-clipboard ()
+    "Copy the current buffer file name to the clipboard."
+    (interactive)
+    (let ((filename (if (equal major-mode 'dired-mode)
+                        default-directory
+                      (buffer-file-name))))
+      (when filename
+        (kill-new filename)
+        (message "Copied buffer file name '%s' to the clipboard." filename))))
+
   (add-to-list 'auto-mode-alist '("\\.restclient\\'" . restclient-mode))
   (setq gofmt-command "goimports")
   (global-hl-line-mode -1)
