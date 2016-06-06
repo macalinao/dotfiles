@@ -38,6 +38,7 @@
 	reset-author ="!source ~/.lib/shellrc/functions.sh && git_reset_author"
 	reset-origin = "!r() { git reset --hard origin/\"$(git which-branch)\" && git suir; }; r"
 	rh = reset --hard
+  rom = rebase origin/master
 	root = rev-parse --show-toplevel
 	s = status -s
 	set-working-tree = "!s() { local head=\"$(git rev-parse HEAD)\"; git reset --hard $1 && git reset --soft $head; }; s"
