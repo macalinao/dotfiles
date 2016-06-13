@@ -52,6 +52,7 @@ values."
      restclient
      thrift
      graphviz-dot-mode
+     btc-ticker
    )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages
