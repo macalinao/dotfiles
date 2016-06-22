@@ -338,6 +338,9 @@ layers configuration. You are free to put any user code."
     (interactive "nEnter a number: ")
     (simplyianm:times times 'zoom-frm-in))
 
+  ;; Clojure symbols
+  (setq clojure-enable-fancify-symbols t)
+
   (add-to-list 'auto-mode-alist '("\\.restclient\\'" . restclient-mode))
   (setq gofmt-command "goimports")
   (global-hl-line-mode -1)
