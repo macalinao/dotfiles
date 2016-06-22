@@ -20,6 +20,7 @@
 	du = "!d() { git ls-files $1 --error-unmatch 2>/dev/null 1>/dev/null && git diff $1 || `git config --get core.pager` $1; }; d" # Diff a file or show it in git's pager if it is untracked
 	ff = merge --ff-only
 	ffo = !git ffr origin
+  frp = git ffo && git rom && git poh
 	ffr = "!ffr() { git fetch $1 && git ff $1/$(git which-branch) && git suir; }; ffr"
 	file-exists = "!f() { git ls-files $1 --error-unmatch > /dev/null 2> /dev/null; }; f"
 	force-master = "!f() { git fetch origin && git rh && git master; }; f"
