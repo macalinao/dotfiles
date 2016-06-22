@@ -292,6 +292,22 @@ layers configuration. You are free to put any user code."
       (lambda (s) (string-match "\\\." s))
       (directory-files "~/org" 1)))
 
+  (defun func-region (start end func)
+    "run a function over the region between START and END in current buffer."
+    (save-excursion
+      (let ((text (delete-and-extract-region start end)))
+        (insert (funcall func text)))))
+
+  (defun hex-region (start end)
+    "urlencode the region between START and END in current buffer."
+    (interactive "r")
+    (func-region start end #'url-hexify-string))
+
+  (defun unhex-region (start end)
+    "de-urlencode the region between START and END in current buffer."
+    (interactive "r")
+    (func-region start end #'url-unhex-string))
+
   ;; http://stackoverflow.com/questions/2416655/file-path-to-clipboard-in-emacs
   (defun simplyianm:copy-file-name-to-clipboard ()
     "Copy the current buffer file name to the clipboard."
