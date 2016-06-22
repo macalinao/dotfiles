@@ -303,6 +303,8 @@ layers configuration. You are free to put any user code."
         (kill-new filename)
         (message "Copied buffer file name '%s' to the clipboard." filename))))
 
+  (setq custom-file "~/.emacs.d/custom.el")
+
   (add-to-list 'auto-mode-alist '("\\.restclient\\'" . restclient-mode))
   (setq gofmt-command "goimports")
   (global-hl-line-mode -1)
