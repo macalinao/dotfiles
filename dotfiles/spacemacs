@@ -305,6 +305,21 @@ layers configuration. You are free to put any user code."
 
   (setq custom-file "~/.emacs.d/custom.el")
 
+  (defun simplyianm:times (n func)
+    "Run func n times."
+    (while (> n 0)
+      (funcall func)
+      (setq n (1- n))))
+
+  (defun simplyianm:zoom-out-times (times)
+    "Zoom out a given number of times."
+    (interactive "nEnter a number: ")
+    (simplyianm:times times 'zoom-frm-out))
+
+  (defun simplyianm:zoom-in-times (times)
+    "Zoom in a given number of times."
+    (interactive "nEnter a number: ")
+    (simplyianm:times times 'zoom-frm-in))
   (add-to-list 'auto-mode-alist '("\\.restclient\\'" . restclient-mode))
   (setq gofmt-command "goimports")
   (global-hl-line-mode -1)
