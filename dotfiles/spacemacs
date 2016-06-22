@@ -34,6 +34,7 @@ values."
      org
      go
      games
+     clojure
      react
      (shell :variables
             shell-default-height 30
