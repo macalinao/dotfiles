@@ -19,3 +19,8 @@ gi() {
 }
 
 alias glog='git log --oneline --decorate --graph'
+
+# Initialize a new project.
+pinit() {
+    mkdir -p $HOME/proj/$1 && cd $HOME/proj/$1 && git init && echo "# $1" > README.md && emacsclient -n README.md
+}
