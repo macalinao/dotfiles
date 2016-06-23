@@ -265,6 +265,10 @@ in `dotspacemacs/user-config'."
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
 
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((python . t)))
+
   (defun js-indent (indent-width)
     (setq-default
       ;; js2-mode
