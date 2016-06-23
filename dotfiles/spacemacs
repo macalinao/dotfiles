@@ -270,7 +270,6 @@ layers configuration. You are free to put any user code."
    'org-babel-load-languages
    '((emacs-lisp . t)
      (sh . t)
-     (org . t)
      (python . t)
      (go . t)))
 
