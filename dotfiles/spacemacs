@@ -55,6 +55,7 @@ values."
      graphviz-dot-mode
      btc-ticker
      tide
+     ob-go  ;; Enable org-babel support for Go
    )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages
@@ -267,7 +268,11 @@ layers configuration. You are free to put any user code."
 
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '((python . t)))
+   '((emacs-lisp . t)
+     (sh . t)
+     (org . t)
+     (python . t)
+     (go . t)))
 
   (defun js-indent (indent-width)
     (setq-default
