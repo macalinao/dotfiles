@@ -282,8 +282,8 @@ layers configuration. You are free to put any user code."
       web-mode-markup-indent-offset indent-width
       web-mode-css-indent-offset indent-width
       web-mode-code-indent-offset indent-width
-      web-mode-attr-indent-offset indent-width)
-    (print (format "JS indentation set to %d." indent-width)))
+      web-mode-attr-indent-offset indent-width
+      tab-width indent-width))
 
   (defun js-indent-2 ()
     (interactive)
