@@ -329,6 +329,7 @@ layers configuration. You are free to put any user code."
         (message "Copied buffer file name '%s' to the clipboard." filename))))
 
   (setq custom-file "~/.emacs.d/custom.el")
+  (load custom-file)
 
   (defun simplyianm:times (n func)
     "Run func n times."
