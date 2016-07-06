@@ -348,7 +348,7 @@ layers configuration. You are free to put any user code."
     (interactive "nEnter a number: ")
     (simplyianm:times times 'zoom-frm-in))
 
-  (defun simplyianm:80-columns
+  (defun simplyianm:80-columns ()
     "Mark 80 columns."
     (interactive)
     (column-marker-1 80))
