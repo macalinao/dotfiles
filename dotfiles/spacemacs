@@ -50,6 +50,7 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages
    '(
+     column-marker
      restclient
      thrift
      graphviz-dot-mode
