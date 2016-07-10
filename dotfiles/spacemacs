@@ -57,6 +57,7 @@ values."
      btc-ticker
      tide
      ob-go  ;; Enable org-babel support for Go
+     cql-mode
    )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages
