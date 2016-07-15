@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+ROOT=`git root`
+echo "Running make command in $ROOT"
+cd $ROOT
+make $@
