@@ -43,6 +43,7 @@ values."
      yaml
      javascript
      xkcd
+     scala
    )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -356,6 +357,8 @@ layers configuration. You are free to put any user code."
 
   ;; Clojure symbols
   (setq clojure-enable-fancify-symbols t)
+
+  (setq ensime-startup-snapshot-notification nil)
 
   (add-to-list 'auto-mode-alist '("\\.restclient\\'" . restclient-mode))
   (setq gofmt-command "goimports")
