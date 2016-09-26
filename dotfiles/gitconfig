@@ -61,3 +61,5 @@
 
 [push]
 	default = simple
+[user]
+	signingKey = C12B0854720BAFE2
