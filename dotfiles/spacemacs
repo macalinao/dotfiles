@@ -32,11 +32,12 @@ values."
      markdown
      html
      org
-     go
+     (go :variables
+         go-tab-width 4)
      games
      clojure
      react
-     dockerfile
+     docker
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom
