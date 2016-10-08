@@ -333,9 +333,6 @@ layers configuration. You are free to put any user code."
         (kill-new filename)
         (message "Copied buffer file name '%s' to the clipboard." filename))))
 
-  (setq custom-file "~/.emacs.d/custom.el")
-  (load custom-file)
-
   (defun simplyianm:times (n func)
     "Run func n times."
     (while (> n 0)
@@ -356,6 +353,9 @@ layers configuration. You are free to put any user code."
     "Mark 80 columns."
     (interactive)
     (column-marker-1 80))
+
+  ;; tabs width 4 (for golang)
+	(setq tab-width 4)
 
   ;; Clojure symbols
   (setq clojure-enable-fancify-symbols t)
