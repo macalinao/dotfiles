@@ -7,5 +7,6 @@ done
 
 source $DOTFILES/lib/transfer.sh
 source $DOTFILES/lib/editor.sh
+source $DOTFILES/lib/lang/python.sh
 source $DOTFILES/lib/lang/go.sh
 source $DOTFILES/lib/lang/ruby.sh
