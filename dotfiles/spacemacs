@@ -361,7 +361,12 @@ layers configuration. You are free to put any user code."
   ;; Clojure symbols
   (setq clojure-enable-fancify-symbols t)
 
+  ;; Scala
   (setq ensime-startup-snapshot-notification nil)
+  (setq flycheck-scalastyle-jar
+        "/usr/local/Cellar/scalastyle/0.8.0/libexec/scalastyle_2.11-0.8.0-batch.jar")
+  (setq flycheck-scalastylerc
+        "/usr/local/etc/scalastyle_config.xml")
 
   (add-to-list 'auto-mode-alist '("\\.restclient\\'" . restclient-mode))
   (setq gofmt-command "goimports")
