@@ -277,6 +277,7 @@ layers configuration. You are free to put any user code."
    '((emacs-lisp . t)
      (sh . t)
      (python . t)
+     (js . t)
      (go . t)))
 
   (defun js-indent (indent-width)
