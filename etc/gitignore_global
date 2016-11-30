@@ -10,3 +10,4 @@ npm-debug.log
 .tmp
 .tern-port
 .#*
+dump.rdb
