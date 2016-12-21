@@ -373,6 +373,8 @@ layers configuration. You are free to put any user code."
   (setq flycheck-scalastylerc
         "/usr/local/etc/scalastyle_config.xml")
 
+  (set-fontset-font t 'unicode "Apple Color Emoji" nil 'prepend)
+
   (add-to-list 'auto-mode-alist '("\\.restclient\\'" . restclient-mode))
   (setq gofmt-command "goimports")
   (global-hl-line-mode -1)
