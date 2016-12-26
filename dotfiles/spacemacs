@@ -18,6 +18,7 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     graphviz
      rust
      java
      elm
@@ -282,6 +283,7 @@ layers configuration. You are free to put any user code."
      (sh . t)
      (python . t)
      (js . t)
+     (dot . t)
      (go . t)))
 
   (defun js-indent (indent-width)
