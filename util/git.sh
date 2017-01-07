@@ -28,3 +28,11 @@ pinit() {
 ghclone() {
     mkdir -p ~/proj/$1 && cd ~/proj/$1 && hub clone -p $1/$2 && cd $2
 }
+
+ghnew() {
+    mkdir -p ~/proj/$1/$2 && cd ~/proj/$1/$2 && git init && hub create -p $1/$2
+}
+
+ghgo() {
+    cd ~/proj/$1/$2
+}
