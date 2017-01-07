@@ -24,3 +24,7 @@ alias glog='git log --oneline --decorate --graph'
 pinit() {
     mkdir -p $HOME/proj/$1 && cd $HOME/proj/$1 && git init && echo "# $1" > README.md && emacsclient -n README.md
 }
+
+ghclone() {
+    mkdir -p ~/proj/$1 && cd ~/proj/$1 && hub clone -p $1/$2 && cd $2
+}
