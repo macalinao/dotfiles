@@ -11,5 +11,5 @@ npm-debug.log
 .tern-port
 .#*
 dump.rdb
-+.ensime_cache/
-+.ensime
+.ensime_cache/
+.ensime
