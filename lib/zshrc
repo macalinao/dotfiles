@@ -5,6 +5,8 @@ for UTIL in $(ls $DOTFILES/util/*.sh); do
   source $UTIL
 done
 
+PATH="$HOME/.local/bin:$PATH"
+
 source $DOTFILES/lib/transfer.sh
 source $DOTFILES/lib/editor.sh
 source $DOTFILES/lib/lang/python.sh
