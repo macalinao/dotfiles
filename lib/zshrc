@@ -1,15 +1,31 @@
 DOTFILES=$HOME/dotfiles
 source $DOTFILES/lib/shell/zsh.sh
 
-for UTIL in $(ls $DOTFILES/util/*.sh); do
-  source $UTIL
-done
 
 PATH="$HOME/.local/bin:$PATH"
 
 source $DOTFILES/lib/transfer.sh
-source $DOTFILES/lib/editor.sh
-source $DOTFILES/lib/lang/python.sh
-source $DOTFILES/lib/lang/go.sh
-source $DOTFILES/lib/lang/ruby.sh
-source $DOTFILES/lib/lang/scala.sh
+source $DOTFILES/lib/util.sh
+
+# Editor stuff
+export EDITOR=emacsclient
+alias vi=vim
+alias e="emacsclient -n"
+
+# Python
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
+source /usr/local/bin/virtualenvwrapper_lazy.sh
+
+# Go
+export GO15VENDOREXPERIMENT=1
+export GOPATH=$HOME/gocode
+export PATH=$GOPATH/bin:$PATH
+
+# Ruby
+if [ -d "$HOME/.rvm/bin" ]; then
+    PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+fi
+
+# Scala
+alias sbto='sbt "set offline := true"'
