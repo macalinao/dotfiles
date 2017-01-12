@@ -28,7 +28,7 @@ fi
 
 # Scala
 alias sbto='sbt "set offline := true"'
-alias sbten='sbt "set scalaVersion := \"2.11.8\" ensimeConfig"'
+alias sbten='sbt "set scalaVersion := \"2.11.8\" ensimeConfig'
 
 # Haskell
 export PATH=$HOME/.local/bin:$PATH
