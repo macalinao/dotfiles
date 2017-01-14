@@ -108,3 +108,5 @@ md2pdf() {
 }
 alias x=exit
 alias c=clear
+
+alias tf=terraform
