@@ -49,6 +49,10 @@ ghnew() {
     mkdir -p ~/proj/$1/$2 && cd ~/proj/$1/$2 && git init && hub create -p $1/$2
 }
 
+ghnewu() {
+    mkdir -p ~/proj/macalinao/$1 && cd ~/proj/macalinao/$1 && git init && hub create -p $1
+}
+
 ghgo() {
     cd ~/proj/$1/$2
 }
