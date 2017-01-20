@@ -300,6 +300,8 @@ layers configuration. You are free to put any user code."
       web-mode-attr-indent-offset indent-width
       tab-width indent-width))
 
+  (org-indent-mode)
+
   (defun js-indent-2 ()
     (interactive)
     (js-indent 2))
