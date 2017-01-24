@@ -62,4 +62,6 @@
 [push]
 	default = simple
 [user]
-	signingKey = C12B0854720BAFE2
+	signingKey = F126F8E8
+[commit]
+	gpgsign = true
