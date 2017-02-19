@@ -33,7 +33,6 @@ values."
      csharp
      emacs-lisp
      themes-megapack
-     php
      git
      markdown
      html
@@ -372,6 +371,7 @@ layers configuration. You are free to put any user code."
 
   ;; Scala
   (setq ensime-startup-snapshot-notification nil)
+  (setq ensime-startup-notification nil)
   (setq flycheck-scalastyle-jar
         "/usr/local/Cellar/scalastyle/0.8.0/libexec/scalastyle_2.11-0.8.0-batch.jar")
   (setq flycheck-scalastylerc

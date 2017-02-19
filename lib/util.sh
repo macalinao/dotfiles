@@ -114,3 +114,5 @@ alias x=exit
 alias c=clear
 
 alias tf=terraform
+
+alias pbstack="pbpaste | jq .stack_trace | unescape.py"
