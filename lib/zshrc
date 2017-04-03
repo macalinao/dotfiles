@@ -29,6 +29,8 @@ fi
 # Scala
 alias sbto='sbt "set offline := true"'
 alias sbten='sbt "set scalaVersion := \"2.11.8\"" ensimeConfig'
+alias sbtcd="sbt clean dockerBuildAndPush"
+export SBT_OPTS="-Xmx2G -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=2G -Xss2M"
 
 # Haskell
 export PATH=$HOME/.local/bin:$PATH
