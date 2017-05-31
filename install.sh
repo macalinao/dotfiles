@@ -13,12 +13,12 @@ for FILE in $(ls $DOTFILES/dotfiles); do
     ln -s $SOURCE $TARGET
 done
 
-SOURCE="source $DOTFILES/dotfiles/lib/bashrc"
+SOURCE="source $DOTFILES/dotfiles/bashrc"
 if ! grep -Fxq "$SOURCE" $HOME/.bashrc; then
     echo "$SOURCE" >> $HOME/.bashrc
 fi
 
-SOURCE="source $DOTFILES/dotfiles/lib/zshrc"
+SOURCE="source $DOTFILES/dotfiles/zshrc"
 if ! grep -Fxq "$SOURCE" $HOME/.zshrc; then
     echo "$SOURCE" >> $HOME/.zshrc
 fi
