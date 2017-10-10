@@ -5,6 +5,8 @@ source $DOTFILES/lib/transfer.sh
 source $DOTFILES/lib/util.sh
 source $DOTFILES/lib/z.sh
 
+export PATH=$HOME/.local/bin:$PATH
+
 export AWS_PROFILE=asuna
 
 # Editor stuff
@@ -14,8 +16,8 @@ alias e="emacsclient -n"
 
 # Python
 export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
-source /usr/local/bin/virtualenvwrapper_lazy.sh
+export VIRTUALENVWRAPPER_SCRIPT="$(which virtualenvwrapper.sh)"
+source "$(which virtualenvwrapper_lazy.sh)"
 
 # Go
 export GO15VENDOREXPERIMENT=1
@@ -33,6 +35,3 @@ alias sbten='sbt "set scalaVersion := \"2.11.8\"" ensimeConfig'
 alias sbtcd="sbt clean dockerBuildAndPush"
 alias sbtcp="sbt clean publish"
 export SBT_OPTS="-Xmx2G -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=2G -Xss2M"
-
-# Haskell
-export PATH=$HOME/.local/bin:$PATH
