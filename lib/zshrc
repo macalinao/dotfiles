@@ -3,6 +3,7 @@ source $DOTFILES/lib/shell/zsh.sh
 
 source $DOTFILES/lib/transfer.sh
 source $DOTFILES/lib/util.sh
+source $DOTFILES/lib/z.sh
 
 export AWS_PROFILE=asuna
 
