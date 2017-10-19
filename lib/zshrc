@@ -34,4 +34,4 @@ alias sbto='sbt "set offline := true"'
 alias sbten='sbt "set scalaVersion := \"2.11.8\"" ensimeConfig'
 alias sbtcd="sbt clean dockerBuildAndPush"
 alias sbtcp="sbt clean publish"
-export SBT_OPTS="-Xmx2G -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=2G -Xss2M"
+export SBT_OPTS="-Xmx2G -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Xss2M"
