@@ -63,7 +63,7 @@
 	default = simple
 [user]
   email = me@ian.pw
-  name = "Ian Macalnao"
+  name = "Ian Macalinao"
 	signingKey = F126F8E8
 [commit]
 	gpgsign = true
