@@ -1,0 +1,7 @@
+{
+    "vim.disableAnnoyingNeovimMessage": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": false,
+    "javascript.validate.enable": false,
+    "flow.useNPMPackagedFlow": true
+}
