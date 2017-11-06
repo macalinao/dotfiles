@@ -20,7 +20,6 @@ export VIRTUALENVWRAPPER_SCRIPT="$(which virtualenvwrapper.sh)"
 source "$(which virtualenvwrapper_lazy.sh)"
 
 # Go
-export GO15VENDOREXPERIMENT=1
 export GOPATH=$HOME/gocode
 export PATH=$GOPATH/bin:$PATH
 
