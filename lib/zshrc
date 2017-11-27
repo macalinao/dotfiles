@@ -31,6 +31,7 @@ fi
 # Scala
 alias sbto='sbt "set offline := true"'
 alias sbten='sbt "set scalaVersion := \"2.11.8\"" ensimeConfig'
+alias sbtca="sbt clean assembly"
 alias sbtcd="sbt clean dockerBuildAndPush"
 alias sbtcp="sbt clean publish"
 export SBT_OPTS="-Xmx2G -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Xss2M"
