@@ -35,3 +35,5 @@ alias sbtca="sbt clean assembly"
 alias sbtcd="sbt clean dockerBuildAndPush"
 alias sbtcp="sbt clean publish"
 export SBT_OPTS="-Xmx2G -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Xss2M"
+
+alias funky="play -v 10.0 $DOTFILES/etc/fortnite.ogg"

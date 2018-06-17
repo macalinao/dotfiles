@@ -39,6 +39,7 @@ values."
      markdown
      html
      org
+     typescript
      (go :variables
          go-tab-width 4)
      games
