@@ -36,4 +36,11 @@ alias sbtcd="sbt clean dockerBuildAndPush"
 alias sbtcp="sbt clean publish"
 export SBT_OPTS="-Xmx2G -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Xss2M"
 
-alias funky="play -v 10.0 $DOTFILES/etc/fortnite.ogg"
+sfxl() {
+  play -v 10.0 $DOTFILES/sfx/$1.ogg
+}
+alias funky="sfxl fortnite"
+
+kubetoken() {
+  kubectl -n kube-system get secret $(kubectl -n kube-system get secret | grep eks-admin | awk '{print $1}') -o=json | jq .data.token -r | base64 --decode | xclip -sel c
+}
