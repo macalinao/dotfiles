@@ -46,3 +46,4 @@ kubetoken() {
 }
 
 alias sfmt="scalafmt -c .scalafmt --exclude .ensime_cache"
+alias kubeupdate=/home/ian/proj/abacusprotocol/infrastructure/kubernetes/scripts/update.sh
