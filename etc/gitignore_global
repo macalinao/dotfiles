@@ -13,3 +13,4 @@ npm-debug.log
 dump.rdb
 .ensime_cache/
 .ensime
+.vscode/
