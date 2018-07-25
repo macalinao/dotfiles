@@ -51,3 +51,5 @@ alias kubeupdate=/home/ian/proj/abacusprotocol/infrastructure/kubernetes/scripts
 alias benny="keybase chat send bearcott"
 alias prad="keybase chat send asuna"
 alias mike="keybase chat send homelessperson"
+
+source $HOME/private_secrets/help.sh
