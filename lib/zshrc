@@ -34,7 +34,7 @@ alias sbten='sbt "set scalaVersion := \"2.11.8\"" ensimeConfig'
 alias sbtca="sbt clean assembly"
 alias sbtcd="sbt clean dockerBuildAndPush"
 alias sbtcp="sbt clean publish"
-export SBT_OPTS="-Xmx2G -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Xss2M"
+export SBT_OPTS="-Xmx2G -XX:+CMSClassUnloadingEnabled -Xss2M"
 
 sfxl() {
   play -v 10.0 $DOTFILES/sfx/$1.ogg
