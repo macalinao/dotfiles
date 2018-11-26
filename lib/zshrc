@@ -41,8 +41,16 @@ sfxl() {
 }
 alias funky="sfxl fortnite"
 
+kubetokeninternal() {
+  kubectl -n kube-system get secret $(kubectl -n kube-system get secret | grep eks-admin | awk '{print $1}') -o=json | jq .data.token -r | base64 --decode
+}
+
 kubetoken() {
-  kubectl -n kube-system get secret $(kubectl -n kube-system get secret | grep eks-admin | awk '{print $1}') -o=json | jq .data.token -r | base64 --decode | xclip -sel c
+  kubetokeninternal | xclip -sel c
+}
+
+kubetokenm() {
+  kubetokeninternal | pbcopy
 }
 
 alias sfmt="scalafmt -c .scalafmt --exclude .ensime_cache"
