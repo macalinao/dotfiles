@@ -116,3 +116,24 @@ alias c=clear
 alias tf=terraform
 
 alias pbstack="pbpaste | jq .stack_trace | unescape.py"
+
+aws_account() {
+  aws sts get-caller-identity --output text --query 'Account'
+}
+
+aws_list_buckets() {
+    aws s3api list-buckets --query 'Buckets[*].Name'
+}
+
+aws_mfa_bucket() {
+    if [ "$#" -ne 2 ]; then
+        echo "Enables MFA delete for an AWS bucket."
+        echo "Usage: aws_mfa_bucket <bucket-name> <mfa-passcode>"
+        return 1
+    fi
+    aws s3api put-bucket-versioning \
+        --bucket $1 \
+        --versioning-configuration '{"MFADelete":"Enabled","Status":"Enabled"}' \
+        --mfa "arn:aws:iam::$(aws_account):mfa/ian $2"
+
+}
