@@ -88,6 +88,7 @@
 
     # Other
     dhall
+    haskellPackages.dhall-json
     gnupg
     silver-searcher
     tmux
