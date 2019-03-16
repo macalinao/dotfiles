@@ -6,17 +6,19 @@
 {
   imports = [ ];
 
-  boot.initrd.availableKernelModules = [ "ohci_pci" "ahci" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "ata_piix" "ohci_pci" "sd_mod" "sr_mod" ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/7fd622bf-6f16-457d-9a56-c71ca6eb8d2d";
+    { device = "/dev/disk/by-uuid/5d6e5099-0b78-47f6-9f1d-5864e57447ae";
       fsType = "ext4";
     };
 
-  swapDevices = [ ];
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/116b36ed-7321-4726-83dd-97c4980a433c"; }
+    ];
 
-  nix.maxJobs = lib.mkDefault 1;
+  nix.maxJobs = lib.mkDefault 4;
   virtualisation.virtualbox.guest.enable = true;
 }
