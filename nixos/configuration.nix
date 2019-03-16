@@ -88,6 +88,9 @@
     xclip
     gnupg
     tmux
+
+    # Devops
+    kubernetes
   ];
 
   time.timeZone = "America/Los_Angeles";
