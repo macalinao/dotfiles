@@ -87,10 +87,11 @@
     signal-desktop
 
     # Other
-    xclip
+    dhall
     gnupg
-    tmux
     silver-searcher
+    tmux
+    xclip
 
     # Devops
     kubernetes
