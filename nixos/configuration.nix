@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./keybase.nix
+  ];
+
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
@@ -80,8 +84,6 @@
     # Comms
     slack
     discord
-    keybase
-    keybase-gui
     signal-desktop
 
     # Other
