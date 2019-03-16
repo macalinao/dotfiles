@@ -90,6 +90,7 @@
     xclip
     gnupg
     tmux
+    silver-searcher
 
     # Devops
     kubernetes
