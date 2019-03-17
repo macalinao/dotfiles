@@ -91,6 +91,7 @@
     signal-desktop
 
     # Other
+    gnumake
     gnupg
     haskellPackages.dhall
     haskellPackages.dhall-json
