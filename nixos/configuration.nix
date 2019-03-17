@@ -87,9 +87,10 @@
     signal-desktop
 
     # Other
-    dhall
-    haskellPackages.dhall-json
     gnupg
+    haskellPackages.dhall
+    haskellPackages.dhall-json
+    jq
     silver-searcher
     tmux
     xclip
