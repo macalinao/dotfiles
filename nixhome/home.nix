@@ -23,6 +23,14 @@
     enable = true;
     userSettings = {
       "vim.useSystemClipboard" = true;
+      "gitlens.advanced.messages"."suppressShowKeyBindingsNotice" = true  ;
+      "gitlens.historyExplorer.enabled" = true;
+      "window.zoomLevel" = 0;
+      "files.associations"."*.mdx"  = "markdown";
+      "typescript.updateImportsOnFileMove.enabled" = "never";
+      "gitlens.views.fileHistory.enabled" = true;
+      "gitlens.views.lineHistory.enabled" = true;
+      "workbench.colorTheme" = "Default Light+";
     };
     extensions = with pkgs.vscode-extensions; [
       bbenoist.Nix
