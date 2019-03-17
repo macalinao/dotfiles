@@ -76,14 +76,14 @@
     vim
     vscode
 
-    # Scala
-    sbt
-    scala
-
     # Node
     nodePackages.npm
     yarn
     nodejs-10_x
+
+    # Scala
+    sbt
+    scala
 
     # Comms
     slack
@@ -130,8 +130,8 @@
     };
   };
 
-  programs.gnupg = {
-    agent.enable = true;
+  nixpkgs.config.packageOverrides = pkgs: {
+    yarn = pkgs.yarn.override { nodejs = pkgs.nodejs-10_x; };
   };
 }
 

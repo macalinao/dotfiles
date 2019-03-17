@@ -4,9 +4,9 @@
   # Sorry RMS, MS is too alluring
   nixpkgs.config.allowUnfree = true;
 
-  home.packages = [
-    pkgs.htop
-    pkgs.fortune
+  home.packages = with pkgs; [
+    htop
+    fortune
   ];
 
   services.gpg-agent = {
