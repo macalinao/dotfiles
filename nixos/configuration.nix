@@ -79,7 +79,7 @@
     # Node
     nodePackages.npm
     yarn
-    nodejs
+    nodejs-10_x
 
     # Comms
     slack
