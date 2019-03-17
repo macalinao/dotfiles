@@ -63,14 +63,18 @@
 
   environment.systemPackages = with pkgs; [
     chromium
-    emacs
     git
     rofi
     terminator
     transmission-gtk
-    vim
     vlc
     zsh
+
+    # Editors
+    # yes I have no loyalty...
+    emacs
+    vim
+    vscode
 
     # Scala
     sbt
