@@ -103,6 +103,7 @@
     kubernetes
 
     # Build
+    binutils
     gcc
     gnumake
   ];
