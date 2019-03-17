@@ -7,6 +7,8 @@
   home.packages = with pkgs; [
     htop
     fortune
+    xclip
+    xsel
   ];
 
   services.gpg-agent = {
