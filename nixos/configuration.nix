@@ -59,7 +59,6 @@
   system.stateVersion = "18.09"; # Did you read the comment?
 
   nixpkgs.config.allowUnfree = true;
-  virtualisation.virtualbox.guest.enable = true;
 
   environment.systemPackages = with pkgs; [
     chromium
