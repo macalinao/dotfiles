@@ -21,6 +21,9 @@
 
   programs.vscode = {
     enable = true;
+    userSettings = {
+      "vim.useSystemClipboard" = true;
+    };
     extensions = with pkgs.vscode-extensions; [
       bbenoist.Nix
     ]
