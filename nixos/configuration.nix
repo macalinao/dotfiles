@@ -91,7 +91,6 @@
     signal-desktop
 
     # Other
-    gnumake
     gnupg
     haskellPackages.dhall
     haskellPackages.dhall-json
@@ -102,6 +101,10 @@
 
     # Devops
     kubernetes
+
+    # Build
+    gcc
+    gnumake
   ];
 
   time.timeZone = "America/Los_Angeles";
