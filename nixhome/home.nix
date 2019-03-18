@@ -9,6 +9,7 @@
     fortune
     xclip
     xsel
+    whois
   ];
 
   services.gpg-agent = {
