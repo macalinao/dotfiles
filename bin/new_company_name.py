@@ -2,7 +2,7 @@
 import sys
 
 vowels = "aeiou"
-consonants = "bcdfghjklmnpqrstvwyz"
+consonants = "bcdfghjklmnprstvwyz"
 suffixes = [".com", ".io", ".co"]
 
 names = [
