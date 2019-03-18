@@ -15,3 +15,6 @@ names = [
 ]
 
 print("\n".join(names))
+
+
+# Usage: new_company_name.py | xargs -L 1 -P 8 whois | grep "NOT FOUND\|No match"
