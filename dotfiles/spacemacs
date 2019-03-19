@@ -377,6 +377,9 @@ layers configuration. You are free to put any user code."
   (setq flycheck-scalastylerc
         "/usr/local/etc/scalastyle_config.xml")
 
+  ;; Dhall
+  (setq-mode-local dhall-mode indent-tabs-mode nil)
+
   (set-fontset-font t 'unicode "Apple Color Emoji" nil 'prepend)
 
   (require 'helm-bookmark)
