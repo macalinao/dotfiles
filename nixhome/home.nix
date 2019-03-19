@@ -78,6 +78,12 @@
         version = "1.8.1";
         sha256 = "0qcm2784n9qc4p77my1kwqrswpji7bp895ay17yzs5g84cj010ln";
       }
+      {
+        name = "vscode-typescript-tslint-plugin";
+        publisher = "ms-vscode";
+        version = "0.4.1";
+        sha256 = "0fsf9ycc7b09adifipylx1gfg51nmzlqb8n2v3l3g52lx9lxk3is";
+      }
     ];
   };
 }
