@@ -117,7 +117,10 @@
         home = "/home/igm";
         shell = pkgs.zsh;
         isNormalUser = true;
-        extraGroups = [ "wheel" ];
+        extraGroups = [
+          "wheel"
+          "docker"
+        ];
       };
     }; 
   };
@@ -137,7 +140,7 @@
   nixpkgs.config.packageOverrides = pkgs: {
     yarn = pkgs.yarn.override { nodejs = pkgs.nodejs-10_x; };
   };
+
+  virtualisation.docker.enable = true;
 }
-
-
 
