@@ -82,6 +82,7 @@
     # Other
     gnupg
     xclip
+    haskellPackages.dhall-json
 
     # Build
     binutils

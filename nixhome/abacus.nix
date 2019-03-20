@@ -28,7 +28,6 @@
 
     # Dhall
     haskellPackages.dhall
-    haskellPackages.dhall-json
 
     # Deployment stuff
     aws-iam-authenticator
