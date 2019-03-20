@@ -21,6 +21,8 @@
 
     # Python
     python
+
+    jx
   ];
 
   services.gpg-agent = {
