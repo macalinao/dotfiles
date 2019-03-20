@@ -75,11 +75,6 @@
     vim
     vscode
 
-    # Node
-    nodePackages.npm
-    yarn
-    nodejs-10_x
-
     # Scala
     sbt
     scala
@@ -122,7 +117,7 @@
           "docker"
         ];
       };
-    }; 
+    };
   };
 
   # if you use pulseaudio
@@ -135,10 +130,6 @@
       xterm.enable = false;
       xfce.enable = true;
     };
-  };
-
-  nixpkgs.config.packageOverrides = pkgs: {
-    yarn = pkgs.yarn.override { nodejs = pkgs.nodejs-10_x; };
   };
 
   virtualisation.docker.enable = true;

@@ -1,8 +1,12 @@
 { pkgs, ... }:
 
 {
-  # Sorry RMS, MS is too alluring
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    packageOverrides = pkgs: {
+      yarn = pkgs.yarn.override { nodejs = pkgs.nodejs-10_x; };
+    };
+  };
 
   home.packages = with pkgs; [
     htop
@@ -10,6 +14,10 @@
     xclip
     xsel
     whois
+
+    # Node
+    yarn
+    nodejs-10_x
   ];
 
   services.gpg-agent = {
