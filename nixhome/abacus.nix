@@ -29,7 +29,8 @@
     # Dhall
     haskellPackages.dhall
 
-    # Deployment stuff
+    # Devops
+    awscli
     aws-iam-authenticator
     jx
     kubernetes
