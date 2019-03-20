@@ -37,5 +37,6 @@
     jx
     kops
     kubernetes
+    kubernetes-helm
   ];
 }
