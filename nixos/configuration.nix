@@ -62,7 +62,6 @@
 
   environment.systemPackages = with pkgs; [
     chromium
-    git
     rofi
     terminator
     transmission-gtk
@@ -75,10 +74,6 @@
     vim
     vscode
 
-    # Scala
-    sbt
-    scala
-
     # Comms
     slack
     discord
@@ -86,15 +81,7 @@
 
     # Other
     gnupg
-    haskellPackages.dhall
-    haskellPackages.dhall-json
-    jq
-    silver-searcher
-    tmux
     xclip
-
-    # Devops
-    kubernetes
 
     # Build
     binutils

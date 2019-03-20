@@ -1,12 +1,9 @@
 { pkgs, ... }:
 
 {
-  nixpkgs.config = {
-    allowUnfree = true;
-    packageOverrides = pkgs: {
-      yarn = pkgs.yarn.override { nodejs = pkgs.nodejs-10_x; };
-    };
-  };
+  imports = [
+    ./abacus.nix
+  ];
 
   home.packages = with pkgs; [
     htop
@@ -14,15 +11,6 @@
     xclip
     xsel
     whois
-
-    # Node
-    yarn
-    nodejs-10_x
-
-    # Python
-    python
-
-    jx
   ];
 
   services.gpg-agent = {
