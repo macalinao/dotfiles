@@ -14,6 +14,7 @@
     jq
     silver-searcher
     tmux
+    parallel
 
     # Scala
     sbt
