@@ -38,5 +38,6 @@
     kops
     kubernetes
     kubernetes-helm
+    sops
   ];
 }
