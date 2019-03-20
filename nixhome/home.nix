@@ -18,6 +18,9 @@
     # Node
     yarn
     nodejs-10_x
+
+    # Python
+    python
   ];
 
   services.gpg-agent = {
