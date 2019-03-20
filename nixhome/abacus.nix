@@ -30,9 +30,10 @@
     haskellPackages.dhall
 
     # Devops
-    awscli
     aws-iam-authenticator
+    awscli
     jx
+    kops
     kubernetes
   ];
 }
