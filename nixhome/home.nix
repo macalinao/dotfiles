@@ -11,6 +11,7 @@
     xclip
     xsel
     whois
+    glxinfo
   ];
 
   services.gpg-agent = {
