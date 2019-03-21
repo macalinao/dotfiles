@@ -22,8 +22,18 @@
   #   defaultLocale = "en_US.UTF-8";
   # };
 
-  # Set your time zone.
-  # time.timeZone = "Europe/Amsterdam";
+  fonts.fonts = with pkgs; [
+    dina-font
+    fira-code
+    fira-code-symbols
+    google-fonts
+    liberation_ttf
+    mplus-outline-fonts
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    proggyfonts
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

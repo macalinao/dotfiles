@@ -55,6 +55,7 @@ values."
      javascript
      xkcd
      scala
+     groovy
    )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -385,6 +386,7 @@ layers configuration. You are free to put any user code."
   (require 'helm-bookmark)
 
   (add-to-list 'auto-mode-alist '("\\.restclient\\'" . restclient-mode))
+  (add-to-list 'auto-mode-alist '("Jenkinsfile" . groovy-mode))
   (setq gofmt-command "goimports")
   (global-hl-line-mode -1)
   (global-linum-mode)
