@@ -12,6 +12,7 @@
     xsel
     whois
     glxinfo
+    exa
   ];
 
   services.gpg-agent = {
