@@ -93,6 +93,12 @@
         version = "1.3.0";
         sha256 = "0ff0f6g0gq4ckvs9qpkcskz1af9v82xxakzs4rljw85vw8yfpq73";
       }
+      {
+        name = "vscode-styled-components";
+        publisher = "jpoissonnier";
+        version = "0.0.25";
+        sha256 = "12qgx56g79snkf9r7sgmx3lv0gnzp7avf3a5910i0xq9shfr67n0";
+      }
     ];
   };
 }
