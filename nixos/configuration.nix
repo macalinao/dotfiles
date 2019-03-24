@@ -79,7 +79,6 @@
     zsh
 
     # Editors
-    # yes I have no loyalty...
     emacs
     vim
     vscode
@@ -145,6 +144,10 @@
       CREATE DATABASE abacus;
       GRANT ALL PRIVILEGES ON DATABASE abacus TO abacus;
     '';
+  };
+
+  services.redis = {
+    enable = true;
   };
 }
 

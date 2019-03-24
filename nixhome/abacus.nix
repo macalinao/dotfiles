@@ -41,7 +41,11 @@
     kubernetes-helm
     sops
 
-    # DB
+    # Crypto
+    go-ethereum
+
+    # Persistence
     postgresql
+    redis
   ];
 }
