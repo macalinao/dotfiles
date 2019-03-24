@@ -40,5 +40,8 @@
     kubernetes
     kubernetes-helm
     sops
+
+    # DB
+    postgresql
   ];
 }
