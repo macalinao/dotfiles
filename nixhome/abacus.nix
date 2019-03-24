@@ -12,9 +12,10 @@
     # Dev
     git
     jq
+    parallel
+    protobuf
     silver-searcher
     tmux
-    parallel
 
     # Scala
     sbt
