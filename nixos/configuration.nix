@@ -141,6 +141,7 @@
     '';
     initialScript = pkgs.writeText "backend-initScript" ''
       CREATE ROLE abacus WITH LOGIN PASSWORD 'abacus' CREATEDB;
+      ALTER ROLE abacus WITH SUPERUSER;
       CREATE DATABASE abacus;
       GRANT ALL PRIVILEGES ON DATABASE abacus TO abacus;
     '';
