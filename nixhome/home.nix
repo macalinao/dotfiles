@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./dotfiles.nix
     ./abacus.nix
   ];
 
