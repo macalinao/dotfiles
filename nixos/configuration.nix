@@ -130,5 +130,20 @@
   };
 
   virtualisation.docker.enable = true;
+
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql;
+    enableTCPIP = true;
+    authentication = pkgs.lib.mkOverride 10 ''
+      local all all trust
+      host all all ::1/128 trust
+    '';
+    initialScript = pkgs.writeText "backend-initScript" ''
+      CREATE ROLE abacus WITH LOGIN PASSWORD 'abacus' CREATEDB;
+      CREATE DATABASE abacus;
+      GRANT ALL PRIVILEGES ON DATABASE abacus TO abacus;
+    '';
+  };
 }
 
