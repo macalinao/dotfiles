@@ -31,4 +31,9 @@ in {
   };
 
   home.file.".sbt/1.0/sonatype.sbt".source = "${private-secrets}/dotfiles/sonatype.sbt";
+
+  home.file.".aws" = {
+    source = "${private-secrets}/dotfiles/aws";
+    recursive = true;
+  };
 }
