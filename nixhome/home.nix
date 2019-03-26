@@ -7,13 +7,15 @@
   ];
 
   home.packages = with pkgs; [
-    htop
+    exa
     fortune
+    glxinfo
+    htop
+    unzip
+    wget
+    whois
     xclip
     xsel
-    whois
-    glxinfo
-    exa
   ];
 
   services.gpg-agent = {
