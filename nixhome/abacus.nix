@@ -35,6 +35,7 @@
     # Devops
     aws-iam-authenticator
     awscli
+    jx
     kops
     kubernetes
     kubernetes-helm
