@@ -2,14 +2,13 @@
 
 {
   home.packages = with pkgs; [
+    # Editors
+    emacs
+    vim
   ] ++ (stdenv.lib.optionals (!stdenv.isDarwin) [
     # Media
     google-chrome
     vlc
-
-    # Editors
-    emacs
-    vim
 
     # Comms
     slack
