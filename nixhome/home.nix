@@ -18,6 +18,8 @@
     xsel
   ] ++ (stdenv.lib.optionals (!stdenv.isDarwin) [
     glxinfo
+  ]) ++ (stdenv.lib.optionals (stdenv.isDarwin) [
+    reattach-to-user-namespace
   ]);
 
   services.gpg-agent = {
