@@ -63,3 +63,4 @@ alias mike="keybase chat send homelessperson"
 source $HOME/private_secrets/help.sh
 
 export GPG_TTY=$(tty)
+export SHELL=$(which zsh)

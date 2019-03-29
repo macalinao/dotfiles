@@ -36,4 +36,11 @@ in {
     source = "${private-secrets}/dotfiles/aws";
     recursive = true;
   };
+
+  home.file.".tmux.conf" = {
+    source = if (pkgs.stdenv.isDarwin) then
+      "${dotfiles}/tmux/tmux_mac.conf"
+    else
+      "${dotfiles}/tmux/tmux.conf";
+  };
 }
