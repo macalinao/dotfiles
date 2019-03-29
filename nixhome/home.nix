@@ -4,22 +4,24 @@
   imports = [
     ./dotfiles.nix
     ./abacus.nix
+    ./apps.nix
   ];
 
   home.packages = with pkgs; [
     exa
     fortune
-    glxinfo
     htop
     unzip
     wget
     whois
     xclip
     xsel
-  ];
+  ] ++ (stdenv.lib.optionals (!stdenv.isDarwin) [
+    glxinfo
+  ]);
 
   services.gpg-agent = {
-    enable = true;
+    enable = !pkgs.stdenv.isDarwin;
     defaultCacheTtl = 24 * 60 * 60;
     maxCacheTtl = 24 * 60 * 60;
     enableSshSupport = true;
