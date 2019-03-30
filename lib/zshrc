@@ -56,9 +56,8 @@ kubetokenm() {
 alias sfmt="scalafmt -c .scalafmt --exclude .ensime_cache"
 alias kubeupdate=/home/ian/proj/abacusprotocol/infrastructure/kubernetes/scripts/update.sh
 
-alias benny="keybase chat send bearcott"
 alias prad="keybase chat send asuna"
-alias mike="keybase chat send homelessperson"
+alias dylan="keybase chat send dylanmacalinao"
 
 source $HOME/private_secrets/help.sh
 
