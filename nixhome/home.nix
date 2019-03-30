@@ -106,6 +106,12 @@
         version = "0.0.25";
         sha256 = "12qgx56g79snkf9r7sgmx3lv0gnzp7avf3a5910i0xq9shfr67n0";
       }
+      {
+        name = "vscode-sbt-scala";
+        publisher = "lightbend";
+        version = "0.2.4";
+        sha256 = "0mqfk5hanqii1kq01hn7mgxb1zkr0a93qg57hw7xw10dkx7wdrgl";
+      }
     ];
   };
 }
