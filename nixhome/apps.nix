@@ -6,13 +6,23 @@
     emacs
     vim
   ] ++ (stdenv.lib.optionals (!stdenv.isDarwin) [
-    # Media
+    # Browsers
+    brave
+    chromium
     google-chrome
+
+    # Media
     vlc
 
     # Comms
     slack
     discord
     signal-desktop
+
+    # Developer
+    terminator
+
+    # Etc
+    rofi
   ]);
 }

@@ -66,22 +66,7 @@
 
   environment.systemPackages = with pkgs; [
     git
-    chromium
-    rofi
-    terminator
-    transmission-gtk
-    vlc
     zsh
-
-    # Editors
-    emacs
-    vim
-    vscode
-
-    # Comms
-    slack
-    discord
-    signal-desktop
 
     # Other
     gnupg
