@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  # xsession.enable = true;
+  xsession.enable = true;
 
   xsession.windowManager.xmonad = if !pkgs.stdenv.isDarwin then {
     enable = true;
