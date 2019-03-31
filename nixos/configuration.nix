@@ -91,6 +91,8 @@
     binutils
     gcc
     gnumake
+
+    xscreensaver
   ];
 
   time.timeZone = "America/Los_Angeles";
