@@ -144,5 +144,10 @@
   services.redis = {
     enable = true;
   };
+
+  networking.firewall.allowedTCPPorts = [
+    9091 # transmission
+    32400 # plex
+  ];
 }
 
