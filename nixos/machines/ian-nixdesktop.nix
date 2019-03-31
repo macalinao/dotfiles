@@ -66,7 +66,11 @@
   # Nginx Reverse Proxy
   services.nginx = {
     enable = true;
-    # give a name to the virtual host. It also becomes the server name.
+
+    virtualHosts."ian-nixdesktop.ian.pw" = {
+      root = /home/igm/dotfiles/nixos/www;
+    };
+
     virtualHosts."plex.ian-nixdesktop.ian.pw" = {
       basicAuthFile = "/home/igm/private_secrets/other/htaccess";
       # http2 can more performant for streaming: https://blog.cloudflare.com/introducing-http2/
