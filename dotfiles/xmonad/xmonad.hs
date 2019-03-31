@@ -1,8 +1,9 @@
 import XMonad
 import qualified XMonad.StackSet as W
 import XMonad.Util.EZConfig
+import XMonad.Hooks.EwmhDesktops
 
-main = xmonad $ defaultConfig {
+main = xmonad $ ewmh def {
           terminal = "urxvt"
         }
         `additionalKeys`
