@@ -7,10 +7,10 @@ main = xmonad $ defaultConfig {
         }
         `additionalKeys`
         [
+          ((mod1Mask, xK_p), spawn "rofi -show run"),
           ((mod1Mask, xK_BackSpace), spawn "chromium")
         ]
         `additionalKeysP`
         [
-          ("M-x", spawn "rofi -show run")
-        , ("M-z", spawn "rofi -show window")
+          ("M-z", spawn "rofi -show window")
         ]
