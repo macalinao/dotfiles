@@ -11,6 +11,7 @@
     exa
     fortune
     htop
+    gitAndTools.hub
     unzip
     wget
     whois

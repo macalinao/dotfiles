@@ -3,6 +3,7 @@
 {
   imports = [
     ./keybase.nix
+    ./pia-system.nix
   ];
 
   networking.hostName = "ianix"; # Define your hostname.

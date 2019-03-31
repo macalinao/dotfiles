@@ -40,4 +40,21 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  # TODO(igm): separate hardware stuff from other machine-specific config
+  services.plex = {
+    enable = true;
+    openFirewall = true;
+  };
+
+  services.transmission = {
+    enable = true;
+    settings = {
+      download-dir = "/home/igm/torrents";
+      incomplete-dir = "/home/igm/torrents/.incomplete";
+      incomplete-dir-enabled = true;
+    };
+
+    settings.rpc-whitelist = "127.0.0.1,192.168.*.*,10.0.0.*";
+  };
 }
