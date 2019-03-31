@@ -5,13 +5,6 @@
     ./keybase.nix
   ];
 
-  # Use the GRUB 2 boot loader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
-
-  boot.loader.grub.device = "/dev/sda";
-  boot.initrd.checkJournalingFS = false;
-
   networking.hostName = "ianix"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
