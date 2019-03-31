@@ -53,6 +53,6 @@ in {
     source = if (pkgs.stdenv.isDarwin) then
       "${dotfiles}/tmux/tmux_mac.conf"
     else
-      "${dotfiles}/tmux/tmux.conf";
+      "${dotfiles}/tmux/linux.conf";
   };
 }

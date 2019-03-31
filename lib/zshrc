@@ -59,7 +59,7 @@ alias kubeupdate=/home/ian/proj/abacusprotocol/infrastructure/kubernetes/scripts
 alias prad="keybase chat send asuna"
 alias dylan="keybase chat send dylanmacalinao"
 
-source $HOME/private_secrets/help.sh
+source $HOME/private_secrets/lib/helpers.sh
 
 export GPG_TTY=$(tty)
 export SHELL=$(which zsh)
