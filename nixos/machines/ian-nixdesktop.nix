@@ -157,4 +157,24 @@
       };
     };
   };
+
+  services.xserver.xrandrHeads = [
+    {
+      output = "DP-2";
+      monitorConfig = ''
+        Option "PreferredMode" "3840x2160"
+        Option "Rotate" "left"
+        Option "RightOf" "DP-1-1"
+      '';
+    }
+    {
+      output = "DP-1-1";
+      primary = true;
+      monitorConfig = ''
+        Option "PreferredMode" "3840x2160"
+        Option "Rotate" "normal"
+      '';
+    }
+  ];
+  services.xserver.exportConfiguration = true;
 }

@@ -29,6 +29,8 @@
     proggyfonts
   ];
 
+  fonts.fontconfig.dpi = 96;
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.bash.enableCompletion = true;
@@ -111,6 +113,7 @@
   services.xserver = {
     enable = true;
     # displayManager.startx.enable = true;
+    dpi = 96;
 
     desktopManager = {
       default = "xfce";
