@@ -24,5 +24,7 @@
 
     # Etc
     rofi
+  ]) ++ (stdenv.lib.optionals (stdenv.isDarwin) [
+    iterm2
   ]);
 }

@@ -11,6 +11,7 @@
   home.packages = with pkgs; [
     exa
     fortune
+    git
     htop
     gitAndTools.hub
     unzip
