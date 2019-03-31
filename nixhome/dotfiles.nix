@@ -37,6 +37,18 @@ in {
     recursive = true;
   };
 
+  home.file.".kube" = {
+    source = "${private-secrets}/dotfiles/kube";
+    recursive = true;
+  };
+
+  home.file.".jx" = {
+    source = "${private-secrets}/dotfiles/jx";
+    recursive = true;
+  };
+
+  home.file.".npmrc".source =  "${private-secrets}/dotfiles/npmrc";
+
   home.file.".tmux.conf" = {
     source = if (pkgs.stdenv.isDarwin) then
       "${dotfiles}/tmux/tmux_mac.conf"
