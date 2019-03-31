@@ -142,6 +142,18 @@
         autoindex on;
       '';
     };
+
+    virtualHosts."api-aba.nix.ian.pw" = {
+      locations."/" = {
+        proxyPass = "http://nix.ian.pw:9663/";
+      };
+    };
+
+    virtualHosts."app-aba.nix.ian.pw" = {
+      locations."/" = {
+        proxyPass = "http://nix.ian.pw:3000/";
+      };
+    };
   };
 
   systemd.services.transmission = {...}: {
