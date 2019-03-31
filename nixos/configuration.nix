@@ -108,7 +108,14 @@
         extraGroups = [
           "wheel"
           "docker"
+          "transmission"
         ];
+      };
+      nginx = {
+        extraGroups = [ "transmission" ];
+      };
+      plex = {
+        extraGroups = [ "transmission" ];
       };
     };
   };
