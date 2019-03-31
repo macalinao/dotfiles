@@ -164,13 +164,13 @@
       monitorConfig = ''
         Option "PreferredMode" "3840x2160"
         Option "Rotate" "left"
-        Option "RightOf" "DP-1-1"
       '';
     }
     {
       output = "DP-1-1";
       primary = true;
       monitorConfig = ''
+        Option "LeftOf" "DP-2"
         Option "PreferredMode" "3840x2160"
         Option "Rotate" "normal"
       '';
