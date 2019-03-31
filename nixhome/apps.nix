@@ -10,6 +10,7 @@
     brave
     chromium
     google-chrome
+    (callPackage ./programs/cypress.nix {})
 
     # Media
     vlc
