@@ -5,6 +5,7 @@
     ./dotfiles.nix
     ./abacus.nix
     ./apps.nix
+    ./linux.nix
   ];
 
   home.packages = with pkgs; [
