@@ -1,0 +1,3 @@
+[repositories]
+  local
+  abacus: https://maven.abacusfi.com/repository/maven-public/
