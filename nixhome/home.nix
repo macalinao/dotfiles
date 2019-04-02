@@ -115,6 +115,12 @@
         version = "0.2.4";
         sha256 = "0mqfk5hanqii1kq01hn7mgxb1zkr0a93qg57hw7xw10dkx7wdrgl";
       }
+      {
+        name = "metals";
+        publisher = "scalameta";
+        version = "1.2.7";
+        sha256 = "17hrvjis7qzsx8yy9hy9hxdn3b4qmqxnw0cxahxy05ppd7yhwnws";
+      }
     ];
   };
 }
