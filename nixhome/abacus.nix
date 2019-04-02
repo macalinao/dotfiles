@@ -18,6 +18,7 @@
     tmux
 
     # Scala
+    coursier
     sbt
     scala
 
