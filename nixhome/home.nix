@@ -14,6 +14,7 @@
     git
     htop
     gitAndTools.hub
+    stack
     unzip
     wget
     whois
