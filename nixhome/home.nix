@@ -20,6 +20,13 @@
     whois
     xclip
     xsel
+
+    haskellPackages.HTTP
+    haskellPackages.cabal-install
+    (haskellPackages.ghcWithPackages (self : [
+      haskellPackages.taffybar
+    ]))
+    haskellPackages.taffybar
   ] ++ (stdenv.lib.optionals (!stdenv.isDarwin) [
     glxinfo
   ]) ++ (stdenv.lib.optionals (stdenv.isDarwin) [

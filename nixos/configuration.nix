@@ -1,9 +1,15 @@
 { config, pkgs, ... }:
 
-{
+let
+  my-overlays = import ./overlays.nix;
+in {
   imports = [
     ./keybase.nix
     ./pia-system.nix
+  ];
+
+  nixpkgs.overlays = [
+    my-overlays
   ];
 
   networking.hostName = "ianix"; # Define your hostname.
@@ -65,6 +71,7 @@
   system.stateVersion = "18.09"; # Did you read the comment?
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowBroken = true;
 
   environment.systemPackages = with pkgs; [
     git
@@ -145,6 +152,5 @@
   services.redis = {
     enable = true;
   };
-
 }
 

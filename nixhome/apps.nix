@@ -13,6 +13,7 @@
     (callPackage ./programs/cypress.nix {})
 
     # Media
+    spotify
     vlc
 
     # Comms
@@ -25,6 +26,7 @@
 
     # Etc
     rofi
+    haskellPackages.taffybar
   ]) ++ (stdenv.lib.optionals (stdenv.isDarwin) [
     # iterm2
   ]);
