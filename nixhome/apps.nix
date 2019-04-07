@@ -13,6 +13,7 @@
     (callPackage ./programs/cypress.nix {})
 
     # Media
+    spotify
     vlc
 
     # Comms
