@@ -9,6 +9,7 @@
     # Browsers
     brave
     chromium
+    firefox
     google-chrome
     (callPackage ./programs/cypress.nix {})
 
