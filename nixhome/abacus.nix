@@ -40,6 +40,7 @@
     kops
     kubernetes
     kubernetes-helm
+    skaffold
     sops
 
     # Crypto
