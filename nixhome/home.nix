@@ -1,11 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
     ./dotfiles.nix
     ./abacus.nix
-    ./apps.nix
-    ./linux.nix
+    ./os-specific.nix
   ];
 
   home.packages = with pkgs; [
@@ -21,18 +20,11 @@
     whois
     xclip
     xsel
-  ] ++ (stdenv.lib.optionals (!stdenv.isDarwin) [
-    glxinfo
-  ]) ++ (stdenv.lib.optionals (stdenv.isDarwin) [
-    reattach-to-user-namespace
-  ]);
 
-  services.gpg-agent = {
-    enable = !pkgs.stdenv.isDarwin;
-    defaultCacheTtl = 24 * 60 * 60;
-    maxCacheTtl = 24 * 60 * 60;
-    enableSshSupport = true;
-  };
+    # Editors
+    emacs
+    vim
+  ];
 
   programs.home-manager = {
     enable = true;
