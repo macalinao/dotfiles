@@ -2,7 +2,7 @@
 
 let
   dotfiles = "${config.home.homeDirectory}/dotfiles/dotfiles";
-  private-secrets = "${config.home.homeDirectory}/private_secrets";
+  private-secrets = "${config.home.homeDirectory}/private_secrets/dotfiles";
 
   spacemacs = builtins.fetchGit {
     name = "spacemacs";
@@ -30,27 +30,35 @@ in {
     recursive = true;
   };
 
+  home.file.".sbt/1.0/repositories" = {
+    source = "${private-secrets}/sbt/repositories";
+  };
+
+  home.file.".sbt/.credentials" = {
+    source = "${private-secrets}/sbt/credentials";
+  };
+
   home.file.".sbt/1.0/linux.sbt".source =
     "${dotfiles}/sbt/1.0/global.sbt" + (if (!pkgs.stdenv.isDarwin) then ".linux" else "");
 
-  home.file.".sbt/1.0/sonatype.sbt".source = "${private-secrets}/dotfiles/sonatype.sbt";
+  home.file.".sbt/1.0/sonatype.sbt".source = "${private-secrets}/sonatype.sbt";
 
   home.file.".aws" = {
-    source = "${private-secrets}/dotfiles/aws";
+    source = "${private-secrets}/aws";
     recursive = true;
   };
 
   home.file.".kube" = {
-    source = "${private-secrets}/dotfiles/kube";
+    source = "${private-secrets}/kube";
     recursive = true;
   };
 
   home.file.".jx" = {
-    source = "${private-secrets}/dotfiles/jx";
+    source = "${private-secrets}/jx";
     recursive = true;
   };
 
-  home.file.".npmrc".source =  "${private-secrets}/dotfiles/npmrc";
+  home.file.".npmrc".source =  "${private-secrets}/npmrc";
 
   home.file.".tmux.conf" = {
     source = if (pkgs.stdenv.isDarwin) then
