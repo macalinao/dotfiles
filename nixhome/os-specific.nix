@@ -30,6 +30,7 @@ lib.mkMerge [
       slack
       discord
       signal-desktop
+      zoom-us
 
       # Developer
       terminator
