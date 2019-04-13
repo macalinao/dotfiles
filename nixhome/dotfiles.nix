@@ -34,7 +34,7 @@ in {
     source = "${private-secrets}/sbt/repositories";
   };
 
-  home.file.".sbt/.credentials" = {
+  home.file.".sbt/1.0/.credentials" = {
     source = "${private-secrets}/sbt/credentials";
   };
 
@@ -42,6 +42,11 @@ in {
     "${dotfiles}/sbt/1.0/global.sbt" + (if (!pkgs.stdenv.isDarwin) then ".linux" else "");
 
   home.file.".sbt/1.0/sonatype.sbt".source = "${private-secrets}/sonatype.sbt";
+
+  home.file.".config/coursier" = {
+    source = "${private-secrets}/coursier";
+    recursive = true;
+  };
 
   home.file.".aws" = {
     source = "${private-secrets}/aws";
