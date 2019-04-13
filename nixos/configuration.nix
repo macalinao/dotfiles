@@ -146,10 +146,10 @@
     enable = true;
   };
 
-  services.openvpn.servers = [
+  services.openvpn.servers = {
     abacus = {
       config = ''config /home/igm/private_secrets/secrets/abacus.ovpn'';
     };
-  ];
+  };
 }
 
