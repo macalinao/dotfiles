@@ -2,8 +2,7 @@
 
 {
   imports = [
-    ./keybase.nix
-    ./pia-system.nix
+    ./services/default.nix
   ];
 
   networking.hostName = "ianix"; # Define your hostname.
@@ -36,20 +35,6 @@
   # programs.bash.enableCompletion = true;
   # programs.mtr.enable = true;
   # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
 
   # Enable sound.
   sound.enable = true;
@@ -107,52 +92,6 @@
     };
   };
 
-  # if you use pulseaudio
   nixpkgs.config.pulseaudio = true;
-
-  services.xserver = {
-    enable = true;
-    # displayManager.startx.enable = true;
-    dpi = 96;
-
-    desktopManager = {
-      default = "xfce";
-      xterm.enable = false;
-      xfce = {
-        enable = true;
-      };
-    };
-  };
-
-  virtualisation.docker.enable = true;
-
-  services.postgresql = {
-    enable = true;
-    package = pkgs.postgresql;
-    enableTCPIP = true;
-    authentication = pkgs.lib.mkOverride 10 ''
-      local all all trust
-      host all all 127.0.0.1/32 trust
-    '';
-    initialScript = pkgs.writeText "backend-initScript" ''
-      CREATE ROLE abacus WITH LOGIN PASSWORD 'abacus' CREATEDB;
-      ALTER ROLE abacus WITH SUPERUSER;
-      CREATE DATABASE abacus;
-      GRANT ALL PRIVILEGES ON DATABASE abacus TO abacus;
-    '';
-  };
-
-  services.redis = {
-    enable = true;
-  };
-
-  services.openvpn.servers = {
-    abacus = {
-      config = ''config /home/igm/private_secrets/secrets/abacus.ovpn'';
-    };
-  };
-
-  services.pcscd.enable = true;
-  services.udev.packages = [ pkgs.yubikey-personalization ];
 }
 

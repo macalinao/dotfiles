@@ -53,7 +53,7 @@ in
   foldl' (init: file: init // {
     "${vpn_str file}" = {
       config = readFile "${pia-config}/config/${file}";
-      autoStart = false;
+      autoStart = (vpn_str file) == "us-silicon-valley";
       up = "echo nameserver $nameserver | ${pkgs.openresolv}/sbin/resolvconf -m 0 -a $dev";
       down = "${pkgs.openresolv}/sbin/resolvconf -d $dev";
     };
