@@ -151,5 +151,8 @@
       config = ''config /home/igm/private_secrets/secrets/abacus.ovpn'';
     };
   };
+
+  services.pcscd.enable = true;
+  services.udev.packages = [ pkgs.yubikey-personalization ];
 }
 
