@@ -5,8 +5,6 @@ source $DOTFILES/lib/transfer.sh
 source $DOTFILES/lib/util.sh
 source $DOTFILES/lib/z.sh
 
-export PATH=$HOME/.local/bin:$HOME/anaconda3/bin:$PATH
-
 export AWS_PROFILE=abacus
 
 # Editor stuff
@@ -23,17 +21,8 @@ alias e="emacsclient -n"
 export GOPATH=$HOME/gocode
 export PATH=$GOPATH/bin:$PATH
 
-# Ruby
-if [ -d "$HOME/.rvm/bin" ]; then
-    PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-fi
-
 # Scala
 alias sbto='sbt "set offline := true"'
-alias sbten='sbt "set scalaVersion := \"2.11.8\"" ensimeConfig'
-alias sbtca="sbt clean assembly"
-alias sbtcd="sbt clean dockerBuildAndPush"
-alias sbtcp="sbt clean publish"
 export SBT_OPTS="-Xmx8G -XX:+CMSClassUnloadingEnabled -Xss2M"
 
 sfxl() {
@@ -54,12 +43,13 @@ kubetokenm() {
 }
 
 alias sfmt="scalafmt -c .scalafmt --exclude .ensime_cache"
-alias kubeupdate=/home/ian/proj/abacusprotocol/infrastructure/kubernetes/scripts/update.sh
 
 alias prad="keybase chat send asuna"
 alias dylan="keybase chat send dylanmacalinao"
+alias abachat="keybase chat send abacusprotocol"
 
 source $HOME/private_secrets/lib/helpers.sh
 
 export GPG_TTY=$(tty)
 export SHELL=$(which zsh)
+export JAVA_HOME=$(readlink -e $(type -p javac) | sed  -e 's/\/bin\/javac//g')
