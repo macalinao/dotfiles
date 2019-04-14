@@ -27,6 +27,9 @@
     yarn
     nodejs-10_x
 
+    # Java
+    openjdk8
+
     # Python (needed for node-gyp)
     python
 

@@ -104,16 +104,16 @@
         sha256 = "12qgx56g79snkf9r7sgmx3lv0gnzp7avf3a5910i0xq9shfr67n0";
       }
       {
-        name = "vscode-sbt-scala";
-        publisher = "lightbend";
-        version = "0.2.4";
-        sha256 = "0mqfk5hanqii1kq01hn7mgxb1zkr0a93qg57hw7xw10dkx7wdrgl";
-      }
-      {
         name = "metals";
         publisher = "scalameta";
-        version = "1.2.7";
-        sha256 = "17hrvjis7qzsx8yy9hy9hxdn3b4qmqxnw0cxahxy05ppd7yhwnws";
+        version = "1.3.1";
+        sha256 = "1sfpsp8m24k9mmaq1dscpy25mn9f7a9qgsr7sz8flv9b0blb0jcy";
+      }
+      {
+        name = "scala";
+        publisher = "scala-lang";
+        version = "0.2.0";
+        sha256 = "0z2knfgn1g5rvanssnz6ym8zqyzzk5naaqsggrv77k6jzd5lpw49";
       }
     ];
   };
