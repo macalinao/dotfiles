@@ -42,6 +42,9 @@
       "gitlens.views.fileHistory.enabled" = true;
       "gitlens.views.lineHistory.enabled" = true;
       "workbench.colorTheme" = "Default Light+";
+      "[typescriptreact]" = {
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      };
     };
     extensions = with pkgs.vscode-extensions; [
       bbenoist.Nix
