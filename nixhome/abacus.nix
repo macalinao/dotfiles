@@ -16,7 +16,6 @@
     protobuf
     silver-searcher
     tmux
-    insomnia
 
     # Scala
     coursier

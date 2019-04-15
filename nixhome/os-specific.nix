@@ -34,6 +34,7 @@ lib.mkMerge [
 
       # Developer
       terminator
+      insomnia
 
       # Etc
       rofi
