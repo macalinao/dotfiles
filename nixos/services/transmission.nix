@@ -10,6 +10,8 @@
       rpc-whitelist = "127.0.0.1,192.168.*.*,10.0.0.*";
       rpc-host-whitelist = "*";
       rpc-host-whitelist-enabled = true;
+      ratio-limit = 0;
+      ratio-limit-enabled = true;
     };
   };
 
