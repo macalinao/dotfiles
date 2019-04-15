@@ -45,6 +45,8 @@ lib.mkMerge [
       maxCacheTtl = 24 * 60 * 60;
       enableSshSupport = true;
     };
+
+    services.xscreensaver.enable = true;
   })
 
   (lib.mkIf pkgs.stdenv.isDarwin {
