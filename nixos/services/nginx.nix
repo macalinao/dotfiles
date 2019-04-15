@@ -9,6 +9,10 @@
   services.nginx = {
     enable = true;
 
+    package = pkgs.nginx.override {
+      modules = with pkgs.nginxModules; [ fancyindex ];
+    };
+
     virtualHosts."nix.ian.pw" = {
       root = "/home/igm/dotfiles/nixos/www";
     };
@@ -81,7 +85,9 @@
       root = "/home/igm/torrents";
       basicAuthFile = "/home/igm/private_secrets/other/htaccess";
       extraConfig = ''
-        autoindex on;
+        fancyindex on;
+        fancyindex_name_length 255;
+        fancyindex_exact_size off;
       '';
     };
 
