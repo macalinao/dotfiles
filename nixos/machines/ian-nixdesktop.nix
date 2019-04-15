@@ -42,25 +42,4 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  # TODO(igm): separate hardware stuff from other machine-specific config
-  services.xserver.xrandrHeads = [
-    {
-      output = "DP-2";
-      monitorConfig = ''
-        Option "PreferredMode" "3840x2160"
-        Option "Rotate" "left"
-      '';
-    }
-    {
-      output = "DP-1-1";
-      primary = true;
-      monitorConfig = ''
-        Option "LeftOf" "DP-2"
-        Option "PreferredMode" "3840x2160"
-        Option "Rotate" "normal"
-      '';
-    }
-  ];
-  services.xserver.exportConfiguration = true;
 }
