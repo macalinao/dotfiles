@@ -16,6 +16,9 @@
       "[typescriptreact]" = {
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
       };
+      "[typescript]" = {
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      };
     };
     extensions = with pkgs.vscode-extensions; [
       bbenoist.Nix
