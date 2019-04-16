@@ -6,19 +6,13 @@
     userSettings = {
       "vim.useSystemClipboard" = true;
       "gitlens.advanced.messages"."suppressShowKeyBindingsNotice" = true  ;
-      "gitlens.historyExplorer.enabled" = true;
       "window.zoomLevel" = 0;
       "files.associations"."*.mdx"  = "markdown";
       "typescript.updateImportsOnFileMove.enabled" = "never";
       "gitlens.views.fileHistory.enabled" = true;
       "gitlens.views.lineHistory.enabled" = true;
       "workbench.colorTheme" = "Default Light+";
-      "[typescriptreact]" = {
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      };
-      "[typescript]" = {
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      };
+      "editor.defaultFormatter" = "esbenp.prettier-vscode";
     };
     extensions = with pkgs.vscode-extensions; [
       bbenoist.Nix
