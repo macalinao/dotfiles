@@ -25,6 +25,9 @@
     # Editors
     emacs
     vim
+
+    # analysis
+    (import ./programs/jupyter.nix)
   ];
 
   programs.home-manager = {
