@@ -7,6 +7,7 @@ python37.withPackages (ps: with ps; [
   ipython
   ipykernel
   notebook
+  matplotlib
   numpy
   toolz
   pandas

@@ -28,6 +28,8 @@
 
     # analysis
     (import ./programs/jupyter.nix)
+
+    texlive.combined.scheme-full
   ];
 
   programs.home-manager = {
