@@ -29,7 +29,7 @@
     # analysis
     (import ./programs/jupyter.nix)
 
-    texlive.combined.scheme-basic
+    texlive.combined.scheme-full
   ];
 
   programs.home-manager = {
