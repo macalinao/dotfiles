@@ -81,4 +81,6 @@ in {
     else
       "${dotfiles}/tmux/linux.conf";
   };
+
+  home.file.".xscreensaver".source = "${dotfiles}/xscreensaver";
 }
