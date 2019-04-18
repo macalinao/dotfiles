@@ -38,6 +38,10 @@ lib.mkMerge [
 
       # Etc
       rofi
+
+      # Video
+      ffmpeg
+      handbrake
     ];
 
     services.gpg-agent = {
