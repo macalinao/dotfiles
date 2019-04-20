@@ -27,6 +27,9 @@
     vim
 
     texlive.combined.scheme-full
+
+    # Money
+    electrum
   ];
 
   programs.home-manager = {
