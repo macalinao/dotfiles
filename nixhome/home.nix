@@ -26,9 +26,6 @@
     emacs
     vim
 
-    # analysis
-    (import ./programs/jupyter.nix)
-
     texlive.combined.scheme-full
   ];
 

@@ -42,6 +42,9 @@ lib.mkMerge [
       # Video
       ffmpeg
       handbrake
+
+      # analysis
+      (import ./programs/jupyter.nix)
     ];
 
     services.gpg-agent = {
