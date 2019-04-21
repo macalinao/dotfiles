@@ -1,7 +1,7 @@
 with import <nixpkgs> {};
 
 python37.withPackages (ps: with ps; [
-  jupyterlab
+  jupyterlab_server
   jupyter_core
   jupyter
   ipython
