@@ -45,6 +45,8 @@ lib.mkMerge [
 
       # analysis
       (import ./programs/jupyter.nix)
+
+      libreoffice
     ];
 
     services.gpg-agent = {
