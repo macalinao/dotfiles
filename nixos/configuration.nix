@@ -6,14 +6,12 @@
   ];
 
   networking.hostName = "ianix"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # Select internationalisation properties.
-  # i18n = {
-  #   consoleFont = "Lat2-Terminus16";
-  #   consoleKeyMap = "us";
-  #   defaultLocale = "en_US.UTF-8";
-  # };
+  i18n = {
+    consoleFont = "Lat2-Terminus16";
+    consoleKeyMap = "us";
+    defaultLocale = "en_US.UTF-8";
+  };
 
   fonts.fonts = with pkgs; [
     dina-font
@@ -29,6 +27,14 @@
   ];
 
   fonts.fontconfig.dpi = 96;
+  fonts.fontconfig.ultimate.enable = true;
+
+  # This enables "fcitx" as your IME.  This is an easy-to-use IME.  It supports many different input methods.
+  i18n.inputMethod.enabled = "fcitx";
+
+  # This enables "mozc" as an input method in "fcitx".  This has a relatively
+  # complete dictionary.  I recommend it for Japanese input.
+  i18n.inputMethod.fcitx.engines = with pkgs.fcitx-engines; [ mozc ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
