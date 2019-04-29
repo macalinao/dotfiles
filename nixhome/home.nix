@@ -27,6 +27,9 @@
     vim
 
     texlive.combined.scheme-full
+
+    # Golang
+    go-outline
   ];
 
   programs.home-manager = {
