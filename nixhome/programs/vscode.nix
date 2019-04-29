@@ -86,6 +86,12 @@
         version = "0.2.0";
         sha256 = "0z2knfgn1g5rvanssnz6ym8zqyzzk5naaqsggrv77k6jzd5lpw49";
       }
+      {
+        name = "go";
+        publisher = "ms-vscode";
+        version = "0.10.1";
+        sha256 = "1gqpqivfg046s9sydjndm8pnfc4q4m9412dl56fc0f2rb7xfgsbn";
+      }
     ];
   };
 }
