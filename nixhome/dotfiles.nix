@@ -68,10 +68,10 @@ in {
     recursive = true;
   };
 
-  home.file.".jx" = {
-    source = "${private-secrets}/jx";
-    recursive = true;
-  };
+  # home.file.".jx" = {
+  #   source = "${private-secrets}/jx";
+  #   recursive = true;
+  # };
 
   home.file.".npmrc".source =  "${private-secrets}/npmrc";
 

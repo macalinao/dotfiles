@@ -28,8 +28,8 @@
 
     texlive.combined.scheme-full
 
-    # Golang
     go-outline
+    ruby
   ];
 
   programs.home-manager = {

@@ -53,8 +53,11 @@ source $HOME/private_secrets/lib/helpers.sh
 export GPG_TTY=$(tty)
 export SHELL=$(which zsh)
 
-if uname -a | grep Darwin; then
+if `uname -a | grep Darwin`; then
   # TODO(igm): set up java home properly
 else
   export JAVA_HOME=$(readlink -e $(type -p javac) | sed  -e 's/\/bin\/javac//g')
 fi
+
+export GEM_HOME=$HOME/gems
+export PATH=$HOME/gems/bin:$PATH

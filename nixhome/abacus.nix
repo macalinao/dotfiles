@@ -44,6 +44,8 @@
     kubernetes-helm
     skaffold
     sops
+    terraform
+    terraform-providers.aws
 
     # Crypto
     go-ethereum
