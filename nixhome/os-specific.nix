@@ -33,7 +33,7 @@ lib.mkMerge [
       zoom-us
 
       # Developer
-      terminator
+      hyper
       insomnia
 
       # Etc
