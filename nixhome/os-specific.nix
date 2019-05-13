@@ -20,7 +20,6 @@ lib.mkMerge [
       firefox
       google-chrome
       (callPackage ./programs/cypress.nix {})
-      (callPackage ./programs/jx.nix {})
 
       # Media
       spotify

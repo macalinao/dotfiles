@@ -92,6 +92,12 @@
         version = "0.10.1";
         sha256 = "1gqpqivfg046s9sydjndm8pnfc4q4m9412dl56fc0f2rb7xfgsbn";
       }
+      {
+        name = "terraform";
+        publisher = "mauve";
+        version = "1.3.11";
+        sha256 = "0di7psqcn7gmdl604cxra2xnc8rc6izandqz44qrgjl3j41vp8jr";
+      }
     ];
   };
 }

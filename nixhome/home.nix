@@ -30,6 +30,8 @@
 
     go-outline
     ruby
+
+    (callPackage ./programs/jx.nix {})
   ];
 
   programs.home-manager = {

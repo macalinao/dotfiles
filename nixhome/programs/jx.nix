@@ -2,13 +2,13 @@
 
 buildGoModule rec {
   name = "jx";
-  version = "2.0.141";
+  version = "2.0.118";
 
   src = fetchFromGitHub {
     owner = "jenkins-x";
     repo = "jx";
     rev = "v${version}";
-    sha256 = "15ql69m01681kwppvfd00zyzdnfgpz4akn6w86f4yk4gngpqm3b8";
+    sha256 = "0n7a05j10d5gn0423jwr16ixlhz0dv1d5bbzcf5k4h916d77ycbl";
   };
 
   patches = [
@@ -16,7 +16,7 @@ buildGoModule rec {
     # ./fix-location-of-thrift.patch
   ];
 
-  modSha256 = "06wwkil45znyjx3w4v00ybq7rsr0rs6i473hpiprx0cgj6msbg51";
+  modSha256 = "0ykz9qrlp3z71yrbs20krk6b1v7bdbj5i40w5s3rm5c1a7r6aa30";
 
   subPackages = [ "cmd/jx" ];
 
