@@ -83,7 +83,7 @@ in {
   };
 
   home.file.".xscreensaver".source = "${dotfiles}/xscreensaver";
-  home.file.".xsession".source = "${dotfiles}/xsession";
+  # home.file.".xsession".source = "${dotfiles}/xsession";
 
   home.file.".config/fcitx" = {
     source = "${dotfiles}/fcitx";
