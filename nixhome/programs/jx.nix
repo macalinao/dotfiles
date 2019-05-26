@@ -2,7 +2,7 @@
 
 buildGoModule rec {
   name = "jx";
-  version = "2.0.118";
+  version = "2.0.180";
 
   src = fetchFromGitHub {
     owner = "jenkins-x";
