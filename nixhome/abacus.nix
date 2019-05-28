@@ -4,7 +4,7 @@
   nixpkgs.config = {
     allowUnfree = true;
     packageOverrides = pkgs: {
-      yarn = pkgs.yarn.override { nodejs = pkgs.nodejs-10_x; };
+      yarn = pkgs.yarn.override { nodejs = pkgs.nodejs-11_x; };
     };
   };
 
@@ -24,7 +24,7 @@
 
     # Node
     yarn
-    nodejs-10_x
+    nodejs-11_x
 
     # Java
     openjdk8
