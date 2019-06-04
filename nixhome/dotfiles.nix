@@ -96,4 +96,9 @@ in {
     recursive = true;
   };
 
+  home.file.".config/taffybar" = {
+    source = "${dotfiles}/taffybar";
+    recursive = true;
+  };
+
 }
