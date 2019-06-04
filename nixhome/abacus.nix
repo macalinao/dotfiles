@@ -51,7 +51,7 @@
     go-ethereum
 
     # Persistence
-    postgresql
+    # postgresql
     redis
   ];
 }

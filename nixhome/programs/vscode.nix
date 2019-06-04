@@ -98,6 +98,12 @@
         version = "1.3.11";
         sha256 = "0di7psqcn7gmdl604cxra2xnc8rc6izandqz44qrgjl3j41vp8jr";
       }
+      {
+        name = "vscode-apollo";
+        publisher = "apollographql";
+        version = "1.7.1";
+        sha256 = "18r5d0f7hkz2s1hm7lanfymrvjarpb1sfplhi93dc5qz93q10l6a";
+      }
     ];
   };
 }

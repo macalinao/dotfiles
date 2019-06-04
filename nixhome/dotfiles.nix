@@ -63,10 +63,10 @@ in {
     recursive = true;
   };
 
-  home.file.".kube" = {
-    source = "${private-secrets}/kube";
-    recursive = true;
-  };
+  # home.file.".kube" = {
+  #   source = "${private-secrets}/kube";
+  #   recursive = true;
+  # };
 
   # home.file.".jx" = {
   #   source = "${private-secrets}/jx";
