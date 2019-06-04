@@ -3,10 +3,9 @@ import qualified XMonad.StackSet as W
 import XMonad.Util.EZConfig
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
-import System.Taffybar.Support.PagerHints (pagerHints)
 
 
-main = xmonad $ docks $ ewmh $ pagerHints def {
+main = xmonad $ docks $ ewmh def {
           terminal = "urxvt"
         }
         `additionalKeys`
