@@ -15,3 +15,5 @@ dump.rdb
 .ensime
 .vscode/
 .env
+.bloop/
+.metals/
