@@ -54,5 +54,10 @@
     # Persistence
     # postgresql
     redis
+
+    # build
+    haskellPackages.cabal2nix
+    haskellPackages.cabal-install
+    haskellPackages.styx
   ];
 }
