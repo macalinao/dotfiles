@@ -5,6 +5,20 @@
     allowUnfree = true;
     packageOverrides = pkgs: {
       yarn = pkgs.yarn.override { nodejs = pkgs.nodejs-11_x; };
+      haskellPackages = pkgs.haskellPackages.override {
+        overrides = haskellPackagesNew: haskellPackagesOld: rec {
+          range-set-list =
+            haskellPackagesNew.callPackage ./programs/range-set-list.nix { };
+
+          proto3-wire =
+            haskellPackagesNew.callPackage ./programs/proto3-wire.nix { };
+
+          proto3-suite =
+            pkgs.haskell.lib.dontCheck (
+              haskellPackagesNew.callPackage ./programs/proto3-suite.nix { }
+            );
+        };
+      };
     };
   };
 
@@ -59,5 +73,7 @@
     haskellPackages.cabal2nix
     haskellPackages.cabal-install
     haskellPackages.styx
+    haskellPackages.proto3-suite
+    haskellPackages.proto3-wire
   ];
 }
