@@ -34,6 +34,8 @@
     (callPackage ./programs/jx.nix {})
     google-cloud-sdk
     postgresql_11
+
+    findutils
   ];
 
   programs.home-manager = {
