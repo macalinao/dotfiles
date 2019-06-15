@@ -37,6 +37,7 @@
 
     findutils
     coreutils-full
+    clang-tools
   ];
 
   programs.home-manager = {
