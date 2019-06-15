@@ -73,7 +73,7 @@ in {
   #   recursive = true;
   # };
 
-  home.file.".npmrc".source =  "${private-secrets}/npmrc";
+  home.file.".npmrc".source = "${private-secrets}/npmrc";
 
   home.file.".tmux.conf" = {
     source = if (pkgs.stdenv.isDarwin) then
@@ -100,5 +100,8 @@ in {
     source = "${dotfiles}/taffybar";
     recursive = true;
   };
+
+  home.file."Library/Application Support/Code/User/settings.json".source =
+    "${config.home.homeDirectory}/.config/Code/User/settings.json";
 
 }
