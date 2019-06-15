@@ -4,7 +4,10 @@
   nixpkgs.config = {
     allowUnfree = true;
     packageOverrides = pkgs: {
+      jx = pkgs.callPackage ./programs/jx.nix { };
+
       yarn = pkgs.yarn.override { nodejs = pkgs.nodejs-11_x; };
+
       haskellPackages = pkgs.haskellPackages.override {
         overrides = haskellPackagesNew: haskellPackagesOld: rec {
           range-set-list =
@@ -54,6 +57,7 @@
     # Devops
     aws-iam-authenticator
     awscli
+    jx
     kops
     kubernetes
     kubernetes-helm

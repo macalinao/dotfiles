@@ -31,7 +31,6 @@
     go-outline
     ruby
 
-    (callPackage ./programs/jx.nix {})
     google-cloud-sdk
     postgresql_11
 
