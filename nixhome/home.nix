@@ -36,6 +36,7 @@
     postgresql_11
 
     findutils
+    coreutils-full
   ];
 
   programs.home-manager = {
