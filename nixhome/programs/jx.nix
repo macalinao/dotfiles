@@ -11,11 +11,6 @@ buildGoModule rec {
     sha256 = "0n7a05j10d5gn0423jwr16ixlhz0dv1d5bbzcf5k4h916d77ycbl";
   };
 
-  patches = [
-    # https://github.com/jenkins-x/jx/pull/3321
-    # ./fix-location-of-thrift.patch
-  ];
-
   modSha256 = "0ykz9qrlp3z71yrbs20krk6b1v7bdbj5i40w5s3rm5c1a7r6aa30";
 
   subPackages = [ "cmd/jx" ];
