@@ -19,6 +19,7 @@
       "gitlens.views.fileHistory.enabled" = true;
       "gitlens.views.lineHistory.enabled" = true;
       "workbench.colorTheme" = "Default Light+";
+      "metals.javaHome" = pkgs.openjdk8;
     };
     extensions = with pkgs.vscode-extensions; [
       bbenoist.Nix
