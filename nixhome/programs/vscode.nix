@@ -3,6 +3,7 @@
 {
   programs.vscode = {
     enable = true;
+    haskell.hie.enable = true;
     userSettings = {
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
       "[shellscript]" = {
