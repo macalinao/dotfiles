@@ -29,8 +29,7 @@ in {
     source = builtins.fetchGit {
       name = "vundle";
       url = "git://github.com/VundleVim/Vundle.vim";
-      ref = "master";
-      rev = "9a38216a1c0c597f978d73547d37681fc689c90d";
+      ref = "9a38216a1c0c597f978d73547d37681fc689c90d";
     };
     recursive = true;
   };

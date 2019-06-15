@@ -6,6 +6,7 @@
     haskell.hie.enable = true;
     userSettings = {
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "editor.formatOnSave" = true;
       "[shellscript]" = {
         "editor.defaultFormatter" = "foxundermoon.shell-format";
       };
