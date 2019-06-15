@@ -8,6 +8,9 @@
       "[shellscript]" = {
         "editor.defaultFormatter" = "foxundermoon.shell-format";
       };
+      "[scala]" = {
+        "editor.defaultFormatter": "scalameta.metals";
+      };
       "vim.useSystemClipboard" = true;
       "gitlens.advanced.messages"."suppressShowKeyBindingsNotice" = true  ;
       "window.zoomLevel" = 0;
