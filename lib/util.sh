@@ -137,3 +137,5 @@ aws_mfa_bucket() {
         --mfa "arn:aws:iam::$(aws_account):mfa/ian $2"
 
 }
+
+alias k8sec="pbpaste | base64 -w | pbcopy"
