@@ -138,4 +138,4 @@ aws_mfa_bucket() {
 
 }
 
-alias k8sec="pbpaste | base64 -w | pbcopy"
+alias k8sec="pbpaste | base64 -w 0 | pbcopy"
