@@ -79,5 +79,8 @@
     haskellPackages.styx
     haskellPackages.proto3-suite
     haskellPackages.proto3-wire
+
+    # stuff
+    grpcurl
   ];
 }

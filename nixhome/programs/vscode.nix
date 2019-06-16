@@ -13,6 +13,9 @@
       "[scala]" = {
         "editor.defaultFormatter" = "scalameta.metals";
       };
+      "[terraform]" = {
+        "editor.defaultFormatter" = "mauve.terraform";
+      };
       "vim.useSystemClipboard" = true;
       "gitlens.advanced.messages"."suppressShowKeyBindingsNotice" = true  ;
       "window.zoomLevel" = 0;
