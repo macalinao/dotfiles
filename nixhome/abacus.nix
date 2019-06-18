@@ -82,5 +82,7 @@
 
     # stuff
     grpcurl
+    openssl
+    gnupg
   ];
 }

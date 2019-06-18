@@ -2,11 +2,8 @@ adns
 cmatrix
 gettext
 gmp
-gnupg
-gnutls
 icu4c
 libassuan
-libevent
 libffi
 libgcrypt
 libgpg-error
@@ -17,12 +14,8 @@ libusb
 ncurses
 nettle
 npth
-openssl
 p11-kit
 pcre
 pinentry
-postgresql
 readline
-redis
-unbound
 zsh

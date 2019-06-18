@@ -10,6 +10,7 @@ insomnia
 keybase
 kindle
 league-of-legends
+microsoft-office
 notion
 oracle-jdk
 private-internet-access
