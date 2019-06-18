@@ -37,6 +37,9 @@
     findutils
     coreutils-full
     clang-tools
+
+    cmatrix
+    zsh
   ];
 
   programs.home-manager = {

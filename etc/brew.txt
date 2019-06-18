@@ -1,5 +1,4 @@
 adns
-cmatrix
 gettext
 gmp
 icu4c
@@ -11,11 +10,9 @@ libksba
 libtasn1
 libunistring
 libusb
-ncurses
 nettle
 npth
 p11-kit
 pcre
 pinentry
 readline
-zsh
