@@ -1,49 +1,6 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#rc()
-
-Bundle 'gmarik/Vundle.vim'
-
-Bundle 'tpope/vim-rails'
-Bundle 'pangloss/vim-javascript'
-Bundle 'brk3/groovyindent'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'kien/ctrlp.vim'
-Bundle 'tfnico/vim-gradle'
-Bundle 'godlygeek/tabular'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'wavded/vim-stylus'
-Bundle 'Chiel92/vim-autoformat'
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'Shutnik/jshint2.vim'
-Bundle 'bling/vim-airline'
-Bundle 'editorconfig/editorconfig-vim'
-Bundle 'tpope/vim-abolish'
-Bundle 'takac/vim-spotifysearch'
-Bundle 'jplaut/vim-arduino-ino'
-Bundle 'groenewege/vim-less'
-Bundle 'mxw/vim-jsx'
-Bundle 'bronson/vim-trailing-whitespace'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-fugitive'
-Bundle 'JazzCore/ctrlp-cmatcher'
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
-Bundle 'rainerborene/vim-reek'
-Bundle 'fatih/vim-go'
-Bundle 'rking/ag.vim'
-Bundle 'elixir-lang/vim-elixir'
-Bundle 'ngmy/vim-rubocop'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'motus/pig.vim'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'autowitch/hive.vim'
-Bundle 'solarnz/thrift.vim'
-
 syntax enable
 set background=dark
 

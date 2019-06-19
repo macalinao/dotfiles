@@ -15,22 +15,9 @@ in {
   home.file.".spacemacs".source = "${dotfiles}/spacemacs";
 
   home.file.".vimrc".source = "${dotfiles}/vimrc";
-  home.file.".vim" = {
-    source = "${dotfiles}/vim";
-    recursive = true;
-  };
 
   home.file.".emacs.d" = {
     source = spacemacs;
-    recursive = true;
-  };
-
-  home.file.".vim/bundle/Vundle.vim" = {
-    source = builtins.fetchGit {
-      name = "vundle";
-      url = "git://github.com/VundleVim/Vundle.vim";
-      ref = "9a38216a1c0c597f978d73547d37681fc689c90d";
-    };
     recursive = true;
   };
 
