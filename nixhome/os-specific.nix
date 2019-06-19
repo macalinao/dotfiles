@@ -96,6 +96,11 @@ lib.mkMerge [
   (lib.mkIf pkgs.stdenv.isDarwin {
     home.packages = with pkgs; [
       reattach-to-user-namespace
+      pinentry_mac
     ];
+
+    services.gpg-agent.extraConfig = ''
+      pinentry-program ${pkgs.pinentry_mac}
+    '';
   })
 ]
