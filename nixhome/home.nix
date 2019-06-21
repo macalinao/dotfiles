@@ -2,10 +2,10 @@
 
 {
   imports = [
-    ./dotfiles.nix
     ./abacus.nix
     ./os-specific.nix
     ./programs/vscode.nix
+    ./dotfiles/default.nix
   ];
 
   home.packages = with pkgs; [

@@ -3,6 +3,7 @@
 Common configuration files across my machines.
 
 These files apply to several machines:
+
 - Personal Laptop (OSX)
 - Work Laptop (OSX)
 - Work Desktop (Nixos)
@@ -11,10 +12,10 @@ Dotfiles are managed by the [Nix package manager](https://nixos.org/nix/) -- the
 
 ## Installation
 
-1. *(NixOS only)* Import `nixos/configuration.nix` into `/etc/nixos/configuration.nix` and run `nixos-rebuild switch`.
-2. *(OSX only)* Install the [Nix package manager](https://nixos.org/nix/).
+1. _(NixOS only)_ Import `nixos/configuration.nix` into `/etc/nixos/configuration.nix` and run `nixos-rebuild switch`.
+2. _(OSX only)_ Install the [Nix package manager](https://nixos.org/nix/).
 3. Install [Home manager](https://github.com/rycee/home-manager).
-4. Clone the secrets repos at `$HOME/abacus_secrets` and `$HOME/private_secrets`. *Obviously, if you're not me, don't do this. You may need to remove references to these files to be able to run the next step.*
+4. Clone the secrets repos at `$HOME/abacus_secrets` and `$HOME/private_secrets`. _Obviously, if you're not me, don't do this._
 5. Run `home-manager switch`.
 
 ## OS-Specific Notes
