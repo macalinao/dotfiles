@@ -134,6 +134,18 @@
         version = "6.0.1";
         sha256 = "1zkvrlhmw8id65km9cfpgv8p3w1ym4g4mr7cmb32fn3yk937gpmy";
       }
+      {
+        name = "vscode-github";
+        publisher = "knisterpeter";
+        version = "0.30.2";
+        sha256 = "0axq6a8lgf17kwmsw3fj5g4n0wgwr7x6qfxshaqbl6ac6p1pnd9v";
+      }
+      {
+        name = "vscode-pull-request-github";
+        publisher = "github";
+        version = "0.8.0";
+        sha256 = "0gk9jb8i894jx7a0wjx3w220kh55gyczrfi01b3dcdnwi8gvh80n";
+      }
     ];
   };
 }
