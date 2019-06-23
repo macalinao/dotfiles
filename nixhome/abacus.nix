@@ -1,17 +1,6 @@
 { pkgs, ... }:
 
 {
-  nixpkgs.config = {
-    allowUnfree = true;
-    packageOverrides = pkgs: {
-      jx = pkgs.callPackage ./programs/jx.nix { };
-
-      yarn = pkgs.yarn.override { nodejs = pkgs.nodejs-12_x; };
-
-      proto3-suite = pkgs.callPackage ./programs/proto3-suite.nix { };
-    };
-  };
-
   home.packages = with pkgs; [
     # Dev
     docker-compose

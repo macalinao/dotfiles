@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 lib.mkMerge [
   (lib.mkIf pkgs.stdenv.isLinux {
@@ -46,6 +46,11 @@ lib.mkMerge [
       (import ./programs/jupyter.nix)
 
       libreoffice
+
+      # games
+      factorio
+      minecraft
+      openttd
     ];
 
     services.gpg-agent = {
