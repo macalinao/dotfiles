@@ -6,7 +6,7 @@
     packageOverrides = pkgs: {
       jx = pkgs.callPackage ./programs/jx.nix { };
 
-      yarn = pkgs.yarn.override { nodejs = pkgs.nodejs-11_x; };
+      yarn = pkgs.yarn.override { nodejs = pkgs.nodejs-12_x; };
 
       proto3-suite = pkgs.callPackage ./programs/proto3-suite.nix { };
     };
@@ -29,7 +29,7 @@
 
     # Node
     yarn
-    nodejs-11_x
+    nodejs-12_x
 
     # Java
     openjdk8
