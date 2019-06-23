@@ -49,11 +49,4 @@
   services.udev.packages = [ pkgs.yubikey-personalization ];
 
   virtualisation.docker.enable = true;
-
-  services.flexget = {
-    enable = true;
-    user = "transmission";
-    homeDir = "/var/lib/transmission";
-    config = builtins.readFile "/home/igm/private_secrets/other/flexget.yml";
-  };
 }
