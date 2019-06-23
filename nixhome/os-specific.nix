@@ -46,9 +46,6 @@ lib.mkMerge [
       (import ./programs/jupyter.nix)
 
       libreoffice
-
-      # Money
-      electrum
     ];
 
     services.gpg-agent = {

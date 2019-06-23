@@ -8,4 +8,4 @@ let
   };
   proto3-suite = import "${proto3Src}/release.nix";
   result = proto3-suite { };
-in result.proto3-suite
+in result.proto3-suite-boot

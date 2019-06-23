@@ -9,6 +9,10 @@
     ./transmission.nix
   ];
 
+  services.autorandr = {
+    enable = true;
+    defaultTarget = "main";
+  };
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
