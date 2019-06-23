@@ -2,8 +2,6 @@
 
 lib.mkMerge [
   (lib.mkIf pkgs.stdenv.isLinux {
-    services.taffybar.enable = true;
-
     xsession.enable = true;
 
     xsession.windowManager.xmonad = {
