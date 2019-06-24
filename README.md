@@ -8,7 +8,7 @@ These files apply to several machines:
 - Work Laptop (OSX)
 - Work Desktop (Nixos)
 
-Dotfiles are managed by the [Nix package manager](https://nixos.org/nix/) -- there is no (stateful) symlinking involved in the installation process.
+Dotfiles and most program installations are managed by the [Nix package manager](https://nixos.org/nix/). Brew cask is used for OS X GUI programs.
 
 ## Installation
 
