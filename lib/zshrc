@@ -10,7 +10,7 @@ source $DOTFILES/lib/z.sh
 export AWS_PROFILE=abacus
 
 # Editor stuff
-export EDITOR=emacsclient
+export EDITOR=vim
 alias vi=vim
 alias e="emacsclient -n"
 
