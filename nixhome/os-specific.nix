@@ -37,6 +37,7 @@ lib.mkMerge [
 
       # Etc
       rofi
+      rofi-systemd
 
       # Video
       ffmpeg

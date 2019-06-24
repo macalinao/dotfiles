@@ -61,7 +61,6 @@
 
     cmatrix
     zsh
-    rofi-systemd
   ];
 
   programs.home-manager = {
