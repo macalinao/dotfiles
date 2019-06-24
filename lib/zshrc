@@ -48,6 +48,8 @@ alias prad="keybase chat send asuna"
 alias dylan="keybase chat send dylanmacalinao"
 alias abachat="keybase chat send abacusprotocol"
 
+alias unescape="jq -r ."
+
 source $HOME/private_secrets/lib/helpers.sh
 
 export GPG_TTY=$(tty)
