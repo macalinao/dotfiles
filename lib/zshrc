@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 DOTFILES=$HOME/dotfiles
 source $DOTFILES/lib/shell/zsh.sh
 
