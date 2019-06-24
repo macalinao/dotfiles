@@ -24,6 +24,8 @@
       yarn = pkgs.yarn.override { nodejs = pkgs.nodejs-12_x; };
 
       proto3-suite = pkgs.callPackage ./programs/proto3-suite.nix { };
+
+      rofi-systemd = pkgs.callPackage ./programs/rofi-systemd.nix { };
     };
   };
 
@@ -59,6 +61,7 @@
 
     cmatrix
     zsh
+    rofi-systemd
   ];
 
   programs.home-manager = {
