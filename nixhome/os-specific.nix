@@ -50,6 +50,7 @@ lib.mkMerge [
 
       # games
       factorio
+      league-of-legends
       minecraft
       openttd
 
