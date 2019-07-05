@@ -62,7 +62,7 @@
     cmatrix
     zsh
     image_optim
-    grep
+    gnugrep
   ];
 
   programs.home-manager = {
