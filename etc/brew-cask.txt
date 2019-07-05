@@ -1,5 +1,7 @@
 adobe-acrobat-pro
+amethyst
 dashlane
+discord
 docker
 edex-ui
 figma
