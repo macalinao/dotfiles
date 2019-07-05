@@ -52,6 +52,8 @@ lib.mkMerge [
       factorio
       minecraft
       openttd
+
+      image_optim
     ];
 
     services.gpg-agent = {

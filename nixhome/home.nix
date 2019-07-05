@@ -61,7 +61,6 @@
 
     cmatrix
     zsh
-    image_optim
     gnugrep
   ];
 
