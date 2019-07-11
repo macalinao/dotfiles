@@ -23,7 +23,7 @@
       "typescript.updateImportsOnFileMove.enabled" = "never";
       "gitlens.views.fileHistory.enabled" = true;
       "gitlens.views.lineHistory.enabled" = true;
-      "workbench.colorTheme" = "Default Light+";
+      "workbench.colorTheme" = "Material Theme High Contrast";
       "metals.javaHome" = pkgs.openjdk8;
     };
     extensions = with pkgs.vscode-extensions; [
