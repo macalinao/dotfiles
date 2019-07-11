@@ -146,6 +146,36 @@
         version = "0.8.0";
         sha256 = "0gk9jb8i894jx7a0wjx3w220kh55gyczrfi01b3dcdnwi8gvh80n";
       }
+      {
+        name = "vscode-spotify";
+        publisher = "shyykoserhiy";
+        version = "3.1.0";
+        sha256 = "1zf09678g16zyqccplhzhv8ciq7wmrz25i2ghw7q0cggm4713g12";
+      }
+      {
+        name = "indent-rainbow";
+        publisher = "oderwat";
+        version = "7.4.0";
+        sha256 = "1xnsdwrcx24vlbpd2igjaqlk3ck5d6jzcfmxaisrgk7sac1aa81p";
+      }
+      {
+        name = "rainbow-brackets";
+        publisher = "2gua";
+        version = "0.0.6";
+        sha256 = "1m5c7jjxphawh7dmbzmrwf60dz4swn8c31svbzb5nhaazqbnyl2d";
+      }
+      {
+        name = "vscode-import-cost";
+        publisher = "wix";
+        version = "2.12.0";
+        sha256 = "1g6k8fxfa49ky8v3l5n6l7p6gnjf9sdd56crcj33p08gb8pyy86l";
+      }
+      {
+        name = "swdc-vscode";
+        publisher = "softwaredotcom";
+        version = "1.1.13";
+        sha256 = "1mgfjk6bdmc2ci1p6mywi99qrvl001wdqbam7il1nd994as9r4fl";
+      }
     ];
   };
 }
