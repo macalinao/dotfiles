@@ -1,0 +1,32 @@
+diff --git a/leagueoflegends b/leagueoflegends
+index 9d43bc5..608e1d3 100755
+--- a/leagueoflegends
++++ b/leagueoflegends
+@@ -37,15 +37,15 @@ done
+ ############################################################
+ ## Preset default variable values
+ ############################################################
+-export CONF="/etc/leagueoflegends.conf"
++export CONF="leagueoflegends.conf"
+ export USER_CONF="$HOME/.config/leagueoflegends.conf"
+ export REGFILE="/usr/share/doc/leagueoflegends/leagueoflegends.reg"
+-export CACHE_DIR="$HOME/.cache/leagueoflegends"
++export CACHE_DIR="lol/.cache/leagueoflegends"
+ export LOL_CLIENT_BIN="LeagueClient.exe"
+ export WINEARCH=win64
+ export WINEDLLOVERRIDES="msvcp140=n,b"
+ export WINE_REQ_MOD=("d3dx9" "corefonts" "vcrun2017" "win7")
+-export BASE_DIR="$HOME/.local/share/leagueoflegends"
++export BASE_DIR="lol/.local/share/leagueoflegends"
+ export WINEPREFIX="$BASE_DIR/wine.$WINEARCH"
+ export INSTALL_PATH="$BASE_DIR/LOL"
+ export CLIENT_PATH="$(find "$INSTALL_PATH" -name "$LOL_CLIENT_BIN" 2>/dev/null \
+@@ -129,7 +129,7 @@ esac
+ }
+ [ ! -d "$WINEPREFIX" ] && {
+     INFO "Creating and initializing $WINEPREFIX"
+-    env WINEDLLOVERRIDES="mscoree,mshtml=" wineboot -i >/dev/null 2>&1
++    env WINEDLLOVERRIDES="mscoree,mshtml=" wineboot -i 
+ }
+ INFO "Latest tested version: wine-3.21"
+ INFO "Your version: $(wine --version)"

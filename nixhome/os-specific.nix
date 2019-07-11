@@ -50,6 +50,8 @@ lib.mkMerge [
 
       # games
       factorio
+      wine
+      winetricks
       league-of-legends
       minecraft
       openttd

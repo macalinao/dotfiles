@@ -11,7 +11,7 @@
   # TODO(igm): replace this with an overlay-based system
   nixpkgs.config = {
     allowUnfree = true;
-    packageOverrides = pkgs: {
+    packageOverrides = pkgs: rec {
       factorio = pkgs.factorio.override {
         username = "albireox";
         token = lib.removeSuffix "\n" (
@@ -27,17 +27,19 @@
 
       rofi-systemd = pkgs.callPackage ./programs/rofi-systemd.nix { };
 
-      qt5 = with pkgs; pkgs.qt5.override {
-        # https://github.com/NixOS/nixpkgs/issues/63829
-        # https://github.com/coreyoconnor/nixpkgs/commit/f282a93699c118d6c26e7033937f86e61a2a0890
-        stdenv = if stdenv.cc.isClang
-                then llvmPackages_5.stdenv
-                else (if stdenv.hostPlatform.isi686 then (overrideCC stdenv buildPackages.gcc6) else stdenv);
+      wine = pkgs.wine.override {
+        gstreamerSupport = false;
       };
 
-      winetricks = pkgs.winetricks.override { wine = pkgs.wine-staging; };
+      winetricks = pkgs.winetricks.override {
+        wine = wine;
+      };
 
-      league-of-legends = pkgs.callPackage ./programs/league-of-legends.nix { };
+      league-of-legends = pkgs.callPackage ./programs/league-of-legends.nix {
+        wine = wine;
+        winetricks = winetricks;
+        xdgHome = config.xdg.configHome;
+      };
     };
   };
 

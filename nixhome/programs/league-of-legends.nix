@@ -1,4 +1,4 @@
-{ fetchFromGitHub }:
+{ fetchFromGitHub, wine, winetricks, xdgHome }:
 
 with import <nixpkgs> {};
 
@@ -10,10 +10,11 @@ stdenv.mkDerivation {
     rev    = "91ee85bfa2eefaa9bf6f53529f3cde75ae4fb9a9";
     sha256 = "1kcf0m7fdk7vxqsjkics69s8svy8jcqdvim4vzxdmc5qfv0vbjqb";
   };
+  patches = [ ./lol.patch ];
 
   buildInputs = [
     bash
-    wine-staging
+    wine
     winetricks
     wget
   ];
@@ -24,6 +25,7 @@ stdenv.mkDerivation {
     # Make the output directory
     mkdir -p $out/bin
 
+    export CONF=leagueoflegends.conf
     bash leagueoflegends install
 
     # Copy the script there and make it executable
