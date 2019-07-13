@@ -20,3 +20,4 @@ slack
 spotify
 tunnelblick
 vagrant
+zoomus
