@@ -25,6 +25,7 @@
       "gitlens.views.lineHistory.enabled" = true;
       "workbench.colorTheme" = "Material Theme High Contrast";
       "metals.javaHome" = pkgs.openjdk8;
+      "showMusicMetrics" = true;
     };
     extensions = with pkgs.vscode-extensions; [
       bbenoist.Nix
