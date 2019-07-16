@@ -18,7 +18,7 @@
 
     # Node
     yarn
-    nodejs-12_x
+    nodejs-11_x
 
     # Java
     openjdk8
