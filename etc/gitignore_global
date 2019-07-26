@@ -17,3 +17,4 @@ dump.rdb
 .env
 .bloop/
 .metals/
+~$*
