@@ -7,12 +7,14 @@ edex-ui
 figma
 front
 google-chrome
+graphql-playground
 hyper
 insomnia
 keybase
 kindle
 league-of-legends
 microsoft-office
+microsoft-teams
 notion
 oracle-jdk
 private-internet-access
