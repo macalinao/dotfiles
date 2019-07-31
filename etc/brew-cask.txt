@@ -12,7 +12,6 @@ hyper
 insomnia
 keybase
 kindle
-league-of-legends
 microsoft-office
 microsoft-teams
 notion
