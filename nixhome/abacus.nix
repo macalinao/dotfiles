@@ -10,6 +10,7 @@
     protobuf
     silver-searcher
     tmux
+    yq
 
     # Scala
     coursier

@@ -53,7 +53,4 @@ in {
     recursive = true;
   };
 
-  home.file."Library/Application Support/Code/User/settings.json".source =
-    "${config.home.homeDirectory}/.config/Code/User/settings.json";
-
 }
