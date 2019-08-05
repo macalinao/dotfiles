@@ -61,3 +61,7 @@ export JAVA_HOME=$(readlink -e $(type -p javac) | sed  -e 's/\/bin\/javac//g')
 
 export GEM_HOME=$HOME/gems
 export PATH=$HOME/gems/bin:$PATH
+
+load_chart_env() {
+  export $(cat charts/app/values.yaml | yq .env |jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]")
+}
