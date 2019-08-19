@@ -62,6 +62,7 @@
     cmatrix
     zsh
     gnugrep
+    bitwig-studio
   ];
 
   programs.home-manager = {
