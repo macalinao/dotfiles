@@ -54,6 +54,7 @@ lib.mkMerge [
       openttd
 
       image_optim
+      bitwig-studio
     ];
 
     services.gpg-agent = {
