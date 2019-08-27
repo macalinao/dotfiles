@@ -35,9 +35,9 @@
       # `home-manager switch` will tell you what the correct hash is.
       {
         name = "vscode-docker";
-        publisher = "peterjausovec";
-        version = "0.6.0";
-        sha256 = "07gavimf3037vbd2a6753aw7i9966q55f0712pgzgimbw6c4cyf7";
+        publisher = "ms-azuretools";
+        version = "0.7.0";
+        sha256 = "0bgs6dy429m5yn10dd8m321slf5mqgsbr86ip61kvjwh67q9glcr";
       }
       {
         name = "gitlens";
