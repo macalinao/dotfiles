@@ -58,6 +58,7 @@
 
     # stuff
     grpcurl
+    grpcui
     openssl
     gnupg
   ];
