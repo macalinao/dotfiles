@@ -19,6 +19,7 @@ oracle-jdk
 private-internet-access
 slack
 spotify
+transmission
 tunnelblick
 vagrant
 zoomus
