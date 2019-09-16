@@ -69,3 +69,9 @@ load_chart_env() {
 docker-stop-all() {
   docker container stop $(docker container ls -aq)
 }
+
+stop-conflicting-services() {
+  sudo systemctl stop postgresql
+  sudo systemctl stop openvpn-abacus
+  sudo systemctl stop openvpn-us-silicon-valley
+}
