@@ -65,3 +65,7 @@ export PATH=$HOME/gems/bin:$HOME/.npm-packages/bin:$PATH
 load_chart_env() {
   export $(cat charts/app/values.yaml | yq .env |jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]")
 }
+
+docker-stop-all() {
+  docker container stop $(docker container ls -aq)
+}
