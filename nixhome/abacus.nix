@@ -51,9 +51,6 @@
     redis
 
     # build
-    haskellPackages.cabal2nix
-    haskellPackages.cabal-install
-    haskellPackages.styx
     proto3-suite
 
     # stuff

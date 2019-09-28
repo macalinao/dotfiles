@@ -26,9 +26,9 @@ lib.mkMerge [
       vlc
 
       # Comms
-      slack
       discord
       signal-desktop
+      slack
       zoom-us
 
       # Developer

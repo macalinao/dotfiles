@@ -62,6 +62,8 @@
     cmatrix
     zsh
     gnugrep
+    keybase
+    keybase-gui
   ];
 
   programs.home-manager = {
