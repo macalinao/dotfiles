@@ -7,6 +7,9 @@
     userSettings = {
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
       "editor.formatOnSave" = true;
+      "[rust]" = {
+        "editor.defaultFormatter" = "rust-lang.rust";
+      };
       "[shellscript]" = {
         "editor.defaultFormatter" = "foxundermoon.shell-format";
       };
@@ -170,6 +173,12 @@
         publisher = "wix";
         version = "2.12.0";
         sha256 = "1g6k8fxfa49ky8v3l5n6l7p6gnjf9sdd56crcj33p08gb8pyy86l";
+      }
+      {
+        name = "rust";
+        publisher = "rust-lang";
+        version = "0.6.3";
+        sha256 = "1r5q1iclr64wmgglsr3na3sv0fha5di8xyccv7xwcv5jf8w5rz5y";
       }
       {
         name = "swdc-vscode";

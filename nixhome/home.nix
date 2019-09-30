@@ -64,6 +64,7 @@
     gnugrep
     keybase
     keybase-gui
+    rustup
   ];
 
   programs.home-manager = {
