@@ -63,7 +63,6 @@
     zsh
     gnugrep
     keybase
-    keybase-gui
     rustup
   ];
 

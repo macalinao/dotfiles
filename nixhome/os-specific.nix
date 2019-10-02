@@ -55,6 +55,7 @@ lib.mkMerge [
 
       image_optim
       bitwig-studio
+      keybase-gui
     ];
 
     services.gpg-agent = {
