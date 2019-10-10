@@ -64,6 +64,7 @@
     gnugrep
     keybase
     rustup
+    postman
   ];
 
   programs.home-manager = {
