@@ -15,7 +15,7 @@ Dotfiles and most program installations are managed by the [Nix package manager]
 1. _(NixOS only)_ Import `nixos/configuration.nix` into `/etc/nixos/configuration.nix` and run `nixos-rebuild switch`.
 2. _(OSX only)_ Install the [Nix package manager](https://nixos.org/nix/).
 3. Install [Home manager](https://github.com/rycee/home-manager).
-4. Clone the secrets repos at `$HOME/abacus_secrets` and `$HOME/private_secrets`. _Obviously, if you're not me, don't do this._
+4. Clone the secrets repo at `$HOME/private_secrets`. _Obviously, if you're not me, don't do this._
 5. Run `home-manager switch`.
 
 ## OS-Specific Notes

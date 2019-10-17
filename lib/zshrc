@@ -7,8 +7,6 @@ source $DOTFILES/lib/transfer.sh
 source $DOTFILES/lib/util.sh
 source $DOTFILES/lib/z.sh
 
-export AWS_PROFILE=abacus
-
 # Editor stuff
 export EDITOR=vim
 alias vi=vim
@@ -46,9 +44,7 @@ kubetokenm() {
 
 alias sfmt="scalafmt -c .scalafmt --exclude .ensime_cache"
 
-alias prad="keybase chat send asuna"
 alias dylan="keybase chat send dylanmacalinao"
-alias abachat="keybase chat send abacusprotocol"
 
 alias unescape="jq -r ."
 
@@ -72,6 +68,5 @@ docker-stop-all() {
 
 stop-conflicting-services() {
   sudo systemctl stop postgresql
-  sudo systemctl stop openvpn-abacus
   sudo systemctl stop openvpn-us-silicon-valley
 }

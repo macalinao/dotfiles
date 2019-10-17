@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./abacus.nix
+    ./devtools.nix
     ./os-specific.nix
     ./programs/vscode.nix
     ./dotfiles/default.nix
