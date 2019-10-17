@@ -34,6 +34,7 @@ lib.mkMerge [
       # Developer
       hyper
       insomnia
+      postman
 
       # Etc
       rofi
