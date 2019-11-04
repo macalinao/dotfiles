@@ -58,5 +58,6 @@
     grpcui
     openssl
     gnupg
+    heroku
   ];
 }
