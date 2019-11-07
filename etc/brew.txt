@@ -1,17 +1,1 @@
-freetype
-gdbm
-gettext
-icu4c
-jpeg
-libde265
-libffi
-libpng
-node
-openssl
-pcre
-python
-readline
-sqlite
-svgo
-xz
 yabai
