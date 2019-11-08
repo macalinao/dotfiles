@@ -7,7 +7,6 @@ google-chrome
 hyper
 insomnia
 karabiner
-libreoffice
 minecraft
 ngrok
 notion
