@@ -29,13 +29,29 @@
       "workbench.colorTheme" = "Material Theme High Contrast";
       "metals.javaHome" = pkgs.openjdk8;
       "showMusicMetrics" = true;
+      "eslint.autoFixOnSave" = true;
+      "eslint.validate" = [
+        "javascript"
+        "javascriptreact"
+        {
+          "autoFix" = true;
+          "language" = "typescript";
+        }
+        {
+          "autoFix" = true;
+          "language" = "typescriptreact";
+        }
+      ];
     };
-    extensions = with pkgs.vscode-extensions; [
-      bbenoist.Nix
-    ]
-    ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+    extensions = with pkgs.vscode-extensions; pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       # Get these hashes by putting in the wrong hash.
       # `home-manager switch` will tell you what the correct hash is.
+      {
+        name = "nix";
+        publisher = "bbenoist";
+        version = "1.0.1";
+        sha256 = "0zd0n9f5z1f0ckzfjr38xw2zzmcxg1gjrava7yahg5cvdcw6l35b";
+      }
       {
         name = "vscode-docker";
         publisher = "ms-azuretools";
