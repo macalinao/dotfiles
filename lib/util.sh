@@ -139,3 +139,5 @@ aws_mfa_bucket() {
 }
 
 alias k8sec="pbpaste | base64 -w 0 | pbcopy"
+
+alias docker_killall="docker kill $(docker ps -q)"
