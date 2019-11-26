@@ -197,10 +197,10 @@
         sha256 = "1r5q1iclr64wmgglsr3na3sv0fha5di8xyccv7xwcv5jf8w5rz5y";
       }
       {
-        name = "swdc-vscode";
-        publisher = "softwaredotcom";
-        version = "1.1.13";
-        sha256 = "1mgfjk6bdmc2ci1p6mywi99qrvl001wdqbam7il1nd994as9r4fl";
+        name = "vetur";
+        publisher = "octref";
+        version = "0.22.6";
+        sha256 = "0k9akddgbbrjsdl08w4a2nbsj0gi7bki7yjap2c4c1ic9v0lxihi";
       }
     ];
   };
