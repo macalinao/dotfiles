@@ -50,9 +50,6 @@
     # postgresql
     redis
 
-    # build
-    proto3-suite
-
     # stuff
     grpcurl
     grpcui

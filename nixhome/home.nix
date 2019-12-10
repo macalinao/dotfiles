@@ -33,7 +33,6 @@
     git
     htop
     gitAndTools.hub
-    sox
     stack
     unzip
     wget

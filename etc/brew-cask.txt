@@ -1,12 +1,13 @@
 adobe-creative-cloud
 dashlane
 discord
+docker
 electrum
 figma
 google-chrome
 hyper
 insomnia
-karabiner
+keybase
 minecraft
 ngrok
 notion
