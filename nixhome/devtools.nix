@@ -26,6 +26,7 @@
 
     # Python (needed for node-gyp)
     python
+    python38Packages.virtualenv
 
     # Dhall
     haskellPackages.dhall
