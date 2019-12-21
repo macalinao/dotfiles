@@ -70,3 +70,5 @@ stop-conflicting-services() {
   sudo systemctl stop postgresql
   sudo systemctl stop openvpn-us-silicon-valley
 }
+
+alias sl="exa"
