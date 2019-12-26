@@ -29,7 +29,6 @@
       "workbench.colorTheme" = "Material Theme High Contrast";
       "metals.javaHome" = pkgs.openjdk8;
       "showMusicMetrics" = true;
-      "eslint.autoFixOnSave" = true;
       "eslint.validate" = [
         "javascript"
         "javascriptreact"
@@ -42,6 +41,9 @@
           "language" = "typescriptreact";
         }
       ];
+      "editor.codeActionsOnSave" = {
+        "source.fixAll.eslint" = true;
+      };
     };
     extensions = with pkgs.vscode-extensions; pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       # Get these hashes by putting in the wrong hash.
