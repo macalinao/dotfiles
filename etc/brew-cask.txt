@@ -1,4 +1,5 @@
 adobe-creative-cloud
+amazon-workspaces
 dashlane
 discord
 docker
@@ -8,6 +9,7 @@ google-chrome
 hyper
 insomnia
 keybase
+microsoft-teams
 minecraft
 ngrok
 notion
@@ -18,7 +20,10 @@ slack
 spotify
 telegram
 the-unarchiver
+tor-browser
+transmission
 tunnelblick
 vlc
+vnc-viewer
 whatsapp
 zoomus
