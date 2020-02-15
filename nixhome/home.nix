@@ -49,7 +49,7 @@
     go-outline
     ruby
 
-    google-cloud-sdk
+    # google-cloud-sdk
     postgresql_11
 
     findutils

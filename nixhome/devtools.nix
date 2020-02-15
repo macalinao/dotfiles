@@ -57,5 +57,6 @@
     openssl
     gnupg
     heroku
+    emscripten
   ];
 }
