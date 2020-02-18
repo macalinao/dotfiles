@@ -1,5 +1,6 @@
 adobe-creative-cloud
 amazon-workspaces
+brave-browser
 dashlane
 discord
 docker
@@ -24,6 +25,8 @@ tor-browser
 transmission
 tunnelblick
 vlc
+vmware-fusion
 vnc-viewer
+wechat
 whatsapp
 zoomus
