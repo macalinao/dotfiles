@@ -21,7 +21,7 @@
       };
       "vim.useSystemClipboard" = true;
       "gitlens.advanced.messages"."suppressShowKeyBindingsNotice" = true  ;
-      "window.zoomLevel" = 0;
+      "window.zoomLevel" = -1;
       "files.associations"."*.mdx"  = "markdown";
       "typescript.updateImportsOnFileMove.enabled" = "never";
       "gitlens.views.fileHistory.enabled" = true;
