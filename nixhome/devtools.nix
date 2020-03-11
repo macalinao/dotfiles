@@ -58,5 +58,6 @@
     gnupg
     heroku
     emscripten
+    google-cloud-sdk
   ];
 }
