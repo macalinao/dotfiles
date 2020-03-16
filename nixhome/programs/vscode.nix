@@ -7,6 +7,9 @@
     userSettings = {
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
       "editor.formatOnSave" = true;
+      "[go]" = {
+        "editor.defaultFormatter" = "ms-vscode.go";
+      };
       "[rust]" = {
         "editor.defaultFormatter" = "rust-lang.rust";
       };

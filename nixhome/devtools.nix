@@ -59,5 +59,8 @@
     heroku
     emscripten
     google-cloud-sdk
+
+    # go
+    go
   ];
 }
