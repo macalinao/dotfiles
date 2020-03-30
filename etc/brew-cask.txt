@@ -1,5 +1,6 @@
 adobe-creative-cloud
 amazon-workspaces
+battle-net
 brave-browser
 dashlane
 discord
@@ -7,9 +8,12 @@ docker
 electrum
 figma
 google-chrome
+google-cloud-sdk
 hyper
 insomnia
 keybase
+league-of-legends
+microsoft-office
 microsoft-teams
 minecraft
 ngrok
@@ -19,6 +23,7 @@ private-internet-access
 signal
 slack
 spotify
+tableplus
 telegram
 the-unarchiver
 tor-browser
