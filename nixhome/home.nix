@@ -44,8 +44,6 @@
     emacs
     vim
 
-    texlive.combined.scheme-basic
-
     go-outline
     ruby
 
