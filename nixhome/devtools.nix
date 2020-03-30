@@ -17,10 +17,6 @@
     sbt
     scala
 
-    # Node
-    yarn
-    nodejs-12_x
-
     # Java
     openjdk8
 
@@ -44,8 +40,5 @@
     heroku
     emscripten
     google-cloud-sdk
-
-    # go
-    go
   ];
 }

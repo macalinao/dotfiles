@@ -2,6 +2,9 @@ with import <nixpkgs> {}; {
   devEnv = stdenv.mkDerivation {
     name = "dev";
     buildInputs = [
+        yarn
+        nodejs-12_x
+
         go
         goreman
         stdenv
