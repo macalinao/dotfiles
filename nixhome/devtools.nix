@@ -32,21 +32,6 @@
     haskellPackages.dhall
     # haskellPackages.dhall-json
 
-    # Devops
-    aws-iam-authenticator
-    awscli
-    jx
-    kops
-    kubernetes
-    kubernetes-helm
-    skaffold
-    sops
-    terraform
-    terraform-providers.aws
-
-    # Crypto
-    go-ethereum
-
     # Persistence
     # postgresql
     redis
