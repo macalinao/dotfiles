@@ -7,6 +7,9 @@
     userSettings = {
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
       "editor.formatOnSave" = true;
+      "[nix]" = {
+        "editor.tabsize": 2
+      },
       "[go]" = {
         "editor.defaultFormatter" = "ms-vscode.go";
       };
