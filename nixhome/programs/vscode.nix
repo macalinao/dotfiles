@@ -7,6 +7,9 @@
     userSettings = {
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
       "editor.formatOnSave" = true;
+      "[toml]" = {
+        "editor.defaultFormatter" = "bodil.prettier-toml";
+      };
       "[nix]" = {
         "editor.tabsize" = 2;
       };
@@ -28,7 +31,10 @@
       "vim.useSystemClipboard" = true;
       "gitlens.advanced.messages"."suppressShowKeyBindingsNotice" = true  ;
       "window.zoomLevel" = -1;
-      "files.associations"."*.mdx"  = "markdown";
+      "files.associations" = {
+        "*.mdx"  = "markdown";
+        "*.toml" = "toml";
+      };
       "typescript.updateImportsOnFileMove.enabled" = "never";
       "gitlens.views.fileHistory.enabled" = true;
       "gitlens.views.lineHistory.enabled" = true;
@@ -215,6 +221,18 @@
         publisher = "dbaeumer";
         version = "1.9.1";
         sha256 = "0q3vnqmik1228zsy7favzsr3xpaci3z1zh38m79cpy5rac5bcr62";
+      }
+      {
+        name = "better-toml";
+        publisher = "bungcip";
+        version = "0.3.2";
+        sha256 = "08lhzhrn6p0xwi0hcyp6lj9bvpfj87vr99klzsiy8ji7621dzql3";
+      }
+      {
+        name = "prettier-toml";
+        publisher = "bodil";
+        version = "0.1.0";
+        sha256 = "04zyxf4lwkphci6j7svzirha86dad86m3kk7r29skaph2dkw12vg";
       }
     ];
   };
