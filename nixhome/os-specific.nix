@@ -44,9 +44,6 @@ lib.mkMerge [
       ffmpeg
       handbrake
 
-      # analysis
-      (import ./programs/jupyter.nix)
-
       libreoffice
 
       # games
