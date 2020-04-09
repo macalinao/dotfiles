@@ -39,7 +39,7 @@ sudo diskutil apfs addVolume disk1 APFSX Nix -mountpoint /nix
 sudo diskutil enableOwnership /nix
 sudo chflags hidden /nix
 echo "LABEL=Nix /nix apfs rw" | sudo tee -a /etc/fstab
-sh <(curl https://nixos.org/nix/install) --daemon 
+sh <(curl https://nixos.org/nix/install) --daemon
 
 # Install Home Manager
 nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
@@ -50,29 +50,6 @@ nix-shell '<home-manager>' -A install
 # Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
-
-
-#### Nix installation instructions on Catalina
-
-Instructions here: https://github.com/NixOS/nix/issues/2925#issuecomment-540051636
-
-So I've made my nix installation work with this simple procedure:
-
-```
-sudo mkdir /System/Volumes/Data/opt/nix
-sudo chown {your_user} /System/Volumes/Data/opt/nix
-# Be careful as the space needs to be a tab, otherwise changes won't be picked up from synthetic.conf
-sudo sh -c "echo 'nix      System/Volumes/Data/opt/nix' >> /System/Volumes/Data/private/etc/synthetic.conf"
-```
-
-Reboot system at this point.
-
-```
-export NIX_IGNORE_SYMLINK_STORE=1
-curl https://nixos.org/nix/install | sh
-```
-
-This worked for me too, but I just want to add that I had to add the line export NIX_IGNORE_SYMLINK_STORE=1 to my shell profile so that I would be able to use it consistently. Otherwise I was getting 'no symlink' messages.
 
 ## License
 
