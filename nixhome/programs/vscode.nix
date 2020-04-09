@@ -19,6 +19,9 @@
       "[rust]" = {
         "editor.defaultFormatter" = "rust-lang.rust";
       };
+      "[sql]" = {
+        "editor.defaultFormatter" = "adpyke.vscode-sql-formatter";
+      };
       "[shellscript]" = {
         "editor.defaultFormatter" = "foxundermoon.shell-format";
       };
@@ -233,6 +236,18 @@
         publisher = "bodil";
         version = "0.1.0";
         sha256 = "04zyxf4lwkphci6j7svzirha86dad86m3kk7r29skaph2dkw12vg";
+      }
+      {
+        name = "sqltools";
+        publisher = "mtxr";
+        version = "0.21.6";
+        sha256 = "0iyxmj29p6ymnvjwraxxh883gm3asn25azbg1v6dqam700bjlgr2";
+      }
+      {
+        name = "vscode-sql-formatter";
+        publisher = "adpyke";
+        version = "1.4.4";
+        sha256 = "06q78hnq76mdkhsfpym2w23wg9wcpikpfgz07mxk1vnm9h3jm2l3";
       }
     ];
   };

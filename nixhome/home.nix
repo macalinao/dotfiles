@@ -43,8 +43,6 @@
     # Editors
     emacs
     vim
-
-    go-outline
     ruby
 
     # google-cloud-sdk
