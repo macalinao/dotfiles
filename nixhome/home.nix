@@ -46,7 +46,6 @@
     ruby
 
     # google-cloud-sdk
-    postgresql_11
 
     findutils
     coreutils-full

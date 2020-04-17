@@ -12,6 +12,8 @@ with import <nixpkgs> {}; {
         zsh
 
         darwin.apple_sdk.frameworks.CoreFoundation
+        pg_flame
+        postgresql_11
     ];
     CFLAGS="-I/usr/include";
     LDFLAGS="-L${darwin.apple_sdk.frameworks.CoreFoundation}/Library/Frameworks";
