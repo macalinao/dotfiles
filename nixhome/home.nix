@@ -54,7 +54,8 @@
     gnugrep
     keybase
     rustup
-    (import ./programs/pypi2nix.nix { pkgs = pkgs; })
+    (pkgs.callPackage ./programs/pypi2nix.nix { })
+    (pkgs.callPackage ./programs/migra { })
   ];
 
   programs.home-manager = {
