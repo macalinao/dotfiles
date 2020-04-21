@@ -19,7 +19,6 @@ openexr
 openjpeg
 openssl@1.1
 pcre
-postgresql
 python
 readline
 shared-mime-info
