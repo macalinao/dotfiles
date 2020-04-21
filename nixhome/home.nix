@@ -45,8 +45,6 @@
     vim
     ruby
 
-    # google-cloud-sdk
-
     findutils
     coreutils-full
     clang-tools
@@ -56,6 +54,7 @@
     gnugrep
     keybase
     rustup
+    (import ./programs/pypi2nix.nix { pkgs = pkgs; })
   ];
 
   programs.home-manager = {
