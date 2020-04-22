@@ -13,7 +13,7 @@ with import <nixpkgs> {}; {
 
         darwin.apple_sdk.frameworks.CoreFoundation
         pg_flame
-        postgresql_11
+        postgresql_12
     ];
     CFLAGS="-I/usr/include";
     LDFLAGS="-L${darwin.apple_sdk.frameworks.CoreFoundation}/Library/Frameworks";
