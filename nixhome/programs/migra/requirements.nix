@@ -2,7 +2,7 @@
 # See more at: https://github.com/nix-community/pypi2nix
 #
 # COMMAND:
-#   pypi2nix -e migra -e setuptools -E postgresql -s setuptools -s wheel
+#   pypi2nix -e 'migra[pg]' -e setuptools -E postgresql -s setuptools -s wheel -E openssl
 #
 
 { pkgs ? import <nixpkgs> {},
@@ -21,7 +21,7 @@ let
     python = pkgs.python3;
   };
 
-  commonBuildInputs = with pkgs; [ postgresql ];
+  commonBuildInputs = with pkgs; [ postgresql openssl ];
   commonDoCheck = false;
 
   withPackages = pkgs':
@@ -86,7 +86,6 @@ let
       format = "pyproject";
       buildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [
-        self."setuptools"
         self."schemainspect"
         self."six"
         self."sqlbag"
@@ -112,6 +111,23 @@ let
         homepage = "https://pathlib.readthedocs.org/";
         license = licenses.mit;
         description = "Object-oriented filesystem paths";
+      };
+    };
+
+    "psycopg2-binary" = python.mkDerivation {
+      name = "psycopg2-binary-2.8.5";
+      src = pkgs.fetchurl {
+        url = "https://files.pythonhosted.org/packages/97/00/ed4c82364741031d745867f83820d4f373aa891098a5785841850491c9ba/psycopg2-binary-2.8.5.tar.gz";
+        sha256 = "ccdc6a87f32b491129ada4b87a43b1895cf2c20fdb7f98ad979647506ffc41b6";
+};
+      doCheck = commonDoCheck;
+      format = "setuptools";
+      buildInputs = commonBuildInputs ++ [ ];
+      propagatedBuildInputs = [ ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "https://psycopg.org/";
+        license = licenses.lgpl2;
+        description = "psycopg2 - Python-PostgreSQL Database Adapter";
       };
     };
 
