@@ -41,6 +41,9 @@ sudo chflags hidden /nix
 echo "LABEL=Nix /nix apfs rw" | sudo tee -a /etc/fstab
 sh <(curl https://nixos.org/nix/install) --daemon
 
+# Use Nixpkgs Unstable
+nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
+
 # Install Home Manager
 nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
 nix-channel --update
