@@ -12,6 +12,9 @@ with import <nixpkgs> {}; {
       sops
       terraform
       terraform-providers.aws
+
+      heroku
+      google-cloud-sdk
     ];
   };
 }

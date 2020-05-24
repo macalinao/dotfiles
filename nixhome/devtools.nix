@@ -12,11 +12,6 @@
     tmux
     yq
 
-    # Scala
-    coursier
-    sbt
-    scala
-
     # Java
     openjdk8
 
@@ -37,8 +32,6 @@
     grpcui
     openssl
     gnupg
-    heroku
     emscripten
-    google-cloud-sdk
   ];
 }
