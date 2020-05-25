@@ -150,8 +150,8 @@
       {
         name = "vscode-apollo";
         publisher = "apollographql";
-        version = "1.7.1";
-        sha256 = "18r5d0f7hkz2s1hm7lanfymrvjarpb1sfplhi93dc5qz93q10l6a";
+        version = "1.16.0";
+        sha256 = "1y4n5kl3ar0dilzal6bmd2ka145x9dvzy2asg0f1bqg1bl8p4kgk";
       }
       {
         name = "language-haskell";
@@ -249,6 +249,12 @@
         version = "1.4.4";
         sha256 = "06q78hnq76mdkhsfpym2w23wg9wcpikpfgz07mxk1vnm9h3jm2l3";
       }
+      # {
+      #   name = "vsliveshare";
+      #   publisher = "ms-vsliveshare";
+      #   version = "1.0.2169";
+      #   sha256 = "05j6z2knpzj52fcxzjhakszpm3a5ivjlnp9x7g9vjpmzk2w6zj15";
+      # }
     ];
   };
 }

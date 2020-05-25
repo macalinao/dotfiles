@@ -3,7 +3,6 @@
 {
   home.packages = with pkgs; [
     # Dev
-    docker-compose
     git
     jq
     parallel
