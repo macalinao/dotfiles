@@ -15,6 +15,10 @@
       };
       "[go]" = {
         "editor.defaultFormatter" = "ms-vscode.go";
+        "editor.formatOnSave" = true;
+        "editor.codeActionsOnSave" = {
+          "source.organizeImports" = true;
+        };
       };
       "[rust]" = {
         "editor.defaultFormatter" = "rust-lang.rust";
@@ -64,12 +68,6 @@
       # Get these hashes by putting in the wrong hash.
       # `home-manager switch` will tell you what the correct hash is.
       {
-        name = "nix";
-        publisher = "bbenoist";
-        version = "1.0.1";
-        sha256 = "0zd0n9f5z1f0ckzfjr38xw2zzmcxg1gjrava7yahg5cvdcw6l35b";
-      }
-      {
         name = "vscode-docker";
         publisher = "ms-azuretools";
         version = "0.7.0";
@@ -90,8 +88,8 @@
       {
         name = "vim";
         publisher = "vscodevim";
-        version = "0.16.14";
-        sha256 = "0b8d3sj3754l3bwcb5cdn2z4z0nv6vj2vvaiyhrjhrc978zw7mby";
+        version = "1.14.5";
+        sha256 = "013h12qhj1h1pcjns2l5dn2hb52p8j468f5n5sw62gq4vfr9yvyf";
       }
       {
         name = "vsc-material-theme";
@@ -138,8 +136,8 @@
       {
         name = "go";
         publisher = "ms-vscode";
-        version = "0.10.1";
-        sha256 = "1gqpqivfg046s9sydjndm8pnfc4q4m9412dl56fc0f2rb7xfgsbn";
+        version = "0.14.3";
+        sha256 = "0kyq8jp08i8f2hvarjslqynq8i0pyg1w0d25719v4155sjkvd41j";
       }
       {
         name = "terraform";
@@ -255,6 +253,8 @@
       #   version = "1.0.2169";
       #   sha256 = "05j6z2knpzj52fcxzjhakszpm3a5ivjlnp9x7g9vjpmzk2w6zj15";
       # }
+    ] ++ [
+      bbenoist.Nix
     ];
   };
 }
