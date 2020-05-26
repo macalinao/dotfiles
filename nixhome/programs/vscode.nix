@@ -15,10 +15,6 @@
       };
       "[go]" = {
         "editor.defaultFormatter" = "ms-vscode.go";
-        "editor.formatOnSave" = true;
-        "editor.codeActionsOnSave" = {
-          "source.organizeImports" = true;
-        };
       };
       "[rust]" = {
         "editor.defaultFormatter" = "rust-lang.rust";
