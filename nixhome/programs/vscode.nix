@@ -38,6 +38,11 @@
         "*.mdx"  = "markdown";
         "*.toml" = "toml";
       };
+      "[typescriptreact]" = {
+        "editor.codeActionsOnSave" = {
+          "source.organizeImports" = true;
+        };
+      };
       "typescript.updateImportsOnFileMove.enabled" = "never";
       "gitlens.views.fileHistory.enabled" = true;
       "gitlens.views.lineHistory.enabled" = true;
