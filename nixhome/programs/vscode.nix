@@ -248,6 +248,12 @@
         version = "1.4.4";
         sha256 = "06q78hnq76mdkhsfpym2w23wg9wcpikpfgz07mxk1vnm9h3jm2l3";
       }
+      {
+        name = "tabnine-vscode";
+        publisher = "TabNine";
+        version = "2.8.3";
+        sha256 = "04zzkfgb4y8dvp83i2h3mf6fpk3kkavzpgz8za622wnl6g0gqlvr";
+      }
       # {
       #   name = "vsliveshare";
       #   publisher = "ms-vsliveshare";
