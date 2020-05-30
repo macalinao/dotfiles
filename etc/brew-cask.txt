@@ -1,5 +1,6 @@
 adobe-creative-cloud
 amazon-workspaces
+anki
 battle-net
 brave-browser
 dashlane
@@ -13,6 +14,8 @@ hyper
 insomnia
 keybase
 league-of-legends
+ledger-live
+loom
 microsoft-office
 microsoft-teams
 minecraft
