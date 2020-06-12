@@ -74,15 +74,9 @@ let
     }
     {
       name = "go";
-      publisher = "ms-vscode";
-      version = "0.14.3";
-      sha256 = "0kyq8jp08i8f2hvarjslqynq8i0pyg1w0d25719v4155sjkvd41j";
-    }
-    {
-      name = "terraform";
-      publisher = "mauve";
-      version = "1.3.11";
-      sha256 = "0di7psqcn7gmdl604cxra2xnc8rc6izandqz44qrgjl3j41vp8jr";
+      publisher = "golang";
+      version = "0.14.4";
+      sha256 = "1rid3vxm4j64kixlm65jibwgm4gimi9mry04lrgv0pa96q5ya4pi";
     }
     {
       name = "vscode-apollo";
@@ -212,7 +206,7 @@ in {
         "editor.tabsize" = 2;
       };
       "[go]" = {
-        "editor.defaultFormatter" = "ms-vscode.go";
+        "editor.defaultFormatter" = "golang.go";
       };
       "[rust]" = {
         "editor.defaultFormatter" = "rust-lang.rust";
