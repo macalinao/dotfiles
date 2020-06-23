@@ -186,6 +186,12 @@ let
       version = "2.8.3";
       sha256 = "04zzkfgb4y8dvp83i2h3mf6fpk3kkavzpgz8za622wnl6g0gqlvr";
     }
+    {
+      name = "pgformatter";
+      publisher = "bradymholt";
+      version = "1.14.0";
+      sha256 = "0fbvbypap9z33667f7zsyd396dwqrh9pfk700c6v3pyylbbicarx";
+    }
     # {
     #   name = "vsliveshare";
     #   publisher = "ms-vsliveshare";
@@ -212,7 +218,7 @@ in {
         "editor.defaultFormatter" = "rust-lang.rust";
       };
       "[sql]" = {
-        "editor.defaultFormatter" = "adpyke.vscode-sql-formatter";
+        "editor.defaultFormatter" = "bradymholt.pgformatter";
       };
       "[shellscript]" = {
         "editor.defaultFormatter" = "foxundermoon.shell-format";
