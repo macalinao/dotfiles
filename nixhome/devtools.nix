@@ -31,6 +31,6 @@
     grpcui
     openssl
     gnupg
-    emscripten
+    # emscripten
   ];
 }
