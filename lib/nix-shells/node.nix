@@ -4,7 +4,7 @@ with import <nixpkgs> {}; {
     buildInputs = [
         # Node
         yarn
-        nodejs-12_x
+        nodejs-14_x
     ];
     CFLAGS="-I/usr/include";
     LDFLAGS="-L${darwin.apple_sdk.frameworks.CoreFoundation}/Library/Frameworks";
