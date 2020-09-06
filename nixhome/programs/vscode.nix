@@ -192,6 +192,12 @@ let
       version = "1.14.0";
       sha256 = "0fbvbypap9z33667f7zsyd396dwqrh9pfk700c6v3pyylbbicarx";
     }
+    {
+      name = "solidity";
+      publisher = "juanblanco";
+      version = "0.0.76";
+      sha256 = "1aqnwrkpb9ly70rk0xh7gqbhq3lfwamkh7i8lzbz0b3z240xlg5x";
+    }
     # {
     #   name = "vsliveshare";
     #   publisher = "ms-vsliveshare";
