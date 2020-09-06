@@ -27,7 +27,6 @@
   ];
 
   fonts.fontconfig.dpi = 96;
-  fonts.fontconfig.ultimate.enable = true;
 
   # This enables "fcitx" as your IME.  This is an easy-to-use IME.  It supports many different input methods.
   i18n.inputMethod.enabled = "fcitx";
