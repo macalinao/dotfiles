@@ -79,3 +79,7 @@ export DYLD_LIBRARY_PATH=$AF_PATH/lib64
 nxs() {
   nix-shell --command zsh "$DOTFILES/lib/nix-shells/$1.nix"
 }
+
+
+bindkey '^[[1;3C' forward-word
+bindkey '^[[1;3D' backward-word
