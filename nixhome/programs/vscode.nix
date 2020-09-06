@@ -231,7 +231,7 @@ in {
       };
       "vim.useSystemClipboard" = true;
       "gitlens.advanced.messages"."suppressShowKeyBindingsNotice" = true  ;
-      "window.zoomLevel" = -1;
+      "window.zoomLevel" = 0;
       "files.associations" = {
         "*.mdx"  = "markdown";
         "*.toml" = "toml";
