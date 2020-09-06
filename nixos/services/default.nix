@@ -4,9 +4,9 @@
   imports = [
     ./keybase.nix
     ./nginx.nix
-    ./pia.nix
+    # ./pia.nix
     ./postgres.nix
-    ./transmission.nix
+    # ./transmission.nix
   ];
 
   services.autorandr = {
