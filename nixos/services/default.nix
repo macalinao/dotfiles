@@ -29,6 +29,7 @@
     # displayManager.startx.enable = true;
     dpi = 96;
 
+    xkbOptions = "caps:swapescape";
     desktopManager = {
       default = "xfce";
       xterm.enable = false;

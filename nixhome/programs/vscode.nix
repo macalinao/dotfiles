@@ -268,6 +268,7 @@ in {
       "editor.codeActionsOnSave" = {
         "source.fixAll.eslint" = true;
       };
+      "keyboard.dispatch" = "keyCode";
     };
   };
 
