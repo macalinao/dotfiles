@@ -27,6 +27,7 @@ lib.mkMerge [
       # Comms
       discord
       signal-desktop
+      tdesktop
       slack
       zoom-us
 
