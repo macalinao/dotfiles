@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./keybase.nix
     ./nginx.nix
     # ./pia.nix
     ./postgres.nix
@@ -12,6 +11,16 @@
   services.autorandr = {
     enable = true;
     defaultTarget = "main";
+  };
+
+  services.kbfs = {
+    enable = true;
+    mountPoint = "%t/kbfs";
+    extraFlags = [ "-label %u" ];
+  };
+
+  services.keybase = {
+    enable = true;
   };
 
   # Enable the OpenSSH daemon.
