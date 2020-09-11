@@ -37,8 +37,8 @@
     };
 
   fileSystems."/geth" =
-    { device = "/dev/disk/by-uuid/a073a8fc-5234-4941-8932-a8baaed4ef2f";
-      fsType = "ext4";
+    { device = "/dev/disk/by-uuid/3098b8b7-48aa-4098-90bd-ac7655a6cd95";
+      fsType = "btrfs";
     };
 
   swapDevices = [
