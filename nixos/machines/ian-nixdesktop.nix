@@ -25,6 +25,22 @@
       fsType = "vfat";
     };
 
+  fileSystems."/var/lib/docker/btrfs" =
+    { device = "/nixos/var/lib/docker/btrfs";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
+  fileSystems."/var/lib/docker/containers/3d36c1eb08a5616c2cf5af98d347c4555b6a8ce30d9ac2de0e3412c65c9f5fa3/mounts/shm" =
+    { device = "shm";
+      fsType = "tmpfs";
+    };
+
+  fileSystems."/geth" =
+    { device = "/dev/disk/by-uuid/a073a8fc-5234-4941-8932-a8baaed4ef2f";
+      fsType = "ext4";
+    };
+
   swapDevices = [
     { device = "/dev/disk/by-uuid/04701011-2d17-4b5e-b29f-ed7d52f10a81"; }
   ];
