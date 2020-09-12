@@ -103,18 +103,33 @@ lib.mkMerge [
               mode = "2560x1440";
               position = "0x0";
               rate = "165.00";
+            };
+            DP-0 = {
+              enable = true;
+              mode = "2560x1440";
+              position = "2560x0";
+              rate = "165.00";
               primary = true;
             };
             HDMI-0 = {
               enable = true;
               mode = "3840x2160";
-              position = "2560x0";
+              position = "1920x1440";
+              rate = "60.00";
+            };
+            HDMI-1 = {
+              enable = true;
+              mode = "2560x1440";
+              position = "5120x0";
               rate = "60.00";
             };
           };
         };
       };
     };
+
+          xrandr --output DP-1-1 --mode 2560x1440 --primary --rotate normal --rate 165 --auto
+          --output HDMI-0 --mode 3840x2160 --right-of DP-1-1 --auto --rotate normal
 
   })
 
