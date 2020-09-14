@@ -2,7 +2,7 @@
 
 {
   services.postgresql = {
-    enable = true;
+    enable = false;
     package = pkgs.postgresql_11;
     enableTCPIP = true;
     authentication = pkgs.lib.mkOverride 10 ''

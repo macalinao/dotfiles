@@ -57,7 +57,7 @@
     keybase-gui
 
     (pkgs.callPackage ./programs/pypi2nix.nix { })
-    (pkgs.callPackage ./programs/migra { })
+    # (pkgs.callPackage ./programs/migra { })
   ];
 
   programs.home-manager = {
