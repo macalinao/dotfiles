@@ -81,6 +81,12 @@
       };
     };
 
+    virtualHosts."local.pipe-dev.com" = {
+      locations."/" = {
+        proxyPass = "http://localhost:3001";
+      };
+    };
+
     virtualHosts."torrents.nix.ian.pw" = {
       root = "/home/igm/torrents";
       basicAuthFile = "/home/igm/private_secrets/other/htaccess";

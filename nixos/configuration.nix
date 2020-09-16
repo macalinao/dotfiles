@@ -7,6 +7,11 @@
 
   networking.hostName = "ianix"; # Define your hostname.
 
+  networking.extraHosts =
+  ''
+    127.0.0.1 local.pipe-dev.com
+  '';
+
   i18n = {
     consoleFont = "Lat2-Terminus16";
     consoleKeyMap = "us";
