@@ -4,7 +4,7 @@ let
   buildInputs = [
     # frontend
     yarn
-    nodejs-12_x
+    nodejs-14_x
 
     # backend
     go
