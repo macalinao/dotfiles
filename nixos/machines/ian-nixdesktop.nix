@@ -36,11 +36,6 @@
       fsType = "tmpfs";
     };
 
-  fileSystems."/geth" =
-    { device = "/dev/disk/by-uuid/3098b8b7-48aa-4098-90bd-ac7655a6cd95";
-      fsType = "btrfs";
-    };
-
   swapDevices = [
     { device = "/dev/disk/by-uuid/04701011-2d17-4b5e-b29f-ed7d52f10a81"; }
   ];
