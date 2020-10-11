@@ -3,7 +3,7 @@
 {
   imports = [
     ./nginx.nix
-    # ./pia.nix
+    ./pia.nix
     ./postgres.nix
     # ./transmission.nix
   ];
