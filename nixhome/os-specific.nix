@@ -54,6 +54,7 @@ lib.mkMerge [
       image_optim
       bitwig-studio
       keybase-gui
+      ledger-live-desktop
     ];
 
     services.gpg-agent = {
