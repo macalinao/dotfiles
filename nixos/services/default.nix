@@ -62,5 +62,8 @@
   #   after = [ "network.target" ];
   # };
 
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    storageDriver = "overlay2";
+  };
 }

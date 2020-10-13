@@ -52,7 +52,6 @@ lib.mkMerge [
       openttd
 
       image_optim
-      bitwig-studio
       keybase-gui
       ledger-live-desktop
     ];
