@@ -40,12 +40,13 @@
 
     xkbOptions = "caps:swapescape";
     desktopManager = {
-      default = "xfce";
       xterm.enable = false;
       xfce = {
         enable = true;
       };
     };
+
+    displayManager.defaultSession = "xfce";
   };
 
   # Yubikey

@@ -12,9 +12,12 @@
     127.0.0.1 local.pipe-dev.com
   '';
 
+  console = {
+    keyMap = "us";
+    font = "Lat2-Terminus16";
+  };
+
   i18n = {
-    consoleFont = "Lat2-Terminus16";
-    consoleKeyMap = "us";
     defaultLocale = "en_US.UTF-8";
   };
 
@@ -61,7 +64,7 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "18.09"; # Did you read the comment?
+  system.stateVersion = "19.03"; # Did you read the comment?
 
   nixpkgs.config.allowUnfree = true;
 
@@ -79,6 +82,7 @@
     gnumake
 
     xscreensaver
+    tmux
   ];
 
   time.timeZone = "America/Los_Angeles";
@@ -95,6 +99,15 @@
           "wheel"
           "docker"
           "transmission"
+        ];
+      };
+      sinai = {
+        name = "sinai";
+        home = "/home/sinai";
+        shell = pkgs.zsh;
+        isNormalUser = true;
+        extraGroups = [
+          "wheel"
         ];
       };
       nginx = {

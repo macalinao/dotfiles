@@ -33,11 +33,14 @@
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
   services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia.optimus_prime.enable = true;
-  # Bus ID of the NVIDIA GPU. You can find it using lspci
-  hardware.nvidia.optimus_prime.nvidiaBusId = "PCI:1:0:0";
-  # Bus ID of the Intel GPU. You can find it using lspci
-  hardware.nvidia.optimus_prime.intelBusId = "PCI:0:2:0";
+  hardware.opengl.driSupport32Bit = true;
+  hardware.nvidia.prime = {
+    sync.enable = true;
+    # Bus ID of the NVIDIA GPU. You can find it using lspci
+    nvidiaBusId = "PCI:1:0:0";
+    # Bus ID of the Intel GPU. You can find it using lspci
+    intelBusId = "PCI:0:2:0";
+  };
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
