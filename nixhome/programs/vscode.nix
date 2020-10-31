@@ -198,6 +198,12 @@ let
       version = "0.0.76";
       sha256 = "1aqnwrkpb9ly70rk0xh7gqbhq3lfwamkh7i8lzbz0b3z240xlg5x";
     }
+    {
+      name = "stories";
+      publisher = "benawad";
+      version = "1.3.0";
+      sha256 = "0javr2ivzzbbzyjazrzssjrxv9zmvlb9l9w1pca5fzw2g2xavwlb";
+    }
     # {
     #   name = "vsliveshare";
     #   publisher = "ms-vsliveshare";
