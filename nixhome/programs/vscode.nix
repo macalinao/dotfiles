@@ -210,7 +210,10 @@ let
     #   version = "1.0.2169";
     #   sha256 = "05j6z2knpzj52fcxzjhakszpm3a5ivjlnp9x7g9vjpmzk2w6zj15";
     # }
-  ] ++ [ bbenoist.Nix ];
+  ] ++ [
+    bbenoist.Nix
+    ms-vsliveshare.vsliveshare
+  ];
 in {
   programs.vscode = {
     enable = true;
@@ -275,6 +278,7 @@ in {
         "source.fixAll.eslint" = true;
       };
       "keyboard.dispatch" = "keyCode";
+      "stories.username" = "macalinao";
     };
   };
 
