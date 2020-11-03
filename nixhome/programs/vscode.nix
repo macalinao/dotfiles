@@ -198,12 +198,12 @@ let
       version = "2.14.0";
       sha256 = "1h0qgmcmafgmr5csccb146darz7xhbz5ld6b6fbgj20s58hsz6lq";
     }
-    # {
-    #   name = "vsliveshare";
-    #   publisher = "ms-vsliveshare";
-    #   version = "1.0.2169";
-    #   sha256 = "05j6z2knpzj52fcxzjhakszpm3a5ivjlnp9x7g9vjpmzk2w6zj15";
-    # }
+    {
+      name = "vscode-jest";
+      publisher = "orta";
+      version = "3.2.0";
+      sha256 = "1qhhy3q5lmdmgw25vmyx69h37i2vbpjxca46jra86vm6kdwglc36";
+    }
   ] ++ [
     bbenoist.Nix
   ] ++ (
