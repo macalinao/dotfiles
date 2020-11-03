@@ -9,7 +9,6 @@
     protobuf
     silver-searcher
     tmux
-    yq
 
     # Java
     openjdk8

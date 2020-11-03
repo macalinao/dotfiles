@@ -54,7 +54,6 @@
     rustup
 
     keybase
-    keybase-gui
 
     (pkgs.callPackage ./programs/pypi2nix.nix { })
     # (pkgs.callPackage ./programs/migra { })
