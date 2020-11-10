@@ -4,9 +4,11 @@ import XMonad.Util.EZConfig
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 
-
-main = xmonad $ docks $ ewmh def {
-          terminal = "urxvt"
+main = xmonad
+  $ docks
+  $ ewmh def {
+          terminal = "urxvt",
+          handleEventHook = fullscreenEventHook
         }
         `additionalKeys`
         [

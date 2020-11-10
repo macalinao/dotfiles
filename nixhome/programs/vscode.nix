@@ -256,7 +256,7 @@ in {
       "typescript.updateImportsOnFileMove.enabled" = "never";
       "gitlens.views.fileHistory.enabled" = true;
       "gitlens.views.lineHistory.enabled" = true;
-      "workbench.colorTheme" = "Default Light+";
+      "workbench.colorTheme" = "Default Dark+";
       "metals.javaHome" = pkgs.openjdk8;
       "showMusicMetrics" = true;
       "eslint.validate" = [
