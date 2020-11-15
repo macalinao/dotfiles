@@ -204,6 +204,12 @@ let
       version = "3.2.0";
       sha256 = "1qhhy3q5lmdmgw25vmyx69h37i2vbpjxca46jra86vm6kdwglc36";
     }
+    {
+      name = "vscode-deno";
+      publisher = "denoland";
+      version = "2.3.3";
+      sha256 = "1sirni7hamwp0dld5l8qw7jfrjxf3pvsmjrx14zvg2bwwrv4p0m6";
+    }
   ] ++ [
     bbenoist.Nix
   ] ++ (
