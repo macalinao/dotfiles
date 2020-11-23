@@ -31,12 +31,6 @@ let
       sha256 = "10f8jz52gr6k2553awa66m006wszj9z2rnshsic6h2aawxiz3zq1";
     }
     {
-      name = "vsc-material-theme";
-      publisher = "equinusocio";
-      version = "33.0.0";
-      sha256 = "1r8g9jm34xp7lld9mwv3sja1913aan0khxqrp7az89szwpnv73vg";
-    }
-    {
       name = "prettier-vscode";
       publisher = "esbenp";
       version = "5.7.1";
@@ -204,6 +198,12 @@ let
       version = "3.2.0";
       sha256 = "1qhhy3q5lmdmgw25vmyx69h37i2vbpjxca46jra86vm6kdwglc36";
     }
+    {
+      name = "auto-dark-mode";
+      publisher = "LinusU";
+      version = "0.1.7";
+      sha256 = "1sjzm6x887pj92bmdjzqk3xk0qy0v0zrvlclync80pzfhcy8jsif";
+    }
   ] ++ [
     bbenoist.Nix
   ] ++ (
@@ -276,6 +276,10 @@ in {
       };
       "keyboard.dispatch" = "keyCode";
       "stories.username" = "macalinao";
+      "autoDarkMode" = {
+        "darkTheme" = "Default Dark+";
+        "lightTheme" = "Default Light+";
+      };
     };
   };
 
