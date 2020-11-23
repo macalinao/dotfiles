@@ -5,6 +5,9 @@ with import <nixpkgs> {}; {
         # Node
         yarn
         nodejs-14_x
+
+        # Deno
+        deno
     ];
     CFLAGS = if stdenv.isDarwin then "-I/usr/include" else "";
     LDFLAGS = if stdenv.isDarwin then "-L${darwin.apple_sdk.frameworks.CoreFoundation}/Library/Frameworks" else "";
