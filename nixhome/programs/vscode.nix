@@ -187,12 +187,6 @@ let
       sha256 = "1aqnwrkpb9ly70rk0xh7gqbhq3lfwamkh7i8lzbz0b3z240xlg5x";
     }
     {
-      name = "stories";
-      publisher = "benawad";
-      version = "2.14.0";
-      sha256 = "1h0qgmcmafgmr5csccb146darz7xhbz5ld6b6fbgj20s58hsz6lq";
-    }
-    {
       name = "vscode-jest";
       publisher = "orta";
       version = "3.2.0";
@@ -262,7 +256,6 @@ in {
       "typescript.updateImportsOnFileMove.enabled" = "never";
       "gitlens.views.fileHistory.enabled" = true;
       "gitlens.views.lineHistory.enabled" = true;
-      "workbench.colorTheme" = "Default Dark+";
       "metals.javaHome" = pkgs.openjdk8;
       "showMusicMetrics" = true;
       "eslint.validate" = [
