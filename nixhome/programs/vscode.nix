@@ -279,6 +279,7 @@ in {
         "darkTheme" = "Default Dark+";
         "lightTheme" = "Default Light+";
       };
+      "prettier.requireConfig" = true;
     };
   };
 
