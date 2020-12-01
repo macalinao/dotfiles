@@ -204,6 +204,12 @@ let
       version = "2.3.3";
       sha256 = "1sirni7hamwp0dld5l8qw7jfrjxf3pvsmjrx14zvg2bwwrv4p0m6";
     }
+    {
+      name = "svg";
+      publisher = "jock";
+      version = "1.4.1";
+      sha256 = "0pzzlginhy5gi4jp87bx48dgvrp81a0miabnq05i8c3ndllp351y";
+    }
   ] ++ [
     bbenoist.Nix
   ] ++ (
@@ -217,6 +223,9 @@ in {
     userSettings = {
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
       "editor.formatOnSave" = true;
+      "[svg]" = {
+        "editor.defaultFormatter" = "jock.svg";
+      };
       "[toml]" = {
         "editor.defaultFormatter" = "bodil.prettier-toml";
       };
