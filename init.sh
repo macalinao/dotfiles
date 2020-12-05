@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-echo "nixfmt **/*.nix" > ./.git/hooks/pre-commit
+echo "nixfmt **/*.nix && git add ." > ./.git/hooks/pre-commit
