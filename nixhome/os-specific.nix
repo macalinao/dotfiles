@@ -3,6 +3,7 @@
 lib.mkMerge [
   (lib.mkIf pkgs.stdenv.isLinux {
     xsession.enable = true;
+    xsession.profileExtra = "desktop_monitors.sh";
 
     xsession.windowManager.xmonad = {
       enable = true;

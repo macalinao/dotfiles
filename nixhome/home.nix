@@ -10,7 +10,6 @@
     git
     gitAndTools.hub
     htop
-    jq
     silver-searcher
     tmux
     unzip
@@ -35,7 +34,6 @@
     nixfmt
 
     (callPackage ./programs/pypi2nix.nix { })
-    # (pkgs.callPackage ./programs/migra { })
   ];
 
   programs.home-manager = { enable = true; };
@@ -52,4 +50,6 @@
     initExtra = ". $HOME/dotfiles/lib/zshrc";
   };
   programs.z-lua = { enable = true; };
+
+  programs.jq = { enable = true; };
 }
