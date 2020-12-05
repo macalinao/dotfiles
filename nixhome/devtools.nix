@@ -5,31 +5,31 @@
     # Dev
     git
     jq
-    parallel
-    protobuf
+    # parallel
+    # protobuf
     silver-searcher
-    tmux
+    # tmux
 
     # Java
-    openjdk8
+    # openjdk8
 
     # Python (needed for node-gyp)
-    python
-    python36Packages.virtualenv
+    # python
+    # python36Packages.virtualenv
 
     # Dhall
-    haskellPackages.dhall
+    # haskellPackages.dhall
     # haskellPackages.dhall-json
 
     # Persistence
     # postgresql
-    redis
+    # redis
 
     # stuff
-    grpcurl
-    grpcui
-    openssl
-    gnupg
+    # grpcurl
+    # grpcui
+    # openssl
+    # gnupg
     # emscripten
   ];
 }
