@@ -36,6 +36,7 @@
     rustup
 
     keybase
+    nixfmt
 
     (callPackage ./programs/pypi2nix.nix { })
     # (pkgs.callPackage ./programs/migra { })

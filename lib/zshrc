@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 
+. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 DOTFILES=$HOME/dotfiles
 source $DOTFILES/lib/shell/zsh.sh
 
@@ -11,11 +12,6 @@ source $DOTFILES/lib/z.sh
 export EDITOR=vim
 alias vi=vim
 alias e="emacsclient -n"
-
-# Python
-# export WORKON_HOME=$HOME/.virtualenvs
-# export VIRTUALENVWRAPPER_SCRIPT="$(which virtualenvwrapper.sh)"
-# source "$(which virtualenvwrapper_lazy.sh)"
 
 # Go
 export GOPATH=$HOME/gocode
