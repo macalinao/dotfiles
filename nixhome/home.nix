@@ -39,7 +39,6 @@
 
     (callPackage ./programs/pypi2nix.nix { })
     # (pkgs.callPackage ./programs/migra { })
-    # (pkgs.callPackage ./programs/tandem { })
   ];
 
   programs.home-manager = {
