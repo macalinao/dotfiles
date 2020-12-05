@@ -1,9 +1,9 @@
 # This shell contains several useful utilities for interacting with the Pipe codebase.
-with import <nixpkgs> {};
+with import <nixpkgs> { };
 let
-  buildInputs = [
+  nativeBuildInputs = [
     # frontend
-    yarn.override { nodejs = nodejs-14_x; }
+    (yarn.override { nodejs = nodejs-14_x; })
     nodejs-14_x
 
     # backend
@@ -33,15 +33,15 @@ let
     docker-compose
   ];
   drvArgs = if stdenv.isDarwin then {
-    name = "dev";
-    buildInputs = buildInputs ++ [
+    nativeBuildInputs = nativeBuildInputs ++ [
       # osx stuff
       darwin.apple_sdk.frameworks.CoreFoundation
     ];
     CFLAGS="-I/usr/include";
     LDFLAGS="-L${darwin.apple_sdk.frameworks.CoreFoundation}/Library/Frameworks";
   } else {
-    name = "dev";
-    buildInputs = buildInputs;
+    nativeBuildInputs = nativeBuildInputs;
   };
-in stdenv.mkDerivation drvArgs
+in stdenv.mkDerivation (drvArgs // {
+    name = "dev";
+})
