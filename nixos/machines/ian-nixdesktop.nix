@@ -4,30 +4,29 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports =
-    [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
-    ];
+  imports = [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix> ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules =
+    [ "xhci_pci" "ahci" "usb_storage" "sd_mod" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/d83d6906-f53f-417b-a080-e2b05f5990b8";
-      fsType = "btrfs";
-      options = [ "subvol=nixos" ];
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/d83d6906-f53f-417b-a080-e2b05f5990b8";
+    fsType = "btrfs";
+    options = [ "subvol=nixos" ];
+  };
 
-  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/ea26aee0-c2c4-4211-8bec-9551913c0a56";
+  boot.initrd.luks.devices."cryptroot".device =
+    "/dev/disk/by-uuid/ea26aee0-c2c4-4211-8bec-9551913c0a56";
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/ADA4-EB17";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/ADA4-EB17";
+    fsType = "vfat";
+  };
 
-  swapDevices = [
-    { device = "/dev/disk/by-uuid/04701011-2d17-4b5e-b29f-ed7d52f10a81"; }
-  ];
+  swapDevices =
+    [{ device = "/dev/disk/by-uuid/04701011-2d17-4b5e-b29f-ed7d52f10a81"; }];
 
   nix.maxJobs = lib.mkDefault 8;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";

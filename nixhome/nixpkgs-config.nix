@@ -1,6 +1,4 @@
 {
   allowUnfree = true;
-  overlays = [
-    (import ./overlays/1-basic.nix)
-  ];
+  overlays = [ (import ./overlays/1-basic.nix) ];
 }

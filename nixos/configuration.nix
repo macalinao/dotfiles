@@ -1,14 +1,11 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    ./services/default.nix
-  ];
+  imports = [ ./services/default.nix ];
 
   networking.hostName = "ianix"; # Define your hostname.
 
-  networking.extraHosts =
-  ''
+  networking.extraHosts = ''
     127.0.0.1 local.pipe-dev.com
   '';
 
@@ -17,9 +14,7 @@
     font = "Lat2-Terminus16";
   };
 
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-  };
+  i18n = { defaultLocale = "en_US.UTF-8"; };
 
   fonts.fonts = with pkgs; [
     dina-font
@@ -95,27 +90,17 @@
         home = "/home/igm";
         shell = pkgs.zsh;
         isNormalUser = true;
-        extraGroups = [
-          "wheel"
-          "docker"
-          "transmission"
-        ];
+        extraGroups = [ "wheel" "docker" "transmission" ];
       };
       sinai = {
         name = "sinai";
         home = "/home/sinai";
         shell = pkgs.zsh;
         isNormalUser = true;
-        extraGroups = [
-          "wheel"
-        ];
+        extraGroups = [ "wheel" ];
       };
-      nginx = {
-        extraGroups = [ "transmission" ];
-      };
-      plex = {
-        extraGroups = [ "transmission" ];
-      };
+      nginx = { extraGroups = [ "transmission" ]; };
+      plex = { extraGroups = [ "transmission" ]; };
     };
   };
 

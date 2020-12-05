@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
-let
-  private-secrets = "${config.home.homeDirectory}/private_secrets/dotfiles";
+let private-secrets = "${config.home.homeDirectory}/private_secrets/dotfiles";
 in {
   home.file.".sbt/1.0/repositories" = {
     source = "${private-secrets}/sbt/repositories";

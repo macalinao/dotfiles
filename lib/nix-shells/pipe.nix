@@ -37,8 +37,9 @@ let
       # osx stuff
       darwin.apple_sdk.frameworks.CoreFoundation
     ];
-    CFLAGS="-I/usr/include";
-    LDFLAGS="-L${darwin.apple_sdk.frameworks.CoreFoundation}/Library/Frameworks";
+    CFLAGS = "-I/usr/include";
+    LDFLAGS =
+      "-L${darwin.apple_sdk.frameworks.CoreFoundation}/Library/Frameworks";
   } else {
     nativeBuildInputs = nativeBuildInputs;
   };

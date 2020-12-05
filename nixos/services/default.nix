@@ -19,9 +19,7 @@
     extraFlags = [ "-label %u" ];
   };
 
-  services.keybase = {
-    enable = true;
-  };
+  services.keybase = { enable = true; };
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
@@ -29,9 +27,7 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  services.redis = {
-    enable = true;
-  };
+  services.redis = { enable = true; };
 
   services.xserver = {
     enable = true;
@@ -41,9 +37,7 @@
     xkbOptions = "caps:swapescape";
     desktopManager = {
       xterm.enable = false;
-      xfce = {
-        enable = true;
-      };
+      xfce = { enable = true; };
     };
 
     displayManager.defaultSession = "xfce";

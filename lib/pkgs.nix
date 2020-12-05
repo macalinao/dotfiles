@@ -1,3 +1,1 @@
-import <nixpkgs> (
-  import ../nixhome/nixpkgs-config.nix
-)
+import <nixpkgs> (import ../nixhome/nixpkgs-config.nix)

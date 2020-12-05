@@ -1,7 +1,8 @@
 # delete when https://github.com/NixOS/nixpkgs/pull/58423 is merged
-{stdenv, fetchurl, autoPatchelfHook, xorg, gtk2, gnome2, nss, alsaLib, udev, unzip}:
+{ stdenv, fetchurl, autoPatchelfHook, xorg, gtk2, gnome2, nss, alsaLib, udev
+, unzip }:
 
-stdenv.mkDerivation rec{
+stdenv.mkDerivation rec {
   version = "3.2.0";
   name = "cypress-${version}";
   src = fetchurl {
@@ -14,11 +15,9 @@ stdenv.mkDerivation rec{
 
   nativeBuildInputs = [ autoPatchelfHook ];
 
-  buildInputs = with xorg; [
-    libXScrnSaver libXdamage libXtst
-  ] ++ [
-    nss gtk2 alsaLib gnome2.GConf unzip
-  ];
+  buildInputs = with xorg;
+    [ libXScrnSaver libXdamage libXtst ]
+    ++ [ nss gtk2 alsaLib gnome2.GConf unzip ];
 
   runtimeDependencies = [ udev.lib ];
 
@@ -35,10 +34,11 @@ stdenv.mkDerivation rec{
   '';
 
   meta = with stdenv.lib; {
-    description = "Fast, easy and reliable testing for anything that runs in a browser.";
-    homepage = https://www.cypress.io;
+    description =
+      "Fast, easy and reliable testing for anything that runs in a browser.";
+    homepage = "https://www.cypress.io";
     license = licenses.mit;
-    platforms = ["x86_64-linux"];
+    platforms = [ "x86_64-linux" ];
     maintainers = with maintainers; [ erosennin tweber acyuta108 ];
   };
 }

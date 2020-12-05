@@ -7,14 +7,11 @@ let
   };
   overridePythonPackage = name: overrides:
     let
-      combinedOverrides = old: pkgs.lib.fold
-        (override: previous: previous // override previous)
-        old
+      combinedOverrides = old:
+        pkgs.lib.fold (override: previous: previous // override previous) old
         overrides;
     in python.overrideDerivation super."${name}" combinedOverrides;
 in {
   "migra" = overridePythonPackage "migra"
-    [
-      (addPropagatedBuildInputs [self."psycopg2-binary" self."setuptools"])
-    ];
+    [ (addPropagatedBuildInputs [ self."psycopg2-binary" self."setuptools" ]) ];
 }

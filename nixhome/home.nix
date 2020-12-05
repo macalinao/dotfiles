@@ -1,11 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [
-    ./os-specific.nix
-    ./programs/vscode.nix
-    ./dotfiles/default.nix
-  ];
+  imports = [ ./os-specific.nix ./programs/vscode.nix ./dotfiles/default.nix ];
 
   nixpkgs.config = import ./nixpkgs-config.nix;
 
@@ -42,9 +38,7 @@
     # (pkgs.callPackage ./programs/migra { })
   ];
 
-  programs.home-manager = {
-    enable = true;
-  };
+  programs.home-manager = { enable = true; };
 
   programs.direnv.enable = true;
   programs.direnv.enableNixDirenvIntegration = true;

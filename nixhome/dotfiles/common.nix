@@ -26,8 +26,8 @@ in {
     recursive = true;
   };
 
-  home.file.".sbt/1.0/linux.sbt".source =
-    "${dotfiles}/sbt/1.0/global.sbt" + (if (!pkgs.stdenv.isDarwin) then ".linux" else "");
+  home.file.".sbt/1.0/linux.sbt".source = "${dotfiles}/sbt/1.0/global.sbt"
+    + (if (!pkgs.stdenv.isDarwin) then ".linux" else "");
 
   home.file.".tmux.conf" = {
     source = if (pkgs.stdenv.isDarwin) then

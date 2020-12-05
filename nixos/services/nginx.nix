@@ -9,13 +9,10 @@
   services.nginx = {
     enable = true;
 
-    package = pkgs.nginx.override {
-      modules = with pkgs.nginxModules; [ fancyindex ];
-    };
+    package =
+      pkgs.nginx.override { modules = with pkgs.nginxModules; [ fancyindex ]; };
 
-    virtualHosts."nix.ian.pw" = {
-      root = "/home/igm/dotfiles/nixos/www";
-    };
+    virtualHosts."nix.ian.pw" = { root = "/home/igm/dotfiles/nixos/www"; };
 
     virtualHosts."plex.nix.ian.pw" = {
       basicAuthFile = "/home/igm/private_secrets/other/htaccess";
@@ -69,22 +66,16 @@
         proxy_redirect off;
         proxy_buffering off;
       '';
-      locations."/" = {
-        proxyPass = "http://ian-nixdesktop.ian.pw:32400/";
-      };
+      locations."/" = { proxyPass = "http://ian-nixdesktop.ian.pw:32400/"; };
     };
 
     virtualHosts."transmission.nix.ian.pw" = {
       basicAuthFile = "/home/igm/private_secrets/other/htaccess";
-      locations."/" = {
-        proxyPass = "http://ian-nixdesktop.ian.pw:9091/";
-      };
+      locations."/" = { proxyPass = "http://ian-nixdesktop.ian.pw:9091/"; };
     };
 
     virtualHosts."local.pipe-dev.com" = {
-      locations."/" = {
-        proxyPass = "http://localhost:3001";
-      };
+      locations."/" = { proxyPass = "http://localhost:3001"; };
     };
 
     virtualHosts."torrents.nix.ian.pw" = {
@@ -98,15 +89,11 @@
     };
 
     virtualHosts."api-aba.nix.ian.pw" = {
-      locations."/" = {
-        proxyPass = "http://nix.ian.pw:9663/";
-      };
+      locations."/" = { proxyPass = "http://nix.ian.pw:9663/"; };
     };
 
     virtualHosts."app-aba.nix.ian.pw" = {
-      locations."/" = {
-        proxyPass = "http://nix.ian.pw:3000/";
-      };
+      locations."/" = { proxyPass = "http://nix.ian.pw:3000/"; };
     };
   };
 }

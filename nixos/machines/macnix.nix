@@ -6,18 +6,18 @@
 {
   imports = [ ];
 
-  boot.initrd.availableKernelModules = [ "ata_piix" "ohci_pci" "sd_mod" "sr_mod" ];
+  boot.initrd.availableKernelModules =
+    [ "ata_piix" "ohci_pci" "sd_mod" "sr_mod" ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/3e1aa5a9-798b-4606-9bc2-ca77e1992018";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/3e1aa5a9-798b-4606-9bc2-ca77e1992018";
+    fsType = "ext4";
+  };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/38d0563d-116b-4215-9737-e0d855dfe13e"; }
-    ];
+    [{ device = "/dev/disk/by-uuid/38d0563d-116b-4215-9737-e0d855dfe13e"; }];
 
   nix.maxJobs = lib.mkDefault 1;
   virtualisation.virtualbox.guest.enable = true;
