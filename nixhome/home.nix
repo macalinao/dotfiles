@@ -3,7 +3,7 @@
 {
   imports = [ ./os-specific.nix ./programs/vscode.nix ./dotfiles/default.nix ];
 
-  nixpkgs.config = import ./nixpkgs-config.nix;
+  nixpkgs = import ./nixpkgs-config.nix;
 
   home.packages = with pkgs; [
     exa
@@ -33,7 +33,7 @@
     keybase
     nixfmt
 
-    (callPackage ./programs/pypi2nix.nix { })
+    pypi2nix
   ];
 
   programs.home-manager = { enable = true; };
