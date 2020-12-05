@@ -8,12 +8,7 @@
     ./dotfiles/default.nix
   ];
 
-  # TODO(igm): replace this with an overlay-based system
-  nixpkgs.config = import ./nixpkgs-config.nix {
-    config = config;
-    pkgs = pkgs;
-    lib = lib;
-  };
+  nixpkgs.config = import ./nixpkgs-config.nix;
 
   home.packages = with pkgs; [
     exa
@@ -30,7 +25,6 @@
     # Editors
     emacs
     vim
-    ruby
 
     findutils
     coreutils-full
@@ -51,4 +45,7 @@
   programs.home-manager = {
     enable = true;
   };
+
+  programs.direnv.enable = true;
+  programs.direnv.enableNixDirenvIntegration = true;
 }

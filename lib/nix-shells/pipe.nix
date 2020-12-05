@@ -1,10 +1,10 @@
 # This shell contains several useful utilities for interacting with the Pipe codebase.
-with import <nixpkgs> { };
+with import ../pkgs.nix;
 let
   nativeBuildInputs = [
     # frontend
-    (yarn.override { nodejs = nodejs-14_x; })
-    nodejs-14_x
+    yarn
+    nodejs
 
     # backend
     go
@@ -42,6 +42,4 @@ let
   } else {
     nativeBuildInputs = nativeBuildInputs;
   };
-in stdenv.mkDerivation (drvArgs // {
-    name = "dev";
-})
+in mkShell drvArgs
