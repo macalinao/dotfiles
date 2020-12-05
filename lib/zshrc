@@ -1,12 +1,7 @@
 #!/usr/bin/env zsh
-
-. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 DOTFILES=$HOME/dotfiles
-source $DOTFILES/lib/shell/zsh.sh
 
-source $DOTFILES/lib/transfer.sh
 source $DOTFILES/lib/util.sh
-source $DOTFILES/lib/z.sh
 
 # Editor stuff
 export EDITOR=vim
@@ -21,23 +16,6 @@ export PATH=$GOPATH/bin:$PATH
 alias sbto='sbt "set offline := true"'
 export SBT_OPTS="-Xmx8G -XX:+CMSClassUnloadingEnabled -Xss2M"
 
-sfxl() {
-  play -v 10.0 $DOTFILES/sfx/$1.ogg
-}
-alias funky="sfxl fortnite"
-
-kubetokeninternal() {
-  kubectl -n kube-system get secret $(kubectl -n kube-system get secret | grep eks-admin | awk '{print $1}') -o=json | jq .data.token -r | base64 --decode
-}
-
-kubetoken() {
-  kubetokeninternal | xclip -sel c
-}
-
-kubetokenm() {
-  kubetokeninternal | pbcopy
-}
-
 alias sfmt="scalafmt -c .scalafmt --exclude .ensime_cache"
 
 alias dylan="keybase chat send dylanmacalinao"
@@ -51,13 +29,6 @@ export SHELL=$(which zsh)
 
 export JAVA_HOME=$(readlink -e $(type -p javac) | sed  -e 's/\/bin\/javac//g')
 
-export GEM_HOME=$HOME/gems
-export PATH=$HOME/gems/bin:$HOME/.npm-packages/bin:$PATH
-
-load_chart_env() {
-  export $(cat charts/app/values.yaml | yq .env |jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]")
-}
-
 docker-stop-all() {
   docker container stop $(docker container ls -aq)
 }
@@ -67,15 +38,11 @@ stop-conflicting-services() {
   sudo systemctl stop openvpn-us-silicon-valley
 }
 
-alias sl="exa"
-
-export AF_PATH="/opt/arrayfire"
-export DYLD_LIBRARY_PATH=$AF_PATH/lib64
+alias ls="exa"
 
 nxs() {
   nix-shell --command zsh "$DOTFILES/lib/nix-shells/$1.nix"
 }
-
 
 bindkey '^[[1;3C' forward-word
 bindkey '^[[1;3D' backward-word

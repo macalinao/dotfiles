@@ -6,11 +6,6 @@ mongodb() {
     mongod --config /usr/local/etc/mongod.conf
 }
 
-alias dcos-ssh="dcos node ssh --master-proxy --leader --user=centos"
-alias dcos-cqlsh="dcos-ssh 'sudo docker run -ti cassandra:3.4 cqlsh node-0.cassandra.mesos'"
-
-alias aws-ecrgetlogin="aws ecr get-login --region=us-east-1 --no-include-email"
-alias aws-ecrlogin="aws ecr get-login --region=us-east-1 --no-include-email | bash"
 alias dockenv='eval "$(docker-machine env default)"'
 alias emacsd='emacs --daemon'
 alias emacst='emacsclient -t'
@@ -117,27 +112,11 @@ alias tf=terraform
 
 alias pbstack="pbpaste | jq .stack_trace | unescape.py"
 
-aws_account() {
-  aws sts get-caller-identity --output text --query 'Account'
-}
-
-aws_list_buckets() {
-    aws s3api list-buckets --query 'Buckets[*].Name'
-}
-
-aws_mfa_bucket() {
-    if [ "$#" -ne 2 ]; then
-        echo "Enables MFA delete for an AWS bucket."
-        echo "Usage: aws_mfa_bucket <bucket-name> <mfa-passcode>"
-        return 1
-    fi
-    aws s3api put-bucket-versioning \
-        --bucket $1 \
-        --versioning-configuration '{"MFADelete":"Enabled","Status":"Enabled"}' \
-        --mfa "arn:aws:iam::$(aws_account):mfa/ian $2"
-
-}
-
 alias k8sec="pbpaste | base64 -w 0 | pbcopy"
 
 alias docker_killall="docker kill $(docker ps -q)"
+
+sfxl() {
+  play -v 10.0 $DOTFILES/sfx/$1.ogg
+}
+alias funky="sfxl fortnite"

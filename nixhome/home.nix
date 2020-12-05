@@ -42,4 +42,14 @@
 
   programs.direnv.enable = true;
   programs.direnv.enableNixDirenvIntegration = true;
+
+  programs.zsh = {
+    enable = true;
+    oh-my-zsh = {
+      enable = true;
+      theme = "robbyrussell";
+    };
+    initExtra = ". $HOME/dotfiles/lib/zshrc";
+  };
+  programs.z-lua = { enable = true; };
 }

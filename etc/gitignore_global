@@ -19,3 +19,4 @@ dump.rdb
 .metals/
 ~$*
 .envrc
+.direnv/
