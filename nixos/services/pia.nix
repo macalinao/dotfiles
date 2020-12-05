@@ -13,7 +13,7 @@ let
 
       src = fetchurl {
         url = "https://www.privateinternetaccess.com/openvpn/openvpn.zip";
-        sha256 = "02wgssrvyg7j566n62m85f28pj79hvhrb7g8icgfj1yidk3nxb3l";
+        sha256 = "sha256:14a4brxfsdijwj2cicy5ijc4xbvlkmpws8mkcp5r1p5fh9vl4f5w";
       };
 
       unpackPhase = ''
@@ -50,7 +50,7 @@ in {
     init // {
       "${vpn_str file}" = {
         config = readFile "${pia-config}/config/${file}";
-        autoStart = (vpn_str file) == "us-silicon-valley";
+        autoStart = (vpn_str file) == "us_texas";
         up =
           "echo nameserver $nameserver | ${pkgs.openresolv}/sbin/resolvconf -m 0 -a $dev";
         down = "${pkgs.openresolv}/sbin/resolvconf -d $dev";

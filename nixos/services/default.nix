@@ -3,8 +3,8 @@
 {
   imports = [
     ./nginx.nix
+    # ./wireguard.nix
     ./pia.nix
-    ./postgres.nix
     # ./transmission.nix
   ];
 
