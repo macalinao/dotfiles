@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./devtools.nix
     ./os-specific.nix
     ./programs/vscode.nix
     ./dotfiles/default.nix
@@ -13,8 +12,11 @@
   home.packages = with pkgs; [
     exa
     git
-    htop
     gitAndTools.hub
+    htop
+    jq
+    silver-searcher
+    tmux
     unzip
     wget
     whois
