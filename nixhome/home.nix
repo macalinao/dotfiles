@@ -12,7 +12,6 @@
 
   home.packages = with pkgs; [
     exa
-    fortune
     git
     htop
     gitAndTools.hub
@@ -23,7 +22,6 @@
     xsel
 
     # Editors
-    emacs
     vim
 
     findutils
