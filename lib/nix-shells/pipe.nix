@@ -3,7 +3,7 @@ with import <nixpkgs> {};
 let
   buildInputs = [
     # frontend
-    yarn
+    yarn.override { nodejs = nodejs-14_x; }
     nodejs-14_x
 
     # backend
