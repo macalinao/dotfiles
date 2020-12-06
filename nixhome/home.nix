@@ -50,6 +50,15 @@
     initExtra = ". $HOME/dotfiles/lib/zshrc";
   };
   programs.z-lua = { enable = true; };
+  programs.fzf = { enable = true; };
 
   programs.jq = { enable = true; };
+
+  programs.tmux = {
+    enable = true;
+    clock24 = true;
+    keyMode = "vi";
+    terminal = "screen-256color";
+    shell = "${pkgs.zsh}/bin/zsh";
+  };
 }

@@ -29,13 +29,6 @@ in {
   home.file.".sbt/1.0/linux.sbt".source = "${dotfiles}/sbt/1.0/global.sbt"
     + (if (!pkgs.stdenv.isDarwin) then ".linux" else "");
 
-  home.file.".tmux.conf" = {
-    source = if (pkgs.stdenv.isDarwin) then
-      "${dotfiles}/tmux/tmux_mac.conf"
-    else
-      "${dotfiles}/tmux/linux.conf";
-  };
-
   home.file.".xscreensaver".source = "${dotfiles}/xscreensaver";
 
   home.file.".config/fcitx" = {
