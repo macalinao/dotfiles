@@ -1,18 +1,19 @@
 self: super: {
   factorio = super.factorio.override {
     username = "albireox";
-    token = super.lib.removeSuffix "\n" (builtins.readFile
-      "/home/igm/private_secrets/secrets/factorio.txt");
+    token = super.lib.removeSuffix "\n"
+      (builtins.readFile "/home/igm/private_secrets/secrets/factorio.txt");
   };
 
   proto3-suite = super.callPackage ../programs/proto3-suite.nix { };
 
   rofi-systemd = super.callPackage ../programs/rofi-systemd.nix { };
 
-  discord = super.discord.override rec { 
+  discord = super.discord.override rec {
     version = "0.0.13";
     src = super.fetchurl {
-      url = "https://dl.discordapp.net/apps/linux/${version}/discord-${version}.tar.gz";
+      url =
+        "https://dl.discordapp.net/apps/linux/${version}/discord-${version}.tar.gz";
       sha256 = "0d5z6cbj9dg3hjw84pyg75f8dwdvi2mqxb9ic8dfqzk064ssiv7y";
     };
   };
