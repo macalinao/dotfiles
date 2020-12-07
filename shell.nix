@@ -1,1 +1,2 @@
-with import <nixpkgs> { }; mkShell { nativeBuildInputs = [ nixfmt ]; }
+with import <nixpkgs> { };
+mkShell { nativeBuildInputs = [ coreutils-full nixfmt ]; }

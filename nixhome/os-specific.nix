@@ -55,6 +55,9 @@ lib.mkMerge [
       image_optim
       keybase-gui
       ledger-live-desktop
+
+      xclip
+      xsel
     ];
 
     services.gpg-agent = {

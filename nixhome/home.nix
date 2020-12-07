@@ -15,15 +15,12 @@
     unzip
     wget
     whois
-    xclip
-    xsel
 
     # Editors
     vim
 
     findutils
     coreutils-full
-    clang-tools
 
     cmatrix
     zsh
@@ -31,9 +28,6 @@
     rustup
 
     keybase
-    nixfmt
-
-    pypi2nix
   ];
 
   programs.home-manager = { enable = true; };
