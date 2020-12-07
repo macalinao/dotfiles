@@ -37,10 +37,6 @@ in {
   };
 
   home.file.".hyper.js".source = "${dotfiles}/hyper.js";
-  home.file.".hyper_plugins" = {
-    source = "${dotfiles}/hyper_plugins";
-    recursive = true;
-  };
 
   home.file.".config/taffybar" = {
     source = "${dotfiles}/taffybar";

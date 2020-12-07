@@ -8,10 +8,6 @@ export EDITOR=vim
 alias vi=vim
 alias e="emacsclient -n"
 
-# Go
-export GOPATH=$HOME/gocode
-export PATH=$GOPATH/bin:$PATH
-
 # Scala
 alias sbto='sbt "set offline := true"'
 export SBT_OPTS="-Xmx8G -XX:+CMSClassUnloadingEnabled -Xss2M"
@@ -25,9 +21,8 @@ alias unescape="jq -r ."
 source $HOME/private_secrets/lib/helpers.sh
 
 export GPG_TTY=$(tty)
-export SHELL=$(which zsh)
 
-export JAVA_HOME=$(readlink -e $(type -p javac) | sed  -e 's/\/bin\/javac//g')
+# export JAVA_HOME=$(readlink -e $(type -p javac) | sed  -e 's/\/bin\/javac//g')
 
 docker-stop-all() {
   docker container stop $(docker container ls -aq)

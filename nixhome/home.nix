@@ -48,6 +48,10 @@
       theme = "robbyrussell";
     };
     initExtra = ". $HOME/dotfiles/lib/zshrc";
+    envExtra = ''
+      if [ -e /Users/igm/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/igm/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+      . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+    '';
   };
   programs.z-lua = { enable = true; };
   programs.fzf = { enable = true; };

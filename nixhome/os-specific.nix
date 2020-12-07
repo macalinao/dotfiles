@@ -68,7 +68,11 @@ lib.mkMerge [
   })
 
   (lib.mkIf pkgs.stdenv.isDarwin {
-    home.packages = with pkgs; [ reattach-to-user-namespace pinentry_mac ];
+    home.packages = with pkgs; [
+      reattach-to-user-namespace
+      pinentry_mac
+      gnupg
+    ];
 
     home.file.".gnupg/gpg-agent.conf" = {
       text =

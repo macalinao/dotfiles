@@ -37,7 +37,8 @@ pinit() {
 }
 
 ghclone() {
-    mkdir -p ~/proj/$1 && cd ~/proj/$1 && git clone git@github.com:$1/$2.git && cd $2
+    DIR=$HOME/proj/$1
+    mkdir -p $DIR && cd $DIR/.. && git clone git@github.com:$1.git && cd $DIR
 }
 
 ghnew() {
