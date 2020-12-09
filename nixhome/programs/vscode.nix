@@ -224,7 +224,10 @@ in {
       "[nix]" = { "editor.tabsize" = 2; };
       "[go]" = { "editor.defaultFormatter" = "golang.go"; };
       "[rust]" = { "editor.defaultFormatter" = "rust-lang.rust"; };
-      "[sql]" = { "editor.defaultFormatter" = "bradymholt.pgformatter"; };
+      "[sql]" = {
+        "editor.defaultFormatter" = "bradymholt.pgformatter";
+        "editor.formatOnSave" = false;
+      };
       "[shellscript]" = {
         "editor.defaultFormatter" = "foxundermoon.shell-format";
       };
