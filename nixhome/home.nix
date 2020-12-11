@@ -30,6 +30,8 @@
     keybase
   ];
 
+  programs.go = { enable = true; };
+
   programs.home-manager = { enable = true; };
 
   programs.direnv.enable = true;
@@ -43,7 +45,10 @@
     };
     initExtra = ". $HOME/dotfiles/lib/zshrc";
     envExtra = ''
-      if [ -e /Users/igm/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/igm/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+      if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ];
+      then
+        . $HOME/.nix-profile/etc/profile.d/nix.sh
+      fi
       . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
     '';
   };
