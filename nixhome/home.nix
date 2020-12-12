@@ -54,7 +54,7 @@
   };
 
   programs.z-lua = { enable = true; };
-  programs.fzf = { enable = true; };
+  programs.skim = { enable = true; };
 
   programs.jq = { enable = true; };
 
