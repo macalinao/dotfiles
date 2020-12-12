@@ -43,8 +43,6 @@ lib.mkMerge [
 
       # Video
       ffmpeg
-      handbrake
-
       libreoffice
 
       # games
