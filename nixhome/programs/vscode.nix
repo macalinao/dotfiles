@@ -240,13 +240,15 @@ in {
         "*.mdx" = "markdown";
         "*.toml" = "toml";
       };
+      "[typescript]" = {
+        "editor.codeActionsOnSave" = { "source.organizeImports" = true; };
+      };
       "[typescriptreact]" = {
         "editor.codeActionsOnSave" = { "source.organizeImports" = true; };
       };
       "typescript.updateImportsOnFileMove.enabled" = "never";
       "gitlens.views.fileHistory.enabled" = true;
       "gitlens.views.lineHistory.enabled" = true;
-      "metals.javaHome" = pkgs.openjdk8;
       "showMusicMetrics" = true;
       "eslint.validate" = [
         "javascript"

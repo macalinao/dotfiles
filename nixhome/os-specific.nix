@@ -48,7 +48,7 @@ lib.mkMerge [
       libreoffice
 
       # games
-      factorio
+      # factorio
       minecraft
       openttd
 

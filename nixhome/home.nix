@@ -52,6 +52,7 @@
       . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
     '';
   };
+
   programs.z-lua = { enable = true; };
   programs.fzf = { enable = true; };
 
