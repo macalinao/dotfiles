@@ -66,6 +66,8 @@ lib.mkMerge [
     };
 
     services.xscreensaver.enable = true;
+
+    programs.kitty = { enable = true; };
   })
 
   (lib.mkIf pkgs.stdenv.isDarwin {
