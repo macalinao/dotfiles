@@ -37,6 +37,8 @@
   programs.direnv.enable = true;
   programs.direnv.enableNixDirenvIntegration = true;
 
+  programs.command-not-found.enable = true;
+
   programs.zsh = {
     enable = true;
     oh-my-zsh = {
