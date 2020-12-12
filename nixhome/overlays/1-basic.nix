@@ -7,8 +7,6 @@ self: super: {
 
   proto3-suite = super.callPackage ../programs/proto3-suite.nix { };
 
-  rofi-systemd = super.callPackage ../programs/rofi-systemd.nix { };
-
   discord = super.discord.override rec {
     version = "0.0.13";
     src = super.fetchurl {
