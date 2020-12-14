@@ -2,18 +2,20 @@
 
 {
   environment.systemPackages =
-    [ pkgs.vim
+    [
+      pkgs.vim
     ];
 
   services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
 
+  programs.bash.enable = true;  # default shell on catalina
   programs.zsh.enable = true;  # default shell on catalina
 
   services.yabai = {
     enable = true;
     package = pkgs.yabai;
-    # enableScriptingAddition = true;
+    enableScriptingAddition = true;
     extraConfig = builtins.readFile ./static/yabairc;
   };
 }

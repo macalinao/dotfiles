@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [ ./os-specific.nix ./programs/vscode.nix ./dotfiles/default.nix ];
+  imports = [ ./os-specific.nix ./programs/vscode.nix ./dotfiles ];
 
   nixpkgs = import ./nixpkgs-config.nix;
 
@@ -51,6 +51,8 @@
       then
         . $HOME/.nix-profile/etc/profile.d/nix.sh
       fi
+      export NIX_PATH=darwin-config=$HOME/.nixpkgs/darwin-configuration.nix:$HOME/.nix-defexpr/channels:$NIX_PATH
+      . /etc/static/zshrc
       . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
     '';
   };

@@ -1,0 +1,8 @@
+{ config, pkgs, ... }:
+
+{
+  imports = [
+    ~/dotfiles/nix/darwin
+  ];
+  system.stateVersion = 4;
+}

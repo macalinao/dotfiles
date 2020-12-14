@@ -30,29 +30,9 @@ Notably, I've set up an HTTP ingress on my local network to allow my phone and V
 
 On OS X, this installs several helpful developer tools. I still install most GUI programs with `brew cask` as the Darwin support for Nix is pretty limited.
 
-```
-# Install Nix on Catalina
-# Source: https://medium.com/@robinbb/install-nix-on-macos-catalina-ca8c03a225fc
-echo 'nix' | sudo tee -a /etc/synthetic.conf
-reboot  # Actually reboot your Mac.
-sudo diskutil apfs addVolume disk1 APFSX Nix -mountpoint /nix
-sudo diskutil enableOwnership /nix
-sudo chflags hidden /nix
-echo "LABEL=Nix /nix apfs rw" | sudo tee -a /etc/fstab
-sh <(curl https://nixos.org/nix/install) --daemon
+I've recently begun to experiment with [nix-darwin](https://github.com/LnL7/nix-darwin) and will begin migrating as many system services as possible to it.
 
-# Use Nixpkgs Unstable
-nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
-
-# Install Home Manager
-nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
-nix-channel --update
-export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
-nix-shell '<home-manager>' -A install
-
-# Install Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-```
+Run `scripts/install_darwin.sh` to install.
 
 ## License
 
