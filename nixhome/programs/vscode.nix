@@ -8,6 +8,12 @@ let
       # Get these hashes by putting in the wrong hash.
       # `home-manager switch` will tell you what the correct hash is.
       {
+        name = "quicktype";
+        publisher = "quicktype";
+        version = "12.0.46";
+        sha256 = "0mzn1favvrzqcigr74gmy167qak5saskhwcvhf7f00z7x0378dim";
+      }
+      {
         name = "vscode-docker";
         publisher = "ms-azuretools";
         version = "1.7.0";
