@@ -60,6 +60,8 @@
 
   programs.jq = { enable = true; };
 
+  programs.kitty = { enable = true; };
+
   programs.tmux = {
     enable = true;
     clock24 = true;

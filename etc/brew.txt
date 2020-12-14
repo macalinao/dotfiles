@@ -26,4 +26,3 @@ sqlite
 webp
 x265
 xz
-yabai

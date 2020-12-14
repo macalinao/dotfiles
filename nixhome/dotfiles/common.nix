@@ -14,7 +14,6 @@ in {
   home.file.".spacemacs".source = "${dotfiles}/spacemacs";
 
   home.file.".vimrc".source = "${dotfiles}/vimrc";
-  home.file.".yabairc".source = "${dotfiles}/yabairc";
 
   home.file.".emacs.d" = {
     source = spacemacs;
