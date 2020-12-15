@@ -1,7 +1,6 @@
 { config, pkgs, lib }:
 
-let
-  dotfiles = "${config.home.homeDirectory}/dotfiles/dotfiles";
+let dotfiles = "${config.home.homeDirectory}/dotfiles/dotfiles";
 in lib.mkMerge [
   {
     home.file.".gitconfig".source = "${dotfiles}/gitconfig";

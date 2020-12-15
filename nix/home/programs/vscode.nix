@@ -225,9 +225,14 @@ in {
     userSettings = {
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
       "editor.formatOnSave" = true;
+      "editor.codeActionsOnSave" = {
+        "source.fixAll.eslint" = true;
+        "source.organizeImports" = true;
+      };
+
       "[svg]" = { "editor.defaultFormatter" = "jock.svg"; };
       "[toml]" = { "editor.defaultFormatter" = "bodil.prettier-toml"; };
-      "[nix]" = { "editor.tabsize" = 2; };
+      "[nix]" = { "editor.tabSize" = 2; };
       "[go]" = { "editor.defaultFormatter" = "golang.go"; };
       "[rust]" = { "editor.defaultFormatter" = "rust-lang.rust"; };
       "[sql]" = {
@@ -239,43 +244,31 @@ in {
       };
       "[scala]" = { "editor.defaultFormatter" = "scalameta.metals"; };
       "[terraform]" = { "editor.defaultFormatter" = "mauve.terraform"; };
+
       "vim.useSystemClipboard" = true;
-      "gitlens.advanced.messages"."suppressShowKeyBindingsNotice" = true;
       "window.zoomLevel" = 0;
       "files.associations" = {
         "*.mdx" = "markdown";
         "*.toml" = "toml";
       };
-      "[typescript]" = {
-        "editor.codeActionsOnSave" = { "source.organizeImports" = true; };
-      };
-      "[typescriptreact]" = {
-        "editor.codeActionsOnSave" = { "source.organizeImports" = true; };
-      };
+
+      # frontend stuff
       "typescript.updateImportsOnFileMove.enabled" = "never";
+      "eslint.validate" =
+        [ "javascript" "javascriptreact" "typescript" "typescriptreact" ];
+      "prettier.requireConfig" = true;
+
+      "gitlens.advanced.messages"."suppressShowKeyBindingsNotice" = true;
       "gitlens.views.fileHistory.enabled" = true;
       "gitlens.views.lineHistory.enabled" = true;
-      "showMusicMetrics" = true;
-      "eslint.validate" = [
-        "javascript"
-        "javascriptreact"
-        {
-          "autoFix" = true;
-          "language" = "typescript";
-        }
-        {
-          "autoFix" = true;
-          "language" = "typescriptreact";
-        }
-      ];
-      "editor.codeActionsOnSave" = { "source.fixAll.eslint" = true; };
+
       "keyboard.dispatch" = "keyCode";
-      "stories.username" = "macalinao";
+
       "autoDarkMode" = {
         "darkTheme" = "Default Dark+";
         "lightTheme" = "Default Light+";
       };
-      "prettier.requireConfig" = true;
+      "workbench.colorTheme" = "Default Dark+";
     };
   };
 
