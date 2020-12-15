@@ -12,9 +12,6 @@ lib.mkMerge [
     };
 
     home.packages = with pkgs; [
-      # random
-      glxinfo
-
       # Browsers
       brave
       chromium
@@ -33,7 +30,6 @@ lib.mkMerge [
       zoom-us
 
       # Developer
-      hyper
       insomnia
       postman
 
@@ -42,7 +38,6 @@ lib.mkMerge [
       rofi-systemd
 
       # Video
-      ffmpeg
       libreoffice
 
       # games

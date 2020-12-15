@@ -1,6 +1,5 @@
 adobe-creative-cloud
 amazon-workspaces
-anki
 battle-net
 brave-browser
 dashlane
@@ -9,8 +8,6 @@ docker
 electrum
 figma
 google-chrome
-google-cloud-sdk
-hyper
 insomnia
 keybase
 league-of-legends
@@ -28,11 +25,8 @@ slack
 spotify
 tableplus
 telegram
-the-unarchiver
-thinkorswim
 tor-browser
 transmission
-tunnelblick
 vlc
 vmware-fusion
 vnc-viewer
