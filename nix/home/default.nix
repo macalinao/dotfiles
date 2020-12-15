@@ -31,6 +31,8 @@
 
     niv
     nixfmt
+    cachix
+
     imagemagick
   ];
 
