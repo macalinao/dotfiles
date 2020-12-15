@@ -31,6 +31,7 @@
 
     niv
     nixfmt
+    imagemagick
   ];
 
   programs.go = { enable = true; };

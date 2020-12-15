@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-brew list > $HOME/dotfiles/etc/brew.txt
-brew cask list > $HOME/dotfiles/etc/brew-cask.txt
+brew list --formula > $HOME/dotfiles/etc/brew.txt
+brew list --cask --formula > $HOME/dotfiles/etc/brew-cask.txt
 
