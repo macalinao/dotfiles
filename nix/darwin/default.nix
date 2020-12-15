@@ -3,11 +3,25 @@
 {
   environment.systemPackages = [ pkgs.vim ];
 
-  services.nix-daemon.enable = true;
+  fonts.enableFontDir = true;
+  fonts.fonts = with pkgs; [
+    dina-font
+    fira-code
+    fira-code-symbols
+    google-fonts
+    liberation_ttf
+    mplus-outline-fonts
+  ];
+
+  system.keyboard = {
+    enableKeyMapping = true;
+    remapCapsLockToEscape = true;
+  };
+
   nix.package = pkgs.nix;
 
-  programs.bash.enable = true; # default shell on catalina
-  programs.zsh.enable = true; # default shell on catalina
+  programs.bash.enable = true;
+  programs.zsh.enable = true;
 
   services.yabai = {
     enable = true;
