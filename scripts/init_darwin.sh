@@ -70,6 +70,8 @@ nix-shell '<home-manager>' -A install || {
   danger "Could not install home-manager"
   exit 1
 }
+cp $DOTFILES/nix/home/home.nix.template $NIX_HOME_CONFIG
+home-manager switch
 else
   info "Home manager already installed, skipping..."
 fi

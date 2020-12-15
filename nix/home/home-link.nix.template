@@ -1,8 +1,0 @@
-{ config, pkgs, ... }:
-
-{
-  imports = [
-    "$HOME/dotfiles/nix/home/home.nix"
-  ];
-}
-
