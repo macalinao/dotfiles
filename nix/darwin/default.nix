@@ -3,16 +3,6 @@
 {
   environment.systemPackages = [ pkgs.vim ];
 
-  fonts.enableFontDir = true;
-  fonts.fonts = with pkgs; [
-    dina-font
-    fira-code
-    fira-code-symbols
-    google-fonts
-    liberation_ttf
-    mplus-outline-fonts
-  ];
-
   system.keyboard = {
     enableKeyMapping = true;
     remapCapsLockToEscape = true;
@@ -31,4 +21,6 @@
   };
 
   services.lorri.enable = true;
+
+  programs.gnupg = { agent.enable = true; };
 }
