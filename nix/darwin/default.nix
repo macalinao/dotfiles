@@ -29,4 +29,6 @@
     enableScriptingAddition = true;
     extraConfig = builtins.readFile ./static/yabairc;
   };
+
+  services.lorri.enable = true;
 }

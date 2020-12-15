@@ -28,6 +28,9 @@
     rustup
 
     keybase
+
+    niv
+    nixfmt
   ];
 
   programs.go = { enable = true; };
