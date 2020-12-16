@@ -5,8 +5,6 @@ self: super: {
       (builtins.readFile "/home/igm/private_secrets/secrets/factorio.txt");
   };
 
-  proto3-suite = super.callPackage ../programs/proto3-suite.nix { };
-
   discord = super.discord.override rec {
     version = "0.0.13";
     src = super.fetchurl {

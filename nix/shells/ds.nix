@@ -1,4 +1,4 @@
-with import <nixpkgs> { };
+{ pkgs }:
 let
   jupyter = python37.withPackages (ps:
     with ps; [
@@ -13,9 +13,4 @@ let
       toolz
       pandas
     ]);
-in {
-  devEnv = stdenv.mkDerivation {
-    name = "devops";
-    buildInputs = [ jupyter ];
-  };
-}
+in mkShell { nativeBuildInputs = [ jupyter ]; }

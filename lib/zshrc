@@ -22,8 +22,6 @@ source $HOME/private_secrets/lib/helpers.sh
 
 export GPG_TTY=$(tty)
 
-# export JAVA_HOME=$(readlink -e $(type -p javac) | sed  -e 's/\/bin\/javac//g')
-
 docker-stop-all() {
   docker container stop $(docker container ls -aq)
 }
@@ -36,7 +34,12 @@ stop-conflicting-services() {
 alias ls="exa"
 
 nxs() {
-  nix-shell --command zsh "$DOTFILES/lib/nix-shells/$1.nix"
+  if [ -e $DOTFILES/nix/shells/$1/default.nix ]; then
+    SHELL_PATH=$DOTFILES/nix/shells/$1
+  else
+    SHELL_PATH=$DOTFILES/nix/shells/$1.nix
+  fi
+  nix-shell --arg pkgs --command zsh $DOTFILES/nix/nixpkgs $SHELL_PATH
 }
 
 bindkey '^[[1;3C' forward-word

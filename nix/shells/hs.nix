@@ -1,0 +1,1 @@
+{ pkgs }: mkShell { nativeBuildInputs = [ stack ]; }
