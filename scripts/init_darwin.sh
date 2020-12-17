@@ -61,6 +61,7 @@ fi
 section "Install Homebrew"
 if ! which brew; then
   bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  success "Homebrew installed"
 else
   info "Homebrew already installed, skipping..."
 fi
