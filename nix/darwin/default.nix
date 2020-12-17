@@ -1,7 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [ <home-manager/nix-darwin> ];
   environment.systemPackages = [ pkgs.vim ];
+
+  home-manager.users.igm = import ../home;
 
   system.keyboard = {
     enableKeyMapping = true;
@@ -23,4 +26,9 @@
   services.lorri.enable = true;
 
   programs.gnupg = { agent.enable = true; };
+
+  users.users.igm = {
+    name = "Ian Macalinao";
+    home = "/Users/igm";
+  };
 }

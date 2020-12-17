@@ -58,23 +58,6 @@ else
   info "nix-darwin already installed, skipping..."
 fi
 
-section "Install Home Manager"
-if ! which home-manager; then
-  NIX_HOME_CONFIG=$HOME/.config/nixpkgs/home.nix
-  if [ -e $HOME/.zshrc ]; then
-    mv $HOME/.zshrc $HOME/zshrc_old.zsh
-  fi
-  export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
-  nix-shell '<home-manager>' -A install || {
-    danger "Could not install home-manager"
-    exit 1
-  }
-  cp $DOTFILES/nix/home/home.nix.template $NIX_HOME_CONFIG
-  home-manager switch
-else
-  info "Home manager already installed, skipping..."
-fi
-
 section "Install Homebrew"
 if ! which brew; then
   bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
