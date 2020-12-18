@@ -43,7 +43,7 @@ nxs() {
     echo "Shell does not exist."
     exit 1
   fi
-  nix-shell --arg pkgs --command zsh $DOTFILES/nix/nixpkgs $SHELL_PATH
+  nix-shell --command zsh --arg pkgs $DOTFILES/nix/nixpkgs $SHELL_PATH
 }
 
 bindkey '^[[1;3C' forward-word
