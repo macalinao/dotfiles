@@ -1,6 +1,6 @@
 _: pkgs: {
   nxs = pkgs.writeScriptBin "nxs" ''
-    #!${pkgs.zsh}
+    #!${pkgs.zsh}/bin/zsh
 
     if [ -e $DOTFILES/nix/shells/$1/default.nix ]; then
       SHELL_PATH=$DOTFILES/nix/shells/$1/default.nix
@@ -15,7 +15,7 @@ _: pkgs: {
   '';
 
   full-system-update = pkgs.writeScriptBin "full-system-update" ''
-    #!${pkgs.zsh}
+    #!${pkgs.zsh}/bin/zsh
     set -x
 
     # update nix channels
