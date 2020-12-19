@@ -1,5 +1,5 @@
 self: super: rec {
-  dotfiles-private = import ../../../../dotfiles-private;
+  dotfiles-private = import ../../dotfiles-private { lib = super.lib; };
 
   factorio = super.factorio.override {
     username = "albireox";

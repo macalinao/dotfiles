@@ -51,6 +51,9 @@ lib.mkMerge [
 
       xclip
       xsel
+
+      # scripts
+      configure-monitors
     ];
 
     services.gpg-agent = {

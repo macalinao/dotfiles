@@ -63,7 +63,7 @@
         !wb() { b="$(git symbolic-ref HEAD)" && echo ''${b#refs/heads/}; }; wb'';
     };
     extraConfig = {
-      core.excludesFile = "~/dotfiles/etc/gitignore_global";
+      core.excludesFile = "${./static/gitignore_global}";
       push.default = "simple";
     };
     delta.enable = true;
@@ -73,7 +73,7 @@
       key = "F126F8E8";
     };
     userName = "Ian Macalinao";
-    userEmail = "me@ian.pw";
+    userEmail = "github@igm.pub";
 
     includes = lib.mapAttrsToList (job: jobInfo: {
       path = "${pkgs.writeTextFile {
@@ -83,8 +83,8 @@
             email = "${jobInfo.email}"
         '';
       }}";
-      condition = "gitdir:~/proj/${job}/";
-    }) pkgs.dotfiles-private.jobs;
+      condition = "gitdir:~/proj/${jobInfo.githubOrganization}/";
+    }) pkgs.dotfiles-private.profiles;
   };
 
   programs.go = { enable = true; };
