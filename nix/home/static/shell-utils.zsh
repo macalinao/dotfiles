@@ -13,7 +13,7 @@ ghclone() {
 
 ghnew() {
     DIR=$HOME/proj/$1
-    mkdir -p $DIR && cd $DIR/.. && git init && hub create -p $DIR
+    mkdir -p $DIR && cd $DIR && git init && hub create -p $1
 }
 
 ghnewu() {

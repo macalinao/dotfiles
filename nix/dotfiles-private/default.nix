@@ -1,8 +1,7 @@
 { lib, ... }:
 
 let
-  raw = (if (builtins.pathExists
-    "${config.home.homeDirectory}/private_secrets") then
+  raw = (if (builtins.pathExists ../../../dotfiles-private) then
     (import ../../../dotfiles-private { inherit lib; })
   else {
     profiles = { };
