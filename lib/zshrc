@@ -1,26 +1,83 @@
-#!/usr/bin/env zsh
-DOTFILES=$HOME/dotfiles
+gac() {
+    git add -A $(git root) && git commit -m "$@"
+}
 
-source $DOTFILES/lib/util.sh
+gi() {
+    curl -L -s https://www.gitignore.io/api/$@
+}
 
-# Editor stuff
-export EDITOR=vim
-alias vi=vim
-alias e="emacsclient -n"
+ghclone() {
+    DIR=$HOME/proj/$1
+    mkdir -p $DIR && cd $DIR/.. && git clone git@github.com:$1.git && cd $DIR
+}
 
-# Scala
-alias sbto='sbt "set offline := true"'
-export SBT_OPTS="-Xmx8G -XX:+CMSClassUnloadingEnabled -Xss2M"
+ghnew() {
+    DIR=$HOME/proj/$1
+    mkdir -p $DIR && cd $DIR/.. && git init && hub create -p $DIR
+}
 
-alias sfmt="scalafmt -c .scalafmt --exclude .ensime_cache"
+ghnewu() {
+    ghnew macalinao/$1
+}
 
-alias dylan="keybase chat send dylanmacalinao"
+ghgo() {
+    DIR=$HOME/proj/$1
+    cd $DIR
+}
 
-alias unescape="jq -r ."
+lsport() {
+    if [ "$#" -ne 1 ]; then
+        echo "Gets information about processes running on the given port."
+        echo "Usage: lsport <port>"
+    else
+        lsof -wni tcp:$1
+    fi
+}
+
+pidport() {
+    if [ "$#" -ne 1 ]; then
+        echo "Gets the pid of the process running on the given port."
+        echo "Usage: pidport <port>"
+    else
+        lsof -twni tcp:$1
+    fi
+}
+
+killport() {
+    if [ "$#" -ne 1 ]; then
+        echo "Kills whatever process is running on a port with a SIGTERM."
+        echo "Usage: killport <port>"
+    else
+        pidport $1 | xargs kill -9
+    fi
+}
+
+tunnelport() {
+    if [ "$#" -ne 2 ]; then
+        echo "Tunnels a local port to the corresponding remote port on a machine."
+        echo "Usage: tunnelport <port> <host>"
+    else
+        ssh -fN -L $1":localhost:"$1 $2
+    fi
+}
+
+psgrep() {
+    if [ "$#" -ne 1 ]; then
+        echo "Finds matching processes and displays info."
+        echo "Usage: psgrep <string>"
+    else
+        ps aux | grep $1 | grep -v grep
+    fi
+}
+md2pdf() {
+    pandoc $1 -o `basename $1 .md`.pdf
+}
+    
+sfxl() {
+  play -v 10.0 $DOTFILES/sfx/$1.ogg
+}
 
 source $HOME/private_secrets/lib/helpers.sh
-
-export GPG_TTY=$(tty)
 
 docker-stop-all() {
   docker container stop $(docker container ls -aq)
@@ -30,8 +87,6 @@ stop-conflicting-services() {
   sudo systemctl stop postgresql
   sudo systemctl stop openvpn-us-silicon-valley
 }
-
-alias ls="exa"
 
 bindkey '^[[1;3C' forward-word
 bindkey '^[[1;3D' backward-word

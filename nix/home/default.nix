@@ -101,6 +101,8 @@
     oh-my-zsh = {
       enable = true;
       theme = "robbyrussell";
+      plugins = [ "git" "yarn" ]
+        ++ (lib.optionals pkgs.stdenv.isDarwin [ "osx" ]);
     };
     initExtra = ". $HOME/dotfiles/lib/zshrc";
     envExtra = ''
@@ -111,6 +113,30 @@
       . /etc/static/zshrc
       . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
     '';
+
+    localVariables = { DOTFILES = "${config.home.homeDirectory}/dotfiles"; };
+
+    shellAliases = {
+      gj = "cd $(git root)";
+      gd = "git diff";
+      gs = "gst";
+
+      ls = "exa";
+      l = "exa -lah";
+
+      x = "exit";
+      c = "clear";
+
+      tf = "terraform";
+      pbstack = "pbpaste | jq .stack_trace | unescape.py";
+      docker_killall = "docker kill $(docker ps -q)";
+      vi = "vim";
+      dylan = "keybase chat send dylanmacalinao";
+      unescape = "jq -r .";
+      localip =
+        "ifconfig | grep -Eo 'inet (addr:)?([0-9]*.){3}[0-9]*' | grep -Eo '([0-9]*.){3}[0-9]*' | grep -v '127.0.0.1'";
+      funky = "sfxl fortnite";
+    };
   };
 
   programs.z-lua = { enable = true; };

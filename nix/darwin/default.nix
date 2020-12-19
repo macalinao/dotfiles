@@ -2,7 +2,7 @@
 
 {
   imports = [ <home-manager/nix-darwin> ];
-  environment.systemPackages = [ pkgs.vim ];
+  environment.systemPackages = with pkgs; [ vim kitty ];
 
   home-manager.users.igm = import ../home;
 
@@ -14,7 +14,15 @@
   nix.package = pkgs.nix;
 
   programs.bash.enable = true;
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    interactiveShellInit = ''
+      if [ $TERM = xterm-kitty ]; then
+        export TERMINFO="${pkgs.kitty}/Applications/kitty.app/Contents/Resources/kitty/terminfo";
+      fi
+    '';
+    variables = { EDITOR = "${pkgs.vim}/bin/vim"; };
+  };
 
   services.yabai = {
     enable = true;
