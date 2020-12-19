@@ -104,7 +104,7 @@
       plugins = [ "git" "yarn" ]
         ++ (lib.optionals pkgs.stdenv.isDarwin [ "osx" ]);
     };
-    initExtra = ". $HOME/dotfiles/lib/zshrc";
+    initExtra = builtins.readFile ./static/shell-utils.zsh;
     envExtra = ''
       if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ];
       then
