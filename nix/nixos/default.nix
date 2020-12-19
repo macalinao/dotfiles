@@ -1,9 +1,9 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./services/default.nix ];
+  imports = [ <home-manager/nixos> ./services ];
 
-  networking.hostName = "ianix"; # Define your hostname.
+  networking.hostName = "ianix";
 
   networking.extraHosts = ''
     127.0.0.1 local.pipe-dev.com
@@ -103,6 +103,8 @@
       plex = { extraGroups = [ "transmission" ]; };
     };
   };
+
+  home-manager.users.igm = import ../home;
 
   nixpkgs.config.pulseaudio = true;
 

@@ -33,18 +33,5 @@ stop-conflicting-services() {
 
 alias ls="exa"
 
-nxs() {
-  if [ -e $DOTFILES/nix/shells/$1/default.nix ]; then
-    SHELL_PATH=$DOTFILES/nix/shells/$1/default.nix
-  else
-    SHELL_PATH=$DOTFILES/nix/shells/$1.nix
-  fi
-  if [ ! -e $SHELL_PATH ]; then
-    echo "Shell does not exist."
-    exit 1
-  fi
-  nix-shell --command zsh --arg pkgs $DOTFILES/nix/nixpkgs $SHELL_PATH
-}
-
 bindkey '^[[1;3C' forward-word
 bindkey '^[[1;3D' backward-word

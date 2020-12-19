@@ -1,8 +1,9 @@
-self: super: {
+self: super: rec {
+  dotfiles-private = import ../../../../dotfiles-private;
+
   factorio = super.factorio.override {
     username = "albireox";
-    token = super.lib.removeSuffix "\n"
-      (builtins.readFile "/home/igm/private_secrets/secrets/factorio.txt");
+    token = dotfiles-private.factorio-token;
   };
 
   discord = super.discord.override rec {
@@ -14,9 +15,17 @@ self: super: {
     };
   };
 
-  pypi2nix = super.fetchgit {
-    url = "https://github.com/nix-community/pypi2nix";
-    rev = "e56cbbce0812359e80ced3d860e1f232323b2976";
-    sha256 = "1vhdippb0daszp3a0m3zb9qcb25m6yib4rpggaiimg7yxwwwzyh4";
+  pypi2nix = super.fetchFromGitHub {
+    owner = "nix-community";
+    repo = "pypi2nix";
+    rev = "0dbd119465ff2ccbe43cb83431eba792b536a640";
+    sha256 = "1zxgy3znw0i6h1lxhmnx001c1pdcyszwqj8f0d0092nmnngdzsrl";
   };
+
+  nix-pre-commit-hooks = import (super.fetchFromGitHub {
+    owner = "cachix";
+    repo = "pre-commit-hooks.nix";
+    rev = "d16e007e6bd263ba5899a9a425d76a78906570cd";
+    sha256 = "1c0lv3yzq1kkqm4j37wl5hlawlsrj1413vkr1mdm661klad2sa0d";
+  });
 }

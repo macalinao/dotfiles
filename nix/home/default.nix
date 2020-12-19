@@ -32,9 +32,60 @@
     niv
     nixfmt
     cachix
+    update-nix-fetchgit
+    pypi2nix
 
     imagemagick
+
+    nxs
+    full-system-update
   ];
+
+  programs.git = {
+    enable = true;
+    aliases = {
+      amend = "commit -a --amend -C HEAD";
+      co = "checkout";
+      ff = "merge --ff-only";
+      ffo = "!git ffr origin";
+      ffr =
+        "!ffr() { git fetch $1 && git ff $1/$(git which-branch) && git suir; }; ffr";
+      frp = "!git ffo && git rom && git poh";
+      master = "checkout origin/master -B master";
+      poh = "push origin HEAD";
+      pohm = "push origin HEAD:master";
+      rh = "reset --hard";
+      rom = "rebase origin/master";
+      root = "rev-parse --show-toplevel";
+      sha = "rev-parse HEAD";
+      suir = "submodule update --init --recursive";
+      which-branch = ''
+        !wb() { b="$(git symbolic-ref HEAD)" && echo ''${b#refs/heads/}; }; wb'';
+    };
+    extraConfig = {
+      core.excludesFile = "~/dotfiles/etc/gitignore_global";
+      push.default = "simple";
+    };
+    delta.enable = true;
+    lfs.enable = true;
+    signing = {
+      signByDefault = true;
+      key = "F126F8E8";
+    };
+    userName = "Ian Macalinao";
+    userEmail = "me@ian.pw";
+
+    includes = lib.mapAttrsToList (job: jobInfo: {
+      path = "${pkgs.writeTextFile {
+        name = "config";
+        text = ''
+          [user]
+            email = "${jobInfo.email}"
+        '';
+      }}";
+      condition = "gitdir:~/proj/${job}/";
+    }) pkgs.dotfiles-private.jobs;
+  };
 
   programs.go = { enable = true; };
 

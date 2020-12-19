@@ -45,6 +45,30 @@ nix-channel --add https://github.com/LnL7/nix-darwin/archive/master.tar.gz darwi
 nix-channel --update
 success "Nix channels added and updated"
 
+section "Install Homebrew"
+if ! which brew; then
+  bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  success "Homebrew installed"
+else
+  info "Homebrew already installed, skipping..."
+fi
+
+section "Install Keybase"
+if ! $(brew list --cask | grep keybase); then
+  brew cask install keybase
+  read \?"Please log in to Keybase so that we can install the private dotfiles. Press [Enter] when you're done."
+fi
+
+section "Set up private dotfiles"
+if [ ! -e ~/dotfiles-private ]; then
+  git clone keybase://private/ianm/dotfiles-private ~/dotfiles-private
+  success "Private dotfiles set up"
+else
+  info "Private dotfiles already found. Updating..."
+  cd ~/dotfiles-private && git frp
+  success "Private dotfiles set up"
+fi
+
 section "Install nix-darwin"
 if [ ! -e ~/.nixpkgs/darwin-configuration.nix ]; then
   sudo mv -f /etc/bashrc /etc/bashrc.orig
@@ -57,12 +81,3 @@ if [ ! -e ~/.nixpkgs/darwin-configuration.nix ]; then
 else
   info "nix-darwin already installed, skipping..."
 fi
-
-section "Install Homebrew"
-if ! which brew; then
-  bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-  success "Homebrew installed"
-else
-  info "Homebrew already installed, skipping..."
-fi
-
