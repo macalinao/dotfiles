@@ -114,7 +114,7 @@
       . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
     '';
 
-    localVariables = { DOTFILES = "${config.home.homeDirectory}/dotfiles"; };
+    sessionVariables = { DOTFILES = "${config.home.homeDirectory}/dotfiles"; };
 
     shellAliases = {
       gj = "cd $(git root)";

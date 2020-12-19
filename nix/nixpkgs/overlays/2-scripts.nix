@@ -1,7 +1,5 @@
 _: pkgs: {
-  nxs = pkgs.writeScriptBin "nxs" ''
-    #!${pkgs.zsh}/bin/zsh
-
+  nxs = pkgs.writeShellScriptBin "nxs" ''
     if [ -e $DOTFILES/nix/shells/$1/default.nix ]; then
       SHELL_PATH=$DOTFILES/nix/shells/$1/default.nix
     else
