@@ -14,12 +14,12 @@ Brew Cask is used for most OS X GUI programs.
 
 ## Installation
 
-Run `zsh scripts/install.sh`. This cross-platform script should set up anything relevant.
+Run `zsh scripts/install.zsh`. This cross-platform script should set up anything relevant.
 
 If you're on NixOS and don't have zsh installed, first run:
 
 ```
-nix-env -iA nixpkgs.pkg_name
+nix-shell -p zsh --command zsh
 ```
 
 ## License

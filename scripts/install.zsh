@@ -1,4 +1,3 @@
-#!/usr/bin/env zsh
 set -x
 
 DOTFILES=$(dirname $0)/..
