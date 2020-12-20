@@ -206,12 +206,6 @@ let
         sha256 = "1sjzm6x887pj92bmdjzqk3xk0qy0v0zrvlclync80pzfhcy8jsif";
       }
       {
-        name = "vscode-deno";
-        publisher = "denoland";
-        version = "2.3.3";
-        sha256 = "1sirni7hamwp0dld5l8qw7jfrjxf3pvsmjrx14zvg2bwwrv4p0m6";
-      }
-      {
         name = "svg";
         publisher = "jock";
         version = "1.4.1";
