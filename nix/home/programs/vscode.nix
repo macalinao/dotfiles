@@ -211,6 +211,12 @@ let
         version = "1.4.1";
         sha256 = "0pzzlginhy5gi4jp87bx48dgvrp81a0miabnq05i8c3ndllp351y";
       }
+      {
+        name = "mdx";
+        publisher = "silvenon";
+        version = "0.1.0";
+        sha256 = "1mzsqgv0zdlj886kh1yx1zr966yc8hqwmiqrb1532xbmgyy6adz3";
+      }
     ] ++ [ bbenoist.Nix ]
     ++ (if pkgs.stdenv.isDarwin then [ ] else [ ms-vsliveshare.vsliveshare ]);
 in {
@@ -242,7 +248,7 @@ in {
       "vim.useSystemClipboard" = true;
       "window.zoomLevel" = 0;
       "files.associations" = {
-        "*.mdx" = "markdown";
+        "*.md" = "markdown";
         "*.toml" = "toml";
       };
 
