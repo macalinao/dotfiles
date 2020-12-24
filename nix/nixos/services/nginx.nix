@@ -15,7 +15,7 @@
     virtualHosts."nix.ian.pw" = { root = "/home/igm/dotfiles/nixos/www"; };
 
     virtualHosts."plex.nix.ian.pw" = {
-      basicAuthFile = "/home/igm/private_secrets/other/htaccess";
+      basicAuthFile = "${pkgs.dotfiles-private.src}/other/htaccess";
       # http2 can more performant for streaming: https://blog.cloudflare.com/introducing-http2/
       http2 = true;
 
@@ -70,7 +70,7 @@
     };
 
     virtualHosts."transmission.nix.ian.pw" = {
-      basicAuthFile = "/home/igm/private_secrets/other/htaccess";
+      basicAuthFile = "${pkgs.dotfiles-private.src}/other/htaccess";
       locations."/" = { proxyPass = "http://ian-nixdesktop.ian.pw:9091/"; };
     };
 
@@ -80,7 +80,7 @@
 
     virtualHosts."torrents.nix.ian.pw" = {
       root = "/home/igm/torrents";
-      basicAuthFile = "/home/igm/private_secrets/other/htaccess";
+      basicAuthFile = "${pkgs.dotfiles-private.src}/other/htaccess";
       extraConfig = ''
         fancyindex on;
         fancyindex_name_length 255;

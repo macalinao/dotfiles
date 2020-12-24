@@ -6,6 +6,7 @@ let
   else {
     profiles = { };
     factorio-token = "";
+    homeFiles = { };
   });
 in raw // {
   profiles = lib.mapAttrs (profile: profileInfo:

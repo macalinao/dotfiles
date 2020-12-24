@@ -34,7 +34,7 @@ let
       fixupPhase = ''
         sed -i "s|crl.rsa.2048.pem|$out/certs/\0|g" "$out"/config/*.ovpn
         sed -i "s|ca.rsa.2048.crt|$out/certs/\0|g" "$out"/config/*.ovpn
-        sed -i "s|auth-user-pass|auth-user-pass /home/igm/private_secrets/other/pia.conf|g" "$out"/config/*.ovpn
+        sed -i "s|auth-user-pass|auth-user-pass ${pkgs.dotfiles-private.src}/other/pia.conf|g" "$out"/config/*.ovpn
       '';
     };
 in {

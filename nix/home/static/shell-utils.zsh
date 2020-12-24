@@ -77,8 +77,6 @@ sfxl() {
   play -v 10.0 $DOTFILES/sfx/$1.ogg
 }
 
-source $HOME/private_secrets/lib/helpers.sh
-
 docker-stop-all() {
   docker container stop $(docker container ls -aq)
 }
