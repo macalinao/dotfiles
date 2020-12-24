@@ -1,4 +1,4 @@
-with import <nixpkgs> { };
+with import ./nix/nixpkgs { };
 let
   nix-pre-commit-hooks = import (fetchFromGitHub {
     owner = "cachix";
