@@ -1,7 +1,0 @@
-migra==1.0.1587214226
-pathlib==1.0.1
-psycopg2-binary==2.8.5
-schemainspect==0.1.1587214651
-six==1.14.0
-SQLAlchemy==1.3.16
-sqlbag==0.1.1579049654
