@@ -1,6 +1,6 @@
 set -x
 
-DOTFILES=$(dirname $0)/..
+DOTFILES=$(dirname $0)
 
 bold="$(tput bold)"
 unbold=$(tput sgr0)
