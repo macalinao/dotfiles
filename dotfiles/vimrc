@@ -1,8 +1,6 @@
 set nocompatible
 filetype off
-
 syntax enable
-set background=dark
 
 filetype plugin indent on
 
@@ -14,80 +12,5 @@ set expandtab
 set splitbelow
 set splitright
 
-map <Leader> <Plug>(easymotion-prefix)
-autocmd BufWritePre *.py :%s/\s\+$//e
-
-noremap <F6> :JSHint<CR>
-let g:vim_markdown_folding_disabled=1
-let g:vim_markdown_math=1
-let g:vim_markdown_frontmatter=1
-
-" Formatting stuff
-let g:formatprg_args_js = '-s 2'
-let g:formatprg_args_json = '-s 2'
-let g:formatprg_args_css = '-f - -N -s 2'
-noremap <F3> :Autoformat<CR>
-
-" Ignore
-let g:ctrlp_custom_ignore = {
-  \ 'dir': 'node_modules\|bower_components\|dist\|target'
-  \ }
-
-" Auto close HTML
-autocmd BufRead,BufNewFile *.html,*.erb,*.ejs iabbrev </ </<C-X><C-O>
-au BufRead,BufNewFile *.ejs set filetype=html
-au BufRead,BufNewFile *.es6 set filetype=js
-
-" Spell check md
-autocmd BufRead,BufNewFile *.md setlocal spell
-
-map Y y$
-
-augroup vagrant
-  au!
-  au BufRead,BufNewFile Vagrantfile set filetype=ruby
-augroup END
-
-au BufRead,BufNewFile Guardfile set filetype=ruby
-
-" Whitespace removal
-" autocmd BufWritePre * :%s/\s\+$//e
-
-" Mac stuff
+" Need this to get backspace working on Mac
 set backspace=eol,indent,start
-
-nnoremap <C-f> :CtrlPBufTag<CR>
-nnoremap <C-t> :tab split<CR>
-
-let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
-
-" Gist stuff
-let g:gist_clip_command = 'pbcopy'
-
-" run reek on demand
-let g:reek_on_loading = 0
-
-" hive
-au BufNewFile,BufRead *.hql set filetype=hive expandtab
-
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <leader>c <Plug>(go-coverage)
-au FileType go nmap <Leader>ds <Plug>(go-def-split)
-au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-au FileType go nmap <Leader>dt <Plug>(go-def-tab)
-au FileType go nmap <Leader>gd <Plug>(go-doc)
-au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
-au FileType go nmap <Leader>s <Plug>(go-implements)
-au FileType go nmap <Leader>i <Plug>(go-info)
-au FileType go nmap <Leader>e <Plug>(go-rename)
-
-let g:go_fmt_command = "goimports"
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_interfaces = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
