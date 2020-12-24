@@ -157,6 +157,9 @@
       funky = "sfxl fortnite";
 
       nsc = "cat package.json | jq .scripts";
+
+      brew-dump =
+        "brew bundle dump --no-restart --file $DOTFILES/dotfiles/Brewfile --force";
     };
   };
 
