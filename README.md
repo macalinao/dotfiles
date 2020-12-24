@@ -10,7 +10,7 @@ These files apply to several machines:
 
 Dotfiles and most program installations are managed by the [Nix package manager](https://nixos.org/nix/).
 
-Brew Cask is used for most OS X GUI programs.
+Brew Cask is used for most OS X GUI programs. To update all software, run `brew bundle install --global`.
 
 ## Installation
 
