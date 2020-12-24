@@ -75,13 +75,27 @@
     userName = "Ian Macalinao";
     userEmail = "github@igm.pub";
 
-    includes = lib.mapAttrsToList (_: profileInfo: {
+    includes = lib.mapAttrsToList (profile: profileInfo: {
       path = "${pkgs.writeTextFile {
         name = "config";
         text = ''
           [user]
             email = "${profileInfo.email}"
           ${profileInfo.additionalGitConfig}
+          ${lib.optionalString (profileInfo.additionalGitignore != "") ''
+            [core]
+              excludesFile = "${
+                pkgs.writeTextFile {
+                  name = "gitignore_global";
+                  text = ''
+                    # shared gitignore
+                    ${builtins.readFile ./static/gitignore_global}
+
+                    # Additional config for profile ${profile}
+                    ${profileInfo.additionalGitignore}'';
+                }
+              }"
+          ''}
         '';
       }}";
       condition = "gitdir:~/proj/${profileInfo.githubOrganization}/";

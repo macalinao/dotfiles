@@ -13,5 +13,6 @@ in raw // {
       githubOrganization = profile;
       email = "${profile}@igm.pub";
       additionalGitConfig = "";
+      additionalGitignore = "";
     } // profileInfo) raw.profiles;
 }
