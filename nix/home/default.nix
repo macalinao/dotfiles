@@ -75,15 +75,16 @@
     userName = "Ian Macalinao";
     userEmail = "github@igm.pub";
 
-    includes = lib.mapAttrsToList (job: jobInfo: {
+    includes = lib.mapAttrsToList (_: profileInfo: {
       path = "${pkgs.writeTextFile {
         name = "config";
         text = ''
           [user]
-            email = "${jobInfo.email}"
+            email = "${profileInfo.email}"
+          ${profileInfo.additionalGitConfig}
         '';
       }}";
-      condition = "gitdir:~/proj/${jobInfo.githubOrganization}/";
+      condition = "gitdir:~/proj/${profileInfo.githubOrganization}/";
     }) pkgs.dotfiles-private.profiles;
   };
 

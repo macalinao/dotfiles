@@ -2,7 +2,7 @@
 
 {
   imports = [ <home-manager/nix-darwin> ];
-  environment.systemPackages = with pkgs; [ vim kitty ];
+  environment.systemPackages = with pkgs; [ vim kitty tor ];
 
   home-manager.users.igm = import ../home;
 
@@ -38,5 +38,16 @@
   users.users.igm = {
     name = "Ian Macalinao";
     home = "/Users/igm";
+  };
+
+  launchd.user.agents.tor = {
+    command = with pkgs; "${tor}/bin/tor";
+    serviceConfig = {
+      KeepAlive = true;
+      RunAtLoad = true;
+      ProcessType = "Background";
+      StandardOutPath = "/var/tmp/tor.log";
+      StandardErrorPath = "/var/tmp/tor.error.log";
+    };
   };
 }
