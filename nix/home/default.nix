@@ -159,6 +159,9 @@
 
       brew-dump =
         "brew bundle dump --no-restart --file $DOTFILES/dotfiles/Brewfile --force";
+
+      brew-cask-upgrade =
+        "brew upgrade --cask $(cat ~/.Brewfile.lock.json | jq -r '.entries.cask | keys[]') && brew bundle install --global";
     };
   };
 
