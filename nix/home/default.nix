@@ -158,7 +158,7 @@
       nsc = "cat package.json | jq .scripts";
 
       brew-dump =
-        "brew bundle dump --no-restart --file $DOTFILES/dotfiles/Brewfile --force";
+        "brew bundle install --global && brew bundle dump --no-restart --file $DOTFILES/dotfiles/Brewfile --force && cp $HOME/.Brewfile.lock.json $DOTFILES/dotfiles/Brewfile.lock.json";
 
       brew-cask-upgrade =
         "brew upgrade --cask $(cat ~/.Brewfile.lock.json | jq -r '.entries.cask | keys[]') && brew bundle install --global";

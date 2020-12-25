@@ -1,0 +1,188 @@
+{
+  "entries": {
+    "tap": {
+      "homebrew/bundle": {
+        "revision": "830855e7b0bb123da2a6acda4275b8a5e378f331"
+      },
+      "homebrew/cask": {
+        "revision": "ab5fe9f90bf7c1e9267c0858539ad458f9f013a4"
+      },
+      "homebrew/core": {
+        "revision": "b0c4eda94c4d79df41c7981c75e584d6509af52d"
+      },
+      "homebrew/services": {
+        "revision": "315ad6f1610401ccdd78c83534991541e531814b"
+      }
+    },
+    "cask": {
+      "battle-net": {
+        "version": "latest",
+        "options": {
+          "full_name": "battle-net"
+        }
+      },
+      "brave-browser": {
+        "version": "87.1.18.75,118.75",
+        "options": {
+          "full_name": "brave-browser"
+        }
+      },
+      "dashlane": {
+        "version": "6.2048.0.41510",
+        "options": {
+          "full_name": "dashlane"
+        }
+      },
+      "discord": {
+        "version": "0.0.260",
+        "options": {
+          "full_name": "discord"
+        }
+      },
+      "docker": {
+        "version": "3.0.3,51017",
+        "options": {
+          "full_name": "docker"
+        }
+      },
+      "figma": {
+        "version": "93.1.0",
+        "options": {
+          "full_name": "figma"
+        }
+      },
+      "google-chrome": {
+        "version": "87.0.4280.88,4280.88",
+        "options": {
+          "full_name": "google-chrome"
+        }
+      },
+      "insomnia": {
+        "version": "2020.5.2",
+        "options": {
+          "full_name": "insomnia"
+        }
+      },
+      "keybase": {
+        "version": "5.5.0-20200526170801,139bb348af",
+        "options": {
+          "full_name": "keybase"
+        }
+      },
+      "ledger-live": {
+        "version": "2.18.0",
+        "options": {
+          "full_name": "ledger-live"
+        }
+      },
+      "loom": {
+        "version": "0.63.1",
+        "options": {
+          "full_name": "loom"
+        }
+      },
+      "minecraft": {
+        "version": "795,1",
+        "options": {
+          "full_name": "minecraft"
+        }
+      },
+      "ngrok": {
+        "version": "latest",
+        "options": {
+          "full_name": "ngrok"
+        }
+      },
+      "postman": {
+        "version": "7.36.1",
+        "options": {
+          "full_name": "postman"
+        }
+      },
+      "private-internet-access": {
+        "version": "2.6.1-05824",
+        "options": {
+          "full_name": "private-internet-access"
+        }
+      },
+      "signal": {
+        "version": "1.39.4",
+        "options": {
+          "full_name": "signal"
+        }
+      },
+      "slack": {
+        "version": "4.2.0",
+        "options": {
+          "full_name": "slack"
+        }
+      },
+      "spotify": {
+        "version": "1.1.48.625.g1c87c7f7,1.1.48.625.g1c87c7f7-60",
+        "options": {
+          "full_name": "spotify"
+        }
+      },
+      "tableplus": {
+        "version": "3.12.0,354",
+        "options": {
+          "full_name": "tableplus"
+        }
+      },
+      "telegram": {
+        "version": "7.3,211334",
+        "options": {
+          "full_name": "telegram"
+        }
+      },
+      "tor-browser": {
+        "version": "10.0.7",
+        "options": {
+          "full_name": "tor-browser"
+        }
+      },
+      "transmission": {
+        "version": "3.00",
+        "options": {
+          "full_name": "transmission"
+        }
+      },
+      "vlc": {
+        "version": "3.0.11.1",
+        "options": {
+          "full_name": "vlc"
+        }
+      },
+      "wechat": {
+        "version": "2.5.0,15735",
+        "options": {
+          "full_name": "wechat"
+        }
+      },
+      "whatsapp": {
+        "version": "2.2049.10",
+        "options": {
+          "full_name": "whatsapp"
+        }
+      },
+      "zoomus": {
+        "version": "5.4.58903.1122,alias",
+        "options": {
+          "full_name": "zoomus"
+        }
+      }
+    }
+  },
+  "system": {
+    "macos": {
+      "big_sur": {
+        "HOMEBREW_VERSION": "2.7.0",
+        "HOMEBREW_PREFIX": "/usr/local",
+        "Homebrew/homebrew-core": "b0c4eda94c4d79df41c7981c75e584d6509af52d",
+        "CLT": "11.0.33.16",
+        "Xcode": "12.3",
+        "macOS": "11.1"
+      }
+    }
+  }
+}
