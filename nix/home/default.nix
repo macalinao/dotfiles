@@ -31,7 +31,6 @@
 
     niv
     nixfmt
-    cachix
     update-nix-fetchgit
     pypi2nix
 
