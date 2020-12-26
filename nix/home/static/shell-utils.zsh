@@ -1,6 +1,6 @@
 ghclone() {
     PROJ_WITH_ORG=$1
-    if [ ! echo "$1" | grep "/" ]; then
+    if [ ! $(echo "$1" | grep "/") ]; then
         PROJ_WITH_ORG=macalinao/$1
     fi
     DIR=$HOME/proj/$PROJ_WITH_ORG
@@ -9,11 +9,11 @@ ghclone() {
 
 ghnew() {
     PROJ_WITH_ORG=$1
-    if [ ! echo "$1" | grep "/" ]; then
+    if [ ! $(echo "$1" | grep "/") ]; then
         PROJ_WITH_ORG=macalinao/$1
     fi
     DIR=$HOME/proj/$PROJ_WITH_ORG
-    mkdir -p $DIR && cd $DIR && git init && hub create -p $PROJ_WITH_ORT
+    mkdir -p $DIR && cd $DIR && git init && hub create -p $PROJ_WITH_ORG
 }
 
 lsport() {
