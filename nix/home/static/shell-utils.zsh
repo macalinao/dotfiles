@@ -1,28 +1,19 @@
-gac() {
-    git add -A $(git root) && git commit -m "$@"
-}
-
-gi() {
-    curl -L -s https://www.gitignore.io/api/$@
-}
-
 ghclone() {
-    DIR=$HOME/proj/$1
-    mkdir -p $DIR && cd $DIR/.. && git clone git@github.com:$1.git && cd $DIR
+    PROJ_WITH_ORG=$1
+    if [ ! echo "$1" | grep "/" ]; then
+        PROJ_WITH_ORG=macalinao/$1
+    fi
+    DIR=$HOME/proj/$PROJ_WITH_ORG
+    mkdir -p $DIR && cd $DIR/.. && git clone git@github.com:$PROJ_WITH_ORG.git && cd $DIR
 }
 
 ghnew() {
-    DIR=$HOME/proj/$1
-    mkdir -p $DIR && cd $DIR && git init && hub create -p $1
-}
-
-ghnewu() {
-    ghnew macalinao/$1
-}
-
-ghgo() {
-    DIR=$HOME/proj/$1
-    cd $DIR
+    PROJ_WITH_ORG=$1
+    if [ ! echo "$1" | grep "/" ]; then
+        PROJ_WITH_ORG=macalinao/$1
+    fi
+    DIR=$HOME/proj/$PROJ_WITH_ORG
+    mkdir -p $DIR && cd $DIR && git init && hub create -p $PROJ_WITH_ORT
 }
 
 lsport() {
@@ -61,18 +52,6 @@ tunnelport() {
     fi
 }
 
-psgrep() {
-    if [ "$#" -ne 1 ]; then
-        echo "Finds matching processes and displays info."
-        echo "Usage: psgrep <string>"
-    else
-        ps aux | grep $1 | grep -v grep
-    fi
-}
-md2pdf() {
-    pandoc $1 -o `basename $1 .md`.pdf
-}
-    
 sfxl() {
   play -v 10.0 $DOTFILES/sfx/$1.ogg
 }
@@ -80,11 +59,3 @@ sfxl() {
 docker-stop-all() {
   docker container stop $(docker container ls -aq)
 }
-
-stop-conflicting-services() {
-  sudo systemctl stop postgresql
-  sudo systemctl stop openvpn-us-silicon-valley
-}
-
-bindkey '^[[1;3C' forward-word
-bindkey '^[[1;3D' backward-word

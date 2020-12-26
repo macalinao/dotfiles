@@ -116,10 +116,14 @@
     oh-my-zsh = {
       enable = true;
       theme = "robbyrussell";
-      plugins = [ "git" "yarn" ]
+      plugins = [ "git" "yarn" "gitignore" ]
         ++ (lib.optionals pkgs.stdenv.isDarwin [ "osx" ]);
     };
     initExtra = ''
+      ${lib.optionalString pkgs.stdenv.isDarwin ''
+        bindkey '^[[1;3C' forward-word
+        bindkey '^[[1;3D' backward-word
+      ''}
       ${builtins.readFile ./static/shell-utils.zsh};
       ${builtins.readFile "${pkgs.dotfiles-private.src}/helpers.zsh"}
     '';
@@ -135,6 +139,7 @@
     sessionVariables = { DOTFILES = "${config.home.homeDirectory}/dotfiles"; };
 
     shellAliases = {
+      gac = "git add -A $(git root) && git commit -m";
       gj = "cd $(git root)";
       gd = "git diff";
       gs = "gst";
