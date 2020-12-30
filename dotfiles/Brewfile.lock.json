@@ -5,16 +5,16 @@
         "revision": "19e06aec198dd9366486c668abaae7b548a3b305"
       },
       "homebrew/cask": {
-        "revision": "59d1f1313344b11f255b17cde5f97ea6e502d3fb"
+        "revision": "b1312a41fb41a1879774d19cb2288621dfd8bf33"
       },
       "homebrew/core": {
-        "revision": "7f68d27c010d406651f8f67de4c104139e90fce0"
+        "revision": "f7951b947b01328904f0f70e0fbf77d3469f9ead"
       },
       "homebrew/services": {
         "revision": "3b3a81e5617eef07ed38bf9e12d5ea9fea915f37"
       },
       "homebrew/cask-versions": {
-        "revision": "dcd834bcdd21a9f2923421f4d81b2de878de7286"
+        "revision": "4bd582c7101ef1c2e7fc6bd4a5e1fe173a51abac"
       }
     },
     "cask": {
@@ -168,18 +168,6 @@
           "full_name": "whatsapp"
         }
       },
-      "zoomus": {
-        "version": "5.4.58903.1122,alias",
-        "options": {
-          "full_name": "zoomus"
-        }
-      },
-      "adobe-creative-cloud": {
-        "version": "5.3.1.470",
-        "options": {
-          "full_name": "adobe-creative-cloud"
-        }
-      },
       "numi": {
         "version": "3.29.680",
         "options": {
@@ -199,7 +187,7 @@
       "big_sur": {
         "HOMEBREW_VERSION": "2.7.1",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "7f68d27c010d406651f8f67de4c104139e90fce0",
+        "Homebrew/homebrew-core": "f7951b947b01328904f0f70e0fbf77d3469f9ead",
         "CLT": "11.0.33.16",
         "Xcode": "12.3",
         "macOS": "11.1"
