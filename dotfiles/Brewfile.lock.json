@@ -2,16 +2,19 @@
   "entries": {
     "tap": {
       "homebrew/bundle": {
-        "revision": "830855e7b0bb123da2a6acda4275b8a5e378f331"
+        "revision": "19e06aec198dd9366486c668abaae7b548a3b305"
       },
       "homebrew/cask": {
-        "revision": "ab5fe9f90bf7c1e9267c0858539ad458f9f013a4"
+        "revision": "59d1f1313344b11f255b17cde5f97ea6e502d3fb"
       },
       "homebrew/core": {
-        "revision": "b0c4eda94c4d79df41c7981c75e584d6509af52d"
+        "revision": "7f68d27c010d406651f8f67de4c104139e90fce0"
       },
       "homebrew/services": {
-        "revision": "315ad6f1610401ccdd78c83534991541e531814b"
+        "revision": "3b3a81e5617eef07ed38bf9e12d5ea9fea915f37"
+      },
+      "homebrew/cask-versions": {
+        "revision": "dcd834bcdd21a9f2923421f4d81b2de878de7286"
       }
     },
     "cask": {
@@ -170,15 +173,33 @@
         "options": {
           "full_name": "zoomus"
         }
+      },
+      "adobe-creative-cloud": {
+        "version": "5.3.1.470",
+        "options": {
+          "full_name": "adobe-creative-cloud"
+        }
+      },
+      "numi": {
+        "version": "3.29.680",
+        "options": {
+          "full_name": "numi"
+        }
+      },
+      "zoom": {
+        "version": "5.4.59780.1220",
+        "options": {
+          "full_name": "zoom"
+        }
       }
     }
   },
   "system": {
     "macos": {
       "big_sur": {
-        "HOMEBREW_VERSION": "2.7.0",
+        "HOMEBREW_VERSION": "2.7.1",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "b0c4eda94c4d79df41c7981c75e584d6509af52d",
+        "Homebrew/homebrew-core": "7f68d27c010d406651f8f67de4c104139e90fce0",
         "CLT": "11.0.33.16",
         "Xcode": "12.3",
         "macOS": "11.1"
