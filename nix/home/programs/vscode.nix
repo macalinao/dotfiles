@@ -62,6 +62,12 @@ let
         sha256 = "1sfpsp8m24k9mmaq1dscpy25mn9f7a9qgsr7sz8flv9b0blb0jcy";
       }
       {
+        name = "python";
+        publisher = "ms-python";
+        version = "2020.12.424452561";
+        sha256 = "0zd0wdaip4nd9awr0h0m5afarzwhkfd8n9hzdahwf43sh15lqblf";
+      }
+      {
         name = "scala";
         publisher = "scala-lang";
         version = "0.2.0";
