@@ -68,6 +68,12 @@ let
         sha256 = "0zd0wdaip4nd9awr0h0m5afarzwhkfd8n9hzdahwf43sh15lqblf";
       }
       {
+        name = "jupyter";
+        publisher = "ms-toolsai";
+        version = "2020.12.414227025";
+        sha256 = "1zv5p37qsmp2ycdaizb987b3jw45604vakasrggqk36wkhb4bn1v";
+      }
+      {
         name = "scala";
         publisher = "scala-lang";
         version = "0.2.0";
@@ -250,6 +256,7 @@ in {
       };
       "[scala]" = { "editor.defaultFormatter" = "scalameta.metals"; };
       "[terraform]" = { "editor.defaultFormatter" = "mauve.terraform"; };
+      "[python]" = { "editor.defaultFormatter" = "ms-python.python"; };
 
       "vim.useSystemClipboard" = true;
       "window.zoomLevel" = 0;
