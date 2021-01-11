@@ -31,7 +31,6 @@
 
     niv
     nixfmt
-    update-nix-fetchgit
     pypi2nix
 
     imagemagick
