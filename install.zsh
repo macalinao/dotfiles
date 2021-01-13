@@ -108,6 +108,7 @@ if $IS_DARWIN; then
   if [ ! -e ~/.nixpkgs/darwin-configuration.nix ]; then
     sudo mv -f /etc/bashrc /etc/bashrc.orig
     sudo mv -f /etc/zshrc /etc/zshrc.orig
+    mkdir -p $HOME/.nixpkgs/
     export NIX_PATH=darwin-config=$HOME/.nixpkgs/darwin-configuration.nix:$HOME/.nix-defexpr/channels:$NIX_PATH
     cp $DOTFILES/nix/darwin/configuration.nix.template ~/.nixpkgs/darwin-configuration.nix
     $(nix-build '<darwin>' -A system --no-out-link)/sw/bin/darwin-rebuild build
