@@ -5,4 +5,5 @@
     ~/dotfiles/nix/darwin
   ];
   system.stateVersion = 4;
+  dotfiles.mode = "personal";
 }
