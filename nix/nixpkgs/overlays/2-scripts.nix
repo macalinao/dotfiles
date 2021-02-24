@@ -9,6 +9,7 @@ _: pkgs: {
       echo "Shell does not exist."
       exit 1
     fi
+    export SHELL=${pkgs.zsh}/bin/zsh
     ${pkgs.nix}/bin/nix-shell --command ${pkgs.zsh}/bin/zsh --arg pkgs $DOTFILES/nix/nixpkgs $SHELL_PATH
   '';
 
