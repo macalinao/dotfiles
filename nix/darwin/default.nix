@@ -1,7 +1,15 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
-{
-  imports = [ <home-manager/nix-darwin> ];
+with lib;
+let
+  userModule = { lib, config, ... }: {
+    options.dotfiles.mode =
+      mkOption { type = types.enum [ "personal" "work" ]; };
+  };
+
+  mode = config.dotfiles.mode;
+in {
+  imports = [ userModule <home-manager/nix-darwin> ];
   environment.systemPackages = with pkgs; [ vim kitty tor ];
 
   home-manager.users.igm = import ../home;
@@ -9,6 +17,48 @@
   system.keyboard = {
     enableKeyMapping = true;
     remapCapsLockToEscape = true;
+  };
+
+  homebrew = {
+    enable = true;
+    autoUpdate = true;
+    cleanup = "uninstall";
+
+    taps = [
+      "homebrew/bundle"
+      "homebrew/cask"
+      "homebrew/cask-versions"
+      "homebrew/core"
+      "homebrew/services"
+    ];
+
+    casks = [
+      "brave-browser"
+      "dashlane"
+      "discord"
+      "docker"
+      "figma"
+      "keybase"
+      "loom"
+      "ngrok"
+      "numi"
+      "postman"
+      "private-internet-access"
+      "slack"
+      "spotify"
+      "tableplus"
+      "zoom"
+    ] ++ (pkgs.lib.optionals (mode == "personal") [
+      "ledger-live"
+      "minecraft"
+      "signal"
+      "telegram"
+      "tor-browser"
+      "transmission"
+      "vlc"
+      "wechat"
+      "whatsapp"
+    ]) ++ (pkgs.lib.optionals (mode == "work") [ "loom" ]);
   };
 
   nix.package = pkgs.nix;
