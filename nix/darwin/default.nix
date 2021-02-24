@@ -58,7 +58,7 @@ in {
       "vlc"
       "wechat"
       "whatsapp"
-    ]) ++ (pkgs.lib.optionals (mode == "work") [ "loom" ]);
+    ]) ++ (pkgs.lib.optionals (mode == "work") [ "linear-linear" "loom" ]);
   };
 
   nix.package = pkgs.nix;
