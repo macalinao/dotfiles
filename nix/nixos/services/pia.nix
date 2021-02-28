@@ -50,7 +50,7 @@ in {
     init // {
       "${vpn_str file}" = {
         config = readFile "${pia-config}/config/${file}";
-        autoStart = (vpn_str file) == "us_texas";
+        autoStart = (vpn_str file) == "mexico";
         up =
           "echo nameserver $nameserver | ${pkgs.openresolv}/sbin/resolvconf -m 0 -a $dev";
         down = "${pkgs.openresolv}/sbin/resolvconf -d $dev";
