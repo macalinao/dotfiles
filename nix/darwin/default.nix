@@ -46,6 +46,7 @@ in {
       "private-internet-access"
       "slack"
       "spotify"
+      "superhuman"
       "tableplus"
       "zoom"
     ] ++ (pkgs.lib.optionals (mode == "personal") [
