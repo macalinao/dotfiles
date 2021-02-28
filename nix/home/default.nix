@@ -131,7 +131,10 @@
       then
         . $HOME/.nix-profile/etc/profile.d/nix.sh
       fi
-      . /etc/static/zshrc
+      if [ -e /etc/static/zshrc ];
+      then
+        . /etc/static/zshrc
+      fi
       . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
     '';
 

@@ -34,7 +34,7 @@
     # displayManager.startx.enable = true;
     dpi = 96;
 
-    xkbOptions = "caps:swapescape";
+    # xkbOptions = "caps:swapescape";
     desktopManager = {
       xterm.enable = false;
       xfce = { enable = true; };
@@ -61,4 +61,6 @@
     enable = true;
     storageDriver = "overlay2";
   };
+
+  services.lorri.enable = true;
 }
