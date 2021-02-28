@@ -61,8 +61,6 @@
   # should.
   system.stateVersion = "20.09"; # Did you read the comment?
 
-  nixpkgs.config.allowUnfree = true;
-
   environment.systemPackages = with pkgs; [
     git
     zsh
@@ -106,10 +104,10 @@
 
   home-manager.users.igm = import ../home;
 
-  nixpkgs.config.pulseaudio = true;
-
   nix.extraOptions = ''
     keep-outputs = true
     keep-derivations = true
   '';
+
+  nixpkgs = import ../nixpkgs/config.nix;
 }

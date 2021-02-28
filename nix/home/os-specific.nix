@@ -8,7 +8,7 @@ lib.mkMerge [
     xsession.windowManager.xmonad = {
       enable = true;
       enableContribAndExtras = true;
-      config = ../dotfiles/xmonad/xmonad.hs;
+      config = ../../dotfiles/xmonad/xmonad.hs;
     };
 
     home.packages = with pkgs; [
@@ -45,7 +45,6 @@ lib.mkMerge [
       minecraft
       openttd
 
-      image_optim
       keybase-gui
       ledger-live-desktop
 
