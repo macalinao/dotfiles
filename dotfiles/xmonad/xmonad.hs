@@ -8,7 +8,8 @@ main = xmonad
   $ docks
   $ ewmh def {
           terminal = "urxvt",
-          handleEventHook = fullscreenEventHook
+          handleEventHook = fullscreenEventHook,
+          modMask = mod4Mask
         }
         `additionalKeys`
         [
