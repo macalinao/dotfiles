@@ -8,7 +8,9 @@
 
   boot.initrd.availableKernelModules =
     [ "xhci_pci" "ahci" "usb_storage" "sd_mod" ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelParams = [ "radeon.si_support=0" "amdgpu.si_support=1" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
@@ -29,9 +31,11 @@
     [{ device = "/dev/disk/by-uuid/04701011-2d17-4b5e-b29f-ed7d52f10a81"; }];
 
   nix.maxJobs = lib.mkDefault 8;
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+  powerManagement.cpuFreqGovernor = "performance";
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = [ "nvidia" "amdgpu" ];
+
+  hardware.opengl.driSupport = true;
   hardware.opengl.driSupport32Bit = true;
   hardware.nvidia.prime = {
     sync.enable = true;

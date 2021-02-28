@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ <home-manager/nixos> ./services ];
+  imports = [ ./services ];
 
   networking.hostName = "ianix";
 
@@ -29,8 +29,8 @@
     proggyfonts
   ];
 
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
+  # virtualisation.virtualbox.host.enable = true;
+  # virtualisation.virtualbox.host.enableExtensionPack = true;
   users.extraGroups.vboxusers.members = [ "igm" ];
 
   fonts.fontconfig.dpi = 96;
@@ -60,8 +60,6 @@
   # servers. You should change this only after NixOS release notes say you
   # should.
   system.stateVersion = "20.09"; # Did you read the comment?
-
-  nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
     git
@@ -104,12 +102,10 @@
     };
   };
 
-  home-manager.users.igm = import ../home;
-
-  nixpkgs.config.pulseaudio = true;
-
   nix.extraOptions = ''
     keep-outputs = true
     keep-derivations = true
   '';
+
+  nixpkgs = import ../nixpkgs/config.nix;
 }
