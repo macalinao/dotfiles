@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ <home-manager/nixos> ./services ];
+  imports = [ ./services ];
 
   networking.hostName = "ianix";
 
@@ -101,8 +101,6 @@
       plex = { extraGroups = [ "transmission" ]; };
     };
   };
-
-  home-manager.users.igm = import ../home;
 
   nix.extraOptions = ''
     keep-outputs = true
