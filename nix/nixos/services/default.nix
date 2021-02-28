@@ -45,7 +45,11 @@
 
   # Yubikey
   services.pcscd.enable = true;
-  services.udev.packages = [ pkgs.yubikey-personalization ];
+  services.udev.packages = [
+    pkgs.yubikey-personalization
+    # ledger
+    pkgs.ledger-udev-rules
+  ];
 
   # Geth Archive node
   # systemd.services.geth = {
