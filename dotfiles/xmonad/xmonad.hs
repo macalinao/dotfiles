@@ -14,6 +14,7 @@ main = xmonad
         `additionalKeys`
         [
           ((mod1Mask, xK_p), spawn "rofi -show run"),
+          ((mod4Mask, xK_space), spawn "rofi -show calc -modi calc -no-show-match -no-sort"),
           ((mod1Mask, xK_BackSpace), spawn "chromium"),
           ((mod1Mask, xK_Delete), spawn "xscreensaver-command -lock"),
           ((mod1Mask, xK_z), spawn "rofi -show window"),

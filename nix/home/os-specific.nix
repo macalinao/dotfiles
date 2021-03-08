@@ -34,7 +34,6 @@ lib.mkMerge [
       postman
 
       # Etc
-      rofi
       rofi-systemd
 
       # Video
@@ -65,6 +64,13 @@ lib.mkMerge [
     services.xscreensaver.enable = true;
 
     programs.kitty = { enable = true; };
+
+    programs.rofi = {
+      enable = true;
+      package =
+        pkgs.rofi.override { plugins = with pkgs; [ rofi-emoji rofi-calc ]; };
+      theme = "Arc-Dark";
+    };
   })
 
   (lib.mkIf pkgs.stdenv.isDarwin {
