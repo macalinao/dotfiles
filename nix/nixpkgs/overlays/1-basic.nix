@@ -6,15 +6,6 @@ self: super: rec {
     token = dotfiles-private.factorio-token;
   };
 
-  discord = super.discord.override rec {
-    version = "0.0.13";
-    src = super.fetchurl {
-      url =
-        "https://dl.discordapp.net/apps/linux/${version}/discord-${version}.tar.gz";
-      sha256 = "0d5z6cbj9dg3hjw84pyg75f8dwdvi2mqxb9ic8dfqzk064ssiv7y";
-    };
-  };
-
   pypi2nix = super.fetchFromGitHub {
     owner = "nix-community";
     repo = "pypi2nix";
