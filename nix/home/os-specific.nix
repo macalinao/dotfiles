@@ -42,10 +42,11 @@ lib.mkMerge [
       # games
       # factorio
       minecraft
-      openttd
+      # openttd
 
       keybase-gui
       ledger-live-desktop
+      solaar
 
       xclip
       xsel
