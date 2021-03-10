@@ -138,7 +138,10 @@
       . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
     '';
 
-    sessionVariables = { DOTFILES = "${config.home.homeDirectory}/dotfiles"; };
+    sessionVariables = {
+      DOTFILES = "${config.home.homeDirectory}/dotfiles";
+      EDITOR = "${pkgs.vim}/bin/vim";
+    };
 
     shellAliases = {
       gac = "git add -A $(git root) && git commit -m";
