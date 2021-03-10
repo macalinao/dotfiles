@@ -155,17 +155,12 @@
       x = "exit";
       c = "clear";
 
-      tf = "terraform";
-      pbstack = "pbpaste | jq .stack_trace | unescape.py";
-      docker_killall = "docker kill $(docker ps -q)";
       vi = "vim";
       dylan = "keybase chat send dylanmacalinao";
       unescape = "jq -r .";
       localip =
         "ifconfig | grep -Eo 'inet (addr:)?([0-9]*.){3}[0-9]*' | grep -Eo '([0-9]*.){3}[0-9]*' | grep -v '127.0.0.1'";
       funky = "sfxl fortnite";
-
-      nsc = "cat package.json | jq .scripts";
     };
   };
 
