@@ -1,7 +1,9 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./services ];
+  imports = [ <home-manager/nixos> ./services ];
+
+  home-manager.users.igm = import ../home;
 
   networking.hostName = "ianix";
 
