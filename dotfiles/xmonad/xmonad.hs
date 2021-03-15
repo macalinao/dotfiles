@@ -13,11 +13,11 @@ myStartupHook = do
 
   spawnOn "3" "kitty tmux"
 
-  spawnOn "5" "discord"
+  spawnOn "5" "Discord"
   spawnOn "5" "slack"
   spawnOn "5" "keybase-gui"
-  spawnOn "5" "signal"
-  spawnOn "5" "telegram"
+  spawnOn "5" "signal-desktop"
+  spawnOn "5" "telegram-desktop"
 
   spawn "configure-monitors"
 
