@@ -2,11 +2,12 @@ import XMonad
 import XMonad.Actions.SpawnOn
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
-import qualified XMonad.StackSet as W
 import XMonad.Util.EZConfig
 
+myWorkspaces :: [[Char]]
 myWorkspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
+myStartupHook :: X ()
 myStartupHook = do
   spawnOn "1" "brave --profile-directory=Default"
 
@@ -20,6 +21,7 @@ myStartupHook = do
 
   spawn "configure-monitors"
 
+main :: IO ()
 main =
   xmonad $
     docks $
