@@ -31,7 +31,6 @@
 
   services.xserver = {
     enable = true;
-    # displayManager.startx.enable = true;
     dpi = 96;
 
     # xkbOptions = "caps:swapescape";
@@ -40,7 +39,14 @@
       xfce = { enable = true; };
     };
 
-    displayManager.defaultSession = "xfce";
+    displayManager = {
+      defaultSession = "xfce";
+      lightdm.enable = true;
+      autoLogin = {
+        enable = true;
+        user = "igm";
+      };
+    };
   };
 
   # Yubikey
@@ -50,16 +56,6 @@
     # ledger
     pkgs.ledger-udev-rules
   ];
-
-  # Geth Archive node
-  # systemd.services.geth = {
-  #   description = "Go ethereum daemon";
-  #   serviceConfig.ExecStartPre = activationScript;
-  #   serviceConfig.ExecStart = "${pkgs.go-ethereum}/bin/geth --syncmode full --gcmode archive --datadir /geth";
-  #   serviceConfig.Type = "simple";
-  #   serviceConfig.Restart = "on-failure";
-  #   after = [ "network.target" ];
-  # };
 
   virtualisation.docker = {
     enable = true;

@@ -1,0 +1,22 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.4.
+--
+-- see: https://github.com/sol/hpack
+
+name:           xmonad-igm
+version:        0.1.0
+synopsis:       xmonad setting
+build-type:     Simple
+
+executable xmonad
+  main-is: xmonad.hs
+  other-modules:
+      Paths_xmonad_igm
+  ghc-options: -Wall -fwarn-tabs -threaded -O2 -with-rtsopts=-N4
+  build-depends:
+      X11
+    , base
+    , xmonad
+    , xmonad-contrib
+  default-language: Haskell2010

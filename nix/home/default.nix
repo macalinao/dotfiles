@@ -19,6 +19,12 @@
     # Editors
     vim
 
+    # for xmonad
+    haskell-language-server
+    cabal-install
+    stack
+    ghc
+
     findutils
     coreutils-full
 

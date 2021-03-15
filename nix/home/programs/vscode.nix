@@ -92,18 +92,6 @@ let
         sha256 = "1ip7csdb1ssxj4bh4ml1y3z0b546aagfjfjh354cgjc5vazrk6rx";
       }
       {
-        name = "language-haskell";
-        publisher = "justusadam";
-        version = "2.6.0";
-        sha256 = "1891pg4x5qkh151pylvn93c4plqw6vgasa4g40jbma5xzq8pygr4";
-      }
-      {
-        name = "vscode-hie-server";
-        publisher = "alanz";
-        version = "0.0.27";
-        sha256 = "1mz0h5zd295i73hbji9ivla8hx02i4yhqcv6l4r23w3f07ql3i8h";
-      }
-      {
         name = "shell-format";
         publisher = "foxundermoon";
         version = "6.0.1";
@@ -229,18 +217,46 @@ let
         version = "0.1.0";
         sha256 = "1mzsqgv0zdlj886kh1yx1zr966yc8hqwmiqrb1532xbmgyy6adz3";
       }
+      {
+        name = "haskell";
+        publisher = "haskell";
+        version = "1.2.0";
+        sha256 = "0vxsn4s27n1aqp5pp4cipv804c9cwd7d9677chxl0v18j8bf7zly";
+      }
+      {
+        name = "language-haskell";
+        publisher = "justusadam";
+        version = "3.4.0";
+        sha256 = "0ab7m5jzxakjxaiwmg0jcck53vnn183589bbxh3iiylkpicrv67y";
+      }
     ] ++ [ bbenoist.Nix ]
     ++ (if pkgs.stdenv.isDarwin then [ ] else [ ms-vsliveshare.vsliveshare ]);
 in {
   programs.vscode = {
     enable = true;
     userSettings = {
-      "editor.defaultFormatter" = "esbenp.prettier-vscode";
       "editor.formatOnSave" = true;
       "editor.codeActionsOnSave" = {
         "source.fixAll.eslint" = true;
         "source.organizeImports" = true;
       };
+
+      "[typescript]" = {
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      };
+      "[typescriptreact]" = {
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      };
+      "[javascript]" = {
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      };
+      "[javascriptreact]" = {
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      };
+      "[graphql]" = { "editor.defaultFormatter" = "esbenp.prettier-vscode"; };
+      "[markdown]" = { "editor.defaultFormatter" = "esbenp.prettier-vscode"; };
+      "[yaml]" = { "editor.defaultFormatter" = "esbenp.prettier-vscode"; };
+      "[json]" = { "editor.defaultFormatter" = "esbenp.prettier-vscode"; };
 
       "[svg]" = { "editor.defaultFormatter" = "jock.svg"; };
       "[toml]" = { "editor.defaultFormatter" = "bodil.prettier-toml"; };

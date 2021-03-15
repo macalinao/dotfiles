@@ -1,0 +1,11 @@
+resolver: lts-17.5
+packages:
+  - .
+
+nix:
+  enable: true
+  packages:
+    - x11
+    - xorg.libXrandr
+    - xlibs.libXScrnSaver
+    - pkg-config
