@@ -190,8 +190,8 @@ let
       {
         name = "solidity";
         publisher = "juanblanco";
-        version = "0.0.76";
-        sha256 = "1aqnwrkpb9ly70rk0xh7gqbhq3lfwamkh7i8lzbz0b3z240xlg5x";
+        version = "0.0.108";
+        sha256 = "0hkimda7g55m0x75sw8ff2ilgvbi6740r1cx52dxfb4lljw4srjn";
       }
       {
         name = "vscode-jest";
