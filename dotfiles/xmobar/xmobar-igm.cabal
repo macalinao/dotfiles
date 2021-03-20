@@ -1,0 +1,23 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.4.
+--
+-- see: https://github.com/sol/hpack
+
+name:           xmobar-igm
+version:        0.1.0
+synopsis:       xmobar setting
+build-type:     Simple
+
+executable xmobar
+  main-is: xmobar.hs
+  other-modules:
+      Paths_xmobar_igm
+  ghc-options: -Wall -fwarn-tabs -threaded -O2 -with-rtsopts=-N4
+  build-depends:
+      X11
+    , base
+    , xmobar
+    , xmonad
+    , xmonad-contrib
+  default-language: Haskell2010

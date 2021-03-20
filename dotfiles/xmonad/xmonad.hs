@@ -1,8 +1,13 @@
+import Graphics.X11.ExtraTypes.XF86
+  ( xF86XK_AudioLowerVolume,
+    xF86XK_AudioMute,
+    xF86XK_AudioRaiseVolume,
+  )
 import XMonad
-import XMonad.Actions.SpawnOn
-import XMonad.Hooks.EwmhDesktops
-import XMonad.Hooks.ManageDocks
-import XMonad.Util.EZConfig
+import XMonad.Actions.SpawnOn (spawnOn)
+import XMonad.Hooks.EwmhDesktops (ewmh, fullscreenEventHook)
+import XMonad.Hooks.ManageDocks (docks)
+import XMonad.Util.EZConfig (additionalKeys)
 
 myWorkspaces :: [[Char]]
 myWorkspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
@@ -37,5 +42,9 @@ main =
                            ((mod4Mask, xK_space), spawn "rofi -show calc -modi calc -no-show-match -no-sort"),
                            ((mod1Mask, xK_Delete), spawn "xscreensaver-command -lock"),
                            ((mod1Mask, xK_z), spawn "rofi -show window"),
-                           ((mod1Mask .|. shiftMask, xK_p), spawn "rofi-systemd")
+                           ((mod1Mask .|. shiftMask, xK_p), spawn "rofi-systemd"),
+                           -- media keys
+                           ((0, xF86XK_AudioLowerVolume), spawn "amixer sset Master 2%-"),
+                           ((0, xF86XK_AudioRaiseVolume), spawn "amixer sset Master 2%+"),
+                           ((0, xF86XK_AudioMute), spawn "amixer sset Master toggle")
                          ]
