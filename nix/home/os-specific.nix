@@ -50,6 +50,7 @@ lib.mkMerge [
 
       xclip
       xsel
+      playerctl
 
       # scripts
       configure-monitors
