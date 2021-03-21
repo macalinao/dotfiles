@@ -25,6 +25,10 @@
     stack
     ghc
 
+    # i do a lot of JS programming
+    yarn
+    nodejs
+
     findutils
     coreutils-full
 
