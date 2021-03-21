@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [ ./os-specific.nix ./programs/vscode.nix ./dotfiles ];
+  imports = [ ./os-specific ./programs/vscode.nix ./dotfiles ];
 
   nixpkgs = import ../nixpkgs/config.nix;
 
