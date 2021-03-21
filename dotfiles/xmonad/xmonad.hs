@@ -2,7 +2,7 @@ import Graphics.X11.ExtraTypes.XF86
 import XMonad
 import XMonad.Actions.SpawnOn (spawnOn)
 import XMonad.Hooks.EwmhDesktops (ewmh, fullscreenEventHook)
-import XMonad.Hooks.ManageDocks (docks)
+import XMonad.Hooks.ManageDocks (avoidStruts, docks)
 import XMonad.Util.EZConfig (additionalKeys)
 
 myWorkspaces :: [[Char]]
@@ -23,6 +23,10 @@ myStartupHook = do
 
   spawn "configure-monitors"
 
+myLayoutHook = avoidStruts (tall)
+  where
+    tall = Tall 1 (3 / 100) (1 / 2)
+
 main :: IO ()
 main =
   xmonad $
@@ -33,7 +37,8 @@ main =
             handleEventHook = fullscreenEventHook,
             modMask = mod4Mask,
             workspaces = myWorkspaces,
-            startupHook = myStartupHook
+            startupHook = myStartupHook,
+            layoutHook = myLayoutHook
           }
         `additionalKeys` [ ((mod1Mask, xK_p), spawn "rofi -show run"),
                            ((mod4Mask, xK_space), spawn "rofi -show calc -modi calc -no-show-match -no-sort"),
