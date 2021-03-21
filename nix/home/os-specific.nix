@@ -73,6 +73,40 @@ lib.mkMerge [
         pkgs.rofi.override { plugins = with pkgs; [ rofi-emoji rofi-calc ]; };
       theme = "Arc-Dark";
     };
+
+    services.polybar = {
+      enable = true;
+      script = "polybar top &";
+      config = {
+        "bar/top" = {
+          font-0 = "Inter:pixelsize=12;0";
+          font-1 = "Noto Emoji:scale=10;0";
+          monitor = "DP-0";
+          width = "100%";
+          height = "3%";
+          radius = 0;
+          modules-center = "date";
+          modules-right = "alsa";
+        };
+
+        "module/alsa" = {
+          type = "internal/alsa";
+          format-volume = "<ramp-volume> <label-volume>";
+          label-muted = "🔇 muted";
+          ramp-volume-0 = "🔈";
+          ramp-volume-1 = "🔉";
+          ramp-volume-2 = "🔊";
+        };
+
+        "module/date" = {
+          type = "internal/date";
+          internal = 5;
+          date = "%d.%m.%y";
+          time = "%H:%M";
+          label = "%time%  %date%";
+        };
+      };
+    };
   })
 
   (lib.mkIf pkgs.stdenv.isDarwin {

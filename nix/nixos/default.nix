@@ -86,7 +86,7 @@
     xscreensaver
     tmux
 
-    haskellPackages.xmobar
+    polybarFull
   ];
 
   time.timeZone = "America/Chicago";
