@@ -1,5 +1,4 @@
 import Xmobar
-import Xmobar.Plugins.Monitors.Volume
 
 config :: Config
 config =

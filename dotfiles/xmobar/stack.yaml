@@ -17,3 +17,5 @@ nix:
     - xorg.libXrandr
     - xlibs.libXScrnSaver
     - pkg-config
+    - alsaLib
+    - xorg.libXpm
