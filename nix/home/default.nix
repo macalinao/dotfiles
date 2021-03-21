@@ -28,6 +28,7 @@
     # i do a lot of JS programming
     yarn
     nodejs
+    python
 
     findutils
     coreutils-full
