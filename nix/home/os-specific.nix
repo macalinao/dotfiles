@@ -79,12 +79,13 @@ lib.mkMerge [
       script = "polybar top &";
       config = {
         "bar/top" = {
-          font-0 = "Inter:pixelsize=12;0";
-          font-1 = "Noto Emoji:scale=10;0";
+          font-0 = "Inter:pixelsize=12;4";
+          font-1 = "Noto Emoji:scale=10;4";
           monitor = "DP-0";
           width = "100%";
           height = "3%";
           radius = 0;
+          modules-left = "time-cet";
           modules-center = "date";
           modules-right = "alsa";
         };
@@ -100,10 +101,16 @@ lib.mkMerge [
 
         "module/date" = {
           type = "internal/date";
-          internal = 5;
-          date = "%d.%m.%y";
-          time = "%H:%M";
-          label = "%time%  %date%";
+          internal = 1;
+          date = "%F";
+          time = "%T %Z";
+          label = "%date% %time%";
+        };
+
+        "module/time-cet" = {
+          type = "custom/script";
+          exec = ''TZ=CET ${pkgs.coreutils}/bin/date +"%F %T %Z"'';
+          interval = 1;
         };
       };
     };
