@@ -187,12 +187,13 @@ let
         version = "1.16.0";
         sha256 = "0v8dy7875ysg33sbv3m6xikl9kq9z8nylclizfr2dwyzwk9gkfx8";
       }
-      {
-        name = "solidity";
-        publisher = "juanblanco";
-        version = "0.0.108";
-        sha256 = "0hkimda7g55m0x75sw8ff2ilgvbi6740r1cx52dxfb4lljw4srjn";
-      }
+      # This is commented out because the solidity plugin is not immutable.
+      # {
+      #   name = "solidity";
+      #   publisher = "juanblanco";
+      #   version = "0.0.108";
+      #   sha256 = "0hkimda7g55m0x75sw8ff2ilgvbi6740r1cx52dxfb4lljw4srjn";
+      # }
       {
         name = "vscode-jest";
         publisher = "orta";
@@ -228,6 +229,18 @@ let
         publisher = "justusadam";
         version = "3.4.0";
         sha256 = "0ab7m5jzxakjxaiwmg0jcck53vnn183589bbxh3iiylkpicrv67y";
+      }
+      {
+        name = "vscode-go-inline-sql";
+        publisher = "jhnj";
+        version = "0.1.2";
+        sha256 = "1bg5rfh8rsqllxh6wi60yxl05s93whrilppq8p9gk8pj9zszy3sy";
+      }
+      {
+        name = "debugger-for-chrome";
+        publisher = "msjsdiag";
+        version = "4.12.12";
+        sha256 = "0nkzck3i4342dhswhpg4b3mn0yp23ipad228hwdf23z8b19p4b5g";
       }
     ] ++ [ bbenoist.Nix ]
     ++ (if pkgs.stdenv.isDarwin then [ ] else [ ms-vsliveshare.vsliveshare ]);
