@@ -249,10 +249,7 @@ in {
     enable = true;
     userSettings = {
       "editor.formatOnSave" = true;
-      "editor.codeActionsOnSave" = {
-        "source.fixAll.eslint" = true;
-        "source.organizeImports" = true;
-      };
+      "editor.codeActionsOnSave" = { "source.fixAll.eslint" = true; };
 
       "[typescript]" = {
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
