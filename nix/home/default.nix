@@ -8,7 +8,6 @@
   home.packages = with pkgs; [
     exa
     git
-    gh
     htop
     silver-searcher
     tmux
@@ -203,5 +202,10 @@
       bind % split-window -h -c "#{pane_current_path}"
       bind '"' split-window -v -c "#{pane_current_path}"
     '';
+  };
+
+  programs.gh = {
+    enable = true;
+    gitProtocol = "ssh";
   };
 }
