@@ -13,7 +13,7 @@ ghnew() {
         PROJ_WITH_ORG=macalinao/$1
     fi
     DIR=$HOME/proj/$PROJ_WITH_ORG
-    mkdir -p $DIR && cd $DIR && git init && hub create -p $PROJ_WITH_ORG
+    mkdir -p $DIR && cd $DIR && git init && gh repo create --private --confirm $PROJ_WITH_ORG
 }
 
 lsport() {

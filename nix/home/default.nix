@@ -8,7 +8,7 @@
   home.packages = with pkgs; [
     exa
     git
-    gitAndTools.hub
+    gh
     htop
     silver-searcher
     tmux
