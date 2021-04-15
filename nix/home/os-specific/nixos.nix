@@ -50,6 +50,7 @@
     xclip
     xsel
     playerctl
+    gnome3.seahorse
 
     # scripts
     configure-monitors
@@ -112,4 +113,6 @@
       };
     };
   };
+
+  services.gnome-keyring.enable = true;
 }
