@@ -50,6 +50,7 @@
     xclip
     xsel
     playerctl
+    gnome3.gnome-keyring
     gnome3.seahorse
 
     # scripts
