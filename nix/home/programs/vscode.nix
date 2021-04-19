@@ -242,6 +242,12 @@ let
         version = "4.12.12";
         sha256 = "0nkzck3i4342dhswhpg4b3mn0yp23ipad228hwdf23z8b19p4b5g";
       }
+      {
+        name = "discord-vscode";
+        publisher = "icrawl";
+        version = "5.6.2";
+        sha256 = "01r64py2aqwd7agx3ndy37qcbnirysdq8a504n48v743i0kxs3a5";
+      }
     ] ++ [ bbenoist.Nix ]
     ++ (if pkgs.stdenv.isDarwin then [ ] else [ ms-vsliveshare.vsliveshare ]);
 in {
