@@ -33,7 +33,7 @@
     enable = true;
     dpi = 96;
 
-    # xkbOptions = "caps:swapescape";
+    xkbOptions = "caps:swapescape";
     desktopManager = {
       xterm.enable = false;
       xfce = { enable = true; };
