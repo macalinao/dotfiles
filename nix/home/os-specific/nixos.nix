@@ -55,6 +55,7 @@
 
     # scripts
     configure-monitors
+    ngrok-1
   ];
 
   services.gpg-agent = {

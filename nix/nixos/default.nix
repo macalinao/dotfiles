@@ -31,10 +31,6 @@
     proggyfonts
   ];
 
-  # virtualisation.virtualbox.host.enable = true;
-  # virtualisation.virtualbox.host.enableExtensionPack = true;
-  users.extraGroups.vboxusers.members = [ "igm" ];
-
   fonts.fontconfig.dpi = 96;
 
   # This enables "fcitx" as your IME.  This is an easy-to-use IME.  It supports many different input methods.
@@ -119,4 +115,9 @@
   '';
 
   nixpkgs = import ../nixpkgs/config.nix;
+
+  # Virtualbox
+  users.extraGroups.vboxusers.members = [ "igm" ];
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
 }
