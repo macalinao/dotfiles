@@ -4,7 +4,6 @@
   imports = [
     # ./nginx.nix
     # ./wireguard.nix
-    ./pia.nix
     # ./transmission.nix
   ];
 
@@ -63,4 +62,6 @@
   };
 
   services.lorri.enable = true;
+
+  services.openvpn.servers = pkgs.pia-openvpn-servers;
 }
