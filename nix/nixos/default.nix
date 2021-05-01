@@ -97,15 +97,6 @@
         isNormalUser = true;
         extraGroups = [ "wheel" "docker" "transmission" ];
       };
-      sinai = {
-        name = "sinai";
-        home = "/home/sinai";
-        shell = pkgs.zsh;
-        isNormalUser = true;
-        extraGroups = [ "wheel" ];
-      };
-      nginx = { extraGroups = [ "transmission" ]; };
-      plex = { extraGroups = [ "transmission" ]; };
     };
   };
 
