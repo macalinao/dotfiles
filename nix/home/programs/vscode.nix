@@ -34,14 +34,14 @@ let
       {
         name = "vim";
         publisher = "vscodevim";
-        version = "1.17.1";
-        sha256 = "10f8jz52gr6k2553awa66m006wszj9z2rnshsic6h2aawxiz3zq1";
+        version = "1.20.2";
+        sha256 = "1cziklj7589d1kbfmla2if99n952pk7959hkhq37zch2i3m1qmi2";
       }
       {
         name = "prettier-vscode";
         publisher = "esbenp";
-        version = "5.7.1";
-        sha256 = "0f2q17d028j2c816rns9hi2w38ln3mssdcgzm6kc948ih252jflr";
+        version = "6.3.2";
+        sha256 = "0qxwk4lzpnkqp7s5jg7vc62dbhb8ij08464888irwqib5hqapzaj";
       }
       {
         name = "graphql-for-vscode";
@@ -52,8 +52,8 @@ let
       {
         name = "vscode-styled-components";
         publisher = "jpoissonnier";
-        version = "1.2.0";
-        sha256 = "1aljpvlswvmazhagiz5sckjh766q5vihyx7xc68ipwp773zx0zl0";
+        version = "1.5.2";
+        sha256 = "0jarhp0g4dj4fk1d5czj66rxf2xp3b73mbcz46i7457kbvbp0g7j";
       }
       {
         name = "metals";
@@ -82,8 +82,8 @@ let
       {
         name = "go";
         publisher = "golang";
-        version = "0.18.1";
-        sha256 = "0ldazkbi5hyqnq0rrkxiwl9n69pmh4q9rwazkg0hjh8b6pfrlrbg";
+        version = "0.24.2";
+        sha256 = "0ii3f4gql5j1xjcjbhsgi6bckp8d85akjzmw3fgs283g6kfjfzj7";
       }
       {
         name = "vscode-apollo";
@@ -136,8 +136,8 @@ let
       {
         name = "rust";
         publisher = "rust-lang";
-        version = "0.6.3";
-        sha256 = "1r5q1iclr64wmgglsr3na3sv0fha5di8xyccv7xwcv5jf8w5rz5y";
+        version = "0.7.8";
+        sha256 = "039ns854v1k4jb9xqknrjkj8lf62nfcpfn0716ancmjc4f0xlzb3";
       }
       {
         name = "vetur";
@@ -148,8 +148,8 @@ let
       {
         name = "vscode-eslint";
         publisher = "dbaeumer";
-        version = "2.1.13";
-        sha256 = "1adzgisljlq6xmmwrziawkgy941bf8i8nq4c9w3gnsbr20gd9pyi";
+        version = "2.1.20";
+        sha256 = "0xk8pxv5jy89fshda845iswryvmgv0yxr11xsdbvd9zdczqhg7wc";
       }
       {
         name = "better-toml";
@@ -241,6 +241,12 @@ let
         publisher = "msjsdiag";
         version = "4.12.12";
         sha256 = "0nkzck3i4342dhswhpg4b3mn0yp23ipad228hwdf23z8b19p4b5g";
+      }
+      {
+        name = "xd";
+        publisher = "Adobe";
+        version = "1.2.2";
+        sha256 = "1rvp56ak8q358jb838870ywljcp1r206sj7c0d5bgzvxqlbmyd1l";
       }
     ] ++ [ bbenoist.Nix ]
     ++ (if pkgs.stdenv.isDarwin then [ ] else [ ms-vsliveshare.vsliveshare ]);
