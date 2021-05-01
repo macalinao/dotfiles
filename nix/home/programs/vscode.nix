@@ -64,8 +64,8 @@ let
       {
         name = "python";
         publisher = "ms-python";
-        version = "2020.12.424452561";
-        sha256 = "0zd0wdaip4nd9awr0h0m5afarzwhkfd8n9hzdahwf43sh15lqblf";
+        version = "2021.4.765268190";
+        sha256 = "0x7dn3vc83mph2gaxgx26bn7g71hqdpp1mpizmd4jqcrknc4d7ci";
       }
       {
         name = "jupyter";
@@ -100,20 +100,20 @@ let
       {
         name = "vscode-github";
         publisher = "knisterpeter";
-        version = "0.30.2";
-        sha256 = "0axq6a8lgf17kwmsw3fj5g4n0wgwr7x6qfxshaqbl6ac6p1pnd9v";
+        version = "0.30.6";
+        sha256 = "0lypm6j6i5y81s29lf8nwgrvhzk1fkarsyh9z7hxiz2s7cnzi94i";
       }
       {
         name = "vscode-pull-request-github";
         publisher = "github";
-        version = "0.8.0";
-        sha256 = "0gk9jb8i894jx7a0wjx3w220kh55gyczrfi01b3dcdnwi8gvh80n";
+        version = "0.25.1";
+        sha256 = "0m00ms3am0pd56jpi2c9vdmgmlj9a5b8zcwzhx11jrh0w47ydc5l";
       }
       {
         name = "vscode-spotify";
         publisher = "shyykoserhiy";
-        version = "3.2.0";
-        sha256 = "0zgqvqk6rm4fs1rcdbb42k989gzpc5h4nmph2bwrgdv16gjmn6gd";
+        version = "3.2.1";
+        sha256 = "14d68rcnjx4a20r0ps9g2aycv5myyhks5lpfz0syr2rxr4kd1vh6";
       }
       {
         name = "indent-rainbow";
@@ -178,8 +178,8 @@ let
       {
         name = "tabnine-vscode";
         publisher = "TabNine";
-        version = "2.8.3";
-        sha256 = "04zzkfgb4y8dvp83i2h3mf6fpk3kkavzpgz8za622wnl6g0gqlvr";
+        version = "3.4.4";
+        sha256 = "1k5aygmlx41cf4fbw2qps5f10hsnbikvglgc7j03hn6jx3022vv8";
       }
       {
         name = "pgformatter";
