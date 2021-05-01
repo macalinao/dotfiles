@@ -16,14 +16,8 @@ let
       {
         name = "vscode-docker";
         publisher = "ms-azuretools";
-        version = "1.7.0";
-        sha256 = "0xl5y36kwh59mnb9j1pnsl5bn62z4n4lvsp31r1xscxrs9vh1ngb";
-      }
-      {
-        name = "gitlens";
-        publisher = "eamodio";
-        version = "10.2.3";
-        sha256 = "00pddp8jlmqmc9c50vwm6bnkwg9gvvfn8mvrz1l9fl1w88ia1nz0";
+        version = "1.12.1";
+        sha256 = "01ba220ykyrfflx7lb4j0n8cwbkny8kn19a26sadj6ydh34qy3bk";
       }
       {
         name = "vscode-proto3";
@@ -110,12 +104,6 @@ let
         sha256 = "0m00ms3am0pd56jpi2c9vdmgmlj9a5b8zcwzhx11jrh0w47ydc5l";
       }
       {
-        name = "vscode-spotify";
-        publisher = "shyykoserhiy";
-        version = "3.2.1";
-        sha256 = "14d68rcnjx4a20r0ps9g2aycv5myyhks5lpfz0syr2rxr4kd1vh6";
-      }
-      {
         name = "indent-rainbow";
         publisher = "oderwat";
         version = "7.4.0";
@@ -132,12 +120,6 @@ let
         publisher = "wix";
         version = "2.12.0";
         sha256 = "1g6k8fxfa49ky8v3l5n6l7p6gnjf9sdd56crcj33p08gb8pyy86l";
-      }
-      {
-        name = "rust";
-        publisher = "rust-lang";
-        version = "0.7.8";
-        sha256 = "039ns854v1k4jb9xqknrjkj8lf62nfcpfn0716ancmjc4f0xlzb3";
       }
       {
         name = "vetur";
@@ -248,8 +230,14 @@ let
         version = "1.2.2";
         sha256 = "1rvp56ak8q358jb838870ywljcp1r206sj7c0d5bgzvxqlbmyd1l";
       }
-    ] ++ [ bbenoist.Nix ]
-    ++ (if pkgs.stdenv.isDarwin then [ ] else [ ms-vsliveshare.vsliveshare ]);
+    ] ++ [
+      bbenoist.Nix
+      matklad.rust-analyzer
+      shyykoserhiy.vscode-spotify
+      tomoki1207.pdf
+      eamodio.gitlens
+      editorconfig.editorconfig
+    ] ++ (if pkgs.stdenv.isDarwin then [ ] else [ ms-vsliveshare.vsliveshare ]);
 in {
   programs.vscode = {
     enable = true;
