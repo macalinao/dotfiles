@@ -8,7 +8,9 @@
 
   boot.initrd.availableKernelModules =
     [ "xhci_pci" "ahci" "usb_storage" "sd_mod" ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelParams = [ "radeon.si_support=0" "amdgpu.si_support=1" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
@@ -31,7 +33,7 @@
   nix.maxJobs = lib.mkDefault 8;
   powerManagement.cpuFreqGovernor = "performance";
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = [ "nvidia" "amdgpu" ];
 
   hardware.opengl.driSupport = true;
   hardware.opengl.driSupport32Bit = true;

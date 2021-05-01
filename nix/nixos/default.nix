@@ -83,6 +83,7 @@
     tmux
 
     polybarFull
+    pciutils
   ];
 
   time.timeZone = "America/Chicago";
