@@ -56,6 +56,7 @@
     # scripts
     configure-monitors
     ngrok-1
+    vagrant
   ];
 
   services.gpg-agent = {

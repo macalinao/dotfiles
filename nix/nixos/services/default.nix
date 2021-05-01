@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./nginx.nix
+    # ./nginx.nix
     # ./wireguard.nix
     ./pia.nix
     # ./transmission.nix
