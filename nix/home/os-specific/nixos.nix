@@ -4,6 +4,8 @@
   xsession.enable = true;
   xsession.profileExtra = "$HOME/dotfiles/bin/desktop_monitors.sh";
 
+  xdg.configFile = pkgs.dotfiles-private.xdgFiles;
+
   xsession.windowManager.xmonad = {
     enable = true;
     enableContribAndExtras = true;
