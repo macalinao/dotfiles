@@ -166,6 +166,7 @@
       c = "clear";
 
       vi = "vim";
+      bear = "keybase chat send bearcott";
       dylan = "keybase chat send dylanmacalinao";
       unescape = "jq -r .";
       localip =

@@ -2,5 +2,8 @@
 
 lib.mkMerge [
   ((import ./common.nix) { inherit config pkgs lib; })
-  { home.file = pkgs.dotfiles-private.homeFiles; }
+  {
+    home.file = pkgs.dotfiles-private.homeFiles;
+    xdg.configFile = pkgs.dotfiles-private.xdgFiles;
+  }
 ]
