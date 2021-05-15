@@ -112,4 +112,7 @@
   users.extraGroups.vboxusers.members = [ "igm" ];
   virtualisation.virtualbox.host.enable = true;
   virtualisation.virtualbox.host.enableExtensionPack = true;
+
+  # keyring
+  services.gnome3.gnome-keyring.enable = true;
 }

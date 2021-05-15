@@ -183,12 +183,6 @@ let
         sha256 = "1qhhy3q5lmdmgw25vmyx69h37i2vbpjxca46jra86vm6kdwglc36";
       }
       {
-        name = "auto-dark-mode";
-        publisher = "LinusU";
-        version = "0.1.7";
-        sha256 = "1sjzm6x887pj92bmdjzqk3xk0qy0v0zrvlclync80pzfhcy8jsif";
-      }
-      {
         name = "svg";
         publisher = "jock";
         version = "1.4.1";
@@ -237,6 +231,7 @@ let
       tomoki1207.pdf
       eamodio.gitlens
       editorconfig.editorconfig
+      brettm12345.nixfmt-vscode
     ] ++ (if pkgs.stdenv.isDarwin then [ ] else [ ms-vsliveshare.vsliveshare ]);
 in {
   programs.vscode = {
@@ -244,29 +239,13 @@ in {
     userSettings = {
       "editor.formatOnSave" = true;
       "editor.codeActionsOnSave" = { "source.fixAll.eslint" = true; };
-
-      "[typescript]" = {
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      };
-      "[typescriptreact]" = {
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      };
-      "[javascript]" = {
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      };
-      "[javascriptreact]" = {
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      };
-      "[graphql]" = { "editor.defaultFormatter" = "esbenp.prettier-vscode"; };
-      "[markdown]" = { "editor.defaultFormatter" = "esbenp.prettier-vscode"; };
-      "[yaml]" = { "editor.defaultFormatter" = "esbenp.prettier-vscode"; };
-      "[json]" = { "editor.defaultFormatter" = "esbenp.prettier-vscode"; };
+      "editor.defaultFormatter" = "esbenp.prettier-vscode";
 
       "[svg]" = { "editor.defaultFormatter" = "jock.svg"; };
       "[toml]" = { "editor.defaultFormatter" = "bodil.prettier-toml"; };
       "[nix]" = { "editor.tabSize" = 2; };
       "[go]" = { "editor.defaultFormatter" = "golang.go"; };
-      "[rust]" = { "editor.defaultFormatter" = "rust-lang.rust"; };
+      "[rust]" = { "editor.defaultFormatter" = "matklad.rust-analyzer"; };
       "[sql]" = {
         "editor.defaultFormatter" = "bradymholt.pgformatter";
         "editor.formatOnSave" = false;
@@ -286,22 +265,15 @@ in {
       };
 
       # frontend stuff
-      "typescript.updateImportsOnFileMove.enabled" = "never";
       "eslint.validate" =
         [ "javascript" "javascriptreact" "typescript" "typescriptreact" ];
-      "prettier.requireConfig" = true;
 
       "gitlens.advanced.messages"."suppressShowKeyBindingsNotice" = true;
-      "gitlens.views.fileHistory.enabled" = true;
       "gitlens.views.lineHistory.enabled" = true;
 
       "keyboard.dispatch" = "keyCode";
-
-      "autoDarkMode" = {
-        "darkTheme" = "Default Dark+";
-        "lightTheme" = "Default Light+";
-      };
       "workbench.colorTheme" = "Default Dark+";
+      "tabnine.experimentalAutoImports" = true;
     };
   };
 
