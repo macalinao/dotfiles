@@ -101,10 +101,14 @@
     };
   };
 
-  nix.extraOptions = ''
-    keep-outputs = true
-    keep-derivations = true
-  '';
+  nix = {
+    package = pkgs.nixUnstable;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+      keep-outputs = true
+      keep-derivations = true
+    '';
+  };
 
   nixpkgs = import ../nixpkgs/config.nix;
 
