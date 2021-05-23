@@ -19,17 +19,12 @@
   outputs = { nixpkgs, home-manager, dotfiles-private, flake-utils
     , pre-commit-hooks, ... }:
     let
-      private = import ./nix/dotfiles-private {
-        inherit (nixpkgs) lib;
-        raw = import dotfiles-private { };
-      };
-      nixpkgs-config =
-        (import ./nix/nixpkgs/config.nix { overlays = private.overlays; });
       systemConfigs = flake-utils.lib.eachDefaultSystem (system:
         let
+          nixpkgs-config-public = (import ./nix/nixpkgs/config.nix { });
           pkgs = import nixpkgs {
             inherit system;
-            inherit (nixpkgs-config) config overlays;
+            inherit (nixpkgs-config-public) config overlays;
           };
         in {
           devShell = import ./shell.nix {
@@ -38,14 +33,33 @@
           };
         });
     in systemConfigs // {
-      nixosConfigurations.primary = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          { nixpkgs = nixpkgs-config; }
-          ./nix/nixos/configuration.nix
-          ./nix/nixos/machines/ian-nixdesktop.nix
-          home-manager.nixosModules.home-manager
-        ];
+      nixosConfigurations = {
+        ci = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            { nixpkgs = import ./nix/nixpkgs/config.nix { }; }
+            ./nix/nixos/configuration.nix
+            ./nix/nixos/machines/ian-nixdesktop.nix
+            home-manager.nixosModules.home-manager
+          ];
+        };
+        primary = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            (let
+              private = import ./nix/dotfiles-private {
+                inherit (nixpkgs) lib;
+                raw = import dotfiles-private { };
+              };
+              nixpkgs-config = (import ./nix/nixpkgs/config.nix {
+                overlays = private.overlays;
+              });
+            in { nixpkgs = nixpkgs-config; })
+            ./nix/nixos/configuration.nix
+            ./nix/nixos/machines/ian-nixdesktop.nix
+            home-manager.nixosModules.home-manager
+          ];
+        };
       };
     };
 }
