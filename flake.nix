@@ -33,33 +33,29 @@
           };
         });
     in systemConfigs // {
-      nixosConfigurations = {
-        ci = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            { nixpkgs = import ./nix/nixpkgs/config.nix { }; }
-            ./nix/nixos/configuration.nix
-            ./nix/nixos/machines/ian-nixdesktop.nix
-            home-manager.nixosModules.home-manager
-          ];
-        };
-        primary = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            (let
-              private = import ./nix/dotfiles-private {
-                inherit (nixpkgs) lib;
-                raw = import dotfiles-private { };
-              };
-              nixpkgs-config = (import ./nix/nixpkgs/config.nix {
-                overlays = private.overlays;
-              });
-            in { nixpkgs = nixpkgs-config; })
-            ./nix/nixos/configuration.nix
-            ./nix/nixos/machines/ian-nixdesktop.nix
-            home-manager.nixosModules.home-manager
-          ];
-        };
+      nixosConfigurations = let
+        mkSystem = overlays:
+          nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            modules = [
+              {
+                nixpkgs = import ./nix/nixpkgs/config.nix { inherit overlays; };
+              }
+              ./nix/nixos/configuration.nix
+              ./nix/nixos/machines/ian-nixdesktop.nix
+              home-manager.nixosModules.home-manager
+            ];
+          };
+      in {
+        ci = mkSystem [ ];
+        primary = let
+          private = import ./nix/dotfiles-private {
+            inherit (nixpkgs) lib;
+            raw = import dotfiles-private { };
+          };
+          nixpkgs-config =
+            (import ./nix/nixpkgs/config.nix { overlays = private.overlays; });
+        in mkSystem private.overlays;
       };
     };
 }
