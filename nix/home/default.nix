@@ -42,6 +42,7 @@
     niv
     nixfmt
     pypi2nix
+    cachix
 
     imagemagick
 
