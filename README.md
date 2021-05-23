@@ -20,6 +20,12 @@ If you're on NixOS and don't have zsh installed, first run:
 nix-shell -p zsh --command zsh
 ```
 
+### Updating with flakes
+
+```bash
+sudo nixos-rebuild switch --flake '.#primary'
+```
+
 ## License
 
 MIT

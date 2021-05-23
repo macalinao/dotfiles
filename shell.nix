@@ -1,4 +1,5 @@
-with import ./nix/nixpkgs { };
+{ pkgs, nix-pre-commit-hooks }:
+with pkgs;
 let
   pre-commit-check = nix-pre-commit-hooks.run {
     src = ./.;

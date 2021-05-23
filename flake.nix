@@ -8,9 +8,12 @@
       url = "path:../dotfiles-private";
       flake = false;
     };
+    flake-utils.url = "github:numtide/flake-utils";
+    pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
   };
 
-  outputs = { nixpkgs, home-manager, dotfiles-private, ... }:
+  outputs = { nixpkgs, home-manager, dotfiles-private, flake-utils
+    , pre-commit-hooks, ... }:
     let
       nixpkgs-config = (import ./nix/nixpkgs/config.nix {
         overlays = [
@@ -22,12 +25,20 @@
           })
         ];
       });
-      myNixpkgs = import nixpkgs {
-        inherit (nixpkgs-config) config overlays;
-        system = "x86_64-linux";
-      };
-    in {
-      nixosConfigurations.ian-nixdesktop = nixpkgs.lib.nixosSystem {
+      systemConfigs = flake-utils.lib.eachDefaultSystem (system:
+        let
+          pkgs = import nixpkgs {
+            inherit system;
+            inherit (nixpkgs-config) config overlays;
+          };
+        in {
+          devShell = import ./shell.nix {
+            inherit pkgs;
+            nix-pre-commit-hooks = pre-commit-hooks.lib.${system};
+          };
+        });
+    in systemConfigs // {
+      nixosConfigurations.primary = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           { nixpkgs = nixpkgs-config; }
