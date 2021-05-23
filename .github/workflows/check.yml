@@ -17,6 +17,10 @@ jobs:
           install_options: "--tarball-url-prefix https://nixos-nix-install-tests.cachix.org/serve"
           extra_nix_config: |
             experimental-features = nix-command flakes
+      - uses: cachix/cachix-action@v10
+        with:
+          name: igm
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       - run: nix -Lv flake check
       - run: nix -Lv build ".#nixosConfigurations.NixOS.config.system.build.toplevel"
       - run: nix -Lv develop -c echo OK
