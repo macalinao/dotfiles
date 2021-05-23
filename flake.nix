@@ -4,27 +4,27 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
     dotfiles-private = {
       url = "path:../dotfiles-private";
       flake = false;
     };
     flake-utils.url = "github:numtide/flake-utils";
+
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
+    pre-commit-hooks.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { nixpkgs, home-manager, dotfiles-private, flake-utils
     , pre-commit-hooks, ... }:
     let
-      nixpkgs-config = (import ./nix/nixpkgs/config.nix {
-        overlays = [
-          (self: super: {
-            dotfiles-private = import ./nix/dotfiles-private {
-              inherit (super) lib;
-              raw = import dotfiles-private { };
-            };
-          })
-        ];
-      });
+      private = import ./nix/dotfiles-private {
+        inherit (nixpkgs) lib;
+        raw = import dotfiles-private { };
+      };
+      nixpkgs-config =
+        (import ./nix/nixpkgs/config.nix { overlays = private.overlays; });
       systemConfigs = flake-utils.lib.eachDefaultSystem (system:
         let
           pkgs = import nixpkgs {
