@@ -1,10 +1,11 @@
 name: "Check & Cachix"
+
 on:
   push:
-    branches:
-      - core
-      - trying
-      - staging
+    branches: [master]
+  pull_request:
+    branches: [master]
+
 jobs:
   check:
     runs-on: ubuntu-latest
