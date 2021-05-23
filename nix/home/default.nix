@@ -3,7 +3,7 @@
 {
   imports = [ ./os-specific ./programs/vscode.nix ./dotfiles ];
 
-  nixpkgs = import ../nixpkgs/config.nix;
+  # nixpkgs = import ../nixpkgs/config.nix;
 
   home.packages = with pkgs; [
     exa
@@ -135,7 +135,7 @@
         bindkey '^[[1;3D' backward-word
       ''}
       ${builtins.readFile ./static/shell-utils.zsh};
-      ${builtins.readFile "${pkgs.dotfiles-private.src}/helpers.zsh"}
+      source ${pkgs.dotfiles-private.src}/helpers.zsh
     '';
     envExtra = ''
       if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ];

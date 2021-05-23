@@ -1,9 +1,7 @@
 self: super: rec {
-  dotfiles-private = import ../../dotfiles-private { lib = super.lib; };
-
   factorio = super.factorio.override {
     username = "albireox";
-    token = dotfiles-private.factorio-token;
+    token = super.dotfiles-private.factorio-token;
   };
 
   pypi2nix = super.fetchFromGitHub {

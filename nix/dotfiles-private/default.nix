@@ -1,14 +1,6 @@
-{ lib, ... }:
+{ raw, lib, ... }:
 
-let
-  raw = (if (builtins.pathExists ../../../dotfiles-private) then
-    (import ../../../dotfiles-private { inherit lib; })
-  else {
-    profiles = { };
-    factorio-token = "";
-    homeFiles = { };
-  });
-in raw // {
+raw // {
   profiles = lib.mapAttrs (profile: profileInfo:
     {
       githubOrganization = profile;

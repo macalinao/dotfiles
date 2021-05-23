@@ -1,6 +1,6 @@
 { config, pkgs, lib }:
 
-let dotfiles = "${config.home.homeDirectory}/dotfiles/dotfiles";
+let dotfiles = ../../../dotfiles;
 in lib.mkMerge [
   { home.file.".vimrc".source = "${dotfiles}/vimrc"; }
   (lib.mkIf pkgs.stdenv.isLinux {
