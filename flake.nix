@@ -47,7 +47,7 @@
             ] ++ modules;
           };
       in {
-        ci = mkSystem [ ];
+        ci = mkSystem { };
         primary = let
           private = import ./nix/dotfiles-private {
             inherit (nixpkgs) lib;
