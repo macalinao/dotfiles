@@ -82,7 +82,7 @@
     lfs.enable = true;
     signing = {
       signByDefault = true;
-      key = "F126F8E8";
+      key = "5A246DACA92D4485";
     };
     userName = "Ian Macalinao";
     userEmail = "github@igm.pub";
