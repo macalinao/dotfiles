@@ -58,7 +58,9 @@
         in mkSystem {
           overlays = private.overlays;
           modules = [
-            ({ pkgs }: { services.openvpn.servers = pkgs.pia-openvpn-servers; })
+            ({ pkgs, ... }: {
+              services.openvpn.servers = pkgs.pia-openvpn-servers;
+            })
           ];
         };
       };
