@@ -20,7 +20,10 @@ in config // {
         username = "albireox";
         token = config.factorio-token;
       };
+      pia-openvpn-servers = import ./pia.nix {
+        inherit (super) lib stdenv openresolv pia-config;
+        dotfiles-private = config;
+      };
     })
-    (import ./overlays/3-pia.nix)
   ];
 }

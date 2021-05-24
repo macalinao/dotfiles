@@ -34,12 +34,14 @@
         });
     in systemConfigs // {
       nixosConfigurations = let
-        mkSystem = { overlays ? [ ], modules ? [ ] }:
+        mkSystem = { additionalOverlays ? [ ], modules ? [ ] }:
           nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             modules = [
               {
-                nixpkgs = import ./nix/nixpkgs/config.nix { inherit overlays; };
+                nixpkgs = import ./nix/nixpkgs/config.nix {
+                  inherit additionalOverlays;
+                };
               }
               ./nix/nixos/configuration.nix
               ./nix/nixos/machines/ian-nixdesktop.nix
@@ -53,10 +55,11 @@
             inherit (nixpkgs) lib;
             raw = import dotfiles-private { };
           };
-          nixpkgs-config =
-            (import ./nix/nixpkgs/config.nix { overlays = private.overlays; });
+          nixpkgs-config = (import ./nix/nixpkgs/config.nix {
+            additionalOverlays = private.overlays;
+          });
         in mkSystem {
-          overlays = private.overlays;
+          additionalOverlays = private.overlays;
           modules = [
             ({ pkgs, ... }: {
               services.openvpn.servers = pkgs.pia-openvpn-servers;
