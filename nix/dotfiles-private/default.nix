@@ -1,7 +1,8 @@
 { raw, lib, ... }:
 
 let
-  config = raw // {
+  defaultConfig = { factorio-token = ""; };
+  config = defaultConfig // raw // {
     profiles = lib.mapAttrs (profile: profileInfo:
       {
         githubOrganization = profile;
