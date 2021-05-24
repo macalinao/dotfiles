@@ -110,7 +110,7 @@
           ''}
         '';
       }}";
-      condition = "gitdir:~/proj/${profileInfo.githubOrganization}/";
+      condition = "gitdir/i:~/proj/${profileInfo.githubOrganization}/";
     }) pkgs.dotfiles-private.profiles;
   };
 
