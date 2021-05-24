@@ -14,7 +14,6 @@ let
 in config // {
   # private overlays
   overlays = [
-    (self: super: { dotfiles-private = config; })
     (self: super: {
       factorio = super.factorio.override {
         username = "albireox";

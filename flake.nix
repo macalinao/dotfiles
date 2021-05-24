@@ -55,9 +55,6 @@
             inherit (nixpkgs) lib;
             raw = import dotfiles-private { };
           };
-          nixpkgs-config = (import ./nix/nixpkgs/config.nix {
-            additionalOverlays = private.overlays;
-          });
         in mkSystem {
           additionalOverlays = private.overlays;
           modules = [
