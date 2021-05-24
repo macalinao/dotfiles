@@ -29,6 +29,8 @@
     nodejs
     python
 
+    docker-compose
+
     findutils
     coreutils-full
 
