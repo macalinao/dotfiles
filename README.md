@@ -12,15 +12,11 @@ Dotfiles and most program installations are managed by the [Nix package manager]
 
 ## Installation
 
-Run `zsh scripts/install.zsh`. This cross-platform script should set up anything relevant.
+Run `./install.sh`. This cross-platform script should set up anything relevant.
 
-If you're on NixOS and don't have zsh installed, first run:
+### System updates
 
-```
-nix-shell -p zsh --command zsh
-```
-
-### Updating with flakes
+Update the system using the following command:
 
 ```bash
 sudo nixos-rebuild switch --flake "$HOME/dotfiles/private#primary"
@@ -28,7 +24,7 @@ sudo nixos-rebuild switch --flake "$HOME/dotfiles/private#primary"
 
 ### Locking
 
-Git artifacts must be deleted before generating the lockfile. Run this after committing:
+Git artifacts must be deleted before generating the flake lockfiles. Run this after committing:
 
 ```bash
 git clean -fdX
