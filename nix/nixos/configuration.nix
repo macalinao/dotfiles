@@ -111,6 +111,7 @@
       keep-outputs = true
       keep-derivations = true
     '';
+    trustedUsers = [ "root" "igm" ];
   };
 
   # Virtualbox
