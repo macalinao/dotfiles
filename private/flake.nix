@@ -21,11 +21,7 @@
         };
       in igm.lib.mkSystem {
         additionalOverlays = private.overlays;
-        modules = [
-          ({ pkgs, ... }: {
-            services.openvpn.servers = pkgs.pia-openvpn-servers;
-          })
-        ] ++ private.modules;
+        modules = private.modules;
       };
     };
   };
