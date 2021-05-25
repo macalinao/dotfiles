@@ -19,16 +19,16 @@ in config // {
         username = "albireox";
         token = config.factorio-token;
       };
-      pia-openvpn-servers = import ./pia.nix {
-        inherit (super) lib stdenv openresolv pia-config;
-        dotfiles-private = config;
-      };
     })
   ];
   modules = [
     ({ pkgs, lib, ... }: {
       home-manager.users.igm = import ./home.nix {
         inherit lib pkgs;
+        dotfiles-private = config;
+      };
+      services.openvpn.servers = import ./pia.nix {
+        inherit (pkgs) lib stdenv openresolv pia-config;
         dotfiles-private = config;
       };
     })
