@@ -26,6 +26,15 @@ nix-shell -p zsh --command zsh
 sudo nixos-rebuild switch --flake "$HOME/dotfiles/private#primary"
 ```
 
+### Locking
+
+Git artifacts must be deleted before generating the lockfile. Run this after committing:
+
+```bash
+git clean -fdX
+nix flake lock
+```
+
 ## License
 
 MIT
