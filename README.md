@@ -32,7 +32,7 @@ Git artifacts must be deleted before generating the lockfile. Run this after com
 
 ```bash
 git clean -fdX
-nix flake lock
+nix flake lock --recreate-lock-file
 ```
 
 ## License
