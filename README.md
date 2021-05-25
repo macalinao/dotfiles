@@ -23,7 +23,7 @@ nix-shell -p zsh --command zsh
 ### Updating with flakes
 
 ```bash
-sudo nixos-rebuild switch --flake '.#primary'
+sudo nixos-rebuild switch --flake "$HOME/dotfiles/private#primary"
 ```
 
 ## License
