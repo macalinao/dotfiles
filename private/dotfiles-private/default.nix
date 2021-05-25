@@ -25,4 +25,12 @@ in config // {
       };
     })
   ];
+  modules = [
+    ({ pkgs, lib, ... }: {
+      home-manager.users.igm = import ./home.nix {
+        inherit lib pkgs;
+        dotfiles-private = config;
+      };
+    })
+  ];
 }

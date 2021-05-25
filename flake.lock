@@ -1,17 +1,5 @@
 {
   "nodes": {
-    "dotfiles-private": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-NeNSCXE1cNlJYaoHUtvRrypHm54+uqJmcqk328GBf7M=",
-        "path": "../dotfiles-private",
-        "type": "path"
-      },
-      "original": {
-        "path": "../dotfiles-private",
-        "type": "path"
-      }
-    },
     "flake-utils": {
       "locked": {
         "lastModified": 1620759905,
@@ -62,6 +50,23 @@
         "type": "github"
       }
     },
+    "igm": {
+      "inputs": {
+        "home-manager": "home-manager",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "narHash": "sha256-wAlQ/Z+zlqiG14sZEqPXx44qI/9Os1SIpPqm8CM/KdA=",
+        "path": "./nix",
+        "type": "path"
+      },
+      "original": {
+        "path": "./nix",
+        "type": "path"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1621728353,
@@ -101,9 +106,8 @@
     },
     "root": {
       "inputs": {
-        "dotfiles-private": "dotfiles-private",
         "flake-utils": "flake-utils",
-        "home-manager": "home-manager",
+        "igm": "igm",
         "nixpkgs": "nixpkgs",
         "pre-commit-hooks": "pre-commit-hooks"
       }

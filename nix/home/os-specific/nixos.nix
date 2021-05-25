@@ -7,7 +7,7 @@
   xsession.windowManager.xmonad = {
     enable = true;
     enableContribAndExtras = true;
-    config = ../../../dotfiles/xmonad/xmonad.hs;
+    config = ../xmonad/xmonad.hs;
   };
 
   home.packages = with pkgs; [

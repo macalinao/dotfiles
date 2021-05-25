@@ -86,32 +86,6 @@
     };
     userName = "Ian Macalinao";
     userEmail = "github@igm.pub";
-
-    includes = lib.mapAttrsToList (profile: profileInfo: {
-      path = "${pkgs.writeTextFile {
-        name = "config";
-        text = ''
-          [user]
-            email = "${profileInfo.email}"
-          ${profileInfo.additionalGitConfig}
-          ${lib.optionalString (profileInfo.additionalGitignore != "") ''
-            [core]
-              excludesFile = "${
-                pkgs.writeTextFile {
-                  name = "gitignore_global";
-                  text = ''
-                    # shared gitignore
-                    ${builtins.readFile ./static/gitignore_global}
-
-                    # Additional config for profile ${profile}
-                    ${profileInfo.additionalGitignore}'';
-                }
-              }"
-          ''}
-        '';
-      }}";
-      condition = "gitdir/i:~/proj/${profileInfo.githubOrganization}/";
-    }) pkgs.dotfiles-private.profiles;
   };
 
   programs.go = { enable = true; };
@@ -137,7 +111,7 @@
         bindkey '^[[1;3D' backward-word
       ''}
       ${builtins.readFile ./static/shell-utils.zsh};
-      source ${pkgs.dotfiles-private.src}/helpers.zsh
+      source $HOME/dotfiles-private/helpers.zsh
     '';
     envExtra = ''
       if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ];
