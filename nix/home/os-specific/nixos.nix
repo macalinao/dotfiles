@@ -10,6 +10,8 @@
     config = ../xmonad/xmonad.hs;
   };
 
+  xdg.configFile = pkgs.dotfiles-private.xdgFiles;
+
   home.packages = with pkgs; [
     # Browsers
     brave
