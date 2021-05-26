@@ -38,6 +38,7 @@
     zsh
     gnugrep
     rustup
+    shfmt
 
     keybase
 

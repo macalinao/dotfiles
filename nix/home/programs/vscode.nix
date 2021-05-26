@@ -88,8 +88,8 @@ let
       {
         name = "shell-format";
         publisher = "foxundermoon";
-        version = "6.0.1";
-        sha256 = "1zkvrlhmw8id65km9cfpgv8p3w1ym4g4mr7cmb32fn3yk937gpmy";
+        version = "6.1.2";
+        sha256 = "sha256-ZeWjiRWXg1v3KlK1OT2uQjKkxV+r6iEDQCJR92DxrtU=";
       }
       {
         name = "vscode-github";
@@ -274,6 +274,7 @@ in {
       "keyboard.dispatch" = "keyCode";
       "workbench.colorTheme" = "Default Dark+";
       "tabnine.experimentalAutoImports" = true;
+      "shellformat.path" = "${pkgs.shfmt}/bin/shfmt";
     };
   };
 
