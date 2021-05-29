@@ -31,6 +31,7 @@ in config // {
   ];
   nixosModules = [
     ({ pkgs, lib, ... }: {
+      home-manager.users.igm.xdg.configFile = private.xdgFiles;
       services.openvpn.servers = import ./pia.nix {
         inherit (pkgs) lib stdenv openresolv pia-config;
         dotfiles-private = config;
