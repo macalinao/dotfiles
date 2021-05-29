@@ -48,5 +48,5 @@ jobs:
       - run: nix -Lv flake check
       - run: nix -Lv flake check
         working-directory: nix/
-      - run: nix -Lv build "nix/#darwinConfigurations.ci.system.build"
+      - run: nix -Lv build "nix/#darwinConfigurations.ci.system"
       - run: nix -Lv develop -c echo OK
