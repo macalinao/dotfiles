@@ -28,14 +28,13 @@ in config // {
         dotfiles-private = config;
       };
     })
+  ];
+  nixosModules = [
     ({ pkgs, lib, ... }: {
-      services = if pkgs.stdenv.isLinux then ({
-        openvpn.servers = import ./pia.nix {
-          inherit (pkgs) lib stdenv openresolv pia-config;
-          dotfiles-private = config;
-        };
-      }) else
-        { };
+      services.openvpn.servers = import ./pia.nix {
+        inherit (pkgs) lib stdenv openresolv pia-config;
+        dotfiles-private = config;
+      };
     })
   ];
 }

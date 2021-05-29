@@ -26,7 +26,7 @@
       nixosConfigurations = igm.nixosConfigurations // {
         primary = igm.lib.mkSystem {
           additionalOverlays = private.overlays;
-          modules = private.modules;
+          modules = private.modules ++ private.nixosModules;
         };
       };
       darwinConfigurations."ian-mbp" = igm.lib.mkSystem {

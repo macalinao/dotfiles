@@ -1,15 +1,7 @@
+{ mode }:
 { config, lib, pkgs, ... }:
 
-with lib;
-let
-  userModule = { lib, config, ... }: {
-    options.dotfiles.mode =
-      mkOption { type = types.enum [ "personal" "work" ]; };
-  };
-
-  mode = config.dotfiles.mode;
-in {
-  imports = [ userModule ];
+with lib; {
   environment.systemPackages = with pkgs; [ vim kitty tor ];
 
   home-manager.useGlobalPkgs = true;
@@ -63,7 +55,16 @@ in {
     ]) ++ (lib.optionals (mode == "work") [ "linear-linear" "loom" ]);
   };
 
-  nix.package = pkgs.nix;
+  nix = {
+    package = pkgs.nixUnstable;
+    useSandbox = false;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+      keep-outputs = true
+      keep-derivations = true
+    '';
+    trustedUsers = [ "root" "igm" ];
+  };
 
   programs.bash.enable = true;
   programs.zsh = {
