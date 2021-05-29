@@ -3,11 +3,17 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    darwin = {
+      url = "github:lnl7/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, home-manager, darwin, ... }:
     let
       mkSystem = { additionalOverlays ? [ ], modules ? [ ]
         , builder ? nixpkgs.lib.nixosSystem, system ? "x86_64-linux"
@@ -30,6 +36,10 @@
         } // (if stdenv.isLinux then { inherit system; } else { }));
     in {
       lib = { inherit mkSystem; };
-      nixosConfigurations = { ci = mkSystem { }; };
+      nixosConfigurations.ci = mkSystem { };
+      darwinConfigurations.ci = mkSystem {
+        system = "x86_64-darwin";
+        builder = darwin.lib.darwinSystem;
+      };
     };
 }
