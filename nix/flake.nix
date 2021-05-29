@@ -16,8 +16,7 @@
   outputs = { nixpkgs, home-manager, darwin, ... }:
     let
       mkSystem = { additionalOverlays ? [ ], modules ? [ ]
-        , builder ? nixpkgs.lib.nixosSystem, system ? "x86_64-linux"
-        , mode ? "personal" }:
+        , builder ? nixpkgs.lib.nixosSystem, system, mode ? "personal" }:
         let
           stdenv = nixpkgs.legacyPackages.${system}.stdenv;
           lib = nixpkgs.legacyPackages.${system}.lib;
@@ -36,7 +35,7 @@
         } // (if stdenv.isLinux then { inherit system; } else { }));
     in {
       lib = { inherit mkSystem; };
-      nixosConfigurations.ci = mkSystem { };
+      nixosConfigurations.ci = mkSystem { system = "x86_64-linux"; };
       darwinConfigurations.ci = mkSystem {
         system = "x86_64-darwin";
         builder = darwin.lib.darwinSystem;

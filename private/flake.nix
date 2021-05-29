@@ -25,6 +25,7 @@
     in {
       nixosConfigurations = igm.nixosConfigurations // {
         primary = igm.lib.mkSystem {
+          system = "x86_64-linux";
           additionalOverlays = private.overlays;
           modules = private.modules ++ private.nixosModules;
         };
