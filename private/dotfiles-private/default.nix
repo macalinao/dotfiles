@@ -27,10 +27,15 @@ in config // {
         inherit lib pkgs;
         dotfiles-private = config;
       };
-      services.openvpn.servers = import ./pia.nix {
-        inherit (pkgs) lib stdenv openresolv pia-config;
-        dotfiles-private = config;
-      };
+    })
+    ({ pkgs, lib, ... }: {
+      services = if pkgs.stdenv.isLinux then ({
+        openvpn.servers = import ./pia.nix {
+          inherit (pkgs) lib stdenv openresolv pia-config;
+          dotfiles-private = config;
+        };
+      }) else
+        { };
     })
   ];
 }

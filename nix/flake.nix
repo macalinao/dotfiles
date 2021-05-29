@@ -9,19 +9,24 @@
 
   outputs = { nixpkgs, home-manager, ... }:
     let
-      mkSystem = { additionalOverlays ? [ ], modules ? [ ] }:
-        nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            {
-              nixpkgs =
-                import ./nixpkgs/config.nix { inherit additionalOverlays; };
-            }
+      mkSystem = { additionalOverlays ? [ ], modules ? [ ]
+        , builder ? nixpkgs.lib.nixosSystem, system ? "x86_64-linux" }:
+        let
+          stdenv = nixpkgs.legacyPackages.${system}.stdenv;
+          lib = nixpkgs.legacyPackages.${system}.lib;
+        in builder ({
+          modules = [{
+            nixpkgs =
+              import ./nixpkgs/config.nix { inherit additionalOverlays; };
+          }] ++ (lib.optionals stdenv.isLinux [
             ./nixos/configuration.nix
-            ./nixos/machines/ian-nixdesktop.nix
             home-manager.nixosModules.home-manager
-          ] ++ modules;
-        };
+            ./nixos/machines/ian-nixdesktop.nix
+          ]) ++ (lib.optionals stdenv.isDarwin [
+            ./darwin
+            home-manager.darwinModules.home-manager
+          ]) ++ modules;
+        } // (if stdenv.isLinux then { inherit system; } else { }));
     in {
       lib = { inherit mkSystem; };
       nixosConfigurations = { ci = mkSystem { }; };

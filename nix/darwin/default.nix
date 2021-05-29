@@ -9,9 +9,10 @@ let
 
   mode = config.dotfiles.mode;
 in {
-  imports = [ userModule <home-manager/nix-darwin> ];
+  imports = [ userModule ];
   environment.systemPackages = with pkgs; [ vim kitty tor ];
 
+  home-manager.useGlobalPkgs = true;
   home-manager.users.igm = import ../home;
 
   system.keyboard = {
@@ -49,7 +50,7 @@ in {
       "superhuman"
       "tableplus"
       "zoom"
-    ] ++ (pkgs.lib.optionals (mode == "personal") [
+    ] ++ (lib.optionals (mode == "personal") [
       "ledger-live"
       "minecraft"
       "signal"
@@ -59,7 +60,7 @@ in {
       "vlc"
       "wechat"
       "whatsapp"
-    ]) ++ (pkgs.lib.optionals (mode == "work") [ "linear-linear" "loom" ]);
+    ]) ++ (lib.optionals (mode == "work") [ "linear-linear" "loom" ]);
   };
 
   nix.package = pkgs.nix;
