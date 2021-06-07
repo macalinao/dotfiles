@@ -3,8 +3,6 @@
 {
   imports = [ ./os-specific ./programs/vscode.nix ./dotfiles ];
 
-  # nixpkgs = import ../nixpkgs/config.nix;
-
   home.packages = with pkgs; [
     exa
     git

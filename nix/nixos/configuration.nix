@@ -1,9 +1,10 @@
+{ mode }:
 { config, pkgs, ... }:
 
 {
   imports = [ ./services ];
 
-  home-manager.users.igm = import ../home;
+  home-manager.users.igm = if mode == "bare" then { } else (import ../home);
   # home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
 

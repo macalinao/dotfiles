@@ -25,9 +25,9 @@
             nixpkgs =
               import ./nixpkgs/config.nix { inherit additionalOverlays; };
           }] ++ (lib.optionals stdenv.isLinux [
-            ./nixos/configuration.nix
-            home-manager.nixosModules.home-manager
+            (import ./nixos/configuration.nix { inherit mode; })
             ./nixos/machines/ian-nixdesktop.nix
+            home-manager.nixosModules.home-manager
           ]) ++ (lib.optionals stdenv.isDarwin [
             (import ./darwin { inherit mode; })
             home-manager.darwinModules.home-manager
@@ -36,6 +36,10 @@
     in {
       lib = { inherit mkSystem; };
       nixosConfigurations.ci = mkSystem { system = "x86_64-linux"; };
+      nixosConfigurations.ci-bare = mkSystem {
+        system = "x86_64-linux";
+        mode = "bare";
+      };
       darwinConfigurations.ci = mkSystem {
         system = "x86_64-darwin";
         builder = darwin.lib.darwinSystem;
