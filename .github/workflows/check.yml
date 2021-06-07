@@ -30,6 +30,12 @@ jobs:
   nixos:
     runs-on: ubuntu-latest
     steps:
+      - name: Maximize build space
+        uses: easimon/maximize-build-space@master
+        with:
+          remove-dotnet: "true"
+          remove-android: "true"
+          remove-haskell: "true"
       - uses: actions/checkout@v2
       - uses: cachix/install-nix-action@v13
         with:
@@ -43,12 +49,6 @@ jobs:
         with:
           name: igm
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      - name: Maximize build space
-        uses: easimon/maximize-build-space@master
-        with:
-          remove-dotnet: "true"
-          remove-android: "true"
-          remove-haskell: "true"
       - run: nix -Lv build "./nix#nixosConfigurations.ci.config.system.build.toplevel"
       - run: nix -Lv develop -c echo OK
 
