@@ -260,6 +260,7 @@ in {
       "vim.useSystemClipboard" = true;
       "window.zoomLevel" = 0;
       "files.associations" = {
+        "flake.lock" = "json";
         "*.md" = "markdown";
         "*.toml" = "toml";
       };

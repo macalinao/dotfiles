@@ -22,6 +22,13 @@ Update the system using the following command:
 sudo nixos-rebuild switch --flake "$HOME/dotfiles/private#primary"
 ```
 
+On Darwin in the root directory of the dotfiles:
+
+```bash
+nix build 'private/#darwinConfigurations.ian-mbp.system'
+./result/sw/bin/darwin-rebuild switch --flake 'private/#ian-mbp'
+```
+
 ### Locking
 
 Git artifacts must be deleted before generating the flake lockfiles. Run this after committing:

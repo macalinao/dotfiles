@@ -1,17 +1,10 @@
+{ mode }:
 { config, lib, pkgs, ... }:
 
-with lib;
-let
-  userModule = { lib, config, ... }: {
-    options.dotfiles.mode =
-      mkOption { type = types.enum [ "personal" "work" ]; };
-  };
-
-  mode = config.dotfiles.mode;
-in {
-  imports = [ userModule <home-manager/nix-darwin> ];
+with lib; {
   environment.systemPackages = with pkgs; [ vim kitty tor ];
 
+  home-manager.useGlobalPkgs = true;
   home-manager.users.igm = import ../home;
 
   system.keyboard = {
@@ -49,7 +42,7 @@ in {
       "superhuman"
       "tableplus"
       "zoom"
-    ] ++ (pkgs.lib.optionals (mode == "personal") [
+    ] ++ (lib.optionals (mode == "personal") [
       "ledger-live"
       "minecraft"
       "signal"
@@ -59,10 +52,19 @@ in {
       "vlc"
       "wechat"
       "whatsapp"
-    ]) ++ (pkgs.lib.optionals (mode == "work") [ "linear-linear" "loom" ]);
+    ]) ++ (lib.optionals (mode == "work") [ "linear-linear" "loom" ]);
   };
 
-  nix.package = pkgs.nix;
+  nix = {
+    package = pkgs.nixUnstable;
+    useSandbox = false;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+      keep-outputs = true
+      keep-derivations = true
+    '';
+    trustedUsers = [ "root" "igm" ];
+  };
 
   programs.bash.enable = true;
   programs.zsh = {
