@@ -32,6 +32,11 @@
     insomnia
     postman
 
+    # rust stuff
+    openssl
+    pkgconfig
+    libudev
+
     # Etc
     rofi-systemd
 
