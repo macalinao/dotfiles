@@ -27,7 +27,7 @@ jobs:
       - run: nix -Lv flake check
         working-directory: nix/
 
-  nixos:
+  linux:
     runs-on: ubuntu-latest
     steps:
       - name: Maximize build space
