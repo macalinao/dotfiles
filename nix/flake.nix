@@ -38,6 +38,7 @@
       nixosConfigurations.ci = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          { nixpkgs = import ./nixpkgs/config.nix { }; }
           (import ./nixos/configuration.nix { mode = "personal"; })
           ./nixos/machines/ci.nix
           home-manager.nixosModules.home-manager
@@ -46,6 +47,7 @@
       nixosConfigurations.ci-bare = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          { nixpkgs = import ./nixpkgs/config.nix { }; }
           (import ./nixos/configuration.nix { mode = "bare"; })
           ./nixos/machines/ci.nix
           home-manager.nixosModules.home-manager
