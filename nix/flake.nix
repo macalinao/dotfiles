@@ -35,10 +35,21 @@
         } // (if stdenv.isLinux then { inherit system; } else { }));
     in {
       lib = { inherit mkSystem; };
-      nixosConfigurations.ci = mkSystem { system = "x86_64-linux"; };
-      nixosConfigurations.ci-bare = mkSystem {
+      nixosConfigurations.ci = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        mode = "bare";
+        modules = [
+          (import ./nixos/configuration.nix { mode = "personal"; })
+          ./nixos/machines/ci.nix
+          home-manager.nixosModules.home-manager
+        ];
+      };
+      nixosConfigurations.ci-bare = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          (import ./nixos/configuration.nix { mode = "bare"; })
+          ./nixos/machines/ci.nix
+          home-manager.nixosModules.home-manager
+        ];
       };
       nixosConfigurations.vbox-host = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
