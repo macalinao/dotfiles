@@ -5,6 +5,7 @@
     # ./nginx.nix
     # ./wireguard.nix
     # ./transmission.nix
+    ./virtualbox.nix
   ];
 
   services.autorandr = {

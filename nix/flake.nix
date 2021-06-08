@@ -40,6 +40,14 @@
         system = "x86_64-linux";
         mode = "bare";
       };
+      nixosConfigurations.vbox-host = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          { nixpkgs = import ./nixpkgs/config.nix { }; }
+          ./nixos/services/virtualbox.nix
+          ./nixos/machines/ian-nixdesktop.nix
+        ];
+      };
       darwinConfigurations.ci = mkSystem {
         system = "x86_64-darwin";
         builder = darwin.lib.darwinSystem;

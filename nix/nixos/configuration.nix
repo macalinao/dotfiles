@@ -115,11 +115,6 @@
     trustedUsers = [ "root" "igm" ];
   };
 
-  # Virtualbox
-  users.extraGroups.vboxusers.members = [ "igm" ];
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
-
   # keyring
   services.gnome.gnome-keyring.enable = true;
 }
