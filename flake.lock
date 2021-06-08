@@ -80,7 +80,7 @@
         ]
       },
       "locked": {
-        "narHash": "sha256-IKMeCAVU2hmNKN/nCZSuorGIlYYMyiclY6m8ISLCfTw=",
+        "narHash": "sha256-9cMItv1Fm6M8gcEnCwXgBMmfMARC6V91VdB5ijbRle8=",
         "path": "./nix",
         "type": "path"
       },
