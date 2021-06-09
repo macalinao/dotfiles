@@ -73,8 +73,6 @@
 
   services.xscreensaver.enable = true;
 
-  programs.kitty = { enable = true; };
-
   programs.rofi = {
     enable = true;
     package =
