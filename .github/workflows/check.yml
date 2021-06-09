@@ -30,6 +30,16 @@ jobs:
   linux-home:
     runs-on: ubuntu-latest
     steps:
+      - name: Maximize build space
+        uses: easimon/maximize-build-space@master
+        with:
+          root-reserve-mb: 512
+          swap-size-mb: 1024
+          remove-dotnet: "true"
+          remove-android: "true"
+          remove-haskell: "true"
+      - run: sudo apt-get clean
+
       - uses: actions/checkout@v2
       - uses: cachix/install-nix-action@v13
         with:
