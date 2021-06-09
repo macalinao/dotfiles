@@ -35,11 +35,12 @@
         } // (if stdenv.isLinux then { inherit system; } else { }));
     in {
       lib = { inherit mkSystem; };
-      nixosConfigurations.ci = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.ci-home = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           { nixpkgs = import ./nixpkgs/config.nix { }; }
-          (import ./nixos/configuration.nix { mode = "personal"; })
+          ./nixos/users.nix
+          ./nixos/home-manager.nix
           ./nixos/machines/ci.nix
           home-manager.nixosModules.home-manager
         ];

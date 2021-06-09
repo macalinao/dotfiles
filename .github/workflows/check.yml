@@ -25,8 +25,9 @@ jobs:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       - run: nix -Lv flake check
         working-directory: nix/
+      - run: nix -Lv develop -c echo OK
 
-  linux:
+  linux-home:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -42,8 +43,7 @@ jobs:
         with:
           name: igm
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      - run: nix -Lv build "./nix#nixosConfigurations.ci.config.system.build.toplevel"
-      - run: nix -Lv develop -c echo OK
+      - run: nix -Lv build "./nix#nixosConfigurations.ci-home.config.system.build.toplevel"
 
   linux-bare:
     runs-on: ubuntu-latest
@@ -62,7 +62,6 @@ jobs:
           name: igm
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       - run: nix -Lv build "./nix#nixosConfigurations.ci-bare.config.system.build.toplevel"
-      - run: nix -Lv develop -c echo OK
 
   linux-vbox-host:
     runs-on: ubuntu-latest
@@ -81,7 +80,6 @@ jobs:
           name: igm
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       - run: nix -Lv build "./nix#nixosConfigurations.vbox-host.config.system.build.toplevel"
-      - run: nix -Lv develop -c echo OK
 
   darwin:
     runs-on: macos-latest

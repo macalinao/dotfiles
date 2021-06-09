@@ -1,12 +1,9 @@
 { mode }:
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
-  imports = [ ./services ];
-
-  home-manager.users.igm = if mode == "bare" then { } else (import ../home);
-  # home-manager.useUserPackages = true;
-  home-manager.useGlobalPkgs = true;
+  imports = [ ./services ./users.nix ]
+    ++ (lib.optionals (mode == "bare") ./home-manager.nix);
 
   networking.hostName = "ianix";
 
@@ -90,19 +87,6 @@
   ];
 
   time.timeZone = "America/Chicago";
-
-  users = {
-    extraUsers = {
-      igm = {
-        name = "igm";
-        uid = 1001;
-        home = "/home/igm";
-        shell = pkgs.zsh;
-        isNormalUser = true;
-        extraGroups = [ "wheel" "docker" "transmission" ];
-      };
-    };
-  };
 
   nix = {
     package = pkgs.nixUnstable;
