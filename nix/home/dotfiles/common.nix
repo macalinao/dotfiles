@@ -1,13 +1,13 @@
 { config, pkgs, lib }:
 
-let dotfiles = ../../../dotfiles;
+let static = ../static;
 in lib.mkMerge [
-  { home.file.".vimrc".source = "${dotfiles}/vimrc"; }
+  { home.file.".vimrc".source = "${static}/vimrc"; }
   (lib.mkIf pkgs.stdenv.isLinux {
-    home.file.".xscreensaver".source = "${dotfiles}/xscreensaver";
+    home.file.".xscreensaver".source = "${static}/xscreensaver";
 
     home.file.".config/fcitx" = {
-      source = "${dotfiles}/fcitx";
+      source = "${static}/fcitx";
       recursive = true;
     };
   })

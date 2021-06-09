@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 set -x
 
 DOTFILES=$(dirname $0)
@@ -111,6 +113,7 @@ if $IS_DARWIN; then
     mkdir -p $HOME/.nixpkgs/
     export NIX_PATH=darwin-config=$HOME/.nixpkgs/darwin-configuration.nix:$HOME/.nix-defexpr/channels:$NIX_PATH
     cp $DOTFILES/nix/darwin/configuration.nix.template ~/.nixpkgs/darwin-configuration.nix
+    cachix use igm
     $(nix-build '<darwin>' -A system --no-out-link)/sw/bin/darwin-rebuild build
     $(nix-build '<darwin>' -A system --no-out-link)/sw/bin/darwin-rebuild switch
     success "nix-darwin installed"
@@ -118,7 +121,8 @@ if $IS_DARWIN; then
     info "nix-darwin already installed, skipping..."
   fi
 else
-  sudo nixos-rebuild switch
+  cachix use igm
+  sudo nixos-rebuild switch --flake "$HOME/dotfiles/private#primary"
 fi
 
 info "Installation complete. Please restart your shell to contine."

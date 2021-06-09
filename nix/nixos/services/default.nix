@@ -5,6 +5,7 @@
     # ./nginx.nix
     # ./wireguard.nix
     # ./transmission.nix
+    ./virtualbox.nix
   ];
 
   services.autorandr = {
@@ -62,6 +63,4 @@
   };
 
   services.lorri.enable = true;
-
-  services.openvpn.servers = pkgs.pia-openvpn-servers;
 }

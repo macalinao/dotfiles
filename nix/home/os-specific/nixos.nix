@@ -7,7 +7,7 @@
   xsession.windowManager.xmonad = {
     enable = true;
     enableContribAndExtras = true;
-    config = ../../../dotfiles/xmonad/xmonad.hs;
+    config = ../xmonad/xmonad.hs;
   };
 
   home.packages = with pkgs; [
@@ -31,6 +31,11 @@
     # Developer
     insomnia
     postman
+
+    # rust stuff
+    openssl
+    pkgconfig
+    libudev
 
     # Etc
     rofi-systemd
@@ -67,8 +72,6 @@
   };
 
   services.xscreensaver.enable = true;
-
-  programs.kitty = { enable = true; };
 
   programs.rofi = {
     enable = true;
