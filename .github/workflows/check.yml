@@ -27,7 +27,26 @@ jobs:
         working-directory: nix/
       - run: nix -Lv develop -c echo OK
 
-  linux-home:
+  linux-home-common:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sudo apt-get clean
+      - uses: actions/checkout@v2
+      - uses: cachix/install-nix-action@v13
+        with:
+          install_url: https://github.com/numtide/nix-flakes-installer/releases/download/nix-2.4pre20210415_76980a1/install
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+            system-features = nixos-test benchmark big-parallel kvm recursive-nix
+            substituters = https://nrdxp.cachix.org https://nix-community.cachix.org https://cache.nixos.org
+            trusted-public-keys = nrdxp.cachix.org-1:Fc5PSqY2Jm1TrWfm88l6cvGWwz3s93c6IOifQWnhNW4= nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs= cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
+      - uses: cachix/cachix-action@v10
+        with:
+          name: igm
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+      - run: nix -Lv build "./nix#nixosConfigurations.ci-home-common.config.system.build.toplevel"
+
+  linux-home-vscode:
     runs-on: ubuntu-latest
     steps:
       - name: Maximize build space
@@ -53,7 +72,35 @@ jobs:
         with:
           name: igm
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      - run: nix -Lv build "./nix#nixosConfigurations.ci-home.config.system.build.toplevel"
+      - run: nix -Lv build "./nix#nixosConfigurations.ci-home-vscode.config.system.build.toplevel"
+
+  linux-home-os:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Maximize build space
+        uses: easimon/maximize-build-space@master
+        with:
+          root-reserve-mb: 512
+          swap-size-mb: 1024
+          remove-dotnet: "true"
+          remove-android: "true"
+          remove-haskell: "true"
+      - run: sudo apt-get clean
+
+      - uses: actions/checkout@v2
+      - uses: cachix/install-nix-action@v13
+        with:
+          install_url: https://github.com/numtide/nix-flakes-installer/releases/download/nix-2.4pre20210415_76980a1/install
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+            system-features = nixos-test benchmark big-parallel kvm recursive-nix
+            substituters = https://nrdxp.cachix.org https://nix-community.cachix.org https://cache.nixos.org
+            trusted-public-keys = nrdxp.cachix.org-1:Fc5PSqY2Jm1TrWfm88l6cvGWwz3s93c6IOifQWnhNW4= nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs= cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
+      - uses: cachix/cachix-action@v10
+        with:
+          name: igm
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+      - run: nix -Lv build "./nix#nixosConfigurations.ci-home-os.config.system.build.toplevel"
 
   linux-bare:
     runs-on: ubuntu-latest
