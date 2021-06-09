@@ -32,6 +32,8 @@ with lib; {
       "docker"
       "figma"
       "keybase"
+      "linear-linear"
+      "loom"
       "loom"
       "ngrok"
       "numi"
@@ -52,7 +54,7 @@ with lib; {
       "vlc"
       "wechat"
       "whatsapp"
-    ]) ++ (lib.optionals (mode == "work") [ "linear-linear" "loom" ]);
+    ]);
   };
 
   nix = {

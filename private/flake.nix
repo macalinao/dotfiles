@@ -24,17 +24,21 @@
       };
     in {
       nixosConfigurations = igm.nixosConfigurations // {
-        primary = igm.lib.mkSystem {
+        primary = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          additionalOverlays = private.overlays;
-          modules = private.modules ++ private.nixosModules;
+          modules = [{
+            nixpkgs =
+              igm.lib.mkNixpkgs { additionalOverlays = private.overlays; };
+          }] ++ igm.lib.linuxModules ++ private.modules ++ private.nixosModules;
         };
       };
-      darwinConfigurations."ian-mbp" = igm.lib.mkSystem {
+      darwinConfigurations."ian-mbp" = darwin.lib.darwinSystem {
         system = "x86_64-darwin";
-        additionalOverlays = private.overlays;
-        builder = darwin.lib.darwinSystem;
-        modules = private.modules;
+        modules = [{
+          nixpkgs =
+            igm.lib.mkNixpkgs { additionalOverlays = private.overlays; };
+        }] ++ (igm.lib.mkDarwinModules { mode = "personal"; })
+          ++ private.modules;
       };
     };
 }
