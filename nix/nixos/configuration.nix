@@ -1,9 +1,7 @@
-{ mode }:
-{ config, pkgs, lib, ... }:
+{ config, pkgs, ... }:
 
 {
-  imports = [ ./services ./users.nix ]
-    ++ (lib.optionals (mode == "bare") ./home-manager.nix);
+  imports = [ ./services ./users.nix ];
 
   networking.hostName = "ianix";
 

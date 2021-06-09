@@ -25,7 +25,8 @@
             nixpkgs =
               import ./nixpkgs/config.nix { inherit additionalOverlays; };
           }] ++ (lib.optionals stdenv.isLinux [
-            (import ./nixos/configuration.nix { inherit mode; })
+            ./nixos/configuration.nix
+            ./nixos/home-manager.nix
             ./nixos/machines/ian-nixdesktop.nix
             home-manager.nixosModules.home-manager
           ]) ++ (lib.optionals stdenv.isDarwin [
@@ -49,7 +50,7 @@
         system = "x86_64-linux";
         modules = [
           { nixpkgs = import ./nixpkgs/config.nix { }; }
-          (import ./nixos/configuration.nix { mode = "bare"; })
+          ./nixos/configuration.nix
           ./nixos/machines/ci.nix
           home-manager.nixosModules.home-manager
         ];
