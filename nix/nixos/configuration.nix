@@ -1,11 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./services ];
-
-  home-manager.users.igm = import ../home;
-  # home-manager.useUserPackages = true;
-  home-manager.useGlobalPkgs = true;
+  imports = [ ./services ./users.nix ];
 
   networking.hostName = "ianix";
 
@@ -90,19 +86,6 @@
 
   time.timeZone = "America/Chicago";
 
-  users = {
-    extraUsers = {
-      igm = {
-        name = "igm";
-        uid = 1001;
-        home = "/home/igm";
-        shell = pkgs.zsh;
-        isNormalUser = true;
-        extraGroups = [ "wheel" "docker" "transmission" ];
-      };
-    };
-  };
-
   nix = {
     package = pkgs.nixUnstable;
     useSandbox = false;
@@ -111,12 +94,8 @@
       keep-outputs = true
       keep-derivations = true
     '';
+    trustedUsers = [ "root" "igm" ];
   };
-
-  # Virtualbox
-  users.extraGroups.vboxusers.members = [ "igm" ];
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
 
   # keyring
   services.gnome.gnome-keyring.enable = true;

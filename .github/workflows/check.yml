@@ -1,15 +1,16 @@
 name: "Check & Cachix"
+
 on:
   push:
-    branches:
-      - core
-      - trying
-      - staging
+    branches: [master]
+  pull_request:
+    branches: [master]
+
 jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2
       - uses: cachix/install-nix-action@v13
         with:
           install_url: https://nixos-nix-install-tests.cachix.org/serve/lb41az54kzk6j12p81br4bczary7m145/install
@@ -17,6 +18,51 @@ jobs:
           extra_nix_config: |
             experimental-features = nix-command flakes
       - uses: cachix/cachix-action@v10
+        with:
+          name: igm
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       - run: nix -Lv flake check
-      - run: nix -Lv build ".#nixosConfigurations.NixOS.config.system.build.toplevel"
+        working-directory: nix/
+      - run: nix -Lv develop -c echo OK
+
+  linux:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        nixosConfiguration:
+          - ci-home-common
+          - ci-home-vscode
+          - ci-home-os
+          - ci-bare
+          - vbox-host
+    steps:
+      - run: sudo apt-get clean
+      - uses: actions/checkout@v2
+      - uses: cachix/install-nix-action@v13
+        with:
+          install_url: https://nixos-nix-install-tests.cachix.org/serve/lb41az54kzk6j12p81br4bczary7m145/install
+          install_options: "--tarball-url-prefix https://nixos-nix-install-tests.cachix.org/serve"
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+      - uses: cachix/cachix-action@v10
+        with:
+          name: igm
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+      - run: nix -Lv build "./nix#nixosConfigurations.${{ matrix.nixosConfiguration }}.config.system.build.toplevel"
+
+  darwin:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: cachix/install-nix-action@v13
+        with:
+          install_url: https://nixos-nix-install-tests.cachix.org/serve/lb41az54kzk6j12p81br4bczary7m145/install
+          install_options: "--tarball-url-prefix https://nixos-nix-install-tests.cachix.org/serve"
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+      - uses: cachix/cachix-action@v10
+        with:
+          name: igm
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+      - run: nix -Lv build "nix/#darwinConfigurations.ci.system"
       - run: nix -Lv develop -c echo OK

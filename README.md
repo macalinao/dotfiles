@@ -12,12 +12,30 @@ Dotfiles and most program installations are managed by the [Nix package manager]
 
 ## Installation
 
-Run `zsh scripts/install.zsh`. This cross-platform script should set up anything relevant.
+Run `./install.sh`. This cross-platform script should set up anything relevant.
 
-If you're on NixOS and don't have zsh installed, first run:
+### System updates
 
+Update the system using the following command:
+
+```bash
+sudo nixos-rebuild switch --flake "$HOME/dotfiles/private#primary"
 ```
-nix-shell -p zsh --command zsh
+
+On Darwin in the root directory of the dotfiles:
+
+```bash
+nix build 'private/#darwinConfigurations.ian-mbp.system'
+./result/sw/bin/darwin-rebuild switch --flake 'private/#ian-mbp'
+```
+
+### Locking
+
+Git artifacts must be deleted before generating the flake lockfiles. Run this after committing:
+
+```bash
+git clean -fdX
+nix flake lock --recreate-lock-file
 ```
 
 ### Updating with flakes

@@ -14,22 +14,19 @@ _: pkgs: {
   '';
 
   full-system-update = pkgs.writeScriptBin "full-system-update" ''
-    #!${pkgs.zsh}/bin/zsh
+    #!${pkgs.bash}/bin/bash
     set -x
 
-    # update nix channels
-    nix-channel --update
+    echo "Updating private dotfiles."
+    cd $HOME/dotfiles-private && git add -A . && git commit -m "Updates" && git frp
 
-    # update dotfiles
-    cd ~/dotfiles-private && git add -A . && git commit -m "Updates" && git frp
+    ${pkgs.lib.optionalString pkgs.stdenv.isLinux ''
+      sudo nixos-rebuild switch --flake "$HOME/dotfiles/private#primary"
+    ''}
 
-    if which darwin-rebuild; then
+    ${pkgs.lib.optionalString pkgs.stdenv.isDarwin ''
       darwin-rebuild switch
-    fi
-
-    if which nixos-rebuild; then
-      nixos-rebuild switch
-    fi
+    ''}
   '';
 
   configure-monitors = pkgs.writeShellScriptBin "configure-monitors" ''
