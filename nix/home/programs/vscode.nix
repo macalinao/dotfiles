@@ -224,12 +224,13 @@ let
         version = "1.2.2";
         sha256 = "1rvp56ak8q358jb838870ywljcp1r206sj7c0d5bgzvxqlbmyd1l";
       }
-      {
-        name = "rust";
-        publisher = "rust-lang";
-        version = "0.7.8";
-        sha256 = "sha256-Y33agSNMVmaVCQdYd5mzwjiK5JTZTtzTkmSGTQrSNg0=";
-      }
+      # manually install the rust plugin
+      # {
+      #   name = "rust";
+      #   publisher = "rust-lang";
+      #   version = "0.7.8";
+      #   sha256 = "sha256-Y33agSNMVmaVCQdYd5mzwjiK5JTZTtzTkmSGTQrSNg0=";
+      # }
     ] ++ [
       bbenoist.Nix
       # for some reason this is broken with Anchor
