@@ -4,10 +4,12 @@ cd $(dirname $0)
 zsh -c 'nixfmt **/*.nix'
 git add .
 
-nix flake lock --update-input igm
+pushd nix
+nix flake update
+popd
+nix flake update
 pushd private
-nix flake lock --update-input igm
-nix flake lock --update-input dotfiles-private-raw
+nix flake update
 popd
 
 git add .

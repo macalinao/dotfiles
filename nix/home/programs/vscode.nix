@@ -224,9 +224,17 @@ let
         version = "1.2.2";
         sha256 = "1rvp56ak8q358jb838870ywljcp1r206sj7c0d5bgzvxqlbmyd1l";
       }
+      # manually install the rust plugin
+      # {
+      #   name = "rust";
+      #   publisher = "rust-lang";
+      #   version = "0.7.8";
+      #   sha256 = "sha256-Y33agSNMVmaVCQdYd5mzwjiK5JTZTtzTkmSGTQrSNg0=";
+      # }
     ] ++ [
       bbenoist.Nix
-      matklad.rust-analyzer
+      # for some reason this is broken with Anchor
+      # matklad.rust-analyzer
       shyykoserhiy.vscode-spotify
       tomoki1207.pdf
       eamodio.gitlens
@@ -245,7 +253,8 @@ in {
       "[toml]" = { "editor.defaultFormatter" = "bodil.prettier-toml"; };
       "[nix]" = { "editor.tabSize" = 2; };
       "[go]" = { "editor.defaultFormatter" = "golang.go"; };
-      "[rust]" = { "editor.defaultFormatter" = "matklad.rust-analyzer"; };
+      # "[rust]" = { "editor.defaultFormatter" = "matklad.rust-analyzer"; };
+      "[rust]" = { "editor.defaultFormatter" = "rust-lang.rust"; };
       "[sql]" = {
         "editor.defaultFormatter" = "bradymholt.pgformatter";
         "editor.formatOnSave" = false;
