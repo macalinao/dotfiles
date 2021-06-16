@@ -234,7 +234,7 @@ let
     ] ++ [
       bbenoist.Nix
       # for some reason this is broken with Anchor
-      # matklad.rust-analyzer
+      matklad.rust-analyzer
       shyykoserhiy.vscode-spotify
       tomoki1207.pdf
       eamodio.gitlens
