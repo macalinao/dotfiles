@@ -253,8 +253,8 @@ in {
       "[toml]" = { "editor.defaultFormatter" = "bodil.prettier-toml"; };
       "[nix]" = { "editor.tabSize" = 2; };
       "[go]" = { "editor.defaultFormatter" = "golang.go"; };
-      # "[rust]" = { "editor.defaultFormatter" = "matklad.rust-analyzer"; };
-      "[rust]" = { "editor.defaultFormatter" = "rust-lang.rust"; };
+      "[rust]" = { "editor.defaultFormatter" = "matklad.rust-analyzer"; };
+      # "[rust]" = { "editor.defaultFormatter" = "rust-lang.rust"; };
       "[sql]" = {
         "editor.defaultFormatter" = "bradymholt.pgformatter";
         "editor.formatOnSave" = false;
