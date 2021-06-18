@@ -48,6 +48,9 @@
     nxs
     full-system-update
     yq
+
+    # formatting
+    shfmt
   ];
 
   programs.git = {
