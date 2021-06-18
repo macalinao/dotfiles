@@ -20,9 +20,9 @@
     stack
     ghc
 
-    # i do a lot of JS programming
-    yarn
+    # JS tools
     nodejs
+    yarn
     python
 
     docker-compose
