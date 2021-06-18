@@ -14,8 +14,4 @@ self: super: rec {
       sha256 = "sha256-re3pVOnGltluJUdZtTlSeiSrHULw1UjFxDCdGj/Dwl4=";
     };
   };
-
-  # pin nodejs to 16
-  nodejs = super.nodejs-16_x;
-  yarn = (super.yarn.override { inherit nodejs; });
 }

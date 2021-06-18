@@ -21,8 +21,8 @@
     ghc
 
     # JS tools
-    nodejs
-    yarn
+    nodejs-16_x
+    (yarn.override { nodejs = nodejs-16_x; })
     python
 
     docker-compose
@@ -90,7 +90,7 @@
   programs.home-manager = { enable = true; };
 
   programs.direnv.enable = true;
-  programs.direnv.enableNixDirenvIntegration = true;
+  programs.direnv.nix-direnv.enable = true;
 
   programs.command-not-found.enable = true;
 
