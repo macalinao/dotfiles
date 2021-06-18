@@ -120,6 +120,7 @@
         . /etc/static/zshrc
       fi
       . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+      export PATH="$HOME/.cargo/bin:$PATH"
     '';
 
     sessionVariables = {
