@@ -124,6 +124,9 @@
       fi
       . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
       export PATH="$HOME/.cargo/bin:$PATH"
+
+      setopt appendhistory
+      setopt INC_APPEND_HISTORY  
     '';
 
     sessionVariables = {
@@ -150,6 +153,12 @@
       localip =
         "ifconfig | grep -Eo 'inet (addr:)?([0-9]*.){3}[0-9]*' | grep -Eo '([0-9]*.){3}[0-9]*' | grep -v '127.0.0.1'";
       funky = "sfxl fortnite";
+    };
+
+    history = {
+      size = 500000;
+      save = 500000;
+      share = true;
     };
   };
 
