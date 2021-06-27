@@ -45,7 +45,7 @@
     "dotfiles-private-raw": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-Zh5Y5PV09asZYvlL8oSRnDsDlG5Jgxxk3o2mhCRBMfA=",
+        "narHash": "sha256-n2bRCz2MJ/dRdeg6WSdmhx3zb1Y0UhcstRQGwsQ+QPk=",
         "path": "../../dotfiles-private",
         "type": "path"
       },
@@ -83,7 +83,7 @@
         ]
       },
       "locked": {
-        "narHash": "sha256-AHJeZdtgZKPUGGIPOXXfmCzoNqrFxGWPbw83/gERSwI=",
+        "narHash": "sha256-O8yd63IfsV5geFGN6cFnN6eAa7SPAYAw0ZZ82w+wC5c=",
         "path": "../nix",
         "type": "path"
       },

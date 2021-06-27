@@ -26,7 +26,7 @@ _: pkgs: {
 
     ${pkgs.lib.optionalString pkgs.stdenv.isDarwin ''
       nix build "$HOME/dotfiles/private/#darwinConfigurations.ian-mbp.system" -o $HOME/dotfiles/result
-      $HOME/dotfiles/result/sw/bin/darwin-rebuild switch --flake 'private/#ian-mbp'
+      $HOME/dotfiles/result/sw/bin/darwin-rebuild switch --flake "$HOME/dotfiles/private/#ian-mbp"
     ''}
   '';
 
