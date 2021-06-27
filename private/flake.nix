@@ -33,7 +33,6 @@
         };
       };
       darwinConfigurations."ian-mbp" = darwin.lib.darwinSystem {
-        system = "x86_64-darwin";
         modules = [{
           nixpkgs =
             igm.lib.mkNixpkgs { additionalOverlays = private.overlays; };
