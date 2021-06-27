@@ -46,11 +46,11 @@
       "flake": false,
       "locked": {
         "narHash": "sha256-n2bRCz2MJ/dRdeg6WSdmhx3zb1Y0UhcstRQGwsQ+QPk=",
-        "path": "../../dotfiles-private",
+        "path": "../../../../dotfiles-private",
         "type": "path"
       },
       "original": {
-        "path": "../../dotfiles-private",
+        "path": "../../../../dotfiles-private",
         "type": "path"
       }
     },
@@ -83,27 +83,27 @@
         ]
       },
       "locked": {
-        "narHash": "sha256-O8yd63IfsV5geFGN6cFnN6eAa7SPAYAw0ZZ82w+wC5c=",
-        "path": "../nix",
+        "narHash": "sha256-OWzhMsPNR3G9vD4TbwOAChQe7+gU1a9qGW3Di1Sc6Lo=",
+        "path": "../../../nix",
         "type": "path"
       },
       "original": {
-        "path": "../nix",
+        "path": "../../../nix",
         "type": "path"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1624626397,
-        "narHash": "sha256-+h0ulo5//RqStx6g6MDqD9MzgmBfeZ1VYxwEaSmw/Zs=",
+        "lastModified": 1624668028,
+        "narHash": "sha256-FUxvXMBPQ5jrGhS47jwBFZQte0yDkMCBI5M24mJi5X0=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e1f8852faac7638e88d5e8a5b9ee2a7568685e3f",
+        "rev": "e85975942742a3728226ac22a3415f2355bfc897",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-unstable",
+        "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }

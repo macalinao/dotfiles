@@ -21,12 +21,14 @@ _: pkgs: {
     cd $HOME/dotfiles-private && git add -A . && git commit -m "Updates" && git frp
 
     ${pkgs.lib.optionalString pkgs.stdenv.isLinux ''
-      sudo nixos-rebuild switch --flake "$HOME/dotfiles/private#primary"
+      pushd $HOME/dotfiles/private/flakes/nixos
+      sudo nixos-rebuild switch --flake ".#primary"
     ''}
 
     ${pkgs.lib.optionalString pkgs.stdenv.isDarwin ''
-      nix build "$HOME/dotfiles/private/#darwinConfigurations.ian-mbp.system" -o $HOME/dotfiles/result
-      $HOME/dotfiles/result/sw/bin/darwin-rebuild switch --flake "$HOME/dotfiles/private/#ian-mbp"
+      pushd $HOME/dotfiles/private/flakes/darwin
+      nix build "./#darwinConfigurations.ian-mbp.system"
+      ./result/sw/bin/darwin-rebuild switch --flake "./#ian-mbp"
     ''}
   '';
 

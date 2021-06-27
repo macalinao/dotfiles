@@ -1,15 +1,20 @@
 #!/usr/bin/env bash
 
-cd $(dirname $0)
+DOTFILES=$(pwd)/$(dirname $0)
+cd $DOTFILES
 zsh -c 'nixfmt **/*.nix'
 git add .
 
-pushd nix
+cd $DOTFILES/nix
 nix flake update
-popd
+
+cd $DOTFILES
 nix flake update
-pushd private
+
+cd $DOTFILES/private/flakes/darwin
 nix flake update
-popd
+
+cd $DOTFILES/private/flakes/nixos
+nix flake update
 
 git add .

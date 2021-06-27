@@ -21,34 +21,16 @@
         "type": "github"
       }
     },
-    "flake-utils": {
+    "dotfiles-private-raw": {
+      "flake": false,
       "locked": {
-        "lastModified": 1623875721,
-        "narHash": "sha256-A8BU7bjS5GirpAUv4QA+QnJ4CceLHkcXdRp4xITDB0s=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "f7e004a55b120c02ecb6219596820fcd32ca8772",
-        "type": "github"
+        "narHash": "sha256-n2bRCz2MJ/dRdeg6WSdmhx3zb1Y0UhcstRQGwsQ+QPk=",
+        "path": "../../../../dotfiles-private",
+        "type": "path"
       },
       "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
-    "flake-utils_2": {
-      "locked": {
-        "lastModified": 1619345332,
-        "narHash": "sha256-qHnQkEp1uklKTpx3MvKtY6xzgcqXDsz5nLilbbuL+3A=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "2ebf2558e5bf978c7fb8ea927dfaed8fefab2e28",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
+        "path": "../../../../dotfiles-private",
+        "type": "path"
       }
     },
     "home-manager": {
@@ -81,11 +63,11 @@
       },
       "locked": {
         "narHash": "sha256-OWzhMsPNR3G9vD4TbwOAChQe7+gU1a9qGW3Di1Sc6Lo=",
-        "path": "./nix",
+        "path": "../../../nix",
         "type": "path"
       },
       "original": {
-        "path": "./nix",
+        "path": "../../../nix",
         "type": "path"
       }
     },
@@ -105,33 +87,11 @@
         "type": "github"
       }
     },
-    "pre-commit-hooks": {
-      "inputs": {
-        "flake-utils": "flake-utils_2",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1624280920,
-        "narHash": "sha256-ILsUaNPHzZDlTGoUhSLhMSDkjPizTnoykwyeBYpPgtI=",
-        "owner": "cachix",
-        "repo": "pre-commit-hooks.nix",
-        "rev": "628a319e1ee0f9e01d63a3dbe6c1681a177bc5f9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "cachix",
-        "repo": "pre-commit-hooks.nix",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
-        "flake-utils": "flake-utils",
+        "dotfiles-private-raw": "dotfiles-private-raw",
         "igm": "igm",
-        "nixpkgs": "nixpkgs",
-        "pre-commit-hooks": "pre-commit-hooks"
+        "nixpkgs": "nixpkgs"
       }
     }
   },
