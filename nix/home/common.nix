@@ -51,8 +51,12 @@
 
     # formatting
     shfmt
+
+    # wally
+    wally-cli
   ];
 
+  programs.vscode = { enable = true; };
   programs.git = {
     enable = true;
     aliases = {

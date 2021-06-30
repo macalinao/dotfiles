@@ -10,7 +10,7 @@ let
     };
   };
 in mkShell {
-  nativeBuildInputs = [ coreutils-full nixfmt ];
+  nativeBuildInputs = [ coreutils-full nixfmt wally-cli ];
   shellHook = ''
     ${pre-commit-check.shellHook}
   '';
