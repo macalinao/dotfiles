@@ -1,0 +1,15 @@
+{
+  "devDependencies": {
+    "husky": ">=6",
+    "lint-staged": ">=10",
+    "prettier": "^2.3.2"
+  },
+  "lint-staged": {
+    "*.{js,css,md,json}": "prettier --write",
+    "*.sh": "shfmt",
+    "*.nix": "nixfmt"
+  },
+  "scripts": {
+    "prepare": "husky install"
+  }
+}
