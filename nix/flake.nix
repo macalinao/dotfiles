@@ -43,19 +43,6 @@
           home-manager.nixosModules.home-manager
         ];
       };
-      nixosConfigurations.ci-home-vscode = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          nixpkgsModule
-          ./nixos/users.nix
-          ({
-            home-manager.users.igm = import ./home/programs/vscode.nix;
-            home-manager.useGlobalPkgs = true;
-          })
-          ./nixos/machines/ci.nix
-          home-manager.nixosModules.home-manager
-        ];
-      };
       nixosConfigurations.ci-home-os = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [

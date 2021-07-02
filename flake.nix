@@ -7,12 +7,9 @@
 
     igm.url = "path:./nix";
     igm.inputs.nixpkgs.follows = "nixpkgs";
-
-    pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
-    pre-commit-hooks.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { igm, flake-utils, nixpkgs, pre-commit-hooks, ... }:
+  outputs = { igm, flake-utils, nixpkgs, ... }:
     (flake-utils.lib.eachDefaultSystem (system:
       let
         nixpkgs-config-public = (import ./nix/nixpkgs/config.nix { });
@@ -20,12 +17,7 @@
           inherit system;
           inherit (nixpkgs-config-public) config overlays;
         };
-      in {
-        devShell = import ./shell.nix {
-          inherit pkgs;
-          nix-pre-commit-hooks = pre-commit-hooks.lib.${system};
-        };
-      })) // {
+      in { devShell = import ./shell.nix { inherit pkgs; }; })) // {
         inherit (igm) nixosConfigurations;
       };
 }

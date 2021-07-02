@@ -34,7 +34,6 @@ jobs:
       matrix:
         nixosConfiguration:
           - ci-home-common
-          - ci-home-vscode
           - ci-home-os
           - ci-bare
           - vbox-host
