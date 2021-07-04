@@ -1,5 +1,5 @@
 { ... }:
 
 {
-  imports = [ ./os-specific ./programs/vscode.nix ./dotfiles ./common.nix ];
+  imports = [ ./os-specific ./dotfiles ./common.nix ];
 }
