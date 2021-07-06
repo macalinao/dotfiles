@@ -94,6 +94,7 @@ with lib; {
     name = "Ian Macalinao";
     home = "/Users/igm";
   };
+  users.nix.configureBuildUsers = true;
 
   launchd.user.agents.tor = {
     command = with pkgs; "${tor}/bin/tor";
