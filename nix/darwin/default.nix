@@ -25,6 +25,8 @@ with lib; {
       "homebrew/services"
     ];
 
+    brews = [ "ethereum" "openssl" ];
+
     casks = [
       "brave-browser"
       "dashlane"
@@ -43,6 +45,7 @@ with lib; {
       "spotify"
       "superhuman"
       "tableplus"
+      "the-unarchiver"
       "zoom"
     ] ++ (lib.optionals (mode == "personal") [
       "ledger-live"
