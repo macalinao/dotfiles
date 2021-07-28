@@ -16,6 +16,7 @@ with lib; {
     enable = true;
     autoUpdate = true;
     cleanup = "uninstall";
+    brewPrefix = "/opt/homebrew/bin";
 
     taps = [
       "homebrew/bundle"

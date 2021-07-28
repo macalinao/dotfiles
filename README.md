@@ -25,8 +25,8 @@ sudo nixos-rebuild switch --flake "$HOME/dotfiles/private#primary"
 On Darwin in the root directory of the dotfiles:
 
 ```bash
-nix build 'private/#darwinConfigurations.ian-mbp.system'
-./result/sw/bin/darwin-rebuild switch --flake 'private/#ian-mbp'
+nix build 'private/flakes/darwin/#darwinConfigurations.ian-mbp.system'
+./result/sw/bin/darwin-rebuild switch --flake 'private/flakes/darwin/#ian-mbp'
 ```
 
 ### Locking
