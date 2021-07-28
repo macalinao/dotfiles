@@ -37,7 +37,6 @@ with lib; {
       "keybase"
       "linear-linear"
       "loom"
-      "loom"
       "ngrok"
       "numi"
       "postman"
