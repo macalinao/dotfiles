@@ -16,7 +16,8 @@ with lib; {
     enable = true;
     autoUpdate = true;
     cleanup = "uninstall";
-    brewPrefix = "/opt/homebrew/bin";
+    brewPrefix =
+      if pkgs.stdenv.isAarch64 then "/opt/homebrew/bin" else "/usr/local/bin";
 
     taps = [
       "homebrew/bundle"
