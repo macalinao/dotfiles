@@ -10,10 +10,7 @@
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    dotfiles-private-raw = {
-      url = "path:../../../../dotfiles-private";
-      flake = false;
-    };
+    dotfiles-private-raw = { url = "path:../../../../dotfiles-private"; };
   };
 
   outputs = { igm, dotfiles-private-raw, nixpkgs, darwin, ... }:

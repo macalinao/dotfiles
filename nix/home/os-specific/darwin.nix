@@ -1,7 +1,12 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ reattach-to-user-namespace pinentry_mac gnupg ];
+  home.packages = with pkgs; [
+    reattach-to-user-namespace
+    pinentry_mac
+    gnupg
+    kbfs
+  ];
 
   xdg.enable = true;
 
