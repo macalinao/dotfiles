@@ -27,7 +27,7 @@ with lib; {
       "homebrew/services"
     ];
 
-    brews = [ "ethereum" "openssl" ];
+    brews = lib.optionals (!pkgs.stdenv.isAarch64) [ "ethereum" "openssl" ];
 
     casks = [
       "brave-browser"

@@ -54,19 +54,6 @@ if $IS_DARWIN; then
   fi
 fi
 
-section "Add various nix channels"
-add_nix_channels() {
-  nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
-  nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
-  nix-channel --add https://github.com/LnL7/nix-darwin/archive/master.tar.gz darwin
-  nix-channel --update
-}
-add_nix_channels || {
-  danger "Nix channels could not be added."
-  exit 1
-}
-success "Nix channels added and updated"
-
 if $IS_DARWIN; then
   section "Install Homebrew"
   if ! which brew; then
@@ -106,7 +93,7 @@ else
 fi
 
 if $IS_DARWIN; then
-  section "Install nix-darwin"
+  section "Install Nix configuration"
   if [ ! -e ~/.nixpkgs/darwin-configuration.nix ]; then
     sudo mv -f /etc/bashrc /etc/bashrc.orig
     sudo mv -f /etc/zshrc /etc/zshrc.orig
