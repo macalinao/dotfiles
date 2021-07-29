@@ -24,7 +24,7 @@
     "dotfiles-private-raw": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-G0KQUUsqRDIpkYUUQNARt+HfgDYC9GZs/e7CW17SLtE=",
+        "narHash": "sha256-FPmAbSRYlKfQXU8MhVEpw3zDIyIoz3cKHTHXP1m2cdU=",
         "path": "../../../../dotfiles-private",
         "type": "path"
       },
