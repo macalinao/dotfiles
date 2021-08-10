@@ -1,4 +1,4 @@
-{ mode }:
+{ mode, isM1 ? false }:
 { config, lib, pkgs, ... }:
 
 with lib; {
@@ -16,8 +16,7 @@ with lib; {
     enable = true;
     autoUpdate = true;
     cleanup = "uninstall";
-    brewPrefix =
-      if pkgs.stdenv.isAarch64 then "/opt/homebrew/bin" else "/usr/local/bin";
+    brewPrefix = if isM1 then "/opt/homebrew/bin" else "/usr/local/bin";
 
     taps = [
       "homebrew/bundle"
@@ -27,7 +26,7 @@ with lib; {
       "homebrew/services"
     ];
 
-    brews = lib.optionals (!pkgs.stdenv.isAarch64) [ "ethereum" "openssl" ];
+    brews = lib.optionals (!isM1) [ "ethereum" "openssl" ];
 
     casks = [
       "brave-browser"

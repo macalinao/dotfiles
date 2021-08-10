@@ -24,8 +24,8 @@
         ./nixos/machines/ian-nixdesktop.nix
         home-manager.nixosModules.home-manager
       ];
-      mkDarwinModules = { mode }: [
-        (import ./darwin { inherit mode; })
+      mkDarwinModules = { mode, isM1 ? false }: [
+        (import ./darwin { inherit mode isM1; })
         home-manager.darwinModules.home-manager
       ];
     in {

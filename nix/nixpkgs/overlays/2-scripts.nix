@@ -27,8 +27,13 @@ _: pkgs: {
 
     ${pkgs.lib.optionalString pkgs.stdenv.isDarwin ''
       cd $HOME/dotfiles/private/flakes/darwin
-      nix build "./#darwinConfigurations.ian-mbp.system"
-      ./result/sw/bin/darwin-rebuild switch --flake "./#ian-mbp"
+      if [[ $(uname -m) = "arm64" ]]; then
+        nix build "./#darwinConfigurations.ian-mbp-m1.system"
+        ./result/sw/bin/darwin-rebuild switch --flake "./#ian-mbp-m1"
+      else
+        nix build "./#darwinConfigurations.ian-mbp.system"
+        ./result/sw/bin/darwin-rebuild switch --flake "./#ian-mbp"
+      fi
     ''}
   '';
 

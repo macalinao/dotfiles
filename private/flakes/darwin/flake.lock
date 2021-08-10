@@ -48,7 +48,7 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "narHash": "sha256-xjoqTd65jYfm3A/U/u1bbC/nq6I0KEJW8zQT5IC8DBk=",
+        "narHash": "sha256-tH2uRQfR70bKr0uKGGbT39YnyniJ0tCCHSpX+oDt1o0=",
         "path": "../../../../dotfiles-private",
         "type": "path"
       },
@@ -101,7 +101,7 @@
         ]
       },
       "locked": {
-        "narHash": "sha256-oX3UEMhMGsjkUizrBVqaElpBDN59WhdLgz6n3/lRppo=",
+        "narHash": "sha256-mfn041ExPza3oXxdM6fmQXmqQsl87IOC5xGftVbEyhQ=",
         "path": "../../../nix",
         "type": "path"
       },

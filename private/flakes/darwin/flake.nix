@@ -19,13 +19,18 @@
         inherit (nixpkgs) lib;
         raw = import dotfiles-private-raw { };
       };
+      mkSystem = { isM1 ? false }:
+        darwin.lib.darwinSystem {
+          modules = [{
+            nixpkgs =
+              igm.lib.mkNixpkgs { additionalOverlays = private.overlays; };
+          }] ++ (igm.lib.mkDarwinModules {
+            inherit isM1;
+            mode = "personal";
+          }) ++ private.modules;
+        };
     in {
-      darwinConfigurations."ian-mbp" = darwin.lib.darwinSystem {
-        modules = [{
-          nixpkgs =
-            igm.lib.mkNixpkgs { additionalOverlays = private.overlays; };
-        }] ++ (igm.lib.mkDarwinModules { mode = "personal"; })
-          ++ private.modules;
-      };
+      darwinConfigurations."ian-mbp" = mkSystem { };
+      darwinConfigurations."ian-mbp-m1" = mkSystem { isM1 = true; };
     };
 }
