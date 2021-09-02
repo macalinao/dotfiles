@@ -21,8 +21,8 @@
     ghc
 
     # JS tools
-    nodejs
-    yarn
+    nodejs-16_x
+    (yarn.override { nodejs = nodejs-16_x; })
     python
 
     docker-compose
