@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: cachix/install-nix-action@v13
+      - uses: cachix/install-nix-action@v14
         with:
           install_url: ${{ env.NIX_INSTALL_URL }}
           install_options: "--tarball-url-prefix https://nixos-nix-install-tests.cachix.org/serve"
@@ -40,7 +40,7 @@ jobs:
     steps:
       - run: sudo apt-get clean
       - uses: actions/checkout@v2
-      - uses: cachix/install-nix-action@v13
+      - uses: cachix/install-nix-action@v14
         with:
           install_url: ${{ env.NIX_INSTALL_URL }}
           install_options: "--tarball-url-prefix https://nixos-nix-install-tests.cachix.org/serve"
@@ -56,7 +56,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: cachix/install-nix-action@v13
+      - uses: cachix/install-nix-action@v14
         with:
           install_url: ${{ env.NIX_INSTALL_URL }}
           install_options: "--tarball-url-prefix https://nixos-nix-install-tests.cachix.org/serve"
