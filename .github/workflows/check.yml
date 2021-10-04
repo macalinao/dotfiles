@@ -52,8 +52,13 @@ jobs:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       - run: nix -Lv build "./nix#nixosConfigurations.${{ matrix.nixosConfiguration }}.config.system.build.toplevel"
 
-  darwin:
-    runs-on: macos-latest
+  macos-latest:
+    strategy:
+      matrix:
+        runsOn:
+          - macos-latest
+          - macos-11
+    runs-on: ${{ matrix.runsOn }}
     steps:
       - uses: actions/checkout@v2
       - uses: cachix/install-nix-action@v13
@@ -66,5 +71,5 @@ jobs:
         with:
           name: igm
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      - run: nix -Lv build "nix/#darwinConfigurations.ci.system"
+      - run: nix -Lv build "nix/#darwinConfigurations.ci-personal.system"
       - run: nix -Lv develop -c echo OK
