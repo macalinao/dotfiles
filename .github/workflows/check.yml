@@ -29,7 +29,6 @@ jobs:
       - run: nix -Lv develop -c echo OK
 
   linux:
-    runs-on: ubuntu-latest
     strategy:
       matrix:
         nixosConfiguration:
@@ -37,6 +36,7 @@ jobs:
           - ci-home-os
           - ci-bare
           - vbox-host
+    runs-on: ubuntu-latest
     steps:
       - run: sudo apt-get clean
       - uses: actions/checkout@v2
