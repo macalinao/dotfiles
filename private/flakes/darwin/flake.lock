@@ -48,7 +48,7 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "narHash": "sha256-HZWzP5Zb/wskdT+qSSVALFHmuFY2PGG8uvFCz5uculQ=",
+        "narHash": "sha256-XmzRKANsCvGssRPIFNLjnnhDYrhnVPEL2Jz8ht6LK3o=",
         "path": "../../../../dotfiles-private",
         "type": "path"
       },
