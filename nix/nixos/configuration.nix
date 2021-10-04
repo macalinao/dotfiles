@@ -29,8 +29,6 @@
     proggyfonts
   ];
 
-  fonts.fontconfig.dpi = 96;
-
   # This enables "fcitx" as your IME.  This is an easy-to-use IME.  It supports many different input methods.
   i18n.inputMethod.enabled = "fcitx";
 
