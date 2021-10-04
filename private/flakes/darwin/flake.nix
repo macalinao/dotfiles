@@ -21,6 +21,7 @@
       };
       mkSystem = { isM1 ? false }:
         darwin.lib.darwinSystem {
+          system = if isM1 then "aarch64-darwin" else "x86_64-darwin";
           modules = [{
             nixpkgs =
               igm.lib.mkNixpkgs { additionalOverlays = private.overlays; };
