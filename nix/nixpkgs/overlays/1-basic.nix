@@ -18,7 +18,7 @@ self: super: rec {
     packageOverrides = self: super: {
       beautifulsoup4 = super.beautifulsoup4.overrideAttrs (old: {
         propagatedBuildInputs =
-          super.lib.remove super.lxml old.propagatedBuildInputs;
+          super.pkgs.lib.remove super.lxml old.propagatedBuildInputs;
       });
     };
   };
