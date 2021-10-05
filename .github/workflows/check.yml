@@ -57,7 +57,7 @@ jobs:
       matrix:
         runsOn:
           - macos-latest
-          - macos-11
+          # - macos-11
     runs-on: ${{ matrix.runsOn }}
     steps:
       - uses: actions/checkout@v2
