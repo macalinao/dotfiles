@@ -48,13 +48,17 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "narHash": "sha256-KyAWV3RglCzukc4sb8a4ROOBw7QGKY2ktVTr8aPs4HU=",
-        "path": "../../../../dotfiles-private",
-        "type": "path"
+        "lastModified": 1633364747,
+        "narHash": "sha256-sOGFsEKVOyn4YotvPosjX+7P/tEbqkxkQhEacZLHkg0=",
+        "ref": "master",
+        "rev": "f5dc7fe73532132a356b446428697a97170ed5d5",
+        "revCount": 40,
+        "type": "git",
+        "url": "file:///Users/igm/dotfiles-private"
       },
       "original": {
-        "path": "../../../../dotfiles-private",
-        "type": "path"
+        "type": "git",
+        "url": "file:///Users/igm/dotfiles-private"
       }
     },
     "flake-utils": {
@@ -101,13 +105,16 @@
         ]
       },
       "locked": {
-        "narHash": "sha256-sdKtymfNcSIwsv33Jj1K4L6V720d1yndV5SydEF13Tc=",
-        "path": "../../../nix",
-        "type": "path"
+        "dir": "nix",
+        "lastModified": 1633365932,
+        "narHash": "sha256-ecW1M9ftP7ENm5CAhZm3HN7WDUqdSY8F1PLe9V2yGDk=",
+        "type": "git",
+        "url": "file:///Users/igm/dotfiles?dir=nix"
       },
       "original": {
-        "path": "../../../nix",
-        "type": "path"
+        "dir": "nix",
+        "type": "git",
+        "url": "file:///Users/igm/dotfiles?dir=nix"
       }
     },
     "nixpkgs": {
