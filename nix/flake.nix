@@ -83,7 +83,8 @@
           ./nixos/machines/ian-nixdesktop.nix
         ];
       };
-      darwinConfigurations.ci = darwin.lib.darwinSystem {
+      darwinConfigurations.ci-personal = darwin.lib.darwinSystem {
+        system = "x86_64-darwin";
         modules = [
           nixpkgsModule
           (import ./darwin { mode = "personal"; })
