@@ -26,7 +26,7 @@ with lib; {
       "homebrew/services"
     ];
 
-    brews = lib.optionals (!isM1) [ "ethereum" "openssl" ];
+    brews = lib.optionals (!isM1) [ "ethereum" "openssl" "openssl@1.1" ];
 
     casks = [
       "brave-browser"
