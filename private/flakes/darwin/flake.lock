@@ -48,11 +48,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1633765032,
-        "narHash": "sha256-pluuNvRN0kTALm+0W1YimNjSBMmd76R4JkK9wShhSX4=",
+        "lastModified": 1633934299,
+        "narHash": "sha256-kj0fwKwE61rgWy3fFCrR69eXA9aazGyKFG6agQdFHbU=",
         "ref": "master",
-        "rev": "8e137560d1e9b973b17fe65e75a8cb4f20837038",
-        "revCount": 42,
+        "rev": "9fd7e819a29c25734634757a7fd45c806ceef3a6",
+        "revCount": 43,
         "type": "git",
         "url": "file:///Users/igm/dotfiles-private"
       },
@@ -83,11 +83,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1633733120,
-        "narHash": "sha256-IdUgCn7eud2he4LWZpzFPf1D2u+mjZC09mvo3oSNoss=",
+        "lastModified": 1634230035,
+        "narHash": "sha256-tS0dyWxVgb79Jk8elMthWv/oycj/Q4HHDoNL5V43kz8=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "32285d8fe64138a41f1caed23d94f28529ea4eb4",
+        "rev": "309808afbc2a07e340067f66029a4202b4c4b959",
         "type": "github"
       },
       "original": {
@@ -106,8 +106,8 @@
       },
       "locked": {
         "dir": "nix",
-        "lastModified": 1633474239,
-        "narHash": "sha256-1p31hc5Nu0ETp6C9F7Qt4wPG8e08DmMbnyj3ObBTrNs=",
+        "lastModified": 1633771250,
+        "narHash": "sha256-kZhPwsC/5VufnXtlmBDFuzsahpBXpkkaS2QSkVqDPBE=",
         "type": "git",
         "url": "file:///Users/igm/dotfiles?dir=nix"
       },
