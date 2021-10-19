@@ -4,9 +4,6 @@
     pulseaudio = true;
   };
 
-  overlays = [
-    (import ./overlays/1-basic.nix)
-    (import ./overlays/2-scripts.nix)
-    (import ./overlays/3-pia.nix)
-  ] ++ additionalOverlays;
+  overlays = [ (import ./overlays/10-basic.nix) (import ./overlays/30-pia.nix) ]
+    ++ additionalOverlays;
 }

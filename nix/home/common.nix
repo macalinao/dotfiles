@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }:
 
-{
+let scripts = import ./scripts { inherit pkgs; };
+in {
   home.packages = with pkgs; [
     exa
     git
@@ -45,8 +46,6 @@
 
     imagemagick
 
-    nxs
-    full-system-update
     yq
 
     # formatting
@@ -54,6 +53,10 @@
 
     # wally
     wally-cli
+
+    scripts.cachix-build-and-push
+    scripts.full-system-update
+    scripts.nxs
   ];
 
   programs.vscode = { enable = true; };
