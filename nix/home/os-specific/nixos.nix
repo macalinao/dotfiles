@@ -1,6 +1,26 @@
 { config, pkgs, lib, ... }:
 
-{
+let
+  configure-monitors = pkgs.writeShellScriptBin "configure-monitors" ''
+    configure_monitors() {
+      ${pkgs.xorg.xrandr}/bin/xrandr \
+        --output DVI-D-0 --off \
+        --output HDMI-0 --mode 3840x2160 --pos 3840x0 --rotate normal \
+        --output HDMI-1 --mode 2560x1440 --pos 2161x2160 --rotate normal --rate 143.91 \
+        --output DP-0 --mode 2560x1440 --pos 4721x2160 --rotate normal --rate 165.08 \
+        --output DP-1 --off \
+        --output DP-2 --mode 3840x2160 --pos 0x0 --rotate normal \
+        --output DP-3 --off \
+        --output DP-2-3 --mode 3840x2160 --pos 7281x2160 --rotate normal \
+        --output HDMI-2-2 --off \
+        --output HDMI-2-3 --off \
+        --output DP-2-4 --off \
+        --output HDMI-2-4 --off
+    }
+
+    configure_monitors
+  '';
+in {
   xsession.enable = true;
   xsession.profileExtra = "$HOME/dotfiles/bin/desktop_monitors.sh";
 
@@ -59,9 +79,10 @@
     gnome3.seahorse
 
     # scripts
-    configure-monitors
     ngrok-1
     vagrant
+
+    configure-monitors
   ];
 
   services.gpg-agent = {
