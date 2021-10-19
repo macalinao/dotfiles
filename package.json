@@ -5,7 +5,7 @@
     "prettier": "^2.3.2"
   },
   "lint-staged": {
-    "*.{js,css,md,json}": "prettier --write",
+    "*.{js,jsx,ts,tsx,css,md,html,json}": "prettier --write",
     "*.sh": "shfmt",
     "*.nix": "nixfmt"
   },
