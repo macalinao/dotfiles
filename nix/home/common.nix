@@ -64,6 +64,8 @@ in {
     enable = true;
     aliases = {
       amend = "commit -a --amend -C HEAD";
+      ac = "!git add -A $(git root) && git c -a -m";
+      c = "commit";
       co = "checkout";
       ff = "merge --ff-only";
       ffo = "!git ffr origin";
@@ -147,7 +149,7 @@ in {
     };
 
     shellAliases = {
-      gac = "git add -A $(git root) && git commit -m";
+      gac = "git ac";
       gj = "cd $(git root)";
       gd = "git diff";
       gs = "gst";
