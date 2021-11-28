@@ -112,7 +112,7 @@ in {
       enable = true;
       theme = "robbyrussell";
       plugins = [ "git" "yarn" "gitignore" ]
-        ++ (lib.optionals pkgs.stdenv.isDarwin [ "osx" ]);
+        ++ (lib.optionals pkgs.stdenv.isDarwin [ "macos" ]);
     };
     initExtra = ''
       ${lib.optionalString pkgs.stdenv.isDarwin ''
