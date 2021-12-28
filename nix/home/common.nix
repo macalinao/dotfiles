@@ -43,6 +43,7 @@ in {
     nixfmt
     pypi2nix
     cachix
+    nixUnstable
 
     imagemagick
 
