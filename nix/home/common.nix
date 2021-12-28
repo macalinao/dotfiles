@@ -141,7 +141,7 @@ in {
       ''}
 
       setopt appendhistory
-      setopt INC_APPEND_HISTORY  
+      setopt INC_APPEND_HISTORY
     '';
 
     sessionVariables = {
