@@ -6,10 +6,7 @@
     igm.url = "path:../../../nix";
     igm.inputs.nixpkgs.follows = "nixpkgs";
 
-    dotfiles-private-raw = {
-      url = "path:../../../../dotfiles-private";
-      flake = false;
-    };
+    dotfiles-private-raw = { url = "git+file:///Users/igm/dotfiles-private"; };
   };
 
   outputs = { igm, dotfiles-private-raw, nixpkgs, ... }:
