@@ -23,10 +23,7 @@
     },
     "darwin_2": {
       "inputs": {
-        "nixpkgs": [
-          "igm",
-          "nixpkgs"
-        ]
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
         "lastModified": 1641152326,
@@ -79,10 +76,7 @@
     },
     "home-manager": {
       "inputs": {
-        "nixpkgs": [
-          "igm",
-          "nixpkgs"
-        ]
+        "nixpkgs": "nixpkgs_3"
       },
       "locked": {
         "lastModified": 1641937533,
@@ -145,6 +139,34 @@
         "type": "github"
       },
       "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1641850495,
+        "narHash": "sha256-V+luTtgE/W1ldiGJBPGjjBw6B+yKG62owwOs/Kj9fI8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "81f05d871faf75d1456df6adec1d2118d787f65c",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_4": {
+      "locked": {
+        "lastModified": 1641850495,
+        "narHash": "sha256-V+luTtgE/W1ldiGJBPGjjBw6B+yKG62owwOs/Kj9fI8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "81f05d871faf75d1456df6adec1d2118d787f65c",
+        "type": "github"
+      },
+      "original": {
         "owner": "NixOS",
         "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
@@ -156,7 +178,7 @@
         "darwin": "darwin",
         "dotfiles-private-raw": "dotfiles-private-raw",
         "igm": "igm",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_4"
       }
     }
   },
