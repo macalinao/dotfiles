@@ -48,6 +48,7 @@ in {
     imagemagick
 
     yq
+    yj # toml CLI
 
     # formatting
     shfmt
