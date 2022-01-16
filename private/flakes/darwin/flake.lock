@@ -108,8 +108,8 @@
       },
       "locked": {
         "dir": "nix",
-        "lastModified": 1642356202,
-        "narHash": "sha256-EYOec6t0UT3uDgzdKf8gwo6KZNGuoVEq0IptVJ+MSTI=",
+        "lastModified": 1642356377,
+        "narHash": "sha256-+Bzm74VQksrrkVJRF7rk0MCma/MIK/TB/6UvqaWGoJQ=",
         "type": "git",
         "url": "file:///Users/igm/dotfiles?dir=nix"
       },
