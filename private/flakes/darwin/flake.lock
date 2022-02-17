@@ -107,16 +107,13 @@
         ]
       },
       "locked": {
-        "dir": "nix",
-        "lastModified": 1645136239,
-        "narHash": "sha256-jxXTsnZMpCIaFU1Arf66jd33INKhxMSDMTF7bEnON+o=",
-        "type": "git",
-        "url": "file:///Users/igm/dotfiles?dir=nix"
+        "narHash": "sha256-RquS0oMylpUaS30IM7w1VCMDNVityffUPIRvMMlpuU4=",
+        "path": "/Users/igm/dotfiles/nix",
+        "type": "path"
       },
       "original": {
-        "dir": "nix",
-        "type": "git",
-        "url": "file:///Users/igm/dotfiles?dir=nix"
+        "path": "/Users/igm/dotfiles/nix",
+        "type": "path"
       }
     },
     "nixpkgs": {
