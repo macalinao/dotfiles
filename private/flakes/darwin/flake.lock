@@ -49,7 +49,7 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "narHash": "sha256-bIj3s8OU6j0ONU3ZxHyuj9HHB7nh9ob22TXmPqjYrKQ=",
+        "narHash": "sha256-xRrn+eC6gMrD/nKtxZZt2vYISaPwCb4tJ2Uw8JKuHcg=",
         "path": "/Users/igm/dotfiles-private",
         "type": "path"
       },
