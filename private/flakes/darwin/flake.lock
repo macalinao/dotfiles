@@ -102,12 +102,14 @@
       "inputs": {
         "darwin": "darwin_2",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
         "dir": "nix",
-        "lastModified": 1645135544,
-        "narHash": "sha256-m1bpDFbDk7RiyUYQ8QOlwqK967HGvSYIJBhzyvag2ew=",
+        "lastModified": 1645136239,
+        "narHash": "sha256-jxXTsnZMpCIaFU1Arf66jd33INKhxMSDMTF7bEnON+o=",
         "type": "git",
         "url": "file:///Users/igm/dotfiles?dir=nix"
       },
@@ -149,28 +151,12 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
-      "locked": {
-        "lastModified": 1644972330,
-        "narHash": "sha256-6V2JFpTUzB9G+KcqtUR1yl7f6rd9495YrFECslEmbGw=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "19574af0af3ffaf7c9e359744ed32556f34536bd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "darwin": "darwin",
         "dotfiles-private-raw": "dotfiles-private-raw",
         "igm": "igm",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_2"
       }
     }
   },
