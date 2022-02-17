@@ -2,19 +2,12 @@
 
 DOTFILES=$(pwd)/$(dirname $0)
 cd $DOTFILES
+
 zsh -c 'nixfmt **/*.nix'
 
-cd $DOTFILES/nix
+nix flake update $DOTFILES/nix
 nix flake update
+nix flake update $DOTFILES/private/flakes/darwin
+nix flake update $DOTFILES/private/flakes/nixos
 
-cd $DOTFILES
-nix flake update
-
-cd $DOTFILES/private/flakes/darwin
-nix flake update
-
-cd $DOTFILES/private/flakes/nixos
-nix flake update
-
-cd $DOTFILES
 git add .

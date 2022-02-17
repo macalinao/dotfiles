@@ -16,35 +16,25 @@ Run `./install.sh`. This cross-platform script should set up anything relevant.
 
 ### System updates
 
-Update the system using the following command:
+First, update all Flake dependencies using:
 
 ```bash
-sudo nixos-rebuild switch --flake "$HOME/dotfiles/private#primary"
+./update-flakes.sh
 ```
 
-On Darwin in the root directory of the dotfiles:
+Then, to apply the changes, use the command:
 
 ```bash
-nix \
-    --experimental-features 'nix-command flakes' \
-    build 'private/flakes/darwin/#darwinConfigurations.ian-mbp.system'
-./result/sw/bin/darwin-rebuild switch --flake 'private/flakes/darwin/#ian-mbp'
-
+full-system-update
 ```
 
 ### Locking
 
-Git artifacts must be deleted before generating the flake lockfiles. Run this after committing:
+Git artifacts must be deleted before generating the Flake lock files. Run this after committing:
 
 ```bash
 git clean -fdX
 nix flake lock --recreate-lock-file
-```
-
-### Updating with flakes
-
-```bash
-sudo nixos-rebuild switch --flake '.#primary'
 ```
 
 ## License

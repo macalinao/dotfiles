@@ -26,7 +26,7 @@ in {
     (yarn.override { nodejs = nodejs-16_x; })
     python
 
-    docker-compose
+    # docker-compose
 
     findutils
     coreutils-full
