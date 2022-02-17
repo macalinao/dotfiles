@@ -21,7 +21,13 @@
           inherit system;
           inherit (nixpkgs-config-public) config overlays;
         };
-      in { devShell = import ./shell.nix { inherit pkgs; }; })) // {
+      in {
+        devShell = with pkgs;
+          mkShell {
+            nativeBuildInputs =
+              [ coreutils-full nixpkgs-fmt wally-cli shfmt yarn nodejs ];
+          };
+      })) // {
         inherit (igm) nixosConfigurations;
       };
 }
