@@ -83,6 +83,12 @@ in {
     vagrant
 
     configure-monitors
+
+    # for xmonad
+    haskell-language-server
+    cabal-install
+    stack
+    ghc
   ];
 
   services.gpg-agent = {

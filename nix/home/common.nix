@@ -15,12 +15,6 @@ in {
     # Editors
     vim
 
-    # for xmonad
-    # haskell-language-server
-    # cabal-install
-    # stack
-    # ghc
-
     # JS tools
     nodejs-16_x
     (yarn.override { nodejs = nodejs-16_x; })

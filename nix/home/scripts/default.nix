@@ -29,10 +29,10 @@
     ${pkgs.lib.optionalString pkgs.stdenv.isDarwin ''
       ${if pkgs.stdenv.isAarch64 then ''
         nix build "./private/flakes/darwin#darwinConfigurations.ian-mbp-m1.system"
-        ./result/sw/bin/darwin-rebuild switch --flake "./#ian-mbp-m1"
+        ./result/sw/bin/darwin-rebuild switch --flake "./private/flakes/darwin#ian-mbp-m1"
       '' else ''
         nix build "./private/flakes/darwin#darwinConfigurations.ian-mbp.system"
-        ./result/sw/bin/darwin-rebuild switch --flake "./#ian-mbp"
+        ./result/sw/bin/darwin-rebuild switch --flake "./private/flakes/darwin#ian-mbp"
       ''}
     ''}
   '';
