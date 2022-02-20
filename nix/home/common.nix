@@ -16,10 +16,10 @@ in {
     vim
 
     # for xmonad
-    haskell-language-server
-    cabal-install
-    stack
-    ghc
+    # haskell-language-server
+    # cabal-install
+    # stack
+    # ghc
 
     # JS tools
     nodejs-16_x

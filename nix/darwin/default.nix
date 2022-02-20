@@ -4,10 +4,6 @@
 with lib; {
   environment.systemPackages = with pkgs; [ vim kitty tor ];
 
-  environment.shellInit = ''
-    eval "$(${brewBinPrefix}/brew shellenv)" 
-  '';
-
   home-manager.useGlobalPkgs = true;
   home-manager.users.igm = import ../home;
 

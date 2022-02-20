@@ -20,18 +20,18 @@
     echo "Updating private dotfiles."
     cd $HOME/dotfiles-private && git add -A . && git commit -m "Updates" && git frp
 
+    cd $HOME/dotfiles
+
     ${pkgs.lib.optionalString pkgs.stdenv.isLinux ''
-      cd $HOME/dotfiles/private/flakes/nixos
-      sudo nixos-rebuild switch --flake ".#primary"
+      sudo nixos-rebuild switch --flake "./private/flakes/nixos#primary"
     ''}
 
     ${pkgs.lib.optionalString pkgs.stdenv.isDarwin ''
-      cd $HOME/dotfiles/private/flakes/darwin
       ${if pkgs.stdenv.isAarch64 then ''
-        nix build "./#darwinConfigurations.ian-mbp-m1.system"
+        nix build "./private/flakes/darwin#darwinConfigurations.ian-mbp-m1.system"
         ./result/sw/bin/darwin-rebuild switch --flake "./#ian-mbp-m1"
       '' else ''
-        nix build "./#darwinConfigurations.ian-mbp.system"
+        nix build "./private/flakes/darwin#darwinConfigurations.ian-mbp.system"
         ./result/sw/bin/darwin-rebuild switch --flake "./#ian-mbp"
       ''}
     ''}

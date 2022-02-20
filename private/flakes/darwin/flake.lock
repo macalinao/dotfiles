@@ -103,7 +103,7 @@
         ]
       },
       "locked": {
-        "narHash": "sha256-Sdw7OteZ+58ajrNiT8K/HCQ6Uxx8Ntt2OyO8Ghg4wJ8=",
+        "narHash": "sha256-6h4f171GUcI8CoTxR9XHKJhqpMGLSg0D/0XCtvFblHk=",
         "path": "/Users/igm/dotfiles/nix",
         "type": "path"
       },
