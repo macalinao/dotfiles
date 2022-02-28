@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    igm.url = "path:/Users/igm/dotfiles/nix";
+    igm.url = "path:../../../nix";
     igm.inputs.nixpkgs.follows = "nixpkgs";
 
     darwin = {
