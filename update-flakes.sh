@@ -7,7 +7,11 @@ zsh -c 'nixfmt **/*.nix'
 
 nix flake update $DOTFILES/nix
 nix flake update
-nix flake update $DOTFILES/private/flakes/darwin
-nix flake update $DOTFILES/private/flakes/nixos
+
+if $(uname -a | grep -q "Darwin"); then
+    nix flake update $DOTFILES/private/flakes/darwin
+else
+    nix flake update $DOTFILES/private/flakes/nixos
+fi
 
 git add .
