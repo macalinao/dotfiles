@@ -10,6 +10,7 @@
         shell = pkgs.zsh;
         isNormalUser = true;
         extraGroups = [ "wheel" "docker" "transmission" ];
+        openssh.authorizedKeys.keyFiles = [ ./authorized-keys/ian-mbp.pub ];
       };
     };
   };
