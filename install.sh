@@ -73,10 +73,10 @@ if [ $(whoami) = igm ]; then
     fi
   else
     keybase id || {
-      echo "Please authenticate with Keybase.";
+      echo "Please authenticate with Keybase."
       keybase login
       read \?"If you've logged in to Keybase, press [Enter]."
-    };
+    }
   fi
 
   section "Set up private dotfiles"
@@ -109,7 +109,7 @@ if $IS_DARWIN; then
   fi
 else
   cachix use igm
-  sudo nixos-rebuild switch --flake "$HOME/dotfiles/private#primary"
+  sudo nixos-rebuild switch --flake "$HOME/dotfiles/private/flakes/nixos#primary"
 fi
 
 info "Installation complete. Please restart your shell to contine."
