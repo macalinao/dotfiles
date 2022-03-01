@@ -11,18 +11,27 @@
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    vscode-server = {
+      url = "github:msteen/nixos-vscode-server/master";
+      flake = false;
+    };
   };
 
-  outputs = { nixpkgs, home-manager, darwin, ... }:
+  outputs = { nixpkgs, home-manager, darwin, vscode-server, ... }:
     let
       mkNixpkgs = args: (import ./nixpkgs/config.nix) args;
       nixpkgsConfig = mkNixpkgs { };
       nixpkgsModule = { nixpkgs = nixpkgsConfig; };
+
       linuxModules = [
         ./nixos/configuration.nix
         ./nixos/home-manager.nix
         ./nixos/machines/ian-nixdesktop.nix
         home-manager.nixosModules.home-manager
+        ({
+          imports = [ vscode-server ];
+          services.vscode-server.enable = true;
+        })
       ];
       mkDarwinModules = { mode, isM1 ? false }: [
         (import ./darwin { inherit mode isM1; })

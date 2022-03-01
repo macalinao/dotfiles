@@ -61,7 +61,25 @@
       "inputs": {
         "darwin": "darwin",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "vscode-server": "vscode-server"
+      }
+    },
+    "vscode-server": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1635606323,
+        "narHash": "sha256-t782ucKRoatIQn8BJtJZVcmu+KFq21hX+nO/ZXLmWAE=",
+        "owner": "msteen",
+        "repo": "nixos-vscode-server",
+        "rev": "bc28cc2a7d866b32a8358c6ad61bea68a618a3f5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "msteen",
+        "ref": "master",
+        "repo": "nixos-vscode-server",
+        "type": "github"
       }
     }
   },
