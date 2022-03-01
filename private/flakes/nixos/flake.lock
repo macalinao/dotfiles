@@ -79,10 +79,11 @@
         "home-manager": "home-manager",
         "nixpkgs": [
           "nixpkgs"
-        ]
+        ],
+        "vscode-server": "vscode-server"
       },
       "locked": {
-        "narHash": "sha256-fzYgtU2DUKlIfIQWMRJsuTsrdizSZRd7D/4jbBSzwD0=",
+        "narHash": "sha256-Tx5k9+nhSUbhFh5LuerME9+/hKyyOy0ZPyt+4BMgYxY=",
         "path": "../../../nix",
         "type": "path"
       },
@@ -128,6 +129,23 @@
         "dotfiles-private-raw": "dotfiles-private-raw",
         "igm": "igm",
         "nixpkgs": "nixpkgs_2"
+      }
+    },
+    "vscode-server": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1635606323,
+        "narHash": "sha256-t782ucKRoatIQn8BJtJZVcmu+KFq21hX+nO/ZXLmWAE=",
+        "owner": "msteen",
+        "repo": "nixos-vscode-server",
+        "rev": "bc28cc2a7d866b32a8358c6ad61bea68a618a3f5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "msteen",
+        "ref": "master",
+        "repo": "nixos-vscode-server",
+        "type": "github"
       }
     }
   },

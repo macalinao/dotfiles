@@ -28,8 +28,10 @@
         ./nixos/home-manager.nix
         ./nixos/machines/ian-nixdesktop.nix
         home-manager.nixosModules.home-manager
-        vscode-server
-        ({ services.vscode-server.enable = true; })
+        ({ ... }: {
+          imports = [ "${vscode-server}/default.nix" ];
+          services.vscode-server.enable = true;
+        })
       ];
       mkDarwinModules = { mode, isM1 ? false }: [
         (import ./darwin { inherit mode isM1; })
