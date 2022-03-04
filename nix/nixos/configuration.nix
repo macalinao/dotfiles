@@ -82,19 +82,23 @@
 
     polybarFull
     pciutils
+
+    tailscale
   ];
 
   time.timeZone = "America/Chicago";
 
   nix = {
     package = pkgs.nixUnstable;
-    useSandbox = false;
+    settings = {
+      sandbox = false;
+      trusted-users = [ "root" "igm" ];
+    };
     extraOptions = ''
       experimental-features = nix-command flakes
       keep-outputs = true
       keep-derivations = true
     '';
-    trustedUsers = [ "root" "igm" ];
   };
 
   # keyring

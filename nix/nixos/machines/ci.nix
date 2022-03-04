@@ -19,7 +19,7 @@
   swapDevices =
     [{ device = "/dev/disk/by-uuid/116b36ed-7321-4726-83dd-97c4980a433c"; }];
 
-  nix.maxJobs = lib.mkDefault 4;
+  nix.settings.max-jobs = lib.mkDefault 4;
 
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;

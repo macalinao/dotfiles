@@ -8,6 +8,18 @@
     ./virtualbox.nix
   ];
 
+  # Tailscale config
+  services.tailscale.enable = true;
+  networking.firewall = {
+    enable = true;
+    # always allow traffic from your Tailscale network
+    trustedInterfaces = [ "tailscale0" ];
+    # allow the Tailscale UDP port through the firewall
+    allowedUDPPorts = [
+      41641 # tailscale
+    ];
+  };
+
   services.autorandr = {
     enable = true;
     defaultTarget = "main";
@@ -27,7 +39,7 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  services.redis = { enable = true; };
+  services.redis.servers.main = { enable = true; };
 
   services.xserver = {
     enable = true;

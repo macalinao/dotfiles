@@ -55,7 +55,7 @@ in {
     # rust stuff
     openssl
     pkgconfig
-    libudev
+    udev
 
     # Etc
     rofi-systemd
