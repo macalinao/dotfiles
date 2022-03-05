@@ -23,9 +23,14 @@ info() {
 }
 
 IS_DARWIN=[ "$(uname)" = Darwin ]
+IS_ARM64=[[ $(uname -a) = *"arm64"* ]]
 
 if $IS_DARWIN; then
-  info "Detected Darwin install."
+  if $IS_ARM64; then
+    info "Detected Darwin (Intel) install."
+  else
+    info "Detected Darwin (arm64) install."
+  fi
 else
   info "Detected NixOS install."
 fi
@@ -37,16 +42,10 @@ if $IS_DARWIN; then
   if [ ! -e /nix ]; then
     # Need /usr/sbin in path
     export PATH=/usr/sbin:$PATH
-    bash <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume || {
+    bash <(curl -L https://nixos.org/nix/install) || {
       danger "Could not install Nix"
       exit 1
     }
-
-    # ensure nix is sourced
-    . $HOME/.nix-profile/etc/profile.d/nix.sh
-
-    # turn off spotlight on /nix
-    sudo mdutil -i off /nix
 
     success "Nix installed"
   else
@@ -66,9 +65,14 @@ fi
 
 if [ $(whoami) = igm ]; then
   section "Install Keybase"
-  if $IS_DARWIN; then
-    if ! $(brew list --cask | grep keybase); then
-      brew cask install keybase
+  if [ $IS_DARWIN && $IS_ARM64 ]; then
+    if /usr/bin/pgrep oahd >/dev/null 2>&1; then
+      echo "Rosetta is already installed and running. Nothing to do."
+    else
+      softwareupdate –-install-rosetta –-agree-to-license
+    fi
+    if ! $(brew list | grep keybase); then
+      brew install keybase
       read \?"Please log in to Keybase so that we can install the private dotfiles. Press [Enter] when you're done."
     fi
   else
@@ -94,19 +98,19 @@ fi
 
 if $IS_DARWIN; then
   section "Install Nix configuration"
-  if [ ! -e ~/.nixpkgs/darwin-configuration.nix ]; then
-    sudo mv -f /etc/bashrc /etc/bashrc.orig
-    sudo mv -f /etc/zshrc /etc/zshrc.orig
-    mkdir -p $HOME/.nixpkgs/
-    export NIX_PATH=darwin-config=$HOME/.nixpkgs/darwin-configuration.nix:$HOME/.nix-defexpr/channels:$NIX_PATH
-    cp $DOTFILES/nix/darwin/configuration.nix.template ~/.nixpkgs/darwin-configuration.nix
-    cachix use igm
-    $(nix-build '<darwin>' -A system --no-out-link)/sw/bin/darwin-rebuild build
-    $(nix-build '<darwin>' -A system --no-out-link)/sw/bin/darwin-rebuild switch
-    success "nix-darwin installed"
-  else
-    info "nix-darwin already installed, skipping..."
+  nix-env -iA cachix -f https://cachix.org/api/v1/install
+  nix-env --set-flag priority 100 cachix
+
+  DOTFILES_SYSTEM_ATTR=ian-mbp
+  if $IS_ARM64; then
+    DOTFILES_SYSTEM_ATTR=ian-mbp-m1
   fi
+
+  cachix use igm
+
+  nix build --extra-experimental-features nix-command --extra-experimental-features flakes $DOTFILES/private/flakes/darwin#darwinConfigurations.$DOTFILES_SYSTEM_ATTR.system
+  ./result/sw/bin/darwin-rebuild switch --flake $DOTFILES/private/flakes/darwin
+  success "nix-darwin installed"
 else
   cachix use igm
   sudo nixos-rebuild switch --flake "$HOME/dotfiles/private/flakes/nixos#primary"
