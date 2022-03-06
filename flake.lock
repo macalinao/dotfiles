@@ -68,7 +68,7 @@
         "vscode-server": "vscode-server"
       },
       "locked": {
-        "narHash": "sha256-aIyoYuhSN7ZUhRgN/puRSS9o5jfmGniAKxDDOlwVIeg=",
+        "narHash": "sha256-Vnf7GivUyAdk6WG6u4F/aDp1R8QnDc/mpnIwlaeW2Z8=",
         "path": "./nix",
         "type": "path"
       },
