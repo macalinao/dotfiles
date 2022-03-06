@@ -132,11 +132,8 @@ in {
       ${
       # Solana path on Darwin
       lib.optionalString pkgs.stdenv.isDarwin ''
-        export PATH="/Users/igm/.local/share/solana/install/active_release/bin:$PATH"
+        export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
       ''}
-
-      setopt appendhistory
-      setopt INC_APPEND_HISTORY
     '';
 
     sessionVariables = {

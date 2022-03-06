@@ -12,7 +12,7 @@ ghclone() {
         PROJ_WITH_ORG=macalinao/$1
     fi
     DIR=$HOME/proj/$PROJ_WITH_ORG
-    mkdir -p $DIR && cd $DIR/.. && git clone git@github.com:$PROJ_WITH_ORG.git && cd $DIR
+    git clone git@github.com:$PROJ_WITH_ORG.git $DIR && cd $DIR
 }
 
 ghnew() {
@@ -21,7 +21,7 @@ ghnew() {
         PROJ_WITH_ORG=macalinao/$1
     fi
     DIR=$HOME/proj/$PROJ_WITH_ORG
-    mkdir -p $DIR && cd $DIR && git init && gh repo create --private --confirm $PROJ_WITH_ORG
+    mkdir -p $DIR && cd $DIR && gh repo create --private --confirm $PROJ_WITH_ORG --clone
 }
 
 lsport() {
