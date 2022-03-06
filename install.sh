@@ -96,23 +96,23 @@ else
   info "User is not igm; skipping private repos setup."
 fi
 
+section "Setup temporary Cachix"
+nix-env -iA cachix -f https://cachix.org/api/v1/install
+nix-env --set-flag priority 100 cachix
+cachix use igm
+
 if $IS_DARWIN; then
   section "Install Nix configuration"
-  nix-env -iA cachix -f https://cachix.org/api/v1/install
-  nix-env --set-flag priority 100 cachix
 
   DOTFILES_SYSTEM_ATTR=ian-mbp
   if $IS_ARM64; then
     DOTFILES_SYSTEM_ATTR=ian-mbp-m1
   fi
 
-  cachix use igm
-
   nix build --extra-experimental-features nix-command --extra-experimental-features flakes $DOTFILES/private/flakes/darwin#darwinConfigurations.$DOTFILES_SYSTEM_ATTR.system
   ./result/sw/bin/darwin-rebuild switch --flake $DOTFILES/private/flakes/darwin
   success "nix-darwin installed"
 else
-  cachix use igm
   sudo nixos-rebuild switch --flake "$HOME/dotfiles/private/flakes/nixos#primary"
 fi
 
