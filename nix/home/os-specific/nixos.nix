@@ -33,7 +33,6 @@ in {
   home.packages = with pkgs; [
     # Browsers
     brave
-    chromium
     firefox
     google-chrome
 
