@@ -1,3 +1,11 @@
+ssh-keygen-quick() {
+    if [ ! $1 ]; then
+        echo "Usage: ssh-keygen-quick <username>"
+        return 1
+    fi
+    ssh-keygen -N "" -C "" -f $HOME/.ssh/id_rsa_$1
+}
+
 ghclone() {
     PROJ_WITH_ORG=$1
     if [ ! $(echo "$1" | grep "/") ]; then
