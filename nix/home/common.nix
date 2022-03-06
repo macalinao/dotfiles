@@ -119,15 +119,6 @@ in {
       source $HOME/dotfiles-private/helpers.zsh
     '';
     envExtra = ''
-      if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ];
-      then
-        . $HOME/.nix-profile/etc/profile.d/nix.sh
-      fi
-      if [ -e /etc/static/zshrc ];
-      then
-        . /etc/static/zshrc
-      fi
-      . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
       export PATH="$HOME/.cargo/bin:$PATH"
       ${
       # Solana path on Darwin
