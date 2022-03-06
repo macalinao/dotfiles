@@ -14,4 +14,7 @@ self: super: rec {
       sha256 = "sha256-re3pVOnGltluJUdZtTlSeiSrHULw1UjFxDCdGj/Dwl4=";
     };
   };
+
+  # tests for this are broken on darwin
+  kitty = super.kitty.overrideAttrs (_: { doInstallCheck = false; });
 }

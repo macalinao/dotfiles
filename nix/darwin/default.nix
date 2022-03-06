@@ -7,6 +7,14 @@ with lib; {
   home-manager.useGlobalPkgs = true;
   home-manager.users.igm = import ../home;
 
+  system.defaults = {
+    dock = {
+      mru-spaces = false;
+      autohide = true;
+      tilesize = 32;
+    };
+  };
+
   system.keyboard = {
     enableKeyMapping = true;
     remapCapsLockToEscape = true;

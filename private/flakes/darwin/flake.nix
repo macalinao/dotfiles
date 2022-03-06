@@ -19,7 +19,7 @@
         inherit (nixpkgs) lib;
         raw = import dotfiles-private-raw { };
       };
-      mkSystem = { isM1 ? false }:
+      mkSystem = { isM1 ? false, modules ? [ ], computerName, hostName }:
         darwin.lib.darwinSystem {
           system = if isM1 then "aarch64-darwin" else "x86_64-darwin";
           modules = [{
@@ -28,10 +28,22 @@
           }] ++ (igm.lib.mkDarwinModules {
             inherit isM1;
             mode = "personal";
-          }) ++ private.modules;
+          }) ++ private.modules ++ modules ++ [{
+            networking = {
+              inherit computerName hostName;
+              localHostName = hostName;
+            };
+          }];
         };
     in {
-      darwinConfigurations."ian-mbp" = mkSystem { };
-      darwinConfigurations."ian-mbp-m1" = mkSystem { isM1 = true; };
+      darwinConfigurations."ian-mbp" = mkSystem {
+        computerName = "Ian’s Macbook Pro Intel";
+        hostName = "ian-mbp";
+      };
+      darwinConfigurations."ian-mbp-m1" = mkSystem {
+        isM1 = true;
+        computerName = "Ian’s Macbook Pro 2022";
+        hostName = "ian-mbp-2022";
+      };
     };
 }
