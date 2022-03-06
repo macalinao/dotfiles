@@ -16,8 +16,8 @@ in {
     vim
 
     # JS tools
-    nodejs-16_x
-    (yarn.override { nodejs = nodejs-16_x; })
+    nodejs
+    yarn
     python
 
     # docker-compose
