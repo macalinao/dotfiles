@@ -74,4 +74,45 @@
   };
 
   services.lorri.enable = true;
+
+  networking.firewall.allowedTCPPorts = [
+    80 # nginx
+  ];
+
+  # Time machine NAS config
+  networking.firewall.extraCommands =
+    "iptables -t raw -A OUTPUT -p udp -m udp --dport 137 -j CT --helper netbios-ns";
+  services.samba = {
+    enable = true;
+    package = pkgs.sambaFull;
+    securityType = "user";
+    openFirewall = true;
+    extraConfig = ''
+      workgroup = WORKGROUP
+      server string = smbnix
+      netbios name = smbnix
+    '';
+    shares = {
+      time-capsule-22 = {
+        path = "/mnt/nas/time-capsule-22";
+        "valid users" = "igm";
+        public = "no";
+        writeable = "yes";
+        "force user" = "igm";
+        "fruit:aapl" = "yes";
+        "fruit:time machine" = "yes";
+        "vfs objects" = "catia fruit streams_xattr";
+      };
+
+    };
+  };
+
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+    publish = {
+      enable = true;
+      userServices = true;
+    };
+  };
 }

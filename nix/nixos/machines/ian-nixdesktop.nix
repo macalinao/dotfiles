@@ -13,14 +13,24 @@
   boot.kernelParams = [ "radeon.si_support=0" "amdgpu.si_support=1" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/d83d6906-f53f-417b-a080-e2b05f5990b8";
-    fsType = "btrfs";
-    options = [ "subvol=nixos" ];
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-uuid/d83d6906-f53f-417b-a080-e2b05f5990b8";
+      fsType = "btrfs";
+      options = [ "subvol=nixos" ];
+    };
+    "/mnt/nas" = {
+      device = "/dev/disk/by-uuid/af694995-6ef0-4649-9f97-ce0df0525ff5";
+      fsType = "ext4";
+      options = [ "nodev" "nosuid" "noatime" ];
+    };
   };
 
-  boot.initrd.luks.devices."cryptroot".device =
-    "/dev/disk/by-uuid/ea26aee0-c2c4-4211-8bec-9551913c0a56";
+  boot.initrd.luks.devices = {
+    "cryptroot".device =
+      "/dev/disk/by-uuid/ea26aee0-c2c4-4211-8bec-9551913c0a56";
+    "nas".device = "/dev/disk/by-uuid/06e340d6-f60f-4b32-b8c9-31b4022f57b2";
+  };
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/ADA4-EB17";
@@ -33,7 +43,7 @@
   nix.settings.max-jobs = lib.mkDefault 8;
   powerManagement.cpuFreqGovernor = "performance";
 
-  services.xserver.videoDrivers = [ "nvidia" "amdgpu" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.opengl.driSupport = true;
   hardware.opengl.driSupport32Bit = true;

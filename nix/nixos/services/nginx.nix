@@ -1,10 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  networking.firewall.allowedTCPPorts = [
-    80 # nginx
-  ];
-
   # Nginx Reverse Proxy
   services.nginx = {
     enable = true;
