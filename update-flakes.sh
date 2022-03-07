@@ -13,9 +13,9 @@ nix_cmd flake update $DOTFILES/nix
 nix_cmd flake update
 
 if $(uname -a | grep -q "Darwin"); then
-    nix_cmd flake update $DOTFILES/private/flakes/darwin
+  nix_cmd flake update $DOTFILES/private/flakes/darwin
 else
-    nix_cmd flake update $DOTFILES/private/flakes/nixos
+  nix_cmd flake update $DOTFILES/private/flakes/nixos
 fi
 
 git add .
