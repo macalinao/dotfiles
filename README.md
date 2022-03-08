@@ -12,9 +12,21 @@ Dotfiles and most program installations are managed by the [Nix package manager]
 
 ## Installation
 
-Run `./install.sh`. This cross-platform script should set up anything relevant.
+Run [`./install.sh`](./install.sh). This cross-platform script should set up anything relevant.
 
-### System updates
+You may want to manually step through the install script yourself in case of failure.
+
+### Applying changes
+
+After modifying a Nix configuration, run:
+
+```bash
+full-system-update
+```
+
+This will apply your changes. It does not update Nixpkgs-- to do this read the next section.
+
+### Updating Nixpkgs and other upstream dependencies
 
 First, update all Flake dependencies using:
 
