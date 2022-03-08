@@ -98,7 +98,6 @@ with lib; {
   };
 
   services.lorri.enable = true;
-  services.nix-daemon.enable = true;
 
   programs.gnupg = { agent.enable = true; };
 

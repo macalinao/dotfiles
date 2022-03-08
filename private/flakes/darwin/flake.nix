@@ -39,15 +39,13 @@
       darwinConfigurations."ian-mbp" = mkSystem {
         computerName = "Ian’s Macbook Pro Intel";
         hostName = "ian-mbp-intel";
-        modules = [{
-
-          services.nix-daemon.enable = false;
-        }];
+        modules = [{ services.nix-daemon.enable = false; }];
       };
       darwinConfigurations."ian-mbp-m1" = mkSystem {
         isM1 = true;
         computerName = "Ian’s Macbook Pro 2022";
         hostName = "ian-mbp-2022";
+        modules = [{ services.nix-daemon.enable = true; }];
       };
     };
 }
