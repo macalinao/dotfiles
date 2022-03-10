@@ -34,7 +34,6 @@ in
 
     keybase
 
-    niv
     nixfmt
     nixpkgs-fmt
     pypi2nix
