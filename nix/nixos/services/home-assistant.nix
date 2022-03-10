@@ -14,15 +14,8 @@
       esphome = { };
       # https://www.home-assistant.io/integrations/met/
       met = { };
+      spotify = { };
+      zwave_js = { };
     };
-
-    package = (pkgs.home-assistant.override {
-      # https://github.com/NixOS/nixpkgs/blob/master/pkgs/servers/home-assistant/component-packages.nix
-      extraComponents = [ "default_config" "met" "zwave_js" "spotify" ];
-    }).overrideAttrs (oldAttrs: {
-      # Don't run package tests, they take a long time
-      doInstallCheck = false;
-    });
-
   };
 }
