@@ -37,7 +37,8 @@
         (import ./darwin { inherit mode isM1; })
         home-manager.darwinModules.home-manager
       ];
-    in {
+    in
+    {
       lib = { inherit linuxModules mkDarwinModules mkNixpkgs; };
       nixosConfigurations.ci-home-common = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";

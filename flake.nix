@@ -14,20 +14,22 @@
       "aarch64-darwin"
       "x86_64-darwin"
       "x86_64-linux"
-    ] (system:
-      let
-        nixpkgs-config-public = (import ./nix/nixpkgs/config.nix { });
-        pkgs = import nixpkgs {
-          inherit system;
-          inherit (nixpkgs-config-public) config overlays;
-        };
-      in {
-        devShell = with pkgs;
-          mkShell {
-            nativeBuildInputs =
-              [ coreutils-full nixpkgs-fmt wally-cli shfmt yarn nodejs ];
+    ]
+      (system:
+        let
+          nixpkgs-config-public = (import ./nix/nixpkgs/config.nix { });
+          pkgs = import nixpkgs {
+            inherit system;
+            inherit (nixpkgs-config-public) config overlays;
           };
-      })) // {
-        inherit (igm) nixosConfigurations;
-      };
+        in
+        {
+          devShell = with pkgs;
+            mkShell {
+              nativeBuildInputs =
+                [ coreutils-full nixpkgs-fmt wally-cli shfmt yarn nodejs ];
+            };
+        })) // {
+      inherit (igm) nixosConfigurations;
+    };
 }

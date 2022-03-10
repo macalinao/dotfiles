@@ -20,7 +20,8 @@ let
 
     configure_monitors
   '';
-in {
+in
+{
   xsession.enable = true;
   xsession.profileExtra = "$HOME/dotfiles/bin/desktop_monitors.sh";
 

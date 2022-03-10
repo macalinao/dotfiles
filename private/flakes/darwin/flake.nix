@@ -35,7 +35,8 @@
             };
           }];
         };
-    in {
+    in
+    {
       darwinConfigurations."ian-mbp" = mkSystem {
         computerName = "Ian’s Macbook Pro Intel";
         hostName = "ian-mbp-intel";

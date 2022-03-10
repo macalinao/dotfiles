@@ -13,4 +13,5 @@ let
       toolz
       pandas
     ]);
-in mkShell { nativeBuildInputs = [ jupyter ]; }
+in
+mkShell { nativeBuildInputs = [ jupyter ]; }

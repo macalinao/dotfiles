@@ -15,13 +15,15 @@
 
   full-system-update = with pkgs;
     let
-      flakePath = if stdenv.isLinux then
-        "./private/flakes/nixos"
-      else if stdenv.isDarwin then
-        "./private/flakes/darwin"
-      else
-        null;
-    in writeScriptBin "full-system-update" ''
+      flakePath =
+        if stdenv.isLinux then
+          "./private/flakes/nixos"
+        else if stdenv.isDarwin then
+          "./private/flakes/darwin"
+        else
+          null;
+    in
+    writeScriptBin "full-system-update" ''
       #!${bash}/bin/bash
       set -x
 

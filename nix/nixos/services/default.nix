@@ -6,6 +6,7 @@
     # ./wireguard.nix
     # ./transmission.nix
     ./virtualbox.nix
+    ./home-assistant.nix
   ];
 
   # Tailscale config
@@ -92,26 +93,29 @@
       server string = smbnix
       netbios name = smbnix
     '';
-    shares = let
-      mkTimeCapsule = name: {
-        "valid users" = "igm";
-        path = "/mnt/nas/${name}";
-        public = "no";
-        writeable = "yes";
-        "force user" = "igm";
-        "fruit:aapl" = "yes";
-        "fruit:time machine" = "yes";
-        "vfs objects" = "catia fruit streams_xattr";
-      };
-    in builtins.listToAttrs (map (name: {
-      inherit name;
-      value = mkTimeCapsule name;
-    }) [
-      # intel mbp
-      "time-capsule-intel"
-      # 2022 aarch64 mbp
-      "time-capsule-22"
-    ]);
+    shares =
+      let
+        mkTimeCapsule = name: {
+          "valid users" = "igm";
+          path = "/mnt/nas/${name}";
+          public = "no";
+          writeable = "yes";
+          "force user" = "igm";
+          "fruit:aapl" = "yes";
+          "fruit:time machine" = "yes";
+          "vfs objects" = "catia fruit streams_xattr";
+        };
+      in
+      builtins.listToAttrs (map
+        (name: {
+          inherit name;
+          value = mkTimeCapsule name;
+        }) [
+        # intel mbp
+        "time-capsule-intel"
+        # 2022 aarch64 mbp
+        "time-capsule-22"
+      ]);
   };
 
   services.avahi = {

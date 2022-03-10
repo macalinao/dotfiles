@@ -1,7 +1,8 @@
 { config, pkgs, lib }:
 
 let static = ../static;
-in lib.mkMerge [
+in
+lib.mkMerge [
   { home.file.".vimrc".source = "${static}/vimrc"; }
   (lib.mkIf pkgs.stdenv.isLinux {
     home.file.".xscreensaver".source = "${static}/xscreensaver";

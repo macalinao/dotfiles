@@ -1,7 +1,8 @@
 { config, pkgs, lib, ... }:
 
 let scripts = import ./scripts { inherit pkgs; };
-in {
+in
+{
   home.packages = with pkgs; [
     exa
     git
@@ -35,6 +36,7 @@ in {
 
     niv
     nixfmt
+    nixpkgs-fmt
     pypi2nix
     cachix
     nixUnstable

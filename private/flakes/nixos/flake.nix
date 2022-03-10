@@ -15,7 +15,8 @@
         inherit (nixpkgs) lib;
         raw = import dotfiles-private-raw { };
       };
-    in {
+    in
+    {
       nixosConfigurations = igm.nixosConfigurations // {
         primary = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";

@@ -3,15 +3,18 @@
 let
   defaultConfig = { factorio-token = ""; };
   config = defaultConfig // raw // {
-    profiles = lib.mapAttrs (profile: profileInfo:
-      {
-        githubOrganization = profile;
-        email = "${profile}@igm.pub";
-        additionalGitConfig = "";
-        additionalGitignore = "";
-      } // profileInfo) raw.profiles;
+    profiles = lib.mapAttrs
+      (profile: profileInfo:
+        {
+          githubOrganization = profile;
+          email = "${profile}@igm.pub";
+          additionalGitConfig = "";
+          additionalGitignore = "";
+        } // profileInfo)
+      raw.profiles;
   };
-in config // {
+in
+config // {
   # private overlays
   overlays = [
     (self: super: {
