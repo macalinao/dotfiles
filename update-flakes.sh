@@ -3,7 +3,7 @@
 DOTFILES=$(pwd)/$(dirname $0)
 cd $DOTFILES
 
-zsh -c 'nixfmt **/*.nix'
+zsh -c 'nixpkgs-fmt **/*.nix'
 
 nix_cmd() {
   nix --extra-experimental-features flakes --extra-experimental-features nix-command $@
