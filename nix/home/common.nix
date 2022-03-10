@@ -80,7 +80,6 @@ in
       suir = "submodule update --init --recursive";
       which-branch = ''
         !wb() { b="$(git symbolic-ref HEAD)" && echo ''${b#refs/heads/}; }; wb'';
-      nf = "nixpkgs-fmt **/*.nix";
     };
     extraConfig = {
       core.excludesFile = "${./static/gitignore_global}";
@@ -146,6 +145,7 @@ in
 
       x = "exit";
       c = "clear";
+      nf = "nixpkgs-fmt **/*.nix";
 
       vi = "vim";
       bear = "keybase chat send bearcott";
