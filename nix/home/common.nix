@@ -30,6 +30,7 @@ in
     zsh
     gnugrep
     rustup
+    rust-analyzer
     shfmt
 
     keybase
@@ -56,7 +57,11 @@ in
     scripts.nxs
   ];
 
-  programs.vscode = { enable = true; };
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [ matklad.rust-analyzer ];
+  };
+
   programs.git = {
     enable = true;
     aliases = {

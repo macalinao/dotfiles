@@ -78,6 +78,8 @@
 
   networking.firewall.allowedTCPPorts = [
     80 # nginx
+    8123 # home-assistant
+    8124 # zwave-js-server
   ];
 
   # Time machine NAS config

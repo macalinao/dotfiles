@@ -41,7 +41,7 @@
       nix flake lock --update-input igm --update-input dotfiles-private-raw ${flakePath}
 
       ${lib.optionalString stdenv.isLinux ''
-        sudo nixos-rebuild switch --flake "./private/flakes/nixos#primary"
+        sudo nixos-rebuild switch --impure --flake "./private/flakes/nixos#primary"
       ''}
 
       ${lib.optionalString stdenv.isDarwin ''

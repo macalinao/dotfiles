@@ -5,10 +5,6 @@
 
   networking.hostName = "ianix";
 
-  networking.extraHosts = ''
-    127.0.0.1 local.pipe-dev.com
-  '';
-
   console = {
     keyMap = "us";
     font = "Lat2-Terminus16";

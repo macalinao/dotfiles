@@ -89,6 +89,9 @@ in
     cabal-install
     stack
     ghc
+
+    home-assistant-cli
+    usbutils
   ];
 
   services.gpg-agent = {
