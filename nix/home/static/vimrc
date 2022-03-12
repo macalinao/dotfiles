@@ -1,13 +1,9 @@
-set nocompatible
 filetype off
-syntax enable
+syntax on
 
 filetype plugin indent on
 
-set tabstop=2
 set nu
-set shiftwidth=2
-set expandtab
 
 set splitbelow
 set splitright

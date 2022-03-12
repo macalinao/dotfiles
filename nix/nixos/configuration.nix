@@ -38,6 +38,8 @@
   # programs.mtr.enable = true;
   # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
 
+  programs.zsh = { enable = true; };
+
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio = {
@@ -60,9 +62,11 @@
   # should.
   system.stateVersion = "20.09"; # Did you read the comment?
 
+  environment.variables.EDITOR = "vim";
   environment.systemPackages = with pkgs; [
     git
     zsh
+    vim
 
     # Other
     gnupg

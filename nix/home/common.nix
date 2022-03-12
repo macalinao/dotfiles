@@ -13,9 +13,6 @@ in
     wget
     whois
 
-    # Editors
-    vim
-
     # JS tools
     nodejs
     yarn
@@ -108,6 +105,18 @@ in
 
   programs.command-not-found.enable = true;
 
+  programs.vim = {
+    enable = true;
+    plugins = with pkgs.vimPlugins; [ vim-airline ];
+    settings = {
+      tabstop = 2;
+      ignorecase = true;
+      shiftwidth = 2;
+      expandtab = true;
+    };
+    extraConfig = builtins.readFile ./static/vimrc;
+  };
+
   programs.zsh = {
     enable = true;
     oh-my-zsh = {
@@ -135,7 +144,7 @@ in
 
     sessionVariables = {
       DOTFILES = "${config.home.homeDirectory}/dotfiles";
-      EDITOR = "${pkgs.vim}/bin/vim";
+      EDITOR = "vim";
     };
 
     shellAliases = {
