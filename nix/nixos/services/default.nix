@@ -26,14 +26,6 @@
     defaultTarget = "main";
   };
 
-  services.kbfs = {
-    enable = true;
-    mountPoint = "%t/kbfs";
-    extraFlags = [ "-label %u" ];
-  };
-
-  services.keybase = { enable = true; };
-
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
