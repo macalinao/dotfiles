@@ -49,7 +49,7 @@
           darwinConfiguration =
             if stdenv.isAarch64 then "ian-mbp-m1" else "ian-mbp";
         in ''
-          nix build "./private/flakes/darwin#darwinConfigurations.${darwinConfiguration}.system"
+          nix build --impure "./private/flakes/darwin#darwinConfigurations.${darwinConfiguration}.system"
           ./result/sw/bin/darwin-rebuild switch --impure --flake "./private/flakes/darwin#${darwinConfiguration}"
           rm -r result
         ''}
