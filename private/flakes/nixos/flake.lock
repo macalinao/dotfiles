@@ -83,7 +83,7 @@
         "vscode-server": "vscode-server"
       },
       "locked": {
-        "narHash": "sha256-aXABH1Xw8d7Ir+ap1ypHvUnoh/btNYf+ildCi9DKm2g=",
+        "narHash": "sha256-Yuseyf145v/bqXbDGqU5EDc46uptMogOGOd+9UjZIeQ=",
         "path": "/home/igm/dotfiles/nix",
         "type": "path"
       },

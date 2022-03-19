@@ -24,8 +24,7 @@
       nixpkgsModule = { nixpkgs = nixpkgsConfig; };
 
       linuxModules = [
-        ./nixos/module.nix
-        ./nixos/home-manager.nix
+        ./system.nix
         ./nixos/machines/ian-nixdesktop.nix
         home-manager.nixosModules.home-manager
         ({ ... }: {
@@ -33,6 +32,7 @@
           services.vscode-server.enable = true;
 
           igm = {
+            isNixos = true;
             headless = true;
             virtualbox = false;
           };

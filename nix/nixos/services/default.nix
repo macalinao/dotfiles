@@ -2,7 +2,6 @@
 
 with lib;
 mkMerge [
-  (import ./home-assistant.nix args)
   {
     # Tailscale config
     services.tailscale.enable = true;

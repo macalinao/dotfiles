@@ -1,11 +1,15 @@
-{ mode, isM1 ? false }:
+{ systemConfig }:
 { config, lib, pkgs, ... }:
 
+let
+  mode = systemConfig.igm.mode;
+  isM1 = systemConfig.igm.isM1;
+in
 with lib; {
   environment.systemPackages = with pkgs; [ vim kitty tor ];
 
   home-manager.useGlobalPkgs = true;
-  home-manager.users.igm = import ../home;
+  home-manager.users.igm = import ../home { systemConfig = config; };
 
   system.defaults = {
     dock = {
