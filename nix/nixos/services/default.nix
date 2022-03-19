@@ -27,8 +27,6 @@ mkMerge [
     # Enable CUPS to print documents.
     services.printing.enable = true;
 
-    services.redis.servers.main = { enable = true; };
-
     services.xserver = {
       enable = true;
       dpi = 96;
