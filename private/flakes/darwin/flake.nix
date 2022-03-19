@@ -25,13 +25,14 @@
           modules = [{
             nixpkgs =
               igm.lib.mkNixpkgs { additionalOverlays = private.overlays; };
-          }] ++ (igm.lib.mkDarwinModules {
-            inherit isM1;
-            mode = "personal";
-          }) ++ private.modules ++ modules ++ [{
+          }] ++ igm.lib.darwinModules ++ private.modules ++ modules ++ [{
             networking = {
               inherit computerName hostName;
               localHostName = hostName;
+            };
+            igm = {
+              inherit isM1;
+              mode = "personal";
             };
           }];
         };

@@ -1,3 +1,4 @@
+{ isLinux ? false, isDarwin ? false }:
 { config, pkgs, lib, ... }@args:
 
 with lib;
@@ -8,16 +9,8 @@ in
 {
   options = {
     igm = {
-      isNixos = mkOption {
-        type = types.bool;
-        default = true;
-        description = ''
-          System.
-        '';
-      };
-
       mode = mkOption {
-        type = types.string;
+        type = types.str;
         default = "personal";
         description = ''
           Mode.
@@ -51,15 +44,17 @@ in
   };
 
   config =
-    mkMerge
-      [
-        (mkIf cfg.isNixos (mkMerge [
-          (import ./nixos/configuration.nix args)
-          (import ./nixos/home-manager.nix args)
-          (import ./nixos/services args)
-          (import ./nixos/services/home-assistant.nix args)
-          (mkIf cfg.virtualbox (import ./nixos/services/virtualbox.nix args))
-          (import ./nixos/users.nix args)
-        ]))
-      ];
+    (if isLinux then
+      (mkMerge [
+        (import ./nixos/configuration.nix args)
+        (import ./nixos/home-manager.nix args)
+        (import ./nixos/services args)
+        (import ./nixos/services/home-assistant.nix args)
+        (mkIf cfg.virtualbox (import ./nixos/services/virtualbox.nix args))
+        (import ./nixos/users.nix args)
+      ]) else { }) //
+    (if isDarwin then
+      (mkMerge [
+        (import ./darwin args)
+      ]) else { });
 }

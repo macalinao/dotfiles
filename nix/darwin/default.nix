@@ -1,9 +1,8 @@
-{ systemConfig }:
 { config, lib, pkgs, ... }:
 
 let
-  mode = systemConfig.igm.mode;
-  isM1 = systemConfig.igm.isM1;
+  mode = config.igm.mode;
+  isM1 = config.igm.isM1;
 in
 with lib; {
   environment.systemPackages = with pkgs; [ vim kitty tor ];

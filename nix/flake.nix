@@ -26,12 +26,11 @@
       linuxModules = [
         ({ ... }: {
           igm = {
-            isNixos = true;
             headless = true;
             virtualbox = false;
           };
         })
-        ./system.nix
+        (import ./system.nix { isLinux = true; })
         ./nixos/machines/ian-nixdesktop.nix
         home-manager.nixosModules.home-manager
         ({ ... }: {
@@ -39,13 +38,13 @@
           services.vscode-server.enable = true;
         })
       ];
-      mkDarwinModules = { mode, isM1 ? false }: [
-        (import ./darwin { inherit mode isM1; })
+      darwinModules = [
+        (import ./system.nix { isDarwin = true; })
         home-manager.darwinModules.home-manager
       ];
     in
     {
-      lib = { inherit linuxModules mkDarwinModules mkNixpkgs; };
+      lib = { inherit linuxModules darwinModules mkNixpkgs; };
       nixosConfigurations.ci-home-common = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
