@@ -24,13 +24,18 @@
       nixpkgsModule = { nixpkgs = nixpkgsConfig; };
 
       linuxModules = [
-        ./nixos/configuration.nix
+        ./nixos/module.nix
         ./nixos/home-manager.nix
         ./nixos/machines/ian-nixdesktop.nix
         home-manager.nixosModules.home-manager
         ({ ... }: {
           imports = [ "${vscode-server}/default.nix" ];
           services.vscode-server.enable = true;
+
+          igm = {
+            headless = true;
+            virtualbox = false;
+          };
         })
       ];
       mkDarwinModules = { mode, isM1 ? false }: [
@@ -80,7 +85,7 @@
         system = "x86_64-linux";
         modules = [
           nixpkgsModule
-          ./nixos/configuration.nix
+          ./nixos/module.nix
           ./nixos/machines/ci.nix
           home-manager.nixosModules.home-manager
         ];

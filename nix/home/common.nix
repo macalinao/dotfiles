@@ -120,7 +120,7 @@ in
     enable = true;
     oh-my-zsh = {
       enable = true;
-      theme = "robbyrussell";
+      theme = "alanpeabody";
       plugins = [ "git" "yarn" "gitignore" ]
         ++ (lib.optionals pkgs.stdenv.isDarwin [ "macos" ]);
     };
