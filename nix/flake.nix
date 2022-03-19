@@ -24,18 +24,19 @@
       nixpkgsModule = { nixpkgs = nixpkgsConfig; };
 
       linuxModules = [
+        ({ ... }: {
+          igm = {
+            isNixos = true;
+            headless = true;
+            virtualbox = false;
+          };
+        })
         ./system.nix
         ./nixos/machines/ian-nixdesktop.nix
         home-manager.nixosModules.home-manager
         ({ ... }: {
           imports = [ "${vscode-server}/default.nix" ];
           services.vscode-server.enable = true;
-
-          igm = {
-            isNixos = true;
-            headless = true;
-            virtualbox = false;
-          };
         })
       ];
       mkDarwinModules = { mode, isM1 ? false }: [

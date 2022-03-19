@@ -53,11 +53,13 @@ in
   config =
     mkMerge
       [
-        (import ./nixos/configuration.nix args)
-        (import ./nixos/home-manager.nix args)
-        (import ./nixos/services args)
-        (import ./nixos/services/home-assistant.nix args)
-        (mkIf cfg.virtualbox (import ./nixos/services/virtualbox.nix args))
-        (import ./nixos/users.nix args)
+        (mkIf cfg.isNixos (mkMerge [
+          (import ./nixos/configuration.nix args)
+          (import ./nixos/home-manager.nix args)
+          (import ./nixos/services args)
+          (import ./nixos/services/home-assistant.nix args)
+          (mkIf cfg.virtualbox (import ./nixos/services/virtualbox.nix args))
+          (import ./nixos/users.nix args)
+        ]))
       ];
 }
