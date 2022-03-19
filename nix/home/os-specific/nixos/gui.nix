@@ -28,7 +28,7 @@ in
   xsession.windowManager.xmonad = {
     enable = true;
     enableContribAndExtras = true;
-    config = ../xmonad/xmonad.hs;
+    config = ../../xmonad/xmonad.hs;
   };
 
   home.packages = with pkgs; [
@@ -52,11 +52,6 @@ in
     insomnia
     postman
 
-    # rust stuff
-    openssl
-    pkgconfig
-    udev
-
     # Etc
     rofi-systemd
 
@@ -78,10 +73,6 @@ in
     gnome3.gnome-keyring
     gnome3.seahorse
 
-    # scripts
-    ngrok-1
-    vagrant
-
     configure-monitors
 
     # for xmonad
@@ -89,17 +80,7 @@ in
     cabal-install
     stack
     ghc
-
-    home-assistant-cli
-    usbutils
   ];
-
-  services.gpg-agent = {
-    enable = true;
-    defaultCacheTtl = 24 * 60 * 60;
-    maxCacheTtl = 24 * 60 * 60;
-    enableSshSupport = true;
-  };
 
   services.xscreensaver.enable = true;
 
@@ -149,7 +130,4 @@ in
       };
     };
   };
-
-  services.keybase.enable = true;
-  services.kbfs.enable = true;
 }

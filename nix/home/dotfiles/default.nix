@@ -1,3 +1,3 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, ... }@args:
 
-((import ./common.nix) { inherit config pkgs lib; })
+(import ./common.nix args)

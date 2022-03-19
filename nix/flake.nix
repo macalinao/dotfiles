@@ -51,7 +51,7 @@
           nixpkgsModule
           ./nixos/users.nix
           ({
-            home-manager.users.igm = import ./home/common.nix;
+            home-manager.users.igm = ./home/common.nix;
             home-manager.useGlobalPkgs = true;
           })
           ./nixos/machines/ci.nix

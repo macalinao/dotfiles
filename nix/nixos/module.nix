@@ -24,6 +24,7 @@ in
       };
     };
   };
+
   config =
     mkMerge [
       (import ./configuration.nix args)
