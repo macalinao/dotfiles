@@ -97,8 +97,6 @@ with lib; {
     extraConfig = builtins.readFile ./static/yabairc;
   };
 
-  services.lorri.enable = true;
-
   programs.gnupg = { agent.enable = true; };
 
   users.users.igm = {
