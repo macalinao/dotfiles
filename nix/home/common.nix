@@ -32,7 +32,6 @@ in
 
     keybase
 
-    nixfmt
     nixpkgs-fmt
     pypi2nix
     cachix
