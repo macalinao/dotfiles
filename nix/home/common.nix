@@ -55,7 +55,10 @@ in
 
   programs.vscode = {
     enable = true;
-    extensions = with pkgs.vscode-extensions; [ matklad.rust-analyzer ];
+
+    # WARNING: this is impure, so we only do this on Linux
+    extensions = with pkgs.vscode-extensions;
+      pkgs.lib.optionals pkgs.stdenv.isLinux [ matklad.rust-analyzer ];
   };
 
   programs.git = {

@@ -16,5 +16,9 @@ self: super: rec {
   };
 
   # tests for this are broken on darwin
-  kitty = super.kitty.overrideAttrs (_: { doInstallCheck = false; });
+  kitty = super.kitty.overrideAttrs (oldAttrs: {
+    patches = oldAttrs.patches ++ super.lib.optionals super.stdenv.isDarwin
+      [ ./patches/kitty-darwin.patch ];
+    doInstallCheck = false;
+  });
 }
