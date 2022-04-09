@@ -35,7 +35,6 @@ in
     nixpkgs-fmt
     pypi2nix
     cachix
-    nixUnstable
 
     imagemagick
 

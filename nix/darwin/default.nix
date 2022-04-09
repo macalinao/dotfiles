@@ -59,6 +59,7 @@ with lib; {
       "the-unarchiver"
       "zoom"
     ] ++ (lib.optionals (mode == "personal") [
+      "jgrennison-openttd"
       "ledger-live"
       "minecraft"
       "signal"
@@ -72,7 +73,6 @@ with lib; {
   };
 
   nix = {
-    package = pkgs.nixUnstable;
     useSandbox = false;
     extraOptions = ''
       experimental-features = nix-command flakes
@@ -86,11 +86,14 @@ with lib; {
   programs.zsh = {
     enable = true;
     interactiveShellInit = ''
+      unset TERMINFO
       if [ $TERM = xterm-kitty ]; then
         export TERMINFO="${pkgs.kitty}/Applications/kitty.app/Contents/Resources/kitty/terminfo";
       fi
     '';
-    variables = { EDITOR = "${pkgs.vim}/bin/vim"; };
+    variables = {
+      EDITOR = "${pkgs.vim}/bin/vim";
+    };
   };
 
   services.yabai = {
