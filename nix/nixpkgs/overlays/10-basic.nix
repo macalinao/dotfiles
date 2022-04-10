@@ -21,4 +21,18 @@ self: super: rec {
       [ ./patches/kitty-darwin.patch ];
     doInstallCheck = false;
   });
+
+  # tests for this are broken on darwin
+  python3Packages = super.python3Packages // {
+    pycurl = super.python3Packages.pycurl.overrideAttrs
+      (oldAttrs: {
+        disabledTests = oldAttrs.disabledTests ++ [
+          # pycurl.error: (27, '')
+          "test_getinfo_raw_certinfo"
+          "test_request_with_certinfo"
+          "test_request_with_verifypeer"
+          "test_request_without_certinfo"
+        ];
+      });
+  };
 }

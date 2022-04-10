@@ -18,7 +18,7 @@ with lib;
     fira-code-symbols
     google-fonts
     liberation_ttf
-    mplus-outline-fonts
+    mplus-outline-fonts.githubRelease
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
