@@ -49,6 +49,7 @@ with lib; {
       "linear-linear"
       "loom"
       "ngrok"
+      "notion"
       "numi"
       "postman"
       "private-internet-access"
