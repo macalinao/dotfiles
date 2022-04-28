@@ -41,6 +41,8 @@ in
     yq
     yj # toml CLI
 
+    lice
+
     # formatting
     shfmt
 
