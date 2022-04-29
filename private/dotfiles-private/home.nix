@@ -1,9 +1,14 @@
 { dotfiles-private, lib, pkgs }:
 
 {
-  programs.git.includes = lib.mapAttrsToList
-    (profile: profileInfo: {
-      path = "${pkgs.writeTextFile {
+  programs.git.includes = lib.flatten (lib.mapAttrsToList
+    (profile: profileInfo:
+      let
+        prefixes = [ "~/proj/${profileInfo.githubOrganization}/" ] ++ profileInfo.additionalPrefixes;
+      in
+      map
+        (prefix: {
+          path = "${pkgs.writeTextFile {
       name = "config";
       text = ''
         [user]
@@ -22,9 +27,10 @@
         ''}
       '';
     }}";
-      condition = "gitdir/i:~/proj/${profileInfo.githubOrganization}/";
-    })
-    dotfiles-private.profiles;
+          condition = "gitdir/i:${prefix}";
+        })
+        prefixes)
+    dotfiles-private.profiles);
 
   home.file = dotfiles-private.homeFiles;
   xdg.configFile = dotfiles-private.xdgFiles;

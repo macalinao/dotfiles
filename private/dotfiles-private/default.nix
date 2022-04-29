@@ -10,6 +10,7 @@ let
           email = "${profile}@igm.pub";
           additionalGitConfig = "";
           additionalGitignore = "";
+          additionalPrefixes = [ ];
         } // profileInfo)
       raw.profiles;
   };
