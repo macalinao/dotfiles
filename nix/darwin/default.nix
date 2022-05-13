@@ -35,9 +35,12 @@ with lib; {
       "homebrew/cask-versions"
       "homebrew/core"
       "homebrew/services"
+      "koekeishiya/formulae"
     ];
 
-    brews = lib.optionals (!isM1) [ "ethereum" "openssl" "openssl@1.1" ];
+    brews = (lib.optionals (!isM1) [ "ethereum" "openssl" "openssl@1.1" ]) ++ [
+      "yabai"
+    ];
 
     casks = [
       "brave-browser"
@@ -97,12 +100,11 @@ with lib; {
     };
   };
 
-  services.yabai = {
-    enable = true;
-    package = pkgs.yabai;
-    enableScriptingAddition = true;
-    extraConfig = builtins.readFile ./static/yabairc;
-  };
+  # services.yabai = {
+  #   enable = true;
+  #   package = pkgs.yabai;
+  #   enableScriptingAddition = true;
+  # };
 
   programs.gnupg = { agent.enable = true; };
 

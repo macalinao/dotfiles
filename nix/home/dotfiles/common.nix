@@ -12,4 +12,7 @@ lib.mkMerge [
       recursive = true;
     };
   })
+  (lib.mkIf pkgs.stdenv.isDarwin {
+    home.file.".yabairc".source = "${static}/yabairc";
+  })
 ]

@@ -38,7 +38,7 @@ in
 
     imagemagick
 
-    yq
+    # yq
     yj # toml CLI
 
     lice
