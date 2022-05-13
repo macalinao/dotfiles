@@ -89,8 +89,14 @@
       darwinConfigurations.ci-personal = darwin.lib.darwinSystem {
         system = "x86_64-darwin";
         modules = [
+          ({ ... }: {
+            igm = {
+              mode = "personal";
+              isM1 = false;
+            };
+          })
           nixpkgsModule
-          (import ./darwin { mode = "personal"; })
+          (import ./system.nix { isDarwin = true; })
           home-manager.darwinModules.home-manager
         ];
       };
