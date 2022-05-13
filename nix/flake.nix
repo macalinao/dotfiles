@@ -42,12 +42,19 @@
         (import ./system.nix { isDarwin = true; })
         home-manager.darwinModules.home-manager
       ];
+
+      mkNixosSystem = { modules }: nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        inherit modules;
+      };
     in
     {
       lib = { inherit linuxModules darwinModules mkNixpkgs; };
-      nixosConfigurations.ci-home-common = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+      nixosConfigurations.ci-home-common = mkNixosSystem {
         modules = [
+          ({ ... }: {
+            igm.pure = true;
+          })
           nixpkgsModule
           ./nixos/users.nix
           ({
@@ -58,9 +65,11 @@
           home-manager.nixosModules.home-manager
         ];
       };
-      nixosConfigurations.ci-home = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+      nixosConfigurations.ci-home = mkNixosSystem {
         modules = [
+          ({ ... }: {
+            igm.pure = true;
+          })
           nixpkgsModule
           ./nixos/users.nix
           ./nixos/home-manager.nix
@@ -68,18 +77,22 @@
           home-manager.nixosModules.home-manager
         ];
       };
-      nixosConfigurations.ci-bare = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+      nixosConfigurations.ci-bare = mkNixosSystem {
         modules = [
+          ({ ... }: {
+            igm.pure = true;
+          })
           nixpkgsModule
           ./nixos/module.nix
           ./nixos/machines/ci.nix
           home-manager.nixosModules.home-manager
         ];
       };
-      nixosConfigurations.vbox-host = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+      nixosConfigurations.vbox-host = mkNixosSystem {
         modules = [
+          ({ ... }: {
+            igm.pure = true;
+          })
           nixpkgsModule
           ./nixos/services/virtualbox.nix
           ./nixos/machines/ian-nixdesktop.nix
