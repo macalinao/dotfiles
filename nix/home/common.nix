@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, systemConfig, ... }:
 
 let scripts = import ./scripts { inherit pkgs; };
 in
@@ -59,7 +59,7 @@ in
 
     # WARNING: this is impure, so we only do this on Linux
     extensions = with pkgs.vscode-extensions;
-      pkgs.lib.optionals (pkgs.stdenv.isLinux && !config.igm.pure) [ matklad.rust-analyzer ];
+      pkgs.lib.optionals (pkgs.stdenv.isLinux && !systemConfig.igm.pure) [ matklad.rust-analyzer ];
   };
 
   programs.git = {

@@ -43,58 +43,46 @@
         home-manager.darwinModules.home-manager
       ];
 
-      mkNixosSystem = { modules }: nixpkgs.lib.nixosSystem {
+      mkNixosSystem = { modules, igm ? { } }: nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        inherit modules;
+        modules = [
+          ({ ... }: {
+            inherit igm;
+          })
+          (import ./system.nix {
+            isLinux = true;
+          })
+          home-manager.nixosModules.home-manager
+          nixpkgsModule
+        ] ++ modules;
       };
     in
     {
       lib = { inherit linuxModules darwinModules mkNixpkgs; };
-      nixosConfigurations.ci-home-common = mkNixosSystem {
-        modules = [
-          ({ ... }: {
-            igm.pure = true;
-          })
-          nixpkgsModule
-          ./nixos/users.nix
-          ({
-            home-manager.users.igm = ./home/common.nix;
-            home-manager.useGlobalPkgs = true;
-          })
-          ./nixos/machines/ci.nix
-          home-manager.nixosModules.home-manager
-        ];
-      };
       nixosConfigurations.ci-home = mkNixosSystem {
+        igm = {
+          pure = true;
+        };
         modules = [
-          ({ ... }: {
-            igm.pure = true;
-          })
-          nixpkgsModule
-          ./nixos/users.nix
-          ./nixos/home-manager.nix
           ./nixos/machines/ci.nix
-          home-manager.nixosModules.home-manager
         ];
       };
       nixosConfigurations.ci-bare = mkNixosSystem {
+        igm = {
+          headless = true;
+          pure = true;
+        };
         modules = [
-          ({ ... }: {
-            igm.pure = true;
-          })
-          nixpkgsModule
-          ./nixos/module.nix
           ./nixos/machines/ci.nix
-          home-manager.nixosModules.home-manager
         ];
       };
       nixosConfigurations.vbox-host = mkNixosSystem {
+        igm = {
+          headless = true;
+          virtualbox = true;
+          pure = true;
+        };
         modules = [
-          ({ ... }: {
-            igm.pure = true;
-          })
-          nixpkgsModule
-          ./nixos/services/virtualbox.nix
           ./nixos/machines/ian-nixdesktop.nix
         ];
       };

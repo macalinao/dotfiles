@@ -24,7 +24,7 @@ jobs:
     strategy:
       matrix:
         nixosConfiguration:
-          - ci-home-common
+          - ci-home
           - ci-bare
           - vbox-host
     runs-on: ubuntu-latest

@@ -7,47 +7,45 @@ let
   cfg = config.igm;
 in
 {
-  options = {
-    igm = {
-      mode = mkOption {
-        type = types.str;
-        default = "personal";
-        description = ''
-          Mode.
-        '';
-      };
+  options.igm = {
+    mode = mkOption {
+      type = types.str;
+      default = "personal";
+      description = ''
+        Mode.
+      '';
+    };
 
-      isM1 = mkOption {
-        type = types.bool;
-        default = false;
-        description = ''
-          If true, this is to be compiled for an M1.
-        '';
-      };
+    isM1 = mkOption {
+      type = types.bool;
+      default = false;
+      description = ''
+        If true, this is to be compiled for an M1.
+      '';
+    };
 
-      headless = mkOption {
-        type = types.bool;
-        default = false;
-        description = ''
-          Do not install GUI apps, window manager, desktop environment, etc.
-        '';
-      };
+    headless = mkOption {
+      type = types.bool;
+      default = false;
+      description = ''
+        Do not install GUI apps, window manager, desktop environment, etc.
+      '';
+    };
 
-      virtualbox = mkOption {
-        type = types.bool;
-        default = true;
-        description = ''
-          Install VirtualBox.
-        '';
-      };
+    virtualbox = mkOption {
+      type = types.bool;
+      default = true;
+      description = ''
+        Install VirtualBox.
+      '';
+    };
 
-      pure = mkOption {
-        type = types.bool;
-        default = false;
-        description = ''
-          Only install pure packages.
-        '';
-      };
+    pure = mkOption {
+      type = types.bool;
+      default = false;
+      description = ''
+        Only install pure packages.
+      '';
     };
   };
 
