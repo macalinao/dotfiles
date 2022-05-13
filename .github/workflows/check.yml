@@ -25,7 +25,6 @@ jobs:
       matrix:
         nixosConfiguration:
           - ci-home-common
-          - ci-home-os
           - ci-bare
           - vbox-host
     runs-on: ubuntu-latest
