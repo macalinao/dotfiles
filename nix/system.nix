@@ -40,6 +40,14 @@ in
           Install VirtualBox.
         '';
       };
+
+      pure = mkOption {
+        type = types.bool;
+        default = false;
+        description = ''
+          Only install pure packages.
+        '';
+      };
     };
   };
 
