@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -xe
+
 DOTFILES=$(pwd)/$(dirname $0)/..
 cd $DOTFILES
 
