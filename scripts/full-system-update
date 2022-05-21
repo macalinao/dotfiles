@@ -7,9 +7,9 @@ cd $DOTFILES
 
 FLAKE_PATH=''
 if $(uname -a | grep -q "Darwin"); then
-    FLAKE_PATH="$DOTFILES/private/flakes/darwin"
+    FLAKE_PATH="./private/flakes/darwin"
 elif $(uname -a | grep -q "NixOS"); then
-    FLAKE_PATH="$DOTFILES/private/flakes/nixos"
+    FLAKE_PATH="./private/flakes/nixos"
 else
     echo "No system flake found for this platform."
     exit 1
@@ -24,11 +24,11 @@ echo "Updating igm and dotfiles-private-raw flakes."
 nix flake lock --update-input igm --update-input dotfiles-private-raw $FLAKE_PATH
 
 if $(uname -a | grep -q "NixOS"); then
-    sudo nixos-rebuild switch --impure --flake "$DOTFILES/private/flakes/nixos#primary"
+    sudo nixos-rebuild switch --impure --flake "$FLAKE_PATH#primary"
 fi
 
 if $(uname -a | grep -q "Darwin"); then
-    nix build "./private/flakes/darwin#darwinConfigurations.ian-mbp-m1.system" --show-trace || exit 1
-    ./result/sw/bin/darwin-rebuild switch --flake "$DOTFILES/private/flakes/darwin#ian-mbp-m1"
+    nix build "$FLAKE_PATH#darwinConfigurations.ian-mbp-m1.system" --show-trace || exit 1
+    ./result/sw/bin/darwin-rebuild switch --flake "$FLAKE_PATH#ian-mbp-m1"
     rm -r result
 fi

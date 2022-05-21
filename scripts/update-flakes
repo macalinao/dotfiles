@@ -2,7 +2,7 @@
 
 set -xe
 
-DOTFILES=$(dirname $0)/..
+DOTFILES=$HOME/dotfiles
 cd $DOTFILES
 
 zsh -c 'nixpkgs-fmt **/*.nix'
