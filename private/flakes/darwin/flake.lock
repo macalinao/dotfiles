@@ -49,7 +49,7 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1652465273,
+        "lastModified": 1653156073,
         "narHash": "sha256-FevxerKE1hFB8lq8p05IvPbYAWWc7+zNYqfvsOp9K10=",
         "path": "/Users/igm/dotfiles-private",
         "type": "path"
@@ -82,11 +82,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1652452043,
-        "narHash": "sha256-nh3mdVB/Kk5ag1uRMAlKo8r+ssN3HNxwbLsqRG4xZkw=",
+        "lastModified": 1653153149,
+        "narHash": "sha256-8B/tWWZziFq4DqnAm9uO7M4Z4PNfllYg5+teX1e5yDQ=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "273598f53e04f0111dca5724b37640e3907edaaf",
+        "rev": "94780dd888881bf35165dfdd334a57ef6b14ead8",
         "type": "github"
       },
       "original": {
@@ -105,8 +105,8 @@
         "vscode-server": "vscode-server"
       },
       "locked": {
-        "lastModified": 1652465264,
-        "narHash": "sha256-hqKZyKO2lglAvajS1D6bLb40+aHfjK9GlD5WLC+7biI=",
+        "lastModified": 1653155896,
+        "narHash": "sha256-gAdsEYtbNz4TFQ5OUL0g7J73WbopvXOO/5vKl0cT7vs=",
         "path": "/Users/igm/dotfiles/nix",
         "type": "path"
       },
@@ -133,11 +133,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1652252629,
-        "narHash": "sha256-SvT64apetqc8P5nYp1/fOZvUmHUPdPFUZbhSpKy+1aI=",
+        "lastModified": 1652840887,
+        "narHash": "sha256-gEK4NNa4GwIgTZE63kt/4WTFAWRTJVSa30+h4ZjFh9U=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "d2fc6856824cb87742177eefc8dd534bdb6c3439",
+        "rev": "52dc75a4fee3fdbcb792cb6fba009876b912bfe0",
         "type": "github"
       },
       "original": {

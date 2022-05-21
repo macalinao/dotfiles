@@ -24,6 +24,20 @@
           };
         in
         {
+          # packages = {
+          #   rust-shell = pkgs.mkShell {
+          #     name = "rust-shell";
+          #     nativeBuildInputs = with pkgs; [
+          #       libiconv
+          #       rustc
+          #       cargo
+          #     ];
+          #     buildInputs = with pkgs; [
+          #       rustc
+          #       cargo
+          #     ];
+          #   };
+          # };
           devShell = with pkgs;
             mkShell {
               nativeBuildInputs =
