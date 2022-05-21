@@ -69,7 +69,7 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-5dTdGjEBlqujYYt0uJ6UfdGaAViGKzpAaAdJwXt4cU0=",
+        "narHash": "sha256-aAs79CrySCz2VFTnm6q3XmDh+SzAe83MXSljizxKsC0=",
         "path": "./nix",
         "type": "path"
       },

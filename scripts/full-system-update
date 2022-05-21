@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+set -xe
+
+DOTFILES=$(dirname $0)/..
+cd $DOTFILES
+
+FLAKE_PATH=''
+if $(uname -a | grep -q "Darwin"); then
+    FLAKE_PATH="$DOTFILES/private/flakes/darwin"
+elif $(uname -a | grep -q "NixOS"); then
+    FLAKE_PATH="$DOTFILES/private/flakes/nixos"
+else
+    echo "No system flake found for this platform."
+    exit 1
+fi
+
+echo "Updating private dotfiles."
+cd $HOME/dotfiles-private && git add -A . && git commit -m "Updates" && git frp
+
+cd $DOTFILES
+
+echo "Updating igm and dotfiles-private-raw flakes."
+nix flake lock --update-input igm --update-input dotfiles-private-raw $FLAKE_PATH
+
+if $(uname -a | grep -q "NixOS"); then
+    sudo nixos-rebuild switch --impure --flake "$DOTFILES/private/flakes/nixos#primary"
+fi
+
+if $(uname -a | grep -q "Darwin"); then
+    nix build "./private/flakes/darwin#darwinConfigurations.ian-mbp-m1.system" --show-trace || exit 1
+    ./result/sw/bin/darwin-rebuild switch --flake "$DOTFILES/private/flakes/darwin#ian-mbp-m1"
+    rm -r result
+fi

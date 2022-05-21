@@ -50,7 +50,6 @@ in
     wally-cli
 
     scripts.cachix-build-and-push
-    scripts.full-system-update
     scripts.nxs
   ];
 
@@ -137,7 +136,7 @@ in
       source $HOME/dotfiles-private/helpers.zsh
     '';
     envExtra = ''
-      export PATH="$HOME/.cargo/bin:$PATH"
+      export PATH="$HOME/.cargo/bin:$HOME/dotfiles/scripts:$PATH"
       ${
       # Solana path on Darwin
       lib.optionalString pkgs.stdenv.isDarwin ''
