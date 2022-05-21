@@ -2,7 +2,7 @@
 
 set -xe
 
-DOTFILES=$(dirname $0)/..
+DOTFILES=$HOME/dotfiles
 cd $DOTFILES
 
 FLAKE_PATH=''
@@ -18,7 +18,7 @@ fi
 echo "Updating private dotfiles."
 cd $HOME/dotfiles-private && git add -A . && git commit -m "Updates" && git frp
 
-cd $(dirname $0)/..
+cd $DOTFILES
 
 echo "Updating igm and dotfiles-private-raw flakes."
 nix flake lock --update-input igm --update-input dotfiles-private-raw $FLAKE_PATH
