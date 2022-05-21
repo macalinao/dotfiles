@@ -18,7 +18,7 @@ fi
 echo "Updating private dotfiles."
 cd $HOME/dotfiles-private && git add -A . && git commit -m "Updates" && git frp
 
-cd $DOTFILES
+cd $(dirname $0)/..
 
 echo "Updating igm and dotfiles-private-raw flakes."
 nix flake lock --update-input igm --update-input dotfiles-private-raw $FLAKE_PATH
