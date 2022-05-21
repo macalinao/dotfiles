@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DOTFILES=$(pwd)/$(dirname $0)
+DOTFILES=$(pwd)/$(dirname $0)/..
 cd $DOTFILES
 
 zsh -c 'nixpkgs-fmt **/*.nix'

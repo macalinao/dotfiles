@@ -25,7 +25,7 @@
     in
     writeScriptBin "full-system-update" ''
       #!${bash}/bin/bash
-      set -x
+      set -xe
 
       ${lib.optionalString (flakePath == null) ''
         echo "No system flake found for this platform."
