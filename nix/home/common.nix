@@ -49,7 +49,6 @@ in
     # wally
     wally-cli
 
-    scripts.cachix-build-and-push
     scripts.nxs
   ];
 
