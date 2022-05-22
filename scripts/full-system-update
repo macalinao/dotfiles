@@ -1,6 +1,4 @@
-#!/usr/bin/env bash
-
-set -xe
+#!/usr/bin/env bash -xe
 
 DOTFILES=$HOME/dotfiles
 cd $DOTFILES

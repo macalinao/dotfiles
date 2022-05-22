@@ -1,6 +1,6 @@
 #!/usr/bin/env bash -xe
 
-CACHIX_CACHE="''${2:-igm}"
+CACHIX_CACHE="${2:-igm}"
 echo "Building $1 and pushing to $CACHIX_CACHE"
 
 nix -Lv build $1 --json |
