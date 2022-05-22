@@ -29,6 +29,7 @@ in
     rustup
     rust-analyzer
     shfmt
+    cargo-workspaces
 
     keybase
 

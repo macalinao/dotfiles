@@ -15,12 +15,17 @@
       url = "github:msteen/nixos-vscode-server/master";
       flake = false;
     };
+    saber-overlay.url = "github:saber-hq/saber-overlay";
   };
 
-  outputs = { nixpkgs, home-manager, darwin, vscode-server, ... }:
+  outputs = { nixpkgs, home-manager, darwin, vscode-server, saber-overlay, ... }:
     let
       mkNixpkgs = args: (import ./nixpkgs/config.nix) args;
-      nixpkgsConfig = mkNixpkgs { };
+      nixpkgsConfig = mkNixpkgs {
+        additionalOverlays = [
+          saber-overlay.overlay
+        ];
+      };
       nixpkgsModule = { nixpkgs = nixpkgsConfig; };
 
       linuxModules = [
@@ -56,9 +61,28 @@
           nixpkgsModule
         ] ++ modules;
       };
+
+      mkDarwinSystem = { isM1 ? false, additionalOverlays ? [ ], modules ? [ ], computerName, hostName }:
+        darwin.lib.darwinSystem {
+          system = if isM1 then "aarch64-darwin" else "x86_64-darwin";
+          modules = [{
+            nixpkgs = mkNixpkgs {
+              additionalOverlays = [ saber-overlay.overlay ] ++ additionalOverlays;
+            };
+          }] ++ darwinModules ++ modules ++ [{
+            networking = {
+              inherit computerName hostName;
+              localHostName = hostName;
+            };
+            igm = {
+              inherit isM1;
+              mode = "personal";
+            };
+          }];
+        };
     in
     {
-      lib = { inherit linuxModules darwinModules mkNixpkgs; };
+      lib = { inherit linuxModules darwinModules mkNixpkgs mkDarwinSystem; };
       nixosConfigurations.ci-home = mkNixosSystem {
         igm = {
           pure = true;
