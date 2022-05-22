@@ -29,15 +29,7 @@
       nixpkgsModule = { nixpkgs = nixpkgsConfig; };
 
       linuxModules = [
-        ({ ... }: {
-          igm = {
-            headless = true;
-            virtualbox = false;
-          };
-        })
-        (import ./system.nix { isLinux = true; })
         ./nixos/machines/ian-nixdesktop.nix
-        home-manager.nixosModules.home-manager
         ({ ... }: {
           imports = [ "${vscode-server}/default.nix" ];
           services.vscode-server.enable = true;
@@ -48,7 +40,7 @@
         home-manager.darwinModules.home-manager
       ];
 
-      mkNixosSystem = { modules, igm ? { } }: nixpkgs.lib.nixosSystem {
+      mkNixosSystem = { modules, additionalOverlays ? [ ], igm ? { } }: nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ({ ... }: {
@@ -58,7 +50,11 @@
             isLinux = true;
           })
           home-manager.nixosModules.home-manager
-          nixpkgsModule
+          ({
+            nixpkgs = mkNixpkgs {
+              additionalOverlays = [ saber-overlay.overlay ] ++ additionalOverlays;
+            };
+          })
         ] ++ modules;
       };
 
@@ -82,7 +78,7 @@
         };
     in
     {
-      lib = { inherit linuxModules darwinModules mkNixpkgs mkDarwinSystem; };
+      lib = { inherit linuxModules darwinModules mkNixpkgs mkNixosSystem mkDarwinSystem; };
       nixosConfigurations.ci-home = mkNixosSystem {
         igm = {
           pure = true;

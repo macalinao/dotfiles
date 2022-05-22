@@ -28,7 +28,7 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1653170528,
+        "lastModified": 1653248384,
         "narHash": "sha256-HegAce51t3pMWq8B+pfy5uyOnBibJVwOmVjhpI7KKsE=",
         "path": "/home/igm/dotfiles-private",
         "type": "path"
@@ -45,6 +45,36 @@
         "owner": "numtide",
         "repo": "flake-utils",
         "rev": "74f7e4319258e287b0f9cb95426c9853b282730b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_2": {
+      "locked": {
+        "lastModified": 1649676176,
+        "narHash": "sha256-OWKJratjt2RW151VUlJPRALb7OU2S5s+f0vLj4o1bHM=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "a4b154ebbdc88c8498a5c7b01589addc9e9cb678",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_3": {
+      "locked": {
+        "lastModified": 1637014545,
+        "narHash": "sha256-26IZAc5yzlD9FlDT54io1oqG/bBoyka+FJk5guaX4x4=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "bba5dcc8e0b20ab664967ad83d24d64cb64ec4f4",
         "type": "github"
       },
       "original": {
@@ -81,11 +111,12 @@
         "nixpkgs": [
           "nixpkgs"
         ],
+        "saber-overlay": "saber-overlay",
         "vscode-server": "vscode-server"
       },
       "locked": {
-        "lastModified": 1653169155,
-        "narHash": "sha256-NuTCkzTp5w+GR5+LSY6F+3UYpAEA8lhr1P87bu/xLEI=",
+        "lastModified": 1653248364,
+        "narHash": "sha256-aQgsj84GRike38XsNLO1MtFyJpeBianNDqJ3PaqicqQ=",
         "path": "/home/igm/dotfiles/nix",
         "type": "path"
       },
@@ -112,11 +143,27 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1652885393,
-        "narHash": "sha256-YIgvvlk4iQ1Hi7KD9o5gsojc+ApB+jiH1d5stK8uXiw=",
+        "lastModified": 1649961138,
+        "narHash": "sha256-8ZCPrazs+qd2V8Elw84lIWuk0kKfVQ8Ei/19gahURhM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "48037fd90426e44e4bf03e6479e88a11453b9b66",
+        "rev": "d08394e7cd5c7431a1e8f53b7f581e74ee909548",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1653060744,
+        "narHash": "sha256-kfRusllRumpt33J1hPV+CeCCylCXEU7e0gn2/cIM7cY=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "dfd82985c273aac6eced03625f454b334daae2e8",
         "type": "github"
       },
       "original": {
@@ -130,7 +177,50 @@
       "inputs": {
         "dotfiles-private-raw": "dotfiles-private-raw",
         "igm": "igm",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_3"
+      }
+    },
+    "rust-overlay": {
+      "inputs": {
+        "flake-utils": "flake-utils_3",
+        "nixpkgs": [
+          "igm",
+          "saber-overlay",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1649903781,
+        "narHash": "sha256-m+3EZo0a4iS8IwHQhkM/riPuFpu76505xKqmN9j5O+E=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "e45696bedc4a13a5970376b8fc09660fdd0e6f6c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "saber-overlay": {
+      "inputs": {
+        "flake-utils": "flake-utils_2",
+        "nixpkgs": "nixpkgs_2",
+        "rust-overlay": "rust-overlay"
+      },
+      "locked": {
+        "lastModified": 1651330538,
+        "narHash": "sha256-BWbwvPgVv9VhJme1bR+UnsPuX6871TA01RfT/Pfhmk8=",
+        "owner": "saber-hq",
+        "repo": "saber-overlay",
+        "rev": "0f1dc49b18e25f02ce82ab6e2bdee58a924e33fc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "saber-hq",
+        "repo": "saber-overlay",
+        "type": "github"
       }
     },
     "vscode-server": {

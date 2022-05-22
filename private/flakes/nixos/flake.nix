@@ -17,13 +17,12 @@
       };
     in
     {
-      nixosConfigurations = igm.nixosConfigurations // {
-        primary = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [{
-            nixpkgs =
-              igm.lib.mkNixpkgs { additionalOverlays = private.overlays; };
-          }] ++ igm.lib.linuxModules ++ private.modules ++ private.nixosModules;
+      nixosConfigurations.primary = igm.lib.mkNixosSystem {
+        additionalOverlays = private.overlays;
+        modules = igm.lib.linuxModules ++ private.modules ++ private.nixosModules;
+        igm = {
+          headless = true;
+          virtualbox = false;
         };
       };
     };

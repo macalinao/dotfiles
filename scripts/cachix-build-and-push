@@ -1,4 +1,4 @@
-#!/usr/bin/env bash -xe
+#!/usr/bin/env -S bash -xe
 
 CACHIX_CACHE="${2:-igm}"
 echo "Building $1 and pushing to $CACHIX_CACHE"
