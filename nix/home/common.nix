@@ -118,6 +118,13 @@ in
     extraConfig = builtins.readFile ./static/vimrc;
   };
 
+  home.sessionPath = [
+    "${config.home.homeDirectory}/.cargo/bin"
+    "${config.home.homeDirectory}/dotfiles/scripts"
+  ] ++ (lib.optionals pkgs.stdenv.isDarwin [
+    "${config.home.homeDirectory}/.local/share/solana/install/active_release/bin"
+  ]);
+
   programs.zsh = {
     enable = true;
     oh-my-zsh = {
@@ -134,18 +141,10 @@ in
       ${builtins.readFile ./static/shell-utils.zsh};
       source $HOME/dotfiles-private/helpers.zsh
     '';
-    envExtra = ''
-      export PATH="$HOME/.cargo/bin:$HOME/dotfiles/scripts:$PATH"
-      ${
-      # Solana path on Darwin
-      lib.optionalString pkgs.stdenv.isDarwin ''
-        export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
-      ''}
-    '';
 
     sessionVariables = {
       DOTFILES = "${config.home.homeDirectory}/dotfiles";
-      EDITOR = "vim";
+      EDITOR = pkgs.vim;
     };
 
     shellAliases = {
