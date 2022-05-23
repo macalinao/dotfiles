@@ -6,4 +6,6 @@ These files load various configurations from private repos.
 
 ```
 gpg --list-secret-keys --keyid-format LONG
+gpg --edit-key <KEY>
+# adduid, then save
 ```

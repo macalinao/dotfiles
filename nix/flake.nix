@@ -23,7 +23,7 @@
       mkNixpkgs = args: (import ./nixpkgs/config.nix) args;
       nixpkgsConfig = mkNixpkgs {
         additionalOverlays = [
-          saber-overlay.overlay
+          saber-overlay.overlays.default
         ];
       };
       nixpkgsModule = { nixpkgs = nixpkgsConfig; };
@@ -52,7 +52,7 @@
           home-manager.nixosModules.home-manager
           ({
             nixpkgs = mkNixpkgs {
-              additionalOverlays = [ saber-overlay.overlay ] ++ additionalOverlays;
+              additionalOverlays = [ saber-overlay.overlays.default ] ++ additionalOverlays;
             };
           })
         ] ++ modules;
@@ -63,7 +63,7 @@
           system = if isM1 then "aarch64-darwin" else "x86_64-darwin";
           modules = [{
             nixpkgs = mkNixpkgs {
-              additionalOverlays = [ saber-overlay.overlay ] ++ additionalOverlays;
+              additionalOverlays = [ saber-overlay.overlays.default ] ++ additionalOverlays;
             };
           }] ++ darwinModules ++ modules ++ [{
             networking = {
