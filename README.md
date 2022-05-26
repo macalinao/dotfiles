@@ -21,7 +21,7 @@ You may want to manually step through the install script yourself in case of fai
 After modifying a Nix configuration, run:
 
 ```bash
-full-system-update
+igm-system
 ```
 
 This will apply your changes. It does not update Nixpkgs-- to do this read the next section.
@@ -31,13 +31,13 @@ This will apply your changes. It does not update Nixpkgs-- to do this read the n
 First, update all Flake dependencies using:
 
 ```bash
-./update-flakes.sh
+igm-update
 ```
 
 Then, to apply the changes, use the command:
 
 ```bash
-full-system-update
+igm-update
 ```
 
 ### Locking

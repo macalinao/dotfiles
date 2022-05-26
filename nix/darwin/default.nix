@@ -51,7 +51,6 @@ with lib; {
       "figma"
       "keybase"
       "linear-linear"
-      "loom"
       "ngrok"
       "notion"
       "numi"
