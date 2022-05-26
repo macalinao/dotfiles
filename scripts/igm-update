@@ -1,7 +1,5 @@
 #!/usr/bin/env -S bash -xe
 
-set -xe
-
 DOTFILES=$HOME/dotfiles
 cd $DOTFILES
 

@@ -1,0 +1,8 @@
+#!/usr/bin/env -S bash -xe
+
+# Write settings to the config directory.
+
+cd $HOME/dotfiles
+
+# Write VSCode extensions list
+code --list-extensions >config/vscode-extensions.txt
