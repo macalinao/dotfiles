@@ -40,6 +40,7 @@ with lib; {
 
     brews = (lib.optionals (!isM1) [ "ethereum" "openssl" "openssl@1.1" ]) ++ [
       "yabai"
+      "skhd"
     ];
 
     casks = [
@@ -99,12 +100,6 @@ with lib; {
       EDITOR = "${pkgs.vim}/bin/vim";
     };
   };
-
-  # services.yabai = {
-  #   enable = true;
-  #   package = pkgs.yabai;
-  #   enableScriptingAddition = true;
-  # };
 
   programs.gnupg = { agent.enable = true; };
 
