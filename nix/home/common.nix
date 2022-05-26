@@ -111,7 +111,7 @@ in
   programs.browserpass.enable = true;
   programs.password-store = {
     enable = true;
-    package = pkgs.pass.override { };
+    package = pkgs.pass.withExtensions (exts: [ exts.pass-otp ]);
   };
 
   programs.vim = {
