@@ -107,6 +107,13 @@ in
 
   programs.command-not-found.enable = true;
 
+  # Browser password management
+  programs.browserpass.enable = true;
+  programs.password-store = {
+    enable = true;
+    package = pkgs.pass.override { };
+  };
+
   programs.vim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [ vim-airline ];

@@ -10,11 +10,7 @@
   };
 
   outputs = { igm, flake-utils, nixpkgs, ... }:
-    (flake-utils.lib.eachSystem [
-      "aarch64-darwin"
-      "x86_64-darwin"
-      "x86_64-linux"
-    ]
+    (flake-utils.lib.eachDefaultSystem
       (system:
         let
           nixpkgs-config-public = (import ./nix/nixpkgs/config.nix { });

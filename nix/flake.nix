@@ -20,24 +20,12 @@
 
   outputs = { nixpkgs, home-manager, darwin, vscode-server, saber-overlay, ... }:
     let
-      mkNixpkgs = args: (import ./nixpkgs/config.nix) args;
-      nixpkgsConfig = mkNixpkgs {
-        additionalOverlays = [
-          saber-overlay.overlays.default
-        ];
-      };
-      nixpkgsModule = { nixpkgs = nixpkgsConfig; };
-
       linuxModules = [
         ./nixos/machines/ian-nixdesktop.nix
         ({ ... }: {
           imports = [ "${vscode-server}/default.nix" ];
           services.vscode-server.enable = true;
         })
-      ];
-      darwinModules = [
-        (import ./system.nix { isDarwin = true; })
-        home-manager.darwinModules.home-manager
       ];
 
       mkNixosSystem = { modules, additionalOverlays ? [ ], igm ? { } }: nixpkgs.lib.nixosSystem {
@@ -51,7 +39,7 @@
           })
           home-manager.nixosModules.home-manager
           ({
-            nixpkgs = mkNixpkgs {
+            nixpkgs = import ./nixpkgs/config.nix {
               additionalOverlays = [ saber-overlay.overlays.default ] ++ additionalOverlays;
             };
           })
@@ -61,24 +49,30 @@
       mkDarwinSystem = { isM1 ? false, additionalOverlays ? [ ], modules ? [ ], computerName, hostName }:
         darwin.lib.darwinSystem {
           system = if isM1 then "aarch64-darwin" else "x86_64-darwin";
-          modules = [{
-            nixpkgs = mkNixpkgs {
-              additionalOverlays = [ saber-overlay.overlays.default ] ++ additionalOverlays;
-            };
-          }] ++ darwinModules ++ modules ++ [{
+          modules = [
+            ({ ... }:
+              {
+                igm = {
+                  inherit isM1;
+                  mode = "personal";
+                };
+                nixpkgs = import ./nixpkgs/config.nix {
+                  isDarwin = true;
+                  additionalOverlays = [ saber-overlay.overlays.default ] ++ additionalOverlays;
+                };
+              })
+            (import ./system.nix { isDarwin = true; })
+            home-manager.darwinModules.home-manager
+          ] ++ modules ++ [{
             networking = {
               inherit computerName hostName;
               localHostName = hostName;
-            };
-            igm = {
-              inherit isM1;
-              mode = "personal";
             };
           }];
         };
     in
     {
-      lib = { inherit linuxModules darwinModules mkNixpkgs mkNixosSystem mkDarwinSystem; };
+      lib = { inherit linuxModules mkNixosSystem mkDarwinSystem; };
       nixosConfigurations.ci-home = mkNixosSystem {
         igm = {
           pure = true;
@@ -106,19 +100,10 @@
           ./nixos/machines/ian-nixdesktop.nix
         ];
       };
-      darwinConfigurations.ci-personal = darwin.lib.darwinSystem {
-        system = "x86_64-darwin";
-        modules = [
-          ({ ... }: {
-            igm = {
-              mode = "personal";
-              isM1 = false;
-            };
-          })
-          nixpkgsModule
-          (import ./system.nix { isDarwin = true; })
-          home-manager.darwinModules.home-manager
-        ];
+      darwinConfigurations.ci-personal = mkDarwinSystem {
+        isM1 = false;
+        computerName = "igm-darwin-ci";
+        hostName = "igm-darwin-ci";
       };
     };
 }
