@@ -26,8 +26,13 @@ in
     cmatrix
     zsh
     gnugrep
+
+    # Rust tools
     rustup
+    # cargo
+    # rustc
     rust-analyzer
+
     shfmt
     cargo-workspaces
 
