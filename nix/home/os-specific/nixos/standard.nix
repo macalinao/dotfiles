@@ -11,7 +11,7 @@
     rofi-systemd
 
     # scripts
-    ngrok-1
+    ngrok
     vagrant
 
     # for xmonad

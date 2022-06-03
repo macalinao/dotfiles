@@ -13,8 +13,7 @@
     (flake-utils.lib.eachDefaultSystem
       (system:
         {
-          devShells = igm.devShells.${system};
-          devShell = igm.devShell.${system};
+          devShells.default = igm.devShell.${system};
         })) // {
       inherit (igm) nixosConfigurations;
     };
