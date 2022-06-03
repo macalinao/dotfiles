@@ -31,6 +31,7 @@ in
     rustup
     # cargo
     # rustc
+    openssl
     rust-analyzer
 
     shfmt
@@ -117,9 +118,6 @@ in
   programs.password-store = {
     enable = true;
     package = pkgs.pass.withExtensions (exts: [ exts.pass-otp ]);
-    settings = {
-      PASSWORD_STORE_DIR = "${config.home.homeDirectory}/.password-store";
-    };
   };
 
   programs.vim = {
@@ -227,5 +225,21 @@ in
   programs.gh = {
     enable = true;
     settings.git_protocol = "ssh";
+  };
+
+  nix = {
+    enable = true;
+    registry = {
+      igm = {
+        from = {
+          id = "igm";
+          type = "indirect";
+        };
+        to = {
+          path = "${config.home.homeDirectory}/dotfiles";
+          type = "path";
+        };
+      };
+    };
   };
 }
