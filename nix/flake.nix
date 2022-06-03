@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,7 +19,15 @@
     saber-overlay.url = "github:saber-hq/saber-overlay";
   };
 
-  outputs = { nixpkgs, home-manager, darwin, vscode-server, saber-overlay, ... }:
+  outputs =
+    { nixpkgs
+    , home-manager
+    , darwin
+    , vscode-server
+    , saber-overlay
+    , flake-utils
+    , ...
+    }:
     let
       linuxModules = [
         ./nixos/machines/ian-nixdesktop.nix
@@ -105,5 +114,17 @@
         computerName = "igm-darwin-ci";
         hostName = "igm-darwin-ci";
       };
-    };
+    } // (flake-utils.lib.eachDefaultSystem
+      (system:
+      let
+        nixpkgs-config-public = (import ./nixpkgs/config.nix { });
+        pkgs = import nixpkgs {
+          inherit system;
+          inherit (nixpkgs-config-public) config overlays;
+        };
+      in
+      rec {
+        devShells = import ./shells { inherit pkgs; };
+        devShell = devShells.nix;
+      }));
 }

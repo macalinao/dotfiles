@@ -1,4 +1,5 @@
 { pkgs }:
+with pkgs;
 mkShell {
   nativeBuildInputs = [
     aws-iam-authenticator

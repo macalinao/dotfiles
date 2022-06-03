@@ -1,6 +1,5 @@
-{ pkgs ? <nixpkgs> }:
-
-with (import pkgs { });
+{ pkgs }:
+with pkgs;
 mkShell {
   nativeBuildInputs = [
     # Node

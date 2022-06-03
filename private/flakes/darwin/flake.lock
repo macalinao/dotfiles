@@ -49,7 +49,7 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1654273383,
+        "lastModified": 1654275011,
         "narHash": "sha256-1D0C8TA9HHNeXwk4ZwDZME2oH3MlDAqZ3nZTjWT9oy8=",
         "path": "/Users/igm/dotfiles-private",
         "type": "path"
@@ -76,11 +76,11 @@
     },
     "flake-utils_2": {
       "locked": {
-        "lastModified": 1652776076,
-        "narHash": "sha256-gzTw/v1vj4dOVbpBSJX4J0DwUR6LIyXo7/SuuTJp1kM=",
+        "lastModified": 1653893745,
+        "narHash": "sha256-0jntwV3Z8//YwuOjzhV2sgJJPt+HY6KhU7VZUL0fKZQ=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "04c1b180862888302ddfb2e3ad9eaa63afc60cf8",
+        "rev": "1ed9fb1935d260de5fe1c2f7ee0ebaae17ed2fa1",
         "type": "github"
       },
       "original": {
@@ -106,11 +106,11 @@
     },
     "flake-utils_4": {
       "locked": {
-        "lastModified": 1649676176,
-        "narHash": "sha256-OWKJratjt2RW151VUlJPRALb7OU2S5s+f0vLj4o1bHM=",
+        "lastModified": 1652776076,
+        "narHash": "sha256-gzTw/v1vj4dOVbpBSJX4J0DwUR6LIyXo7/SuuTJp1kM=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "a4b154ebbdc88c8498a5c7b01589addc9e9cb678",
+        "rev": "04c1b180862888302ddfb2e3ad9eaa63afc60cf8",
         "type": "github"
       },
       "original": {
@@ -121,11 +121,11 @@
     },
     "flake-utils_5": {
       "locked": {
-        "lastModified": 1637014545,
-        "narHash": "sha256-26IZAc5yzlD9FlDT54io1oqG/bBoyka+FJk5guaX4x4=",
+        "lastModified": 1649676176,
+        "narHash": "sha256-OWKJratjt2RW151VUlJPRALb7OU2S5s+f0vLj4o1bHM=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "bba5dcc8e0b20ab664967ad83d24d64cb64ec4f4",
+        "rev": "a4b154ebbdc88c8498a5c7b01589addc9e9cb678",
         "type": "github"
       },
       "original": {
@@ -149,9 +149,24 @@
         "type": "github"
       }
     },
+    "flake-utils_7": {
+      "locked": {
+        "lastModified": 1637014545,
+        "narHash": "sha256-26IZAc5yzlD9FlDT54io1oqG/bBoyka+FJk5guaX4x4=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "bba5dcc8e0b20ab664967ad83d24d64cb64ec4f4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "goki-cli": {
       "inputs": {
-        "flake-utils": "flake-utils_3",
+        "flake-utils": "flake-utils_4",
         "nixpkgs": "nixpkgs_2",
         "saber-overlay": "saber-overlay_2"
       },
@@ -193,6 +208,7 @@
     "igm": {
       "inputs": {
         "darwin": "darwin_2",
+        "flake-utils": "flake-utils_2",
         "home-manager": "home-manager",
         "nixpkgs": [
           "nixpkgs"
@@ -201,8 +217,8 @@
         "vscode-server": "vscode-server"
       },
       "locked": {
-        "lastModified": 1654273348,
-        "narHash": "sha256-mLNOOdqyhKtDsVm5AHkDFcbKbSv+oQEpcUQ5ZjBA8K8=",
+        "lastModified": 1654275003,
+        "narHash": "sha256-7WVJmtjftWaghSR/D9jW3GiSosWOHMrNpQYvQ7EYS0Q=",
         "path": "/Users/igm/dotfiles/nix",
         "type": "path"
       },
@@ -277,11 +293,11 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1654007547,
-        "narHash": "sha256-G812EeXZeGeGjkAvbTleGwcKFCGxdLOQb9aViOWASPc=",
+        "lastModified": 1654126564,
+        "narHash": "sha256-sgDXDKGmUG4h7OPDOHyQggFQ08ZqVzUIPi8351yhugY=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "5643714dea562f0161529ab23058562afeff46d0",
+        "rev": "f1c9c23aad972787f00f175651e4cb0d7c7fd5ea",
         "type": "github"
       },
       "original": {
@@ -301,7 +317,7 @@
     },
     "rust-overlay": {
       "inputs": {
-        "flake-utils": "flake-utils_5",
+        "flake-utils": "flake-utils_6",
         "nixpkgs": [
           "igm",
           "saber-overlay",
@@ -326,7 +342,7 @@
     },
     "rust-overlay_2": {
       "inputs": {
-        "flake-utils": "flake-utils_6",
+        "flake-utils": "flake-utils_7",
         "nixpkgs": [
           "igm",
           "saber-overlay",
@@ -349,7 +365,7 @@
     },
     "saber-overlay": {
       "inputs": {
-        "flake-utils": "flake-utils_2",
+        "flake-utils": "flake-utils_3",
         "goki-cli": "goki-cli",
         "nixpkgs": "nixpkgs_4",
         "rust-overlay": "rust-overlay_2"
@@ -370,7 +386,7 @@
     },
     "saber-overlay_2": {
       "inputs": {
-        "flake-utils": "flake-utils_4",
+        "flake-utils": "flake-utils_5",
         "nixpkgs": "nixpkgs_3",
         "rust-overlay": "rust-overlay"
       },

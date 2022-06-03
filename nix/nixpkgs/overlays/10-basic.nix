@@ -30,11 +30,11 @@ self: super: rec {
   };
 
   # tests for this are broken on darwin
-  kitty =
-    if (super.stdenv.isDarwin) then
-      (
-        import ./packages/kitty.nix {
-          pkgs = super;
-        }
-      ) else super.kitty;
+  # kitty =
+  #   if (super.stdenv.isDarwin) then
+  #     (
+  #       import ./packages/kitty.nix {
+  #         pkgs = super;
+  #       }
+  #     ) else super.kitty;
 }

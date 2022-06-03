@@ -12,33 +12,9 @@
   outputs = { igm, flake-utils, nixpkgs, ... }:
     (flake-utils.lib.eachDefaultSystem
       (system:
-        let
-          nixpkgs-config-public = (import ./nix/nixpkgs/config.nix { });
-          pkgs = import nixpkgs {
-            inherit system;
-            inherit (nixpkgs-config-public) config overlays;
-          };
-        in
         {
-          # packages = {
-          #   rust-shell = pkgs.mkShell {
-          #     name = "rust-shell";
-          #     nativeBuildInputs = with pkgs; [
-          #       libiconv
-          #       rustc
-          #       cargo
-          #     ];
-          #     buildInputs = with pkgs; [
-          #       rustc
-          #       cargo
-          #     ];
-          #   };
-          # };
-          devShell = with pkgs;
-            mkShell {
-              nativeBuildInputs =
-                [ coreutils-full nixpkgs-fmt wally-cli shfmt yarn nodejs ];
-            };
+          devShells = igm.devShells.${system};
+          devShell = igm.devShell.${system};
         })) // {
       inherit (igm) nixosConfigurations;
     };

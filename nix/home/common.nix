@@ -236,7 +236,7 @@ in
           type = "indirect";
         };
         to = {
-          path = "${config.home.homeDirectory}/dotfiles";
+          path = "${config.home.homeDirectory}/dotfiles/nix";
           type = "path";
         };
       };

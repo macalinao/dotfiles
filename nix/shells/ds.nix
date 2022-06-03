@@ -1,4 +1,5 @@
 { pkgs }:
+with pkgs;
 let
   jupyter = python37.withPackages (ps:
     with ps; [
