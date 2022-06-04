@@ -101,7 +101,7 @@
           pure = true;
         };
         modules = [
-          ./nixos/machines/ian-nixdesktop.nix
+          ./nixos/machines/ci.nix
         ];
       };
       darwinConfigurations.ci-personal = mkDarwinSystem {
