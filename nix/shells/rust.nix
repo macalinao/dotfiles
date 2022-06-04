@@ -1,10 +1,13 @@
 { pkgs }:
 with pkgs;
-stdenvNoCC.mkDerivation {
+stdenv.mkDerivation {
   name = "devshell-rust";
   buildInputs = [
     rustup
     pkg-config
     openssl
-  ] ++ (lib.optional stdenv.isDarwin [ libiconv ]);
+  ] ++ (
+    lib.optional stdenv.isDarwin ([ libiconv ]
+      ++ (with darwin.apple_sdk.frameworks; [ DiskArbitration Foundation ]))
+  );
 }
