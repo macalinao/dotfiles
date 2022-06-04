@@ -8,7 +8,15 @@ on:
 
 jobs:
   check:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        runsOn:
+          - ubuntu-20.04
+          - ubuntu-22.04
+          - macos-10.15
+          - macos-11
+          - macos-12
+    runs-on: ${{ matrix.runsOn }}
     steps:
       - uses: actions/checkout@v3
       - uses: cachix/install-nix-action@v17
