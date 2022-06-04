@@ -21,7 +21,7 @@ ghnew() {
         PROJ_WITH_ORG=macalinao/$1
     fi
     DIR=$HOME/proj/$PROJ_WITH_ORG
-    mkdir -p $DIR && cd $DIR/.. && gh repo create --private --confirm $PROJ_WITH_ORG --clone
+    mkdir -p $DIR && cd $DIR/.. && gh repo create --private $PROJ_WITH_ORG --clone
 }
 
 lsport() {
