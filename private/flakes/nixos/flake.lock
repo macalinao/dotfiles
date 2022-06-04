@@ -196,8 +196,8 @@
         "vscode-server": "vscode-server"
       },
       "locked": {
-        "lastModified": 1654294631,
-        "narHash": "sha256-lgG/Znx55qTuBSxCYgsEqlbHT0DCcmsEFBJPKKDzz8A=",
+        "lastModified": 1654360425,
+        "narHash": "sha256-ZG1hAS+yY/O4rDnXt/797tzbueqUzFZTeLyOi62oqkA=",
         "path": "/home/igm/dotfiles/nix",
         "type": "path"
       },
@@ -349,11 +349,11 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1653279680,
-        "narHash": "sha256-3U1wxY9aDLM/BsJcqIRYcbucsMRjyIJtIFSzgUiwWNc=",
+        "lastModified": 1654360253,
+        "narHash": "sha256-L/IDqDLjWc64AqLcSlxbvEKsWlMK3PlKfngGMMLM6/8=",
         "owner": "saber-hq",
         "repo": "saber-overlay",
-        "rev": "21cd54b414495bfbd54e58f6c6006510899f23df",
+        "rev": "180bb6e4e3d8dc2f46ffe1fa256a8a49b987d995",
         "type": "github"
       },
       "original": {
