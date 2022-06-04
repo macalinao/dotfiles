@@ -2,9 +2,10 @@
 
 {
   programs.git.includes = lib.flatten (lib.mapAttrsToList
-    (profile: profileInfo:
+    (profile:
+      { github, email, ... }@profileInfo:
       let
-        prefixes = [ "~/proj/${profileInfo.githubOrganization}/" ] ++ profileInfo.additionalPrefixes;
+        prefixes = [ "~/proj/${github.organization}/" ] ++ profileInfo.additionalPrefixes;
       in
       map
         (prefix: {
@@ -12,7 +13,9 @@
       name = "config";
       text = ''
         [user]
-          email = "${profileInfo.email}"
+        ${lib.optionalString (profileInfo.name != "") "  name = \"${profileInfo.name}\""}"
+        ${lib.optionalString (profileInfo.signingKey != "") "  signingkey = \"${profileInfo.signingKey}\""}"
+        email = "${email}"
         ${profileInfo.additionalGitConfig}
         ${lib.optionalString (profileInfo.additionalGitignore != "") ''
           [core]

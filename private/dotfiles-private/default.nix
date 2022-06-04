@@ -4,14 +4,23 @@ let
   defaultConfig = { factorio-token = ""; };
   config = defaultConfig // raw // {
     profiles = lib.mapAttrs
-      (profile: profileInfo:
-        {
-          githubOrganization = profile;
-          email = "${profile}@igm.pub";
-          additionalGitConfig = "";
-          additionalGitignore = "";
-          additionalPrefixes = [ ];
-        } // profileInfo)
+      (profile:
+        { email ? "${profile}-github@igm.pub"
+        , github ? { }
+        , additionalGitConfig ? ""
+        , additionalGitignore ? ""
+        , additionalPrefixes ? [ ]
+        , ...
+        }@profileInfo:
+        profileInfo // {
+          inherit name email github additionalGitConfig additionalGitignore additionalPrefixes;
+        } // {
+          github =
+            ({
+              username = "macalinao";
+              organization = profile;
+            } // github);
+        })
       raw.profiles;
   };
 in
