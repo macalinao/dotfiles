@@ -50,8 +50,8 @@ jobs:
     strategy:
       matrix:
         runsOn:
-          - macos-latest
-          # - macos-11
+          - macos-11
+          - macos-12
     runs-on: ${{ matrix.runsOn }}
     steps:
       - uses: actions/checkout@v3
