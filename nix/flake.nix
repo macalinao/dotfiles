@@ -136,8 +136,8 @@
           };
         in
         rec {
-          devShells = import ./shells { inherit pkgs; };
-          devShell = devShells.nix;
+          packages = import ./shells { inherit pkgs; };
+          defaultPackage = packages.nix;
         }))
     );
 }

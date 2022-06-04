@@ -1,6 +1,6 @@
 { pkgs }:
 with pkgs;
-stdenv.mkDerivation {
+mkShell {
   name = "devshell-rust";
   buildInputs = [
     rustup
