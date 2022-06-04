@@ -4,17 +4,15 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-
-    igm.url = "path:./nix";
-    igm.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { igm, flake-utils, nixpkgs, ... }:
+  outputs = { flake-utils, nixpkgs, ... }:
     (flake-utils.lib.eachDefaultSystem
       (system:
+        let
+          pkgs = import nixpkgs { inherit system; };
+        in
         {
-          devShells.default = igm.devShell.${system};
-        })) // {
-      inherit (igm) nixosConfigurations;
-    };
+          devShells.default = import ./nix/shells/nix.nix { inherit pkgs; };
+        }));
 }
