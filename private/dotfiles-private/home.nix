@@ -3,33 +3,42 @@
 {
   programs.git.includes = lib.flatten (lib.mapAttrsToList
     (profile:
-      { github, email, ... }@profileInfo:
+      { name ? null
+      , signingKey ? null
+      , email ? "${profile}-github@igm.pub"
+      , gitConfig ? null
+      , additionalGitignore ? null
+      , additionalPrefixes ? [ ]
+      , ...
+      }@profileInfo:
       let
-        prefixes = [ "~/proj/${github.organization}/" ] ++ profileInfo.additionalPrefixes;
+        github = ({ github = { }; } // profileInfo).github // {
+          username = "macalinao";
+          organization = profile;
+        };
+        prefixes = [ "~/proj/${github.organization}/" ] ++ additionalPrefixes;
+        excludesFile = pkgs.writeTextFile {
+          name = "gitignore_global";
+          text = ''
+            # Additional config for profile ${profile}
+            ${additionalGitignore}'';
+        };
       in
       map
         (prefix: {
-          path = "${pkgs.writeTextFile {
-      name = "config";
-      text = ''
-        [user]
-        ${lib.optionalString (profileInfo.name != "") "  name = \"${profileInfo.name}\""}"
-        ${lib.optionalString (profileInfo.signingKey != "") "  signingkey = \"${profileInfo.signingKey}\""}"
-        email = "${email}"
-        ${profileInfo.additionalGitConfig}
-        ${lib.optionalString (profileInfo.additionalGitignore != "") ''
-          [core]
-            excludesFile = "${
-              pkgs.writeTextFile {
-                name = "gitignore_global";
-                text = ''
-                  # Additional config for profile ${profile}
-                  ${profileInfo.additionalGitignore}'';
+          contents = lib.mkMerge [
+            gitConfig
+            {
+              user = lib.mkMerge [{
+                inherit email;
               }
-            }"
-        ''}
-      '';
-    }}";
+                (lib.mkIf (signingKey != null) { inherit signingKey; })
+                (lib.mkIf (name != null) { inherit name; })];
+            }
+            (lib.mkIf (additionalGitignore != null) {
+              core.excludesFile = "${excludesFile}";
+            })
+          ];
           condition = "gitdir/i:${prefix}";
         })
         prefixes)

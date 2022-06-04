@@ -3,6 +3,11 @@
 DOTFILES=$HOME/dotfiles
 cd $DOTFILES
 
+SHOW_TRACE=''
+if [ $1 = '--debug' ]; then
+    SHOW_TRACE='--show-trace'
+fi
+
 FLAKE_PATH=''
 if $(uname -a | grep -q "Darwin"); then
     FLAKE_PATH="./private/flakes/darwin"
@@ -26,7 +31,7 @@ if $(uname -a | grep -q "NixOS"); then
 fi
 
 if $(uname -a | grep -q "Darwin"); then
-    nix build "$FLAKE_PATH#darwinConfigurations.ian-mbp-m1.system" --show-trace || exit 1
+    nix build "$FLAKE_PATH#darwinConfigurations.ian-mbp-m1.system" $SHOW_TRACE || exit 1
     ./result/sw/bin/darwin-rebuild switch --flake "$FLAKE_PATH#ian-mbp-m1"
     rm -r result
 fi
