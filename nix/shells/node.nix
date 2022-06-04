@@ -7,7 +7,7 @@ mkShell {
     nodejs
 
     # Deno
-    deno
+    # deno
   ];
   CFLAGS = if stdenv.isDarwin then "-I/usr/include" else "";
   LDFLAGS =

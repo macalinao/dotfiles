@@ -4,9 +4,9 @@ mkShell {
   nativeBuildInputs = [
     aws-iam-authenticator
     awscli
-    jx
+    # jx
     kops
-    kubernetes
+    # kubernetes
     kubernetes-helm
     skaffold
     sops

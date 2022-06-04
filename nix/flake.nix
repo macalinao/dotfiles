@@ -114,17 +114,35 @@
         computerName = "igm-darwin-ci";
         hostName = "igm-darwin-ci";
       };
-    } // (flake-utils.lib.eachDefaultSystem
-      (system:
+    } // (
       let
-        nixpkgs-config-public = (import ./nixpkgs/config.nix { });
-        pkgs = import nixpkgs {
-          inherit system;
-          inherit (nixpkgs-config-public) config overlays;
-        };
+        supportedSystems = [
+          "aarch64-linux"
+          "aarch64-darwin"
+          # i have no such machines
+          # "i686-linux"
+          "x86_64-darwin"
+          "x86_64-linux"
+        ];
       in
-      rec {
-        devShells = import ./shells { inherit pkgs; };
-        devShell = devShells.nix;
-      }));
+      (flake-utils.lib.eachSystem supportedSystems
+        (system:
+        let
+          nixpkgs-config-public = (import ./nixpkgs/config.nix rec {
+            isDarwin = nixpkgs.legacyPackages.${system}.lib.hasSuffix "-darwin" system;
+
+            # There are lots of wrongfully broken packages on Darwin
+            # https://github.com/NixOS/nixpkgs/pull/173671
+            allowBroken = isDarwin;
+          });
+          pkgs = import nixpkgs {
+            inherit system;
+            inherit (nixpkgs-config-public) config overlays;
+          };
+        in
+        rec {
+          devShells = import ./shells { inherit pkgs; };
+          devShell = devShells.nix;
+        }))
+    );
 }

@@ -1,7 +1,7 @@
 { pkgs }:
 with pkgs;
 let
-  jupyter = python37.withPackages (ps:
+  jupyter = python39.withPackages (ps:
     with ps; [
       jupyterlab_server
       jupyter_core
