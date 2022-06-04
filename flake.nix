@@ -1,5 +1,5 @@
 {
-  description = "Ian's dotfiles.";
+  description = "Dev environment for managing flakes.";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";

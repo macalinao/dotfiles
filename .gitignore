@@ -2,4 +2,9 @@
 .pre-commit-config.yaml
 /result
 
-node_modules/
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
