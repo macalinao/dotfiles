@@ -29,19 +29,14 @@
     , ...
     }:
     let
-      linuxModules = [
-        ./nixos/machines/ian-nixdesktop.nix
-        ({ ... }: {
-          imports = [ "${vscode-server}/default.nix" ];
-          services.vscode-server.enable = true;
-        })
-      ];
-
       mkNixosSystem = { modules, additionalOverlays ? [ ], igm ? { } }: nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ({ ... }: {
             inherit igm;
+          })
+          ({ ... }: {
+            imports = [ "${vscode-server}/default.nix" ];
           })
           (import ./system.nix {
             isLinux = true;
@@ -81,7 +76,7 @@
         };
     in
     {
-      lib = { inherit linuxModules mkNixosSystem mkDarwinSystem; };
+      lib = { inherit mkNixosSystem mkDarwinSystem; };
       nixosConfigurations.ci-home = mkNixosSystem {
         igm = {
           pure = true;

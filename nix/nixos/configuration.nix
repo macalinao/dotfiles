@@ -99,6 +99,9 @@ with lib;
     };
   };
 
+  # ???
+  services.logrotate.checkConfig = false;
+
   # keyring
   services.gnome.gnome-keyring.enable = true;
 }

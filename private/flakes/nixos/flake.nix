@@ -19,10 +19,13 @@
     {
       nixosConfigurations.primary = igm.lib.mkNixosSystem {
         additionalOverlays = private.overlays;
-        modules = igm.lib.linuxModules ++ private.modules ++ private.nixosModules;
+        modules = [
+          ./machines/ian-nixdesktop.nix
+        ] ++ private.modules ++ private.nixosModules;
         igm = {
           headless = true;
           virtualbox = false;
+          vscode-server = true;
         };
       };
     };

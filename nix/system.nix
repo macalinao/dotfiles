@@ -47,6 +47,15 @@ in
         Only install pure packages.
       '';
     };
+
+    vscode-server = mkOption {
+      type = types.bool;
+      default = false;
+      description = ''
+        Install VSCode Server.
+      '';
+
+    };
   };
 
   config =
@@ -58,6 +67,9 @@ in
         # (import ./nixos/services/home-assistant.nix args)
         (mkIf cfg.virtualbox (import ./nixos/services/virtualbox.nix args))
         (import ./nixos/users.nix args)
+        (mkIf cfg.vscode-server {
+          services.vscode-server.enable = true;
+        })
       ]) else { }) //
     (if isDarwin then
       (mkMerge [
