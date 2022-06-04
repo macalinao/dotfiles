@@ -44,6 +44,10 @@
         prefixes)
     dotfiles-private.profiles);
 
-  home.file = dotfiles-private.homeFiles;
+  home.file = dotfiles-private.homeFiles // {
+    test = {
+      text = "asdf";
+    };
+  };
   xdg.configFile = dotfiles-private.xdgFiles;
 }

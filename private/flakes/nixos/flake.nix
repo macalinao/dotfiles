@@ -13,7 +13,7 @@
     let
       private = import ../../dotfiles-private {
         inherit (nixpkgs) lib;
-        raw = import dotfiles-private-raw { inherit (nixpkgs) lib; };
+        raw = import dotfiles-private-raw;
       };
     in
     {

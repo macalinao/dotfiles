@@ -17,7 +17,7 @@
     let
       private = import ../../dotfiles-private {
         inherit (nixpkgs) lib;
-        raw = import dotfiles-private-raw { inherit (nixpkgs) lib; };
+        raw = import dotfiles-private-raw;
       };
       mkSystem = igm.lib.mkDarwinSystem;
     in
@@ -26,14 +26,14 @@
         computerName = "Ian’s Macbook Pro Intel";
         hostName = "ian-mbp-intel";
         additionalOverlays = private.overlays;
-        modules = private.modules ++ [{ services.nix-daemon.enable = true; }];
+        modules = private.modules;
       };
       darwinConfigurations."ian-mbp-m1" = mkSystem {
         isM1 = true;
         computerName = "Ian’s Macbook Pro 2022";
         hostName = "ian-mbp-2022";
         additionalOverlays = private.overlays;
-        modules = private.modules ++ [{ services.nix-daemon.enable = true; }];
+        modules = private.modules;
       };
     };
 }

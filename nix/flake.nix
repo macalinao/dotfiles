@@ -72,6 +72,7 @@
               inherit computerName hostName;
               localHostName = hostName;
             };
+            services.nix-daemon.enable = true;
           }];
         };
     in
