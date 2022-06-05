@@ -131,10 +131,11 @@
             # https://github.com/NixOS/nixpkgs/pull/173671
             allowBroken = isDarwin;
           });
-          pkgs = import nixpkgs {
-            inherit system;
-            inherit (nixpkgs-config-public) config overlays;
-          };
+          pkgs = import nixpkgs
+            {
+              inherit system;
+              inherit (nixpkgs-config-public) config overlays;
+            } // saber-overlay.packages.${system};
         in
         rec {
           packages = import ./shells { inherit pkgs; };
