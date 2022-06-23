@@ -59,6 +59,8 @@ in
     scripts.nxs
   ];
 
+  home.stateVersion = "22.05";
+
   programs.vscode = {
     enable = true;
 
