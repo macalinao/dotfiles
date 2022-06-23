@@ -158,7 +158,7 @@ in
 
     sessionVariables = {
       DOTFILES = "${config.home.homeDirectory}/dotfiles";
-      EDITOR = pkgs.vim;
+      EDITOR = "${pkgs.vim}/bin/vim";
     };
 
     shellAliases = {
