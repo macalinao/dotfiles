@@ -57,6 +57,7 @@ with lib; {
       "postman"
       "private-internet-access"
       "slack"
+      "spaceid"
       "spotify"
       "superhuman"
       "tableplus"
