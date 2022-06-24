@@ -13,6 +13,8 @@ mkMerge [
       allowedUDPPorts = [
         41641 # tailscale
       ];
+      # tailscale exit node
+      checkReversePath = "loose";
     };
 
     services.autorandr = {
