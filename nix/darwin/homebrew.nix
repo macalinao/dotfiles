@@ -20,7 +20,7 @@ with lib; {
     "koekeishiya/formulae"
   ];
 
-  brews = (lib.optionals (!isM1) [ "ethereum" "openssl" "openssl@1.1" ]) ++ [
+  brews = (lib.optionals (!isM1) [ "openssl" "openssl@1.1" ]) ++ [
     "yabai"
     "skhd"
   ];

@@ -1,0 +1,8 @@
+#!/usr/bin/env -S bash -xe
+
+FOCUSED_DISPLAY=$(yabai -m query --displays --display | jq .index)
+
+# Focus space and move to the desired display
+yabai -m space --focus $1
+yabai -m space --display $FOCUSED_DISPLAY
+yabai -m space --focus $1

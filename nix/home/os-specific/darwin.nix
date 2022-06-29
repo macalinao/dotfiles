@@ -6,6 +6,8 @@
     pinentry_mac
     gnupg
     kbfs
+
+    pm2
   ];
 
   xdg.enable = true;
