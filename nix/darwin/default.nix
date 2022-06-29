@@ -5,7 +5,7 @@ let
   isM1 = config.igm.isM1;
 in
 with lib; {
-  environment.systemPackages = with pkgs; [ vim kitty tor ];
+  environment.systemPackages = with pkgs; [ vim tor ];
 
   home-manager.useGlobalPkgs = true;
   home-manager.users.igm = import ../home { systemConfig = config; };
@@ -23,59 +23,7 @@ with lib; {
     remapCapsLockToEscape = true;
   };
 
-  homebrew = {
-    enable = true;
-    autoUpdate = true;
-    cleanup = "uninstall";
-    brewPrefix = if isM1 then "/opt/homebrew/bin" else "/usr/local/bin";
-
-    taps = [
-      "homebrew/bundle"
-      "homebrew/cask"
-      "homebrew/cask-versions"
-      "homebrew/core"
-      "homebrew/services"
-      "koekeishiya/formulae"
-    ];
-
-    brews = (lib.optionals (!isM1) [ "ethereum" "openssl" "openssl@1.1" ]) ++ [
-      "yabai"
-      "skhd"
-    ];
-
-    casks = [
-      "brave-browser"
-      "dashlane"
-      "discord"
-      "docker"
-      "figma"
-      "keybase"
-      "linear-linear"
-      "ngrok"
-      "notion"
-      "numi"
-      "postman"
-      "private-internet-access"
-      "slack"
-      "spaceid"
-      "spotify"
-      "superhuman"
-      "tableplus"
-      "the-unarchiver"
-      "zoom"
-    ] ++ (lib.optionals (mode == "personal") [
-      "jgrennison-openttd"
-      "ledger-live"
-      "minecraft"
-      "signal"
-      "telegram"
-      "tor-browser"
-      "transmission"
-      "vlc"
-      "wechat"
-      "whatsapp"
-    ]);
-  };
+  homebrew = import ./homebrew.nix { inherit config lib; };
 
   nix = {
     useSandbox = false;
@@ -93,7 +41,7 @@ with lib; {
     interactiveShellInit = ''
       unset TERMINFO
       if [ $TERM = xterm-kitty ]; then
-        export TERMINFO="${pkgs.kitty}/Applications/kitty.app/Contents/Resources/kitty/terminfo";
+        export TERMINFO="/Applications/kitty.app/Contents/Resources/kitty/terminfo";
       fi
     '';
     variables = {

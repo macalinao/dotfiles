@@ -91,6 +91,10 @@ in
     theme = "Arc-Dark";
   };
 
+  programs.kitty = {
+    enable = true;
+  };
+
   services.polybar = {
     enable = true;
     script = "polybar top &";
