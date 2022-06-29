@@ -28,7 +28,7 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1656533915,
+        "lastModified": 1656542137,
         "narHash": "sha256-zbbpLlkA/jMDwMg87HmZR2ZHMgNc5ynWvQ48OneWuP4=",
         "path": "/home/igm/dotfiles-private",
         "type": "path"
