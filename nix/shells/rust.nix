@@ -6,6 +6,7 @@ mkShell {
     rustup
     pkg-config
     openssl
+    cargo-workspaces
 
   ] ++ (
     lib.optional stdenv.isDarwin ([ libiconv ]
