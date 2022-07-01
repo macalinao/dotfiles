@@ -7,8 +7,9 @@ in
 with lib; {
   environment.systemPackages = with pkgs; [ vim tor ];
 
-  home-manager.useGlobalPkgs = true;
   home-manager.users.igm = import ../home { systemConfig = config; };
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
 
   system.defaults = {
     dock = {
@@ -52,7 +53,7 @@ with lib; {
   programs.gnupg = { agent.enable = true; };
 
   users.users.igm = {
-    name = "Ian Macalinao";
+    name = "igm";
     home = "/Users/igm";
   };
   users.nix.configureBuildUsers = true;
