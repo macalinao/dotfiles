@@ -16,7 +16,7 @@
       url = "github:msteen/nixos-vscode-server/master";
       flake = false;
     };
-    saber-overlay.url = "github:saber-hq/saber-overlay";
+    saber-overlay.url = "github:saber-hq/saber-overlay/master";
   };
 
   outputs =

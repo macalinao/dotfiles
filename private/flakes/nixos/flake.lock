@@ -28,7 +28,7 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1656702469,
+        "lastModified": 1656702555,
         "narHash": "sha256-k0bdgSp1hkrKv+yEieZEreCMO5o1/w8haHzxStzttGQ=",
         "path": "/home/igm/dotfiles-private",
         "type": "path"
@@ -197,8 +197,8 @@
         "vscode-server": "vscode-server"
       },
       "locked": {
-        "lastModified": 1656702439,
-        "narHash": "sha256-Yl8W7p5wIbkaC8SBLw2KjSi46KVIUqOUzNJcXPGjuxo=",
+        "lastModified": 1656702566,
+        "narHash": "sha256-Mzlik5GV2KEx4PW6CIoBpjf2Kl9OhZhbszcve93JRf4=",
         "path": "/home/igm/dotfiles/nix",
         "type": "path"
       },
@@ -359,6 +359,7 @@
       },
       "original": {
         "owner": "saber-hq",
+        "ref": "master",
         "repo": "saber-overlay",
         "type": "github"
       }
