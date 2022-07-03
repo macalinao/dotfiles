@@ -6,15 +6,6 @@ self: super: rec {
     sha256 = "1zxgy3znw0i6h1lxhmnx001c1pdcyszwqj8f0d0092nmnngdzsrl";
   };
 
-  discord = super.discord.override rec {
-    version = "0.0.15";
-    src = super.fetchurl {
-      url =
-        "https://dl.discordapp.net/apps/linux/${version}/discord-${version}.tar.gz";
-      sha256 = "sha256-re3pVOnGltluJUdZtTlSeiSrHULw1UjFxDCdGj/Dwl4=";
-    };
-  };
-
   # tests for this are broken on darwin
   python3Packages = super.python3Packages // {
     pycurl = super.python3Packages.pycurl.overrideAttrs
