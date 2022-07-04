@@ -162,6 +162,7 @@ in
     sessionVariables = {
       DOTFILES = "${config.home.homeDirectory}/dotfiles";
       EDITOR = "${pkgs.vim}/bin/vim";
+      GPG_TTY = "${pkgs.coreutils}/bin/tty";
     };
 
     shellAliases = {
