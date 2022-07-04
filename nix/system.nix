@@ -65,7 +65,7 @@ in
     };
 
     homeModules = mkOption {
-      type = types.listOf types.raw;
+      type = types.listOf types.lambda;
       default = [ ];
       description = ''
         Additional modules to merge into the home module.

@@ -16,4 +16,4 @@ mkMerge ([
   (mkIf pkgs.stdenv.isDarwin (import ./os-specific/darwin.nix merged))
   (import ./dotfiles merged)
   (import ./common.nix merged)
-] ++ systemConfig.igm.homeModules)
+] ++ (map (x: x merged) systemConfig.igm.homeModules))
