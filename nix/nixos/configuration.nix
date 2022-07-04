@@ -114,10 +114,11 @@ with lib;
         "m.cachix.org-1:NyJ6n2M/yLpEybD9oVf/FD96O+Nsgd5TQfIeKCFemCs="
       ];
     };
+  };
 
-    # ???
-    services.logrotate.checkConfig = false;
+  # ???
+  services.logrotate.checkConfig = false;
 
-    # keyring
-    services.gnome.gnome-keyring.enable = true;
-  }
+  # keyring
+  services.gnome.gnome-keyring.enable = true;
+}
