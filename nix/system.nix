@@ -72,6 +72,7 @@ in
         (import ./nixos/home-manager.nix args)
         (import ./nixos/services args)
         # (import ./nixos/services/home-assistant.nix args)
+        (mkIf (!cfg.headless) (import ./nixos/gui.nix args))
         (mkIf cfg.virtualbox (import ./nixos/services/virtualbox.nix args))
         (import ./nixos/users.nix args)
         (mkIf cfg.vscode-server {

@@ -28,25 +28,6 @@ mkMerge [
     # Enable CUPS to print documents.
     services.printing.enable = true;
 
-    services.xserver = {
-      enable = true;
-      dpi = 96;
-
-      desktopManager = {
-        xterm.enable = false;
-        xfce = { enable = true; };
-      };
-
-      displayManager = {
-        defaultSession = "xfce";
-        lightdm.enable = true;
-        autoLogin = {
-          enable = true;
-          user = "igm";
-        };
-      };
-    };
-
     # Yubikey
     services.pcscd.enable = true;
     services.udev.packages = [
