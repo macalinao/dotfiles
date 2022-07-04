@@ -96,12 +96,28 @@ with lib;
       experimental-features = [ "nix-command" "flakes" ];
       keep-outputs = true;
       keep-derivations = true;
+
+      substituters = [
+        "https://cache.nixos.org"
+        "https://igm.cachix.org"
+        "https://saber.cachix.org"
+        "https://v.cachix.org"
+        "https://s.cachix.org"
+        "https://m.cachix.org"
+      ];
+      trusted-public-keys = [
+        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+        "igm.cachix.org-1:JzRjOzUEP3tfmQv9hy7MP7LqaA5CEg418KKVMyJFd10="
+        "saber.cachix.org-1:AmI7Ft67WCH8+JJK6+U+R7VRvuIu8vgeXHOqdhb9lHc="
+        "v.cachix.org-1:34nUl7Lx9zS23llMctTkuASD1oijTxraFgZDsvy9iag="
+        "s.cachix.org-1:e8AnFcja2+zuunl5f30pNY9rvj1aFcldVhIg9giRcBg="
+        "m.cachix.org-1:NyJ6n2M/yLpEybD9oVf/FD96O+Nsgd5TQfIeKCFemCs="
+      ];
     };
-  };
 
-  # ???
-  services.logrotate.checkConfig = false;
+    # ???
+    services.logrotate.checkConfig = false;
 
-  # keyring
-  services.gnome.gnome-keyring.enable = true;
-}
+    # keyring
+    services.gnome.gnome-keyring.enable = true;
+  }

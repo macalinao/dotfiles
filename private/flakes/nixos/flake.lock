@@ -28,8 +28,8 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1656951644,
-        "narHash": "sha256-1XPLXQcjy64FEMc8R0ICn5VX0AYfBDJUOO8u8WIilzA=",
+        "lastModified": 1656952072,
+        "narHash": "sha256-DXB6WjY107vhtvs1YxhQ0YfUiuvkGoMfJZUwNgzTcSY=",
         "path": "/home/igm/dotfiles-private",
         "type": "path"
       },
@@ -149,8 +149,8 @@
         "vscode-server": "vscode-server"
       },
       "locked": {
-        "lastModified": 1656951640,
-        "narHash": "sha256-OR3hULjA3vjT/bBFdKzZnZnTwzaIFznugXOixt+/JJs=",
+        "lastModified": 1656953444,
+        "narHash": "sha256-ixAyKMhLR+M6EGDd4TP3mqfOvVe8UqkOTUqx1b6YgLk=",
         "path": "/home/igm/dotfiles/nix",
         "type": "path"
       },
