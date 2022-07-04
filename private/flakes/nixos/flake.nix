@@ -23,6 +23,7 @@
           ./machines/ian-nixdesktop.nix
         ] ++ private.modules ++ private.nixosModules;
         igm = {
+          hostName = "ianix";
           headless = true;
           virtualbox = false;
           vscode-server = true;

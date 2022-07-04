@@ -54,7 +54,14 @@ in
       description = ''
         Install VSCode Server.
       '';
+    };
 
+    hostName = mkOption {
+      type = types.str;
+      default = "igm-machine";
+      description = ''
+        Host name of the machine.
+      '';
     };
   };
 

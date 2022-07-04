@@ -3,7 +3,7 @@
 with lib;
 
 {
-  networking.hostName = "ianix";
+  networking.hostName = config.igm.hostName;
 
   console = {
     keyMap = "us";
