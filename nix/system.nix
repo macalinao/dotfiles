@@ -63,6 +63,14 @@ in
         Host name of the machine.
       '';
     };
+
+    homeModules = mkOption {
+      type = types.listOf types.raw;
+      default = [ ];
+      description = ''
+        Additional modules to merge into the home module.
+      '';
+    };
   };
 
   config =

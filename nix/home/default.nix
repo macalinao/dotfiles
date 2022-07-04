@@ -8,7 +8,7 @@ let
     inherit systemConfig;
   };
 in
-mkMerge [
+mkMerge ([
   (mkIf pkgs.stdenv.isLinux
     (import ./os-specific/nixos/standard.nix merged))
   (mkIf (pkgs.stdenv.isLinux && !systemConfig.igm.headless)
@@ -16,4 +16,4 @@ mkMerge [
   (mkIf pkgs.stdenv.isDarwin (import ./os-specific/darwin.nix merged))
   (import ./dotfiles merged)
   (import ./common.nix merged)
-]
+] ++ systemConfig.igm.homeModules)

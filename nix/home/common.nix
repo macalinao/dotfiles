@@ -1,6 +1,7 @@
 { config, pkgs, lib, systemConfig, ... }:
 
-let scripts = import ./scripts { inherit pkgs; };
+let
+  scripts = import ./scripts { inherit pkgs; };
 in
 {
   home.packages = with pkgs; [

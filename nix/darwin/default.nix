@@ -1,13 +1,14 @@
 { config, lib, pkgs, ... }:
 
 let
+  homeBase = import ../home { systemConfig = config; };
   mode = config.igm.mode;
   isM1 = config.igm.isM1;
 in
 with lib; {
   environment.systemPackages = with pkgs; [ vim tor ];
 
-  home-manager.users.igm = import ../home { systemConfig = config; };
+  home-manager.users.igm = homeBase;
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
 
