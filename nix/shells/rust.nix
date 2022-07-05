@@ -7,6 +7,8 @@ mkShell {
     pkg-config
     openssl
     cargo-workspaces
+    cargo-readme
+    cargo-outdated
 
   ] ++ (
     lib.optional stdenv.isDarwin ([ libiconv ]
