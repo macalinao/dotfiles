@@ -11,7 +11,7 @@
 
   outputs = { igm, dotfiles-private-raw, nixpkgs, ... }:
     let
-      private = import ../../dotfiles-private {
+      private = igm.lib.mkPrivate {
         inherit (nixpkgs) lib;
         raw = import dotfiles-private-raw;
       };

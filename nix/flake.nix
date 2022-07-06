@@ -29,6 +29,8 @@
     , ...
     }:
     let
+      mkPrivate = import ./private;
+
       mkNixosSystem = { modules, additionalOverlays ? [ ], igm ? { } }: nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
@@ -77,7 +79,7 @@
         };
     in
     {
-      lib = { inherit mkNixosSystem mkDarwinSystem; };
+      lib = { inherit mkNixosSystem mkDarwinSystem mkPrivate; };
       nixosConfigurations.ci-home = mkNixosSystem {
         igm = {
           pure = true;
