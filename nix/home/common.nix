@@ -178,6 +178,7 @@ in
       x = "exit";
       c = "clear";
       nf = "nixpkgs-fmt **/*.nix";
+      nd = "nix develop -c zsh";
 
       vi = "vim";
       bear = "keybase chat send bearcott";
