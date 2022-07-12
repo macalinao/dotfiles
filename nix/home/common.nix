@@ -96,7 +96,7 @@ in
     extraConfig = {
       core.excludesFile = "${./static/gitignore_global}";
       push.default = "simple";
-      init.defaultBranch = "main";
+      init.defaultBranch = "master";
     };
     delta.enable = true;
     lfs.enable = true;
