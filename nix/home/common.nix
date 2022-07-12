@@ -230,6 +230,17 @@ in
   nix = {
     enable = true;
     registry = {
+      move = {
+        from = {
+          id = "move";
+          type = "indirect";
+        };
+        to = {
+          type = "github";
+          owner = "movingco";
+          repo = "move.nix";
+        };
+      };
       igm = {
         from = {
           id = "igm";
