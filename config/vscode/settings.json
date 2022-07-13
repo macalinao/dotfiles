@@ -61,14 +61,14 @@
       "dictionaries": ["typescript", "node", "html", "css", "fonts"]
     }
   ],
-  "cSpell.userWords": [
-    "aptos",
-    "keypair",
-    "Permissionless",
-    "saberhq",
-    "semibold",
-    "solana"
-  ],
+  "cSpell.customDictionaries": {
+    "igm": {
+      "name": "igm",
+      "path": "~/dotfiles/misc/words.txt",
+      "scope": "user",
+      "addWords": true
+    }
+  },
   "[ignore]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
@@ -99,5 +99,6 @@
   },
   "redhat.telemetry.enabled": false,
   "rust-analyzer.checkOnSave.command": "clippy",
-  "rust-analyzer.rustfmt.rangeFormatting.enable": true
+  "rust-analyzer.rustfmt.rangeFormatting.enable": true,
+  "cSpell.enableFiletypes": ["nix", "shellscript"]
 }
