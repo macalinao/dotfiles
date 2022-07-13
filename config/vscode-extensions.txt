@@ -1,4 +1,4 @@
-adobe.xd
+42Crunch.vscode-openapi
 arcanis.vscode-zipfs
 austenc.tailwind-docs
 bbenoist.Nix
@@ -8,7 +8,9 @@ bradlc.vscode-tailwindcss
 bradymholt.pgformatter
 brettm12345.nixfmt-vscode
 bungcip.better-toml
+chrislajoie.vscode-modelines
 csstools.postcss
+damirka.move-syntax
 dbaeumer.vscode-eslint
 eamodio.gitlens
 EditorConfig.EditorConfig
@@ -35,7 +37,9 @@ kenhowardpdx.vscode-gist
 KnisterPeter.vscode-github
 lightyen.tailwindcss-intellisense-twin
 mechatroner.rainbow-csv
+mkhl.direnv
 move.move-analyzer
+movingco.move-analyzer-plus
 ms-azuretools.vscode-docker
 ms-python.python
 ms-python.vscode-pylance
@@ -51,6 +55,7 @@ ms-vsliveshare.vsliveshare
 ms-vsliveshare.vsliveshare-audio
 msjsdiag.debugger-for-chrome
 Orta.vscode-jest
+redhat.vscode-yaml
 rust-lang.rust-analyzer
 sastan.twind-intellisense
 shd101wyy.markdown-preview-enhanced
@@ -63,6 +68,7 @@ TabNine.tabnine-vscode
 tintinweb.vscode-vyper
 toba.vsfire
 tomoki1207.pdf
+tootone.org-mode
 vscodevim.vim
 WallabyJs.quokka-vscode
 WallabyJs.wallaby-vscode

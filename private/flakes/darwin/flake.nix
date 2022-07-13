@@ -3,14 +3,14 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    igm.url = "path:/Users/igm/dotfiles/nix";
+    igm.url = "git+file:///Users/igm/dotfiles?dir=nix";
     igm.inputs.nixpkgs.follows = "nixpkgs";
 
     darwin = {
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    dotfiles-private-raw = { url = "path:/Users/igm/dotfiles-private"; };
+    dotfiles-private-raw = { url = "git+file:///Users/igm/dotfiles-private"; };
   };
 
   outputs = { igm, dotfiles-private-raw, nixpkgs, darwin, ... }:
