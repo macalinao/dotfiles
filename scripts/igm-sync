@@ -2,7 +2,12 @@
 
 # Write settings to the config directory.
 
-cd $HOME/dotfiles
+cd $DOTFILES
 
 # Write VSCode extensions list
-code --list-extensions >config/vscode-extensions.txt
+code --list-extensions >config/vscode/extensions.txt
+
+# Copy VSCode settings
+cp $HOME/Library/Application\ Support/Code/User/keybindings.json config/vscode/keybindings.json
+cp $HOME/Library/Application\ Support/Code/User/settings.json config/vscode/settings.json
+cp $HOME/Library/Application\ Support/Code/User/tasks.json config/vscode/tasks.json
