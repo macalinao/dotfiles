@@ -55,9 +55,6 @@ in
     # formatting
     shfmt
 
-    # wally
-    wally-cli
-
     scripts.nxs
   ];
 

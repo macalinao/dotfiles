@@ -2,5 +2,5 @@
 with pkgs;
 mkShell {
   nativeBuildInputs =
-    [ coreutils-full nixpkgs-fmt wally-cli shfmt yarn nodejs ];
+    [ coreutils-full nixpkgs-fmt shfmt yarn nodejs ];
 }
