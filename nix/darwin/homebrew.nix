@@ -37,7 +37,6 @@ with lib; {
     "ngrok"
     "notion"
     "numi"
-    "obsidian"
     "postman"
     "private-internet-access"
     "slack"
