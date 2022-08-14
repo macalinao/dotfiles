@@ -11,7 +11,7 @@ mkMerge [
       trustedInterfaces = [ "tailscale0" ];
       # allow the Tailscale UDP port through the firewall
       allowedUDPPorts = [
-        41641 # tailscale
+        config.services.tailscale.port
       ];
       # tailscale exit node
       checkReversePath = "loose";
