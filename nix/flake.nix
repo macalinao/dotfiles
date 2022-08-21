@@ -33,32 +33,39 @@
     let
       mkPrivate = import ./private;
 
-      mkNixosSystem = { modules, additionalOverlays ? [ ], igm ? { } }: nixpkgs.lib.nixosSystem rec {
-        system = "x86_64-linux";
-        modules = [
-          ({ ... }: {
-            inherit igm;
-          })
-          ({ ... }: {
-            imports = [ "${vscode-server}/default.nix" ];
-          })
-          (import ./system.nix {
-            isLinux = true;
-          })
-          home-manager.nixosModules.home-manager
-          ({
-            nixpkgs = import ./nixpkgs/config.nix {
-              additionalOverlays = [ saber-overlay.overlays.default ] ++ additionalOverlays ++ (self: super: {
-                rnix-lsp = rnix-lsp.${system}.packages.default;
-              });
-            };
-          })
-        ] ++ modules;
-      };
+      mkNixosSystem = { modules, additionalOverlays ? [ ], igm ? { } }:
+        let
+          system = "x86_64-linux";
+        in
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ({ ... }: {
+              inherit igm;
+            })
+            ({ ... }: {
+              imports = [ "${vscode-server}/default.nix" ];
+            })
+            (import ./system.nix {
+              isLinux = true;
+            })
+            home-manager.nixosModules.home-manager
+            ({
+              nixpkgs = import ./nixpkgs/config.nix {
+                additionalOverlays = [ saber-overlay.overlays.default ] ++ additionalOverlays ++ (self: super: {
+                  rnix-lsp = rnix-lsp.${system}.packages.default;
+                });
+              };
+            })
+          ] ++ modules;
+        };
 
       mkDarwinSystem = { isM1 ? false, additionalOverlays ? [ ], modules ? [ ], computerName, hostName }:
-        darwin.lib.darwinSystem rec {
+        let
           system = if isM1 then "aarch64-darwin" else "x86_64-darwin";
+        in
+        darwin.lib.darwinSystem {
+          inherit system;
           modules = [
             ({ ... }:
               {
