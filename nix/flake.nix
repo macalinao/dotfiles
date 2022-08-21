@@ -52,9 +52,11 @@
             home-manager.nixosModules.home-manager
             ({
               nixpkgs = import ./nixpkgs/config.nix {
-                additionalOverlays = [ saber-overlay.overlays.default ] ++ additionalOverlays ++ (self: super: {
-                  rnix-lsp = rnix-lsp.${system}.packages.default;
-                });
+                additionalOverlays = [ saber-overlay.overlays.default ] ++ additionalOverlays ++ [
+                  (self: super: {
+                    rnix-lsp = rnix-lsp.${system}.packages.default;
+                  })
+                ];
               };
             })
           ] ++ modules;
@@ -75,9 +77,11 @@
                 };
                 nixpkgs = import ./nixpkgs/config.nix {
                   isDarwin = true;
-                  additionalOverlays = [ saber-overlay.overlays.default ] ++ additionalOverlays ++ (self: super: {
-                    rnix-lsp = rnix-lsp.${system}.packages.default;
-                  });
+                  additionalOverlays = [ saber-overlay.overlays.default ] ++ additionalOverlays ++ [
+                    (self: super: {
+                      rnix-lsp = rnix-lsp.${system}.packages.default;
+                    })
+                  ];
                 };
               })
             (import ./system.nix { isDarwin = true; })
