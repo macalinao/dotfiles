@@ -1,4 +1,7 @@
-{ additionalOverlays ? [ ], isDarwin ? false, allowBroken ? false }: {
+{ additionalOverlays ? [ ]
+, isDarwin ? false
+, allowBroken ? false
+}: {
   config = {
     inherit allowBroken;
     allowUnfree = true;

@@ -17,6 +17,7 @@
       flake = false;
     };
     saber-overlay.url = "github:saber-hq/saber-overlay/master";
+    rnix-lsp.url = "github:nix-community/rnix-lsp/master";
   };
 
   outputs =
@@ -26,12 +27,13 @@
     , vscode-server
     , saber-overlay
     , flake-utils
+    , rnix-lsp
     , ...
     }:
     let
       mkPrivate = import ./private;
 
-      mkNixosSystem = { modules, additionalOverlays ? [ ], igm ? { } }: nixpkgs.lib.nixosSystem {
+      mkNixosSystem = { modules, additionalOverlays ? [ ], igm ? { } }: nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         modules = [
           ({ ... }: {
@@ -46,14 +48,16 @@
           home-manager.nixosModules.home-manager
           ({
             nixpkgs = import ./nixpkgs/config.nix {
-              additionalOverlays = [ saber-overlay.overlays.default ] ++ additionalOverlays;
+              additionalOverlays = [ saber-overlay.overlays.default ] ++ additionalOverlays ++ (self: super: {
+                rnix-lsp = rnix-lsp.${system}.packages.default;
+              });
             };
           })
         ] ++ modules;
       };
 
       mkDarwinSystem = { isM1 ? false, additionalOverlays ? [ ], modules ? [ ], computerName, hostName }:
-        darwin.lib.darwinSystem {
+        darwin.lib.darwinSystem rec {
           system = if isM1 then "aarch64-darwin" else "x86_64-darwin";
           modules = [
             ({ ... }:
@@ -64,7 +68,9 @@
                 };
                 nixpkgs = import ./nixpkgs/config.nix {
                   isDarwin = true;
-                  additionalOverlays = [ saber-overlay.overlays.default ] ++ additionalOverlays;
+                  additionalOverlays = [ saber-overlay.overlays.default ] ++ additionalOverlays ++ (self: super: {
+                    rnix-lsp = rnix-lsp.${system}.packages.default;
+                  });
                 };
               })
             (import ./system.nix { isDarwin = true; })
