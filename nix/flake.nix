@@ -54,7 +54,7 @@
               nixpkgs = import ./nixpkgs/config.nix {
                 additionalOverlays = [ saber-overlay.overlays.default ] ++ additionalOverlays ++ [
                   (self: super: {
-                    rnix-lsp = rnix-lsp.${system}.packages.default;
+                    rnix-lsp = rnix-lsp.packages.${system}.default;
                   })
                 ];
               };
@@ -79,7 +79,7 @@
                   isDarwin = true;
                   additionalOverlays = [ saber-overlay.overlays.default ] ++ additionalOverlays ++ [
                     (self: super: {
-                      rnix-lsp = rnix-lsp.${system}.packages.default;
+                      rnix-lsp = rnix-lsp.packages.${system}.default;
                     })
                   ];
                 };
