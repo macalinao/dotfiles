@@ -14,6 +14,9 @@ in
     wget
     whois
 
+    # nix language server
+    rnix-lsp
+
     # JS tools
     nodejs-18_x
     (yarn.override {
