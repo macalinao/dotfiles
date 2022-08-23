@@ -150,8 +150,8 @@
         "vscode-server": "vscode-server"
       },
       "locked": {
-        "lastModified": 1661278693,
-        "narHash": "sha256-9svNJkqYgU6AVYEqYuy5WbOxTM+SzjDIEF9k3dv33ug=",
+        "lastModified": 1661278758,
+        "narHash": "sha256-XOIur7JjZCaTKwLH2AmUFiHH+w8cSmw5eXNk1x+guxY=",
         "path": "/home/igm/dotfiles/nix",
         "type": "path"
       },
