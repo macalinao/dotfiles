@@ -43,12 +43,6 @@ with lib; {
   programs.bash.enable = true;
   programs.zsh = {
     enable = true;
-    interactiveShellInit = ''
-      unset TERMINFO
-      if [ $TERM = xterm-kitty ]; then
-        export TERMINFO="/Applications/kitty.app/Contents/Resources/kitty/terminfo";
-      fi
-    '';
     variables = {
       EDITOR = "${pkgs.vim}/bin/vim";
     };
