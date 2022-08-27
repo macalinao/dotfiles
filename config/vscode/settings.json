@@ -103,6 +103,7 @@
   "search.exclude": {
     "**/.direnv/": true
   },
+  // See: https://github.com/microsoft/vscode/issues/158052
   "terminal.integrated.shellIntegration.enabled": false,
   "githubPullRequests.pullBranch": "never"
 }
