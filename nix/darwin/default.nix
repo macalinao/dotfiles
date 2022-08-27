@@ -28,13 +28,16 @@ with lib; {
   homebrew = import ./homebrew.nix { inherit config lib; };
 
   nix = {
-    useSandbox = false;
+    configureBuildUsers = true;
+    settings = {
+      sandbox = false;
+      trusted-users = [ "root" "igm" ];
+    };
     extraOptions = ''
       experimental-features = nix-command flakes
       keep-outputs = true
       keep-derivations = true
     '';
-    trustedUsers = [ "root" "igm" ];
   };
 
   programs.bash.enable = true;
@@ -51,13 +54,12 @@ with lib; {
     };
   };
 
-  programs.gnupg = { agent.enable = true; };
+  programs.gnupg.agent.enable = true;
 
   users.users.igm = {
     name = "igm";
     home = "/Users/igm";
   };
-  users.nix.configureBuildUsers = true;
 
   launchd.user.agents.tor = {
     command = with pkgs; "${tor}/bin/tor";

@@ -1,0 +1,43 @@
+#!/usr/bin/env -S bash -xe
+
+echo "Building the latest system configuration..."
+
+DOTFILES=$HOME/dotfiles
+cd $DOTFILES
+
+SHOW_TRACE=''
+if [ $1 = '--debug' ]; then
+    SHOW_TRACE='--show-trace'
+fi
+
+FLAKE_PATH=''
+if $(uname -a | grep -q "Darwin"); then
+    FLAKE_PATH="./private/flakes/darwin"
+elif $(uname -a | grep -q "NixOS"); then
+    FLAKE_PATH="./private/flakes/nixos"
+else
+    echo "No system flake found for this platform."
+    exit 1
+fi
+
+echo "Updating private dotfiles."
+cd $HOME/dotfiles-private && git add -A . && git commit -m "Updates" && git frp
+
+cd $DOTFILES
+
+echo "Updating igm and dotfiles-private-raw flakes."
+nix flake lock --update-input igm --update-input dotfiles-private-raw $FLAKE_PATH
+
+if $(uname -a | grep -q "NixOS"); then
+    if [ $(hostname) != "ianix" ]; then
+        echo "Unknown machine $(hostname)"
+        exit 1
+    fi
+    nix build "$FLAKE_PATH#nixosConfigurations.primary.system" $SHOW_TRACE || exit 1
+fi
+
+if $(uname -a | grep -q "Darwin"); then
+    nix build "$FLAKE_PATH#darwinConfigurations.ian-mbp-m1.system" $SHOW_TRACE || exit 1
+fi
+
+echo "Success! Now run 'igm-switch'."

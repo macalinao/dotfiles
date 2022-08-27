@@ -2,6 +2,7 @@
 aaron-bond.better-comments
 arcanis.vscode-zipfs
 austenc.tailwind-docs
+B4dM4n.nixpkgs-fmt
 bbenoist.Nix
 bodil.prettier-toml
 bourhaouta.tailwindshades

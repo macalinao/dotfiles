@@ -8,6 +8,7 @@
     kbfs
 
     pm2
+    kitty
   ];
 
   xdg.enable = true;

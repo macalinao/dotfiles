@@ -32,7 +32,6 @@ with lib; {
     "docker"
     "figma"
     "keybase"
-    "kitty"
     "linear-linear"
     "ngrok"
     "notion"
