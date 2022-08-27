@@ -17,4 +17,13 @@
     text =
       "pinentry-program ${pkgs.pinentry_mac}/${pkgs.pinentry_mac.passthru.binaryPath}";
   };
+
+  programs.kitty = {
+    enable = true;
+    theme = "GitHub Dark";
+    font = {
+      name = "Menlo";
+      size = 12;
+    };
+  };
 }
