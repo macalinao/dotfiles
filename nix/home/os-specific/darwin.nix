@@ -1,5 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, systemConfig, ... }:
 
+let
+  isM1 = systemConfig.igm.isM1;
+in
 {
   home.packages = with pkgs; [
     reattach-to-user-namespace
@@ -8,8 +11,9 @@
     kbfs
 
     pm2
-    kitty
-  ];
+  ] ++ (lib.optionals isM1 [
+    keybase
+  ]);
 
   xdg.enable = true;
 
@@ -19,7 +23,7 @@
   };
 
   programs.kitty = {
-    enable = true;
+    enable = isM1;
     theme = "GitHub Dark";
     font = {
       name = "Menlo";

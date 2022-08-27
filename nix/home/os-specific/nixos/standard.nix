@@ -22,6 +22,8 @@
 
     home-assistant-cli
     usbutils
+
+    keybase
   ];
 
   services.gpg-agent = {

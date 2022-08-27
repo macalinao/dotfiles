@@ -43,8 +43,6 @@ in
     shfmt
     cargo-workspaces
 
-    keybase
-
     nixpkgs-fmt
     pypi2nix
     cachix

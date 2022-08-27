@@ -3,7 +3,6 @@
 let
   homeBase = import ../home { systemConfig = config; };
   mode = config.igm.mode;
-  isM1 = config.igm.isM1;
 in
 with lib; {
   environment.systemPackages = with pkgs; [ vim tor ];

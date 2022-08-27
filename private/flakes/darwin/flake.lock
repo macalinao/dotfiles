@@ -3,27 +3,6 @@
     "darwin": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1661329936,
-        "narHash": "sha256-dafFjAcJPo0SdegK3E+SnTI8CNMgV/bBm/6CeDf82f8=",
-        "owner": "lnl7",
-        "repo": "nix-darwin",
-        "rev": "ef0e7f41cdf8fae1d2390c4df246c90a364ed8d9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "lnl7",
-        "ref": "master",
-        "repo": "nix-darwin",
-        "type": "github"
-      }
-    },
-    "darwin_2": {
-      "inputs": {
-        "nixpkgs": [
           "igm",
           "nixpkgs"
         ]
@@ -163,7 +142,7 @@
     },
     "igm": {
       "inputs": {
-        "darwin": "darwin_2",
+        "darwin": "darwin",
         "flake-utils": "flake-utils_2",
         "home-manager": "home-manager",
         "nixpkgs": [
@@ -175,8 +154,8 @@
       },
       "locked": {
         "dir": "nix",
-        "lastModified": 1661606926,
-        "narHash": "sha256-+0DTwDgbtYT92lXg5k0IaQoiBogmOhYpnwAPd7jT/8M=",
+        "lastModified": 1661607372,
+        "narHash": "sha256-behrEEwA7pZ2Rrt4x8jzArn/EgPSZ76So4Tl5/+JeP0=",
         "type": "git",
         "url": "file:///Users/igm/dotfiles?dir=nix"
       },
@@ -295,7 +274,6 @@
     },
     "root": {
       "inputs": {
-        "darwin": "darwin",
         "dotfiles-private-raw": "dotfiles-private-raw",
         "igm": "igm",
         "nixpkgs": "nixpkgs_4"
