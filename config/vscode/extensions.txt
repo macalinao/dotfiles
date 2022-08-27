@@ -1,4 +1,5 @@
 42Crunch.vscode-openapi
+aaron-bond.better-comments
 arcanis.vscode-zipfs
 austenc.tailwind-docs
 bbenoist.Nix
@@ -23,6 +24,7 @@ GitHub.vscode-pull-request-github
 golang.go
 GrapeCity.gc-excelviewer
 GraphQL.vscode-graphql
+GraphQL.vscode-graphql-syntax
 hashicorp.terraform
 haskell.haskell
 hbenl.vscode-mocha-test-adapter
@@ -35,10 +37,10 @@ JuanBlanco.solidity
 justusadam.language-haskell
 kenhowardpdx.vscode-gist
 KnisterPeter.vscode-github
+KylonaSoftware.boogie
 lightyen.tailwindcss-intellisense-twin
 mechatroner.rainbow-csv
 mkhl.direnv
-move.move-analyzer
 movingco.move-analyzer-plus
 ms-azuretools.vscode-docker
 ms-python.python
@@ -57,10 +59,10 @@ msjsdiag.debugger-for-chrome
 Orta.vscode-jest
 redhat.vscode-yaml
 rust-lang.rust-analyzer
-sastan.twind-intellisense
 shd101wyy.markdown-preview-enhanced
 shyykoserhiy.vscode-spotify
 silvenon.mdx
+stkb.rewrap
 streetsidesoftware.code-spell-checker
 styled-components.vscode-styled-components
 Swellaby.vscode-rust-test-adapter

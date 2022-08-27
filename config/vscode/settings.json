@@ -88,7 +88,6 @@
   },
   "rust-analyzer.imports.granularity.enforce": true,
   "workbench.editor.revealIfOpen": false,
-  "typescript.tsserver.experimental.enableProjectDiagnostics": true,
   "haskell.manageHLS": "PATH",
   "jest.jestCommandLine": "yarn jest",
   "github.copilot.enable": {
@@ -100,5 +99,10 @@
   "redhat.telemetry.enabled": false,
   "rust-analyzer.checkOnSave.command": "clippy",
   "rust-analyzer.rustfmt.rangeFormatting.enable": true,
-  "cSpell.enableFiletypes": ["nix", "shellscript"]
+  "cSpell.enableFiletypes": ["move", "nix", "shellscript"],
+  "search.exclude": {
+    "**/.direnv/": true
+  },
+  "terminal.integrated.shellIntegration.enabled": false,
+  "githubPullRequests.pullBranch": "never"
 }
