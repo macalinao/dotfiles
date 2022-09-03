@@ -22,6 +22,7 @@ in
     (yarn.override {
       nodejs = nodejs-18_x;
     })
+    nodePackages.pnpm
     python
 
     # docker-compose
