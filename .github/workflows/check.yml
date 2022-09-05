@@ -9,6 +9,7 @@ on:
 jobs:
   check:
     strategy:
+      fail-fast: false
       matrix:
         runsOn:
           - ubuntu-20.04
@@ -28,6 +29,7 @@ jobs:
 
   linux:
     strategy:
+      fail-fast: false
       matrix:
         nixosConfiguration:
           - ci-home
@@ -46,6 +48,7 @@ jobs:
 
   macos-latest:
     strategy:
+      fail-fast: false
       matrix:
         runsOn:
           - macos-12
