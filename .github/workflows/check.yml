@@ -7,6 +7,25 @@ on:
     branches: [master]
 
 jobs:
+  devshell:
+    strategy:
+      fail-fast: false
+      matrix:
+        runsOn:
+          - ubuntu-20.04
+          - ubuntu-22.04
+          - macos-12
+    runs-on: ${{ matrix.runsOn }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cachix/install-nix-action@v17
+      - uses: cachix/cachix-action@v10
+        with:
+          name: igm
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+      - run: nix -Lv flake check
+      - run: nix -Lv develop -c echo OK
+
   check:
     strategy:
       fail-fast: false
