@@ -7,12 +7,11 @@
   };
 
   outputs = { flake-utils, nixpkgs, ... }:
-    (flake-utils.lib.eachDefaultSystem
-      (system:
-        let
-          pkgs = import nixpkgs { inherit system; };
-        in
-        {
-          devShells.default = import ./nix/shells/nix.nix { inherit pkgs; };
-        }));
+    flake-utils.lib.eachDefaultSystem (system:
+      let
+        pkgs = import nixpkgs { inherit system; };
+      in
+      {
+        devShells.default = import ./nix/shells/nix.nix { inherit pkgs; };
+      });
 }
