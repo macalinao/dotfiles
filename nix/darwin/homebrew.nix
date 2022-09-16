@@ -2,10 +2,14 @@
 { config, lib, ... }:
 
 let
-  mode = config.igm.mode;
-  isM1 = config.igm.isM1;
+  games = [
+    "jgrennison-openttd"
+    "minecraft"
+  ];
 in
-with lib; {
+with lib; rec {
+  inherit (config.igm) mode isM1;
+
   enable = true;
   autoUpdate = true;
   cleanup = "uninstall";
@@ -45,10 +49,9 @@ with lib; {
     "tableplus"
     "the-unarchiver"
     "zoom"
-  ] ++ (lib.optionals (mode == "personal") [
-    "jgrennison-openttd"
+  ] ++ (lib.optionals (mode == "personal") ([
     "ledger-live"
-    "minecraft"
+    "obsidian"
     "signal"
     "telegram"
     "tor-browser"
@@ -56,5 +59,5 @@ with lib; {
     "vlc"
     "wechat"
     "whatsapp"
-  ]);
+  ] ++ games));
 }
