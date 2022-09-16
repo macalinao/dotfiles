@@ -6,9 +6,10 @@ let
     "jgrennison-openttd"
     "minecraft"
   ];
+  mode = config.igm.mode;
+  isM1 = config.igm.isM1;
 in
 with lib; rec {
-  inherit (config.igm) mode isM1;
 
   enable = true;
   autoUpdate = true;
