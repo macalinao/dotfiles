@@ -6,10 +6,10 @@ mkShell {
     rustup
     pkg-config
     openssl
-    cargo-workspaces
-    cargo-readme
+    cargo-hakari
     cargo-outdated
-
+    cargo-readme
+    cargo-workspaces
   ] ++ (
     lib.optional stdenv.isDarwin ([ libiconv ]
       ++ (with darwin.apple_sdk.frameworks; [ DiskArbitration Foundation ]))

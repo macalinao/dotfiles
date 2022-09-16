@@ -5,6 +5,7 @@ let
   games = [
     "jgrennison-openttd"
     "minecraft"
+    "steam"
   ];
   mode = config.igm.mode;
   isM1 = config.igm.isM1;
@@ -12,8 +13,13 @@ in
 with lib; rec {
 
   enable = true;
-  autoUpdate = true;
-  cleanup = "uninstall";
+
+  onActivation = {
+    cleanup = "uninstall";
+    upgrade = true;
+    autoUpdate = true;
+  };
+
   brewPrefix = if isM1 then "/opt/homebrew/bin" else "/usr/local/bin";
 
   taps = [
