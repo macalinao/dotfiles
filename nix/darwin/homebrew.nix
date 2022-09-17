@@ -4,6 +4,7 @@
 let
   games = [
     "jgrennison-openttd"
+    "league-of-legends"
     "minecraft"
     "steam"
   ];
