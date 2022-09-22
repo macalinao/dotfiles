@@ -53,7 +53,6 @@ with lib; rec {
     "slack"
     "spaceid"
     "spotify"
-    "superhuman"
     "tableplus"
     "the-unarchiver"
     "zoom"
