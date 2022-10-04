@@ -4,7 +4,7 @@
   home.packages = with pkgs; [
     # rust stuff
     openssl
-    pkgconfig
+    pkg-config
     udev
 
     # Etc
