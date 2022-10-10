@@ -8,11 +8,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1663677921,
-        "narHash": "sha256-NfQnUfRrjv8DXeugdbQC5El+MMhShP42ohc8iM+UAdM=",
+        "lastModified": 1664210064,
+        "narHash": "sha256-df6nKVZe/yAhmJ9csirTPahc0dldwm3HBhCVNA6qWr0=",
         "owner": "lnl7",
         "repo": "nix-darwin",
-        "rev": "088c98a584a38b5f844bb9e9cd32eb28479ca6d7",
+        "rev": "02d2551c927b7d65ded1b3c7cd13da5cc7ae3fcf",
         "type": "github"
       },
       "original": {
@@ -28,11 +28,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1660636158,
-        "narHash": "sha256-GDHIGr/6JQYncps462yVc81Vkv85BjnYRPNQJhua6vo=",
+        "lastModified": 1662149614,
+        "narHash": "sha256-xFPGbc7rx+3N9PWibvXlfWVFNpR39ecV9G+M0gi796E=",
         "ref": "refs/heads/master",
-        "rev": "a88753118b415cdb8b0a9774f25bca0d8d856258",
-        "revCount": 129,
+        "rev": "7ae519483bd50330ebb66cb5edd1a430af3e5fac",
+        "revCount": 131,
         "type": "git",
         "url": "file:///Users/igm/dotfiles-private"
       },
@@ -127,11 +127,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1663835995,
-        "narHash": "sha256-XNHQ+mdHbjNR1Oit00SFAEcrAZoCS08E7uAFcVMtwhM=",
+        "lastModified": 1664783440,
+        "narHash": "sha256-KlMwR7mUf5h8MPnzV7nGFUAt6ih/euW5xgvZ5x+hwvI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "bd83eab6220226085c82e637931a7ae3863d9893",
+        "rev": "e4e639dd4dc3e431aa5b5f95325f9a66ac7e0dd9",
         "type": "github"
       },
       "original": {
@@ -154,8 +154,8 @@
       },
       "locked": {
         "dir": "nix",
-        "lastModified": 1663863864,
-        "narHash": "sha256-cGdNRwM33yuo7HPwtOd3bYIWoF+emdAlmjDz2WpYwZE=",
+        "lastModified": 1665387888,
+        "narHash": "sha256-aKrz2vCGu0LXwl9k8t+p8ba7KX3qp/hksVtfe3lWiUs=",
         "type": "git",
         "url": "file:///Users/igm/dotfiles?dir=nix"
       },
@@ -310,11 +310,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1663371134,
-        "narHash": "sha256-g0bkvyQVVMBKdcd20dgS2Pl7YwJEfobtiM2NCOl2lIU=",
+        "lastModified": 1664400850,
+        "narHash": "sha256-IbAYpoG7yV1nsL2uxvAbIaogo5yeZ5fIoHWVAV1wmcU=",
         "owner": "saber-hq",
         "repo": "saber-overlay",
-        "rev": "5ede80c338e10de3e82c62cdad88115fec184e96",
+        "rev": "997e206e5520f20b7c68525438dc9efb2e287da0",
         "type": "github"
       },
       "original": {
