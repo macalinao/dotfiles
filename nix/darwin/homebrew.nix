@@ -57,6 +57,7 @@ with lib; rec {
     "the-unarchiver"
     "zoom"
   ] ++ (lib.optionals (mode == "personal") ([
+    "google-drive"
     "ledger-live"
     "obsidian"
     "signal"
