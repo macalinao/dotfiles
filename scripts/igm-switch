@@ -3,19 +3,14 @@
 DOTFILES=$HOME/dotfiles
 cd $DOTFILES
 
+source $DOTFILES/scripts/igm-helpers.sh
+FLAKE_PATH=$(flake_path)
+SYSTEM_CONFIG_ATTRIBUTE=$(system_config_attribute)
+echo "Using flake at path $FLAKE_PATH."
+
 SHOW_TRACE=''
 if [ $1 = '--debug' ]; then
     SHOW_TRACE='--show-trace'
-fi
-
-FLAKE_PATH=''
-if $(uname -a | grep -q "Darwin"); then
-    FLAKE_PATH="./private/flakes/darwin"
-elif $(uname -a | grep -q "NixOS"); then
-    FLAKE_PATH="./private/flakes/nixos"
-else
-    echo "No system flake found for this platform."
-    exit 1
 fi
 
 echo "Updating private dotfiles."
@@ -27,15 +22,11 @@ echo "Updating igm and dotfiles-private-raw flakes."
 nix flake lock --update-input igm --update-input dotfiles-private-raw $FLAKE_PATH
 
 if $(uname -a | grep -q "NixOS"); then
-    if [ $(hostname) != "ianix" ]; then
-        echo "Unknown machine $(hostname)"
-        exit 1
-    fi
-    sudo nixos-rebuild switch --impure --flake "$FLAKE_PATH#primary" $SHOW_TRACE
+    sudo nixos-rebuild switch --impure --flake "$FLAKE_PATH#$SYSTEM_CONFIG_ATTRIBUTE" $SHOW_TRACE
 fi
 
 if $(uname -a | grep -q "Darwin"); then
-    nix build "$FLAKE_PATH#darwinConfigurations.ian-mbp-m1.system" $SHOW_TRACE || exit 1
-    ./result/sw/bin/darwin-rebuild switch --flake "$FLAKE_PATH#ian-mbp-m1"
+    nix build "$FLAKE_PATH#$SYSTEM_CONFIG_ATTRIBUTE" $SHOW_TRACE || exit 1
+    ./result/sw/bin/darwin-rebuild switch --flake "$FLAKE_PATH#$(hostname)"
     rm -r result
 fi

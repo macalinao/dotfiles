@@ -3,6 +3,10 @@
 DOTFILES=$HOME/dotfiles
 cd $DOTFILES
 
+source $DOTFILES/scripts/igm-helpers.sh
+FLAKE_PATH=$(flake_path)
+echo "Using flake at path $FLAKE_PATH."
+
 zsh -c 'nixpkgs-fmt **/*.nix'
 
 nix_cmd() {
@@ -12,10 +16,6 @@ nix_cmd() {
 nix_cmd flake update $DOTFILES/nix
 nix_cmd flake update
 
-if $(uname -a | grep -q "Darwin"); then
-  nix_cmd flake update $DOTFILES/private/flakes/darwin
-else
-  nix_cmd flake update $DOTFILES/private/flakes/nixos
-fi
+nix_cmd flake update $FLAKE_PATH
 
 git add .
