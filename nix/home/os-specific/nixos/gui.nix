@@ -70,8 +70,8 @@ in
     xclip
     xsel
     playerctl
-    gnome3.gnome-keyring
-    gnome3.seahorse
+    gnome.gnome-keyring
+    gnome.seahorse
 
     configure-monitors
 
