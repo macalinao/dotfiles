@@ -231,7 +231,7 @@ in
 
   nix = {
     enable = true;
-    package = pkgs.nixUnstable;
+    # package = pkgs.nixUnstable;
     registry = {
       move = {
         from = {
