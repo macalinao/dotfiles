@@ -9,6 +9,7 @@ in
     pinentry_mac
     gnupg
     kbfs
+    ffmpeg
 
     pm2
   ] ++ (lib.optionals isM1 [
