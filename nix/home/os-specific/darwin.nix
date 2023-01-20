@@ -9,6 +9,8 @@ in
     pinentry_mac
     gnupg
     kbfs
+
+    # Used for Thorium/Animecards
     ffmpeg
 
     pm2

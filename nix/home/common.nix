@@ -54,7 +54,6 @@ in
     yj # toml CLI
 
     lice
-    licensor
 
     # formatting
     shfmt
