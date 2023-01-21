@@ -12,7 +12,7 @@
 
     # scripts
     ngrok
-    vagrant
+    # vagrant
 
     # for xmonad
     haskell-language-server
