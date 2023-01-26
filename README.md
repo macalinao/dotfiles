@@ -49,6 +49,16 @@ git clean -fdX
 nix flake lock --recreate-lock-file
 ```
 
+### Pushing to Cachix
+
+To push the latest Darwin configuration to Cachix, run:
+
+```bash
+cachix-build-and-push nix/#darwinConfigurations.ci-personal.system
+```
+
+This is required because GitHub Actions does not have an `aarch64-darwin` runner.
+
 ## License
 
 MIT
