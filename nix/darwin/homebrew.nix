@@ -3,7 +3,7 @@
 
 let
   games = [
-    "jgrennison-openttd"
+    # "jgrennison-openttd"
     "league-of-legends"
     "minecraft"
     "steam"
