@@ -1,8 +1,5 @@
 { config, pkgs, lib, systemConfig, ... }:
 
-let
-  scripts = import ./scripts { inherit pkgs; };
-in
 {
   home.packages = with pkgs; [
     exa
@@ -57,8 +54,6 @@ in
 
     # formatting
     shfmt
-
-    scripts.nxs
   ];
 
   home.stateVersion = "22.05";
