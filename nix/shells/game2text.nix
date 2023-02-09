@@ -6,28 +6,32 @@ let
   game2text-setup = writeShellScriptBin "game2text-setup" ''
     virtualenv venv --system-site-packages
     source venv/bin/activate
-    pip3 install -U eel pytesseract pynput sudachipy sudachidict_small
+    pip install -U eel pytesseract psutil opencv-python pydub fuzzywuzzy requests googletrans parse pynput pyperclip pyyaml sudachipy sudachidict_small
   '';
   game2text-python =
-    python311Full.withPackages (ps:
-      with ps; [
-        pip
-        pyaudio
-        virtualenv
+    python38Full.withPackages
+      (ps:
+        with ps; [
+          pip
+          pyaudio
+          virtualenv
 
-        # pytesseract
-        psutil
-        opencv4
-        pydub
-        fuzzywuzzy
-        requests
-        googletrans
-        parse
-        # broken, idk why
-        pynput
-        pyperclip
-        pyyaml
-      ]);
+          tkinter
+          gevent
+          psutil
+          pydub
+          requests
+          googletrans
+          parse
+          pyperclip
+          pyyaml
+
+          # broken, idk why
+          # pynput
+          # pytesseract
+          # opencv4
+          # fuzzywuzzy
+        ]);
 in
 mkShell {
   name = "game2text";
@@ -36,6 +40,7 @@ mkShell {
     portaudio
     tk
 
+    python38Packages.tkinter
     game2text-python
     game2text-setup
 
