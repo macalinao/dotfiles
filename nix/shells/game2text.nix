@@ -6,7 +6,7 @@ let
   game2text-setup = writeShellScriptBin "game2text-setup" ''
     virtualenv venv --system-site-packages
     source venv/bin/activate
-    pip3 install -U eel pynput sudachipy sudachidict_small
+    pip3 install -U eel pytesseract pynput sudachipy sudachidict_small
   '';
   game2text-python =
     python311Full.withPackages (ps:
