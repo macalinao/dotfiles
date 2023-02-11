@@ -8,10 +8,29 @@ let
     source venv/bin/activate
     pip install -U eel pytesseract psutil opencv-python pydub fuzzywuzzy requests googletrans parse pynput pyperclip pyyaml sudachipy sudachidict_small
   '';
+  game2text-start = writeShellScriptBin "game2text-start" ''
+    source venv/bin/activate
+    python game2text.py
+  '';
   game2text-python =
-    python38Full.withPackages
+    (python39Full.override {
+      packageOverrides = pyself: pysuper: {
+        # Disable tk tests in Pillow
+        pillow = (pysuper.pillow.overridePythonAttrs (old: rec {
+          postPatch = ''
+            ${old.postPatch}
+            rm Tests/test_imagetk.py
+          '';
+        }));
+        # For some reason, twisted tests trigger a trap
+        twisted = (pysuper.twisted.overridePythonAttrs (old: rec {
+          doCheck = false;
+        }));
+      };
+    }).withPackages
       (ps:
-        with ps; [
+        with ps;
+        [
           pip
           pyaudio
           virtualenv
@@ -26,11 +45,14 @@ let
           pyperclip
           pyyaml
 
+          levenshtein
+          pytesseract
+          opencv4
+          fuzzywuzzy
+
           # broken, idk why
+          # pytorch
           # pynput
-          # pytesseract
-          # opencv4
-          # fuzzywuzzy
         ]);
 in
 mkShell {
@@ -40,9 +62,10 @@ mkShell {
     portaudio
     tk
 
-    python38Packages.tkinter
+    python39Packages.tkinter
     game2text-python
     game2text-setup
+    game2text-start
 
     # needed for sudachi.rs to build properly
     rustup
