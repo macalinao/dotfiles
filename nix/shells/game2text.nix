@@ -27,33 +27,33 @@ let
           doCheck = false;
         }));
       };
-    }).withPackages
-      (ps:
-        with ps;
-        [
-          pip
-          pyaudio
-          virtualenv
+    }).withPackages (ps: with ps; [
+      pip
+      pyaudio
+      virtualenv
 
-          tkinter
-          gevent
-          psutil
-          pydub
-          requests
-          googletrans
-          parse
-          pyperclip
-          pyyaml
+      tkinter
+      gevent
+      psutil
+      pydub
+      requests
+      googletrans
+      parse
+      pyperclip
+      pyyaml
 
-          levenshtein
-          pytesseract
-          opencv4
-          fuzzywuzzy
+      levenshtein
+      pytesseract
+      opencv4
+      fuzzywuzzy
 
-          # broken, idk why
-          # pytorch
-          # pynput
-        ]);
+      # various dependencies
+      bottle
+
+      # Broken for reason:
+      # > ERROR: Could not find a version that satisfies the requirement pyobjc-framework-Quartz>=8.0; sys_platform == "darwin" (from pynput) (from versions: none)
+      # pynput
+    ]);
 in
 mkShell {
   name = "game2text";
