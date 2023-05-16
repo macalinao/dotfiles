@@ -36,7 +36,7 @@
     # cargo
     # rustc
     openssl
-    rust-analyzer
+    # rust-analyzer
 
     shfmt
     cargo-workspaces
