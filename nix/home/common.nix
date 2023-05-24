@@ -159,6 +159,7 @@
     sessionVariables = {
       DOTFILES = "${config.home.homeDirectory}/dotfiles";
       EDITOR = "${pkgs.vim}/bin/vim";
+      LC_ALL = "en_US.UTF-8";
     };
 
     shellAliases = {
@@ -199,7 +200,7 @@
     enable = true;
     clock24 = true;
     keyMode = "vi";
-    terminal = "screen-256color";
+    # terminal = "screen-256color";
     shell = "${pkgs.zsh}/bin/zsh";
     plugins = with pkgs;
       with tmuxPlugins; [
