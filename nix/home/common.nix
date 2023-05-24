@@ -143,7 +143,7 @@
     enable = true;
     oh-my-zsh = {
       enable = true;
-      theme = "alanpeabody";
+      theme = "arrow";
       plugins = [ "git" "yarn" "gitignore" ]
         ++ (lib.optionals pkgs.stdenv.isDarwin [ "macos" ]);
     };
