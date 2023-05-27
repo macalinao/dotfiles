@@ -7,7 +7,8 @@
     "editor.defaultFormatter": "brettm12345.nixfmt-vscode"
   },
   "[python]": {
-    "editor.defaultFormatter": "ms-python.python"
+    "editor.defaultFormatter": "ms-python.python",
+    "editor.formatOnType": true
   },
   "[rust]": {
     "editor.defaultFormatter": "rust-lang.rust-analyzer"
