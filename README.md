@@ -37,7 +37,7 @@ igm-update
 Then, to apply the changes, use the command:
 
 ```bash
-igm-update
+igm-switch
 ```
 
 ### Locking
