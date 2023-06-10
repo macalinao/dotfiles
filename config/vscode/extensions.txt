@@ -51,7 +51,6 @@ MS-CEINTL.vscode-language-pack-ja
 ms-python.isort
 ms-python.python
 ms-python.vscode-pylance
-MS-SarifVSCode.sarif-viewer
 ms-toolsai.jupyter
 ms-toolsai.jupyter-keymap
 ms-toolsai.jupyter-renderers
