@@ -15,7 +15,7 @@
   ];
 
   # This enables "fcitx" as your IME.  This is an easy-to-use IME.  It supports many different input methods.
-  i18n.inputMethod.enabled = "fcitx";
+  i18n.inputMethod.enabled = "fcitx5";
 
   # This enables "mozc" as an input method in "fcitx".  This has a relatively
   # complete dictionary.  I recommend it for Japanese input.
