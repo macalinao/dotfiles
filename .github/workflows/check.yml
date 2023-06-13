@@ -18,7 +18,7 @@ jobs:
     runs-on: ${{ matrix.runsOn }}
     steps:
       - uses: actions/checkout@v3
-      - uses: cachix/install-nix-action@v20
+      - uses: cachix/install-nix-action@v21
       - uses: cachix/cachix-action@v10
         with:
           name: igm
@@ -37,7 +37,7 @@ jobs:
     runs-on: ${{ matrix.runsOn }}
     steps:
       - uses: actions/checkout@v3
-      - uses: cachix/install-nix-action@v20
+      - uses: cachix/install-nix-action@v21
       - uses: cachix/cachix-action@v10
         with:
           name: igm
@@ -58,7 +58,7 @@ jobs:
     steps:
       - run: sudo apt-get clean
       - uses: actions/checkout@v3
-      - uses: cachix/install-nix-action@v20
+      - uses: cachix/install-nix-action@v21
       - uses: cachix/cachix-action@v10
         with:
           name: igm
@@ -74,7 +74,7 @@ jobs:
     runs-on: ${{ matrix.runsOn }}
     steps:
       - uses: actions/checkout@v3
-      - uses: cachix/install-nix-action@v20
+      - uses: cachix/install-nix-action@v21
       - uses: cachix/cachix-action@v10
         with:
           name: igm
