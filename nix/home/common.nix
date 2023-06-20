@@ -20,7 +20,10 @@
       nodejs = nodejs-18_x;
     })
     nodePackages.pnpm
-    python
+    # python
+
+    python3
+    poetry
 
     # docker-compose
 
