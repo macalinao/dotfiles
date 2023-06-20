@@ -43,6 +43,7 @@ with lib; rec {
     "discord"
     "docker"
     "figma"
+    "google-chrome"
     "keybase"
     "linear-linear"
     "ngrok"
