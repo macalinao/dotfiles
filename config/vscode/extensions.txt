@@ -48,6 +48,7 @@ mkhl.direnv
 movingco.move-analyzer-plus
 ms-azuretools.vscode-docker
 MS-CEINTL.vscode-language-pack-ja
+ms-python.autopep8
 ms-python.isort
 ms-python.python
 ms-python.vscode-pylance
