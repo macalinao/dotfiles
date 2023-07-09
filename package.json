@@ -12,5 +12,5 @@
   "scripts": {
     "prepare": "husky install"
   },
-  "packageManager": "yarn@4.0.0-rc.45"
+  "packageManager": "yarn@4.0.0-rc.48"
 }
