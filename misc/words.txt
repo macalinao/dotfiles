@@ -16,6 +16,7 @@ keypair
 keypairs
 lamport
 lamports
+legendapp
 macalinao
 millibps
 movingco
@@ -27,6 +28,7 @@ permissionless
 pubkey
 pubkeys
 reentrancy
+rquot
 rwlock
 rwlockguard
 saberhq
