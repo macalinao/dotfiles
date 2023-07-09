@@ -117,5 +117,6 @@
   "typescript.suggest.completeFunctionCalls": true,
   "typescript.tsserver.experimental.enableProjectDiagnostics": true,
   "typescript.tsserver.maxTsServerMemory": 8192,
-  "cSpell.enabled": true
+  "cSpell.enabled": true,
+  "python.formatting.provider": "black"
 }

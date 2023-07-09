@@ -20,11 +20,13 @@ denoland.vscode-deno
 eamodio.gitlens
 EditorConfig.EditorConfig
 esbenp.prettier-vscode
+figma.figma-vscode-extension
 foxundermoon.shell-format
 gaborv.flatbuffers
 genieai.chatgpt-vscode
 GitHub.copilot
 GitHub.github-vscode-theme
+github.vscode-github-actions
 GitHub.vscode-pull-request-github
 golang.go
 GrapeCity.gc-excelviewer
