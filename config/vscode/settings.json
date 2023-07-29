@@ -118,5 +118,8 @@
   "typescript.tsserver.experimental.enableProjectDiagnostics": true,
   "typescript.tsserver.maxTsServerMemory": 8192,
   "cSpell.enabled": true,
-  "python.formatting.provider": "black"
+  "python.formatting.provider": "black",
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  }
 }

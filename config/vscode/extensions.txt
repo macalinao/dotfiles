@@ -9,7 +9,6 @@ bourhaouta.tailwindshades
 bradlc.vscode-tailwindcss
 bradymholt.pgformatter
 brettm12345.nixfmt-vscode
-bungcip.better-toml
 ChFlick.firecode
 chrislajoie.vscode-modelines
 christian-kohler.npm-intellisense
@@ -45,6 +44,7 @@ justusadam.language-haskell
 kenhowardpdx.vscode-gist
 KylonaSoftware.boogie
 lightyen.tailwindcss-intellisense-twin
+matangover.mypy
 mechatroner.rainbow-csv
 mkhl.direnv
 movingco.move-analyzer-plus
@@ -75,6 +75,7 @@ stkb.rewrap
 streetsidesoftware.code-spell-checker
 styled-components.vscode-styled-components
 Swellaby.vscode-rust-test-adapter
+tamasfe.even-better-toml
 tintinweb.vscode-vyper
 toba.vsfire
 tomoki1207.pdf
