@@ -25,9 +25,9 @@ with lib; rec {
 
   taps = [
     "homebrew/bundle"
-    "homebrew/cask"
+    # "homebrew/cask"
     "homebrew/cask-versions"
-    "homebrew/core"
+    # "homebrew/core"
     "homebrew/services"
     "koekeishiya/formulae"
   ];
@@ -38,6 +38,7 @@ with lib; rec {
   ];
 
   casks = [
+    "anki"
     "brave-browser"
     "dashlane"
     "discord"
