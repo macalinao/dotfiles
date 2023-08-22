@@ -12,6 +12,7 @@ brettm12345.nixfmt-vscode
 ChFlick.firecode
 chrislajoie.vscode-modelines
 christian-kohler.npm-intellisense
+Codeium.codeium
 csstools.postcss
 damirka.move-syntax
 dbaeumer.vscode-eslint
@@ -22,8 +23,9 @@ esbenp.prettier-vscode
 figma.figma-vscode-extension
 foxundermoon.shell-format
 gaborv.flatbuffers
-genieai.chatgpt-vscode
 GitHub.copilot
+GitHub.copilot-chat
+GitHub.copilot-labs
 GitHub.github-vscode-theme
 github.vscode-github-actions
 GitHub.vscode-pull-request-github
