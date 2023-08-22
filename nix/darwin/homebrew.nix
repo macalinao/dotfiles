@@ -52,6 +52,7 @@ with lib; rec {
     "numi"
     "postman"
     "private-internet-access"
+    "raycast"
     "slack"
     "spaceid"
     "spotify"
