@@ -359,12 +359,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.8.8":
-  version: 2.8.8
-  resolution: "prettier@npm:2.8.8"
+"prettier@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "prettier@npm:3.0.2"
   bin:
-    prettier: bin-prettier.js
-  checksum: 00cdb6ab0281f98306cd1847425c24cbaaa48a5ff03633945ab4c701901b8e96ad558eb0777364ffc312f437af9b5a07d0f45346266e8245beaf6247b9c62b24
+    prettier: bin/prettier.cjs
+  checksum: 9d67f6f57be6e12fa82559f37689a47453d4a59334d88c490a0616d53de947215cdf3c145733f944057ba5158ea0e11524a2b24185c606e124474ca621baa73c
   languageName: node
   linkType: hard
 
@@ -391,7 +391,7 @@ __metadata:
   dependencies:
     husky: "npm:^8.0.3"
     lint-staged: "npm:^14.0.1"
-    prettier: "npm:^2.8.8"
+    prettier: "npm:^3.0.2"
   languageName: unknown
   linkType: soft
 
