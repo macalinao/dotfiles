@@ -119,5 +119,6 @@
   "[dockerfile]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },
-  "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace"
+  "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+  "workbench.colorTheme": "Default Dark+"
 }
