@@ -12,7 +12,6 @@ brettm12345.nixfmt-vscode
 ChFlick.firecode
 chrislajoie.vscode-modelines
 christian-kohler.npm-intellisense
-Codeium.codeium
 csstools.postcss
 damirka.move-syntax
 dbaeumer.vscode-eslint
