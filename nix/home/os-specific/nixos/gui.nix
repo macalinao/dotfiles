@@ -49,7 +49,6 @@ in
     zoom-us
 
     # Developer
-    insomnia
     postman
 
     # Etc
