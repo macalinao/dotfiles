@@ -163,7 +163,6 @@
         in
         rec {
           packages = import ./shells { inherit pkgs; };
-          defaultPackage = packages.nix;
         }))
     );
 }
