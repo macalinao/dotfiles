@@ -17,7 +17,7 @@ jobs:
           - macos-12
     runs-on: ${{ matrix.runsOn }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: cachix/install-nix-action@v22
       - uses: cachix/cachix-action@v12
         with:
@@ -36,7 +36,7 @@ jobs:
           - macos-12
     runs-on: ${{ matrix.runsOn }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: cachix/install-nix-action@v22
       - uses: cachix/cachix-action@v12
         with:
@@ -57,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: sudo apt-get clean
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: cachix/install-nix-action@v22
       - uses: cachix/cachix-action@v12
         with:
@@ -73,7 +73,7 @@ jobs:
           - macos-12
     runs-on: ${{ matrix.runsOn }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: cachix/install-nix-action@v22
       - uses: cachix/cachix-action@v12
         with:
