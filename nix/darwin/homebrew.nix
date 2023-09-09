@@ -39,6 +39,7 @@ with lib; rec {
 
   casks = [
     "anki"
+    "arc"
     "brave-browser"
     "dashlane"
     "discord"

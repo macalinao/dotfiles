@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    exa
+    eza
     git
     htop
     silver-searcher
@@ -171,8 +171,8 @@
       gd = "git diff";
       gs = "gst";
 
-      ls = "exa";
-      l = "exa -lah";
+      ls = "eza";
+      l = "eza -lah";
 
       x = "exit";
       c = "clear";
