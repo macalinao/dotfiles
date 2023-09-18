@@ -51,10 +51,10 @@ nix flake lock --recreate-lock-file
 
 ### Pushing to Cachix
 
-To push the latest Darwin configuration to Cachix, run:
+To push the latest Darwin M1 configuration to Cachix, run:
 
 ```bash
-cachix-build-and-push nix/#darwinConfigurations.ci-personal-m1.system
+cachix-push-m1-config
 ```
 
 This is required because GitHub Actions does not have an `aarch64-darwin` runner.
