@@ -162,6 +162,7 @@
     sessionVariables = {
       DOTFILES = "${config.home.homeDirectory}/dotfiles";
       EDITOR = "${pkgs.vim}/bin/vim";
+      # If your computer is in a different language, the terminal may break without this line
       LC_ALL = "en_US.UTF-8";
     };
 
@@ -171,8 +172,8 @@
       gd = "git diff";
       gs = "gst";
 
-      ls = "eza";
-      l = "eza -lah";
+      ls = "${pkgs.eza}/bin/eza";
+      l = "${pkgs.eza}/bin/eza -lah";
 
       x = "exit";
       c = "clear";
@@ -185,6 +186,7 @@
       localip =
         "ifconfig | grep -Eo 'inet (addr:)?([0-9]*.){3}[0-9]*' | grep -Eo '([0-9]*.){3}[0-9]*' | grep -v '127.0.0.1'";
       funky = "sfxl fortnite";
+      ysetup = "yarn set version canary";
       ysdk = "yarn dlx @yarnpkg/sdks vscode";
     };
 
