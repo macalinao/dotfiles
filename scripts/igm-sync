@@ -5,9 +5,20 @@
 cd $DOTFILES
 
 # Write VSCode extensions list
+mkdir -p config/vscode/
 code --list-extensions >config/vscode/extensions.txt
 
 # Copy VSCode settings
 cp $HOME/Library/Application\ Support/Code/User/keybindings.json config/vscode/keybindings.json
 cp $HOME/Library/Application\ Support/Code/User/settings.json config/vscode/settings.json
 cp $HOME/Library/Application\ Support/Code/User/tasks.json config/vscode/tasks.json
+
+# Write Cursor extensions list
+mkdir -p config/cursor/
+cursor --list-extensions >config/cursor/extensions.txt
+
+# Copy Cursor settings
+CURSOR_USER_DIR=$HOME/Library/Application\ Support/Cursor/User/
+cp $CURSOR_USER_DIR/keybindings.json config/cursor/keybindings.json
+cp $CURSOR_USER_DIR/settings.json config/cursor/settings.json
+cp $CURSOR_USER_DIR/tasks.json config/cursor/tasks.json
