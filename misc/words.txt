@@ -3,7 +3,9 @@ aptosis
 bitfield
 blockhash
 blockstore
+botstudio
 builtins
+chao
 condvar
 cpus
 datapoint
@@ -29,6 +31,7 @@ pubkey
 pubkeys
 reentrancy
 rquot
+rrweb
 rwlock
 rwlockguard
 saberhq
