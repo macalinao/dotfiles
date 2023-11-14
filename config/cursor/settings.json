@@ -1,0 +1,129 @@
+{
+  "[go]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+  "[nix]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "brettm12345.nixfmt-vscode"
+  },
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true,
+      "source.organizeImports": true
+    }
+  },
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[sql]": {
+    "editor.defaultFormatter": "bradymholt.pgformatter",
+    "editor.formatOnSave": false
+  },
+  "[svg]": {
+    "editor.defaultFormatter": "jock.svg"
+  },
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true
+  },
+  "[toml]": {
+    "editor.defaultFormatter": "bodil.prettier-toml"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "files.associations": {
+    "*.md": "markdown",
+    "*.toml": "toml",
+    "flake.lock": "json"
+  },
+  "keyboard.dispatch": "keyCode",
+  "vim.useSystemClipboard": true,
+  "rust-analyzer.diagnostics.disabled": ["macro-error"],
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "tailwindcss.documentColors": true,
+  "cSpell.languageSettings": [
+    {
+      "languageId": "typescriptreact",
+      "dictionaries": ["typescript", "node", "html", "css", "fonts"]
+    }
+  ],
+  "cSpell.customDictionaries": {
+    "igm": {
+      "name": "igm",
+      "path": "~/dotfiles/misc/words.txt",
+      "scope": "user",
+      "addWords": true
+    }
+  },
+  "[ignore]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[dotenv]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "editor.inlineSuggest.enabled": true,
+  "workbench.startupEditor": "none",
+  "svg.preview.mode": "svg",
+  "nix.enableLanguageServer": true,
+  "settingsSync.ignoredSettings": ["-rust-analyzer.server.path"],
+  "nixfmt.path": "nixpkgs-fmt",
+  "terminal.integrated.tabs.hideCondition": "singleGroup",
+  "[properties]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "rust-analyzer.imports.granularity.enforce": true,
+  "workbench.editor.revealIfOpen": false,
+  "haskell.manageHLS": "PATH",
+  "jest.jestCommandLine": "yarn jest",
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": false,
+    "plaintext": false,
+    "markdown": true
+  },
+  "redhat.telemetry.enabled": false,
+  "rust-analyzer.rustfmt.rangeFormatting.enable": true,
+  "cSpell.enableFiletypes": ["move", "nix", "shellscript"],
+  "search.exclude": {
+    "**/.direnv/": true
+  },
+  // See: https://github.com/microsoft/vscode/issues/158052
+  "terminal.integrated.shellIntegration.enabled": false,
+  "githubPullRequests.pullBranch": "never",
+  "tailwindcss.jsxPropImportChecking": false,
+  "tailwindcss.hoverColorHint": "hex",
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName": false,
+  "typescript.referencesCodeLens.enabled": true,
+  "typescript.referencesCodeLens.showOnAllFunctions": true,
+  "typescript.suggest.completeFunctionCalls": true,
+  "typescript.tsserver.experimental.enableProjectDiagnostics": true,
+  "typescript.tsserver.maxTsServerMemory": 8192,
+  "cSpell.enabled": true,
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+  "workbench.colorTheme": "Default Dark+",
+  "direnv.path.executable": "/etc/profiles/per-user/igm/bin/direnv"
+}

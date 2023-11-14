@@ -10,6 +10,7 @@ bourhaouta.tailwindshades
 bradlc.vscode-tailwindcss
 bradymholt.pgformatter
 brettm12345.nixfmt-vscode
+charliermarsh.ruff
 ChFlick.firecode
 chrislajoie.vscode-modelines
 christian-kohler.npm-intellisense
