@@ -1,8 +1,8 @@
 {
   "devDependencies": {
     "husky": "^8.0.3",
-    "lint-staged": "^15.0.2",
-    "prettier": "^3.0.3"
+    "lint-staged": "^15.1.0",
+    "prettier": "^3.1.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,css,md,html,yml,yaml,json}": "prettier --write",
@@ -12,5 +12,5 @@
   "scripts": {
     "prepare": "husky install"
   },
-  "packageManager": "yarn@4.0.0-rc.53"
+  "packageManager": "yarn@4.0.2"
 }
