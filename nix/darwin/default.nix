@@ -5,7 +5,11 @@ let
   mode = config.igm.mode;
 in
 with lib; {
-  environment.systemPackages = with pkgs; [ vim tor ];
+  environment.systemPackages = with pkgs; [
+    vim
+    # Tor install is currently broken 2023-11-28
+    # tor
+  ];
 
   home-manager.users.igm = homeBase;
   home-manager.useGlobalPkgs = true;
@@ -54,14 +58,15 @@ with lib; {
     home = "/Users/igm";
   };
 
-  launchd.user.agents.tor = {
-    command = with pkgs; "${tor}/bin/tor";
-    serviceConfig = {
-      KeepAlive = true;
-      RunAtLoad = true;
-      ProcessType = "Background";
-      StandardOutPath = "/var/tmp/tor.log";
-      StandardErrorPath = "/var/tmp/tor.error.log";
-    };
-  };
+  # Tor broken 2023-11-28
+  # launchd.user.agents.tor = {
+  #   command = with pkgs; "${tor}/bin/tor";
+  #   serviceConfig = {
+  #     KeepAlive = true;
+  #     RunAtLoad = true;
+  #     ProcessType = "Background";
+  #     StandardOutPath = "/var/tmp/tor.log";
+  #     StandardErrorPath = "/var/tmp/tor.error.log";
+  #   };
+  # };
 }

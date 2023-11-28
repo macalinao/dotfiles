@@ -9,7 +9,7 @@
     tmux
     unzip
     wget
-    whois
+    # whois
 
     # nix language server
     rnix-lsp
