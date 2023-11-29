@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: cachix/install-nix-action@v23
-      - uses: cachix/cachix-action@v12
+      - uses: cachix/cachix-action@v13
         with:
           name: igm
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
@@ -37,7 +37,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: cachix/install-nix-action@v23
-      - uses: cachix/cachix-action@v12
+      - uses: cachix/cachix-action@v13
         with:
           name: igm
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
@@ -58,7 +58,7 @@ jobs:
       - run: sudo apt-get clean
       - uses: actions/checkout@v4
       - uses: cachix/install-nix-action@v23
-      - uses: cachix/cachix-action@v12
+      - uses: cachix/cachix-action@v13
         with:
           name: igm
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
@@ -74,7 +74,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: cachix/install-nix-action@v23
-      - uses: cachix/cachix-action@v12
+      - uses: cachix/cachix-action@v13
         with:
           name: igm
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
