@@ -30,6 +30,8 @@ permissionless
 pubkey
 pubkeys
 reentrancy
+Resizer
+Resizers
 rquot
 rrweb
 rwlock
