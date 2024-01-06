@@ -9,7 +9,7 @@ SYSTEM_CONFIG_ATTRIBUTE=$(system_config_attribute)
 echo "Using flake at path $FLAKE_PATH."
 
 SHOW_TRACE=''
-if [ $1 = '--debug' ]; then
+if [ ${1:none} = '--debug' ]; then
     SHOW_TRACE='--show-trace'
 fi
 
