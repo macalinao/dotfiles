@@ -26,7 +26,6 @@ foxundermoon.shell-format
 gaborv.flatbuffers
 GitHub.copilot
 GitHub.copilot-chat
-GitHub.copilot-labs
 GitHub.github-vscode-theme
 github.vscode-github-actions
 GitHub.vscode-pull-request-github
@@ -36,6 +35,7 @@ GraphQL.vscode-graphql
 GraphQL.vscode-graphql-syntax
 hashicorp.terraform
 haskell.haskell
+hbenl.test-adapter-converter
 hbenl.vscode-mocha-test-adapter
 hbenl.vscode-test-explorer
 jhnj.vscode-go-inline-sql
@@ -53,8 +53,6 @@ mkhl.direnv
 movingco.move-analyzer-plus
 ms-azuretools.vscode-docker
 MS-CEINTL.vscode-language-pack-ja
-ms-python.autopep8
-ms-python.black-formatter
 ms-python.isort
 ms-python.python
 ms-python.vscode-pylance

@@ -6,7 +6,7 @@ let
     # "jgrennison-openttd"
     "league-of-legends"
     "minecraft"
-    "steam"
+    # "steam"
   ];
   mode = config.igm.mode;
   isM1 = config.igm.isM1;
