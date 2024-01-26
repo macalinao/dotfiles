@@ -41,7 +41,7 @@ jobs:
         with:
           name: igm
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      - run: nix -Lv flake check
+      - run: nix -Lv flake check --show-trace
         working-directory: nix/
       - run: nix -Lv develop -c echo OK
 
