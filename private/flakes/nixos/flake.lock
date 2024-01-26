@@ -2,10 +2,7 @@
   "nodes": {
     "darwin": {
       "inputs": {
-        "nixpkgs": [
-          "igm",
-          "nixpkgs"
-        ]
+        "nixpkgs": ["igm", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1664210064,
@@ -117,10 +114,7 @@
     },
     "home-manager": {
       "inputs": {
-        "nixpkgs": [
-          "igm",
-          "nixpkgs"
-        ],
+        "nixpkgs": ["igm", "nixpkgs"],
         "utils": "utils"
       },
       "locked": {
@@ -142,9 +136,7 @@
         "darwin": "darwin",
         "flake-utils": "flake-utils_2",
         "home-manager": "home-manager",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
+        "nixpkgs": ["nixpkgs"],
         "rnix-lsp": "rnix-lsp",
         "saber-overlay": "saber-overlay",
         "vscode-server": "vscode-server"
@@ -162,11 +154,7 @@
     },
     "naersk": {
       "inputs": {
-        "nixpkgs": [
-          "igm",
-          "rnix-lsp",
-          "nixpkgs"
-        ]
+        "nixpkgs": ["igm", "rnix-lsp", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1655042882,
@@ -277,11 +265,7 @@
     "rust-overlay": {
       "inputs": {
         "flake-utils": "flake-utils_4",
-        "nixpkgs": [
-          "igm",
-          "saber-overlay",
-          "nixpkgs"
-        ]
+        "nixpkgs": ["igm", "saber-overlay", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1663297375,
