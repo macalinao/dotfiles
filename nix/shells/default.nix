@@ -13,12 +13,7 @@ let
       }
     )
     shells);
-  full = pkgs.buildEnv {
-    name = "full";
-    paths = builtins.attrValues shellsMap;
-  };
 in
 shellsMap // {
-  inherit full;
   default = shellsMap.nix;
 }
