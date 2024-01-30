@@ -19,6 +19,6 @@ cursor --list-extensions >config/cursor/extensions.txt
 
 # Copy Cursor settings
 CURSOR_USER_DIR="$HOME/Library/Application Support/Cursor/User"
-cp "$CURSOR_USER_DIR/settings.json" config/cursor/settings.json
-cp "$CURSOR_USER_DIR/keybindings.json" config/cursor/keybindings.json 2>/dev/null
-cp "$CURSOR_USER_DIR/tasks.json" config/cursor/tasks.json 2>/dev/null
+cp "$CURSOR_USER_DIR/settings.json" config/cursor/settings.json 2>/dev/null || :
+cp "$CURSOR_USER_DIR/keybindings.json" config/cursor/keybindings.json 2>/dev/null || :
+cp "$CURSOR_USER_DIR/tasks.json" config/cursor/tasks.json 2>/dev/null || :
