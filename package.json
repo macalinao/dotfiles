@@ -10,7 +10,7 @@
     "*.nix": "nixpkgs-fmt"
   },
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "packageManager": "yarn@4.1.0"
 }
