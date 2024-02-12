@@ -126,5 +126,6 @@
   },
   "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
   "workbench.colorTheme": "Default Dark+",
-  "direnv.path.executable": "/etc/profiles/per-user/igm/bin/direnv"
+  "direnv.path.executable": "/etc/profiles/per-user/igm/bin/direnv",
+  "window.zoomLevel": -0.5
 }
