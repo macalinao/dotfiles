@@ -41,7 +41,7 @@ with lib; rec {
     "anki"
     "arc"
     "brave-browser"
-    "dashlane"
+    # "dashlane"
     "discord"
     "docker"
     "figma"
