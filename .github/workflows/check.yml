@@ -14,6 +14,7 @@ jobs:
         runsOn:
           - ubuntu-22.04
           - macos-12
+          - macos-14
     runs-on: ${{ matrix.runsOn }}
     steps:
       - uses: actions/checkout@v4
@@ -30,9 +31,9 @@ jobs:
       fail-fast: false
       matrix:
         runsOn:
-          - ubuntu-20.04
           - ubuntu-22.04
           - macos-12
+          - macos-14
     runs-on: ${{ matrix.runsOn }}
     steps:
       - uses: actions/checkout@v4
@@ -64,12 +65,12 @@ jobs:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       - run: nix -Lv build "./nix#nixosConfigurations.${{ matrix.nixosConfiguration }}.config.system.build.toplevel"
 
-  macos-latest:
+  macos-14:
     strategy:
       fail-fast: false
       matrix:
         runsOn:
-          - macos-12
+          - macos-14
     runs-on: ${{ matrix.runsOn }}
     steps:
       - uses: actions/checkout@v4
