@@ -6,6 +6,8 @@ self: super: rec {
     sha256 = "1zxgy3znw0i6h1lxhmnx001c1pdcyszwqj8f0d0092nmnngdzsrl";
   };
 
+  stockfish = self.callPackage ./packages/stockfish.nix { };
+
   # cargo-workspaces = self.callPackage ./packages/cargo-workspaces.nix { };
 
   # kitty = super.kitty.overrideAttrs (existing: {

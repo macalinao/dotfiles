@@ -57,6 +57,8 @@
 
     # formatting
     shfmt
+
+    stockfish
   ];
 
   home.stateVersion = "22.05";
