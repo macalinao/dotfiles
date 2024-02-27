@@ -45,5 +45,5 @@
     dotfiles-private.profiles);
 
   home.file = dotfiles-private.homeFiles;
-  xdg.configFile = dotfiles-private.xdgFiles;
+  # xdg.configFile = dotfiles-private.xdgFiles;
 }
