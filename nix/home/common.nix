@@ -15,9 +15,9 @@
     rnix-lsp
 
     # JS tools
-    nodejs-18_x
+    nodejs_20
     (yarn.override {
-      nodejs = nodejs-18_x;
+      nodejs = nodejs_20;
     })
     nodePackages.pnpm
     # python
