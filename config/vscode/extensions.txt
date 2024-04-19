@@ -48,6 +48,7 @@ lightyen.tailwindcss-intellisense-twin
 matangover.mypy
 mechatroner.rainbow-csv
 mkhl.direnv
+move.move-analyzer
 movingco.move-analyzer-plus
 ms-azuretools.vscode-docker
 ms-ceintl.vscode-language-pack-ja
