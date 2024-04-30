@@ -23,7 +23,7 @@
     # python
 
     python3
-    poetry
+    # poetry
 
     # docker-compose
 
@@ -60,6 +60,7 @@
     shfmt
 
     stockfish
+    wrangler
   ];
 
   home.stateVersion = "22.05";
