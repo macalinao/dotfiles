@@ -70,6 +70,6 @@ with lib; rec {
     "transmission"
     "vlc"
     "wechat"
-    "whatsapp"
+    "whatsapp@beta"
   ] ++ games));
 }
