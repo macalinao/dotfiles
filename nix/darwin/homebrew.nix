@@ -35,6 +35,7 @@ with lib; rec {
   brews = (lib.optionals (!isM1) [ "openssl" "openssl@1.1" ]) ++ [
     "yabai"
     "skhd"
+    "sui"
   ];
 
   casks = [
