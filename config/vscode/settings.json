@@ -120,5 +120,6 @@
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },
   "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
-  "workbench.colorTheme": "Default Dark+"
+  "workbench.colorTheme": "Default Dark+",
+  "github.copilot.editor.enableAutoCompletions": true
 }

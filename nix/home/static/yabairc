@@ -1,5 +1,8 @@
 # https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)
+
 sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 yabai -m config layout bsp
+
+yabai -m rule --add app="^Simulator" manage=off
