@@ -121,5 +121,8 @@
   },
   "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
   "workbench.colorTheme": "Default Dark+",
-  "github.copilot.editor.enableAutoCompletions": true
+  "github.copilot.editor.enableAutoCompletions": true,
+  "gitlens.advanced.messages": {
+    "suppressIntegrationRequestTimedOutWarning": true
+  }
 }
