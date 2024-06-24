@@ -12,6 +12,7 @@ brettm12345.nixfmt-vscode
 chflick.firecode
 chrislajoie.vscode-modelines
 christian-kohler.npm-intellisense
+ckolkman.vscode-postgres
 csstools.postcss
 damirka.move-syntax
 dbaeumer.vscode-eslint
@@ -87,6 +88,7 @@ tootone.org-mode
 unifiedjs.vscode-mdx
 visualstudioexptteam.intellicode-api-usage-examples
 visualstudioexptteam.vscodeintellicode
+vitest.explorer
 vscodevim.vim
 vue.volar
 wallabyjs.quokka-vscode
