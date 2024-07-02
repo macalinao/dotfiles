@@ -140,6 +140,7 @@
   };
 
   home.sessionPath = [
+    "${config.home.homeDirectory}/.npm-packages/bin"
     "${config.home.homeDirectory}/.cargo/bin"
     "${config.home.homeDirectory}/dotfiles/scripts"
   ] ++ (lib.optionals pkgs.stdenv.isDarwin [
