@@ -60,7 +60,8 @@
     shfmt
 
     stockfish
-    wrangler
+    # Readd when https://github.com/NixOS/nixpkgs/pull/322573
+    # wrangler
   ];
 
   home.stateVersion = "22.05";

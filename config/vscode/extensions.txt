@@ -67,6 +67,7 @@ ms-toolsai.vscode-jupyter-slideshow
 ms-vscode-remote.remote-containers
 ms-vscode-remote.remote-ssh
 ms-vscode-remote.remote-ssh-edit
+ms-vscode.hexeditor
 ms-vscode.remote-explorer
 ms-vscode.test-adapter-converter
 ms-vsliveshare.vsliveshare
@@ -75,6 +76,7 @@ orta.vscode-jest
 redhat.vscode-yaml
 rust-lang.rust-analyzer
 shd101wyy.markdown-preview-enhanced
+shopify.polaris-for-vscode
 shyykoserhiy.vscode-spotify
 stkb.rewrap
 streetsidesoftware.code-spell-checker
