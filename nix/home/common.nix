@@ -60,8 +60,9 @@
     shfmt
 
     stockfish
-    # Readd when https://github.com/NixOS/nixpkgs/pull/322573
+    # Wrangler is no longer available on Darwin
     # wrangler
+    android-tools
   ];
 
   home.stateVersion = "22.05";
