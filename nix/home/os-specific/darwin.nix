@@ -1,4 +1,9 @@
-{ pkgs, lib, systemConfig, ... }:
+{ pkgs
+, lib
+, systemConfig
+, config
+, ...
+}:
 
 let
   isM1 = systemConfig.igm.isM1;
@@ -33,4 +38,6 @@ in
       size = 12;
     };
   };
+
+  programs.zsh.sessionVariables.ANDROID_HOME = "${config.home.homeDirectory}/Library/Android/sdk";
 }
