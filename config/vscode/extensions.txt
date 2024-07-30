@@ -20,6 +20,7 @@ denoland.vscode-deno
 eamodio.gitlens
 editorconfig.editorconfig
 esbenp.prettier-vscode
+expo.vscode-expo-tools
 figma.figma-vscode-extension
 foxundermoon.shell-format
 gaborv.flatbuffers

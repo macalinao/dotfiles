@@ -12,7 +12,7 @@ echo "Synchronizing settings"
 igm-sync
 
 SHOW_TRACE=''
-if [ ${1:none} = '--debug' ]; then
+if [ "${1:none}" = '--debug' ]; then
     SHOW_TRACE='--show-trace'
 fi
 

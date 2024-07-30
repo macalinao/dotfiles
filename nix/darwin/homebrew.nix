@@ -39,6 +39,7 @@ with lib; rec {
   ];
 
   casks = [
+    "android-studio"
     "anki"
     "arc"
     "brave-browser"

@@ -86,13 +86,15 @@
               })
             (import ./system.nix { isDarwin = true; })
             home-manager.darwinModules.home-manager
-          ] ++ modules ++ [{
-            networking = {
-              inherit computerName hostName;
-              localHostName = hostName;
-            };
-            services.nix-daemon.enable = true;
-          }];
+          ] ++ modules ++ [
+            {
+              networking = {
+                inherit computerName hostName;
+                localHostName = hostName;
+              };
+              services.nix-daemon.enable = true;
+            }
+          ];
         };
     in
     {
