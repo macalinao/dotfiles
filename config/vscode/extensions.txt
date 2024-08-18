@@ -15,6 +15,7 @@ christian-kohler.npm-intellisense
 ckolkman.vscode-postgres
 csstools.postcss
 damirka.move-syntax
+davidanson.vscode-markdownlint
 dbaeumer.vscode-eslint
 denoland.vscode-deno
 eamodio.gitlens

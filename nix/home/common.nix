@@ -43,7 +43,7 @@
 
     shfmt
     cargo-workspaces
-    cargo-outdated
+    # cargo-outdated
 
     nixpkgs-fmt
     pypi2nix
