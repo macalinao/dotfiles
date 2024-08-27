@@ -30,6 +30,7 @@ with lib; rec {
     # "homebrew/core"
     "homebrew/services"
     "koekeishiya/formulae"
+    "source-foundry/taproom"
   ];
 
   brews = (lib.optionals (!isM1) [ "openssl" "openssl@1.1" ]) ++ [
@@ -57,6 +58,7 @@ with lib; rec {
     "private-internet-access"
     "raycast"
     "slack"
+    "sourcefoundry-slice"
     "spaceid"
     "spotify"
     "tableplus"
