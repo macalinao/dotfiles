@@ -23,10 +23,12 @@ with lib; {
     };
   };
 
+  system.stateVersion = 5;
   system.keyboard = {
     enableKeyMapping = true;
     remapCapsLockToEscape = true;
   };
+  ids.gids.nixbld = 30000;
 
   homebrew = import ./homebrew.nix { inherit config lib; };
 

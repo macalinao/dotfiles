@@ -53,6 +53,7 @@ mkhl.direnv
 movingco.move-analyzer-plus
 ms-azuretools.vscode-docker
 ms-ceintl.vscode-language-pack-ja
+ms-python.debugpy
 ms-python.isort
 ms-python.python
 ms-python.vscode-pylance
@@ -76,6 +77,7 @@ tootone.org-mode
 unifiedjs.vscode-mdx
 visualstudioexptteam.intellicode-api-usage-examples
 visualstudioexptteam.vscodeintellicode
+vitest.explorer
 vscodevim.vim
 vue.volar
 wallabyjs.quokka-vscode
