@@ -48,6 +48,7 @@
     nixpkgs-fmt
     pypi2nix
     cachix
+    nil
 
     imagemagick
 
