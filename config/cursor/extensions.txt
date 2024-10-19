@@ -1,4 +1,3 @@
-FaroSystemAppender constructor
 42crunch.vscode-openapi
 aaron-bond.better-comments
 arcanis.vscode-zipfs

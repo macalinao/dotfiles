@@ -127,5 +127,23 @@
   "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
   "workbench.colorTheme": "Default Dark+",
   "direnv.path.executable": "/etc/profiles/per-user/igm/bin/direnv",
-  "cursor.cpp.disabledLanguages": ["plaintext", "scminput", "yaml"]
+  "cursor.cpp.disabledLanguages": ["plaintext", "scminput", "yaml"],
+  "github.copilot.editor.enableAutoCompletions": true,
+  "gitlens.advanced.messages": {
+    "suppressIntegrationRequestTimedOutWarning": true
+  },
+  "[markdown]": {
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    },
+    "cSpell.fixSpellingWithRenameProvider": true,
+    "cSpell.advanced.feature.useReferenceProviderWithRename": true,
+    "cSpell.advanced.feature.useReferenceProviderRemove": "/^#+\\s/"
+  }
 }
