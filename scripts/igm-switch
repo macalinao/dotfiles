@@ -9,7 +9,7 @@ SYSTEM_CONFIG_ATTRIBUTE=$(system_config_attribute)
 echo "Using flake at path $FLAKE_PATH."
 
 echo "Synchronizing settings"
-igm-sync
+# igm-sync
 
 SHOW_TRACE=''
 if [ "${1:none}" = '--debug' ]; then
