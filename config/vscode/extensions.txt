@@ -72,6 +72,7 @@ ms-vscode-remote.remote-ssh-edit
 ms-vscode.hexeditor
 ms-vscode.remote-explorer
 ms-vscode.test-adapter-converter
+ms-vscode.vscode-js-profile-flame
 ms-vsliveshare.vsliveshare
 naumovs.color-highlight
 orta.vscode-jest
