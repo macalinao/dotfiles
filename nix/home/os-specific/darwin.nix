@@ -39,9 +39,5 @@ in
     };
   };
 
-  programs.tmux.extraConfig = ''
-    set-option -g default-command "${pkgs.reattach-to-user-namespace}/bin/reattach-to-user-namespace -l ${pkgs.zsh}/bin/zsh"
-  '';
-
   programs.zsh.sessionVariables.ANDROID_HOME = "${config.home.homeDirectory}/Library/Android/sdk";
 }

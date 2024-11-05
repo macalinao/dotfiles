@@ -224,10 +224,13 @@
         resurrect
         continuum
       ];
-    extraConfigBeforePlugins = ''
+    extraConfig = ''
       bind  c  new-window      -c "#{pane_current_path}"
       bind  %  split-window -h -c "#{pane_current_path}"
       bind '"' split-window -v -c "#{pane_current_path}"
+      ${lib.optionalString pkgs.stdenv.isDarwin ''
+        set-option -g default-command "${pkgs.reattach-to-user-namespace}/bin/reattach-to-user-namespace -l ${pkgs.zsh}/bin/zsh"
+      ''}
     '';
   };
 
