@@ -4,7 +4,7 @@ mkShell {
   nativeBuildInputs = [
     # Node
     yarn
-    nodejs
+    nodejs_22
 
     # Deno
     # deno

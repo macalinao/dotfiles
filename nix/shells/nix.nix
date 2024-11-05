@@ -7,8 +7,8 @@ mkShell {
       nixpkgs-fmt
       shfmt
       (yarn.override {
-        nodejs = nodejs_20;
+        nodejs = nodejs_22;
       })
-      nodejs_20
+      nodejs_22
     ];
 }
