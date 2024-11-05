@@ -32,7 +32,7 @@ in
 
   programs.kitty = {
     enable = isM1;
-    theme = "GitHub Dark";
+    themeFile = "GitHub_Dark";
     font = {
       name = "Menlo";
       size = 12;

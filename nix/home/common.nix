@@ -15,9 +15,9 @@
     rnix-lsp
 
     # JS tools
-    nodejs_20
+    nodejs_22
     (yarn.override {
-      nodejs = nodejs_20;
+      nodejs = nodejs_22;
     })
     nodePackages.pnpm
     # python
@@ -225,12 +225,6 @@
         resurrect
         continuum
       ];
-
-    extraConfig = ''
-      bind c new-window      -c "#{pane_current_path}"
-      bind % split-window -h -c "#{pane_current_path}"
-      bind '"' split-window -v -c "#{pane_current_path}"
-    '';
   };
 
   programs.gh = {
