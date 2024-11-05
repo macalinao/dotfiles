@@ -214,17 +214,16 @@
     enable = true;
     clock24 = true;
     keyMode = "vi";
-    # terminal = "screen-256color";
     shell = "${pkgs.zsh}/bin/zsh";
-    plugins = with pkgs;
-      with tmuxPlugins; [
-        cpu
-        nord
-        tmux-fzf
-        yank
-        resurrect
-        continuum
-      ];
+    # plugins = with pkgs;
+    #   with tmuxPlugins; [
+    #     cpu
+    #     nord
+    #     tmux-fzf
+    #     yank
+    #     resurrect
+    #     continuum
+    #   ];
   };
 
   programs.gh = {
