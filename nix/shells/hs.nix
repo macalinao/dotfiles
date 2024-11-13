@@ -1,3 +1,1 @@
-{ pkgs }:
-with pkgs;
-mkShell { nativeBuildInputs = [ stack ]; }
+{ pkgs }: with pkgs; mkShell { nativeBuildInputs = [ stack ]; }

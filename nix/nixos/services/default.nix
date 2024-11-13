@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }@args:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}@args:
 
 with lib;
 mkMerge [
@@ -50,8 +55,7 @@ mkMerge [
     ];
 
     # Time machine NAS config
-    networking.firewall.extraCommands =
-      "iptables -t raw -A OUTPUT -p udp -m udp --dport 137 -j CT --helper netbios-ns";
+    networking.firewall.extraCommands = "iptables -t raw -A OUTPUT -p udp -m udp --dport 137 -j CT --helper netbios-ns";
     services.samba = {
       enable = true;
       package = pkgs.sambaFull;
@@ -75,16 +79,19 @@ mkMerge [
             "vfs objects" = "catia fruit streams_xattr";
           };
         in
-        builtins.listToAttrs (map
-          (name: {
-            inherit name;
-            value = mkTimeCapsule name;
-          }) [
-          # intel mbp
-          "time-capsule-intel"
-          # 2022 aarch64 mbp
-          "time-capsule-22"
-        ]);
+        builtins.listToAttrs (
+          map
+            (name: {
+              inherit name;
+              value = mkTimeCapsule name;
+            })
+            [
+              # intel mbp
+              "time-capsule-intel"
+              # 2022 aarch64 mbp
+              "time-capsule-22"
+            ]
+        );
     };
 
     services.avahi = {

@@ -1,5 +1,13 @@
-{ isLinux ? false, isDarwin ? false }:
-{ config, pkgs, lib, ... }@args:
+{
+  isLinux ? false,
+  isDarwin ? false,
+}:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}@args:
 
 with lib;
 
@@ -74,21 +82,29 @@ in
   };
 
   config =
-    (if isLinux then
-      (mkMerge [
-        (import ./nixos/configuration.nix args)
-        (import ./nixos/home-manager.nix args)
-        (import ./nixos/services args)
-        # (import ./nixos/services/home-assistant.nix args)
-        (mkIf (!cfg.headless) (import ./nixos/gui.nix args))
-        (mkIf cfg.virtualbox (import ./nixos/services/virtualbox.nix args))
-        (import ./nixos/users.nix args)
-        (mkIf cfg.vscode-server {
-          services.vscode-server.enable = true;
-        })
-      ]) else { }) //
-    (if isDarwin then
-      (mkMerge [
-        (import ./darwin args)
-      ]) else { });
+    (
+      if isLinux then
+        (mkMerge [
+          (import ./nixos/configuration.nix args)
+          (import ./nixos/home-manager.nix args)
+          (import ./nixos/services args)
+          # (import ./nixos/services/home-assistant.nix args)
+          (mkIf (!cfg.headless) (import ./nixos/gui.nix args))
+          (mkIf cfg.virtualbox (import ./nixos/services/virtualbox.nix args))
+          (import ./nixos/users.nix args)
+          (mkIf cfg.vscode-server {
+            services.vscode-server.enable = true;
+          })
+        ])
+      else
+        { }
+    )
+    // (
+      if isDarwin then
+        (mkMerge [
+          (import ./darwin args)
+        ])
+      else
+        { }
+    );
 }

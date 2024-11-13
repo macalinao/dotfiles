@@ -1,3 +1,8 @@
-{ pkgs, lib, config, ... }@args:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}@args:
 
 (import ./common.nix args)

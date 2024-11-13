@@ -9,13 +9,16 @@
         home = "/home/igm";
         shell = pkgs.zsh;
         isNormalUser = true;
-        extraGroups = [ "wheel" "docker" "transmission" ];
-        openssh.authorizedKeys.keyFiles =
-          [
-            ./authorized-keys/igm-ianix.pub
-            ./authorized-keys/ian-mbp.pub
-            ./authorized-keys/ian-mbp-2022.pub
-          ];
+        extraGroups = [
+          "wheel"
+          "docker"
+          "transmission"
+        ];
+        openssh.authorizedKeys.keyFiles = [
+          ./authorized-keys/igm-ianix.pub
+          ./authorized-keys/ian-mbp.pub
+          ./authorized-keys/ian-mbp-2022.pub
+        ];
       };
       nas = {
         name = "nas";
@@ -23,12 +26,11 @@
         home = "/home/nas";
         shell = pkgs.zsh;
         isNormalUser = true;
-        openssh.authorizedKeys.keyFiles =
-          [
-            ./authorized-keys/igm-ianix.pub
-            ./authorized-keys/ian-mbp.pub
-            ./authorized-keys/ian-mbp-2022.pub
-          ];
+        openssh.authorizedKeys.keyFiles = [
+          ./authorized-keys/igm-ianix.pub
+          ./authorized-keys/ian-mbp.pub
+          ./authorized-keys/ian-mbp-2022.pub
+        ];
       };
     };
   };

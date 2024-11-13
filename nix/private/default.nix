@@ -1,7 +1,9 @@
 { raw, ... }:
 
 let
-  defaultConfig = { factorio-token = ""; };
+  defaultConfig = {
+    factorio-token = "";
+  };
 in
 {
   # private overlays
@@ -14,24 +16,34 @@ in
     })
   ];
   modules = [
-    ({ pkgs, lib, ... }: {
-      home-manager.users.igm = import ./home.nix {
-        inherit lib pkgs;
-        dotfiles-private = defaultConfig // (raw { inherit pkgs; });
-      };
-    })
+    (
+      { pkgs, lib, ... }:
+      {
+        home-manager.users.igm = import ./home.nix {
+          inherit lib pkgs;
+          dotfiles-private = defaultConfig // (raw { inherit pkgs; });
+        };
+      }
+    )
   ];
   nixosModules = [
-    ({ pkgs, lib, ... }:
+    (
+      { pkgs, lib, ... }:
       let
         config = defaultConfig // (raw { inherit pkgs; });
       in
       {
         home-manager.users.igm.xdg.configFile = config.xdgFiles;
         services.openvpn.servers = import ./pia.nix {
-          inherit (pkgs) lib stdenv openresolv pia-config;
+          inherit (pkgs)
+            lib
+            stdenv
+            openresolv
+            pia-config
+            ;
           dotfiles-private = config;
         };
-      })
+      }
+    )
   ];
 }

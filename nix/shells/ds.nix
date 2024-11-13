@@ -1,8 +1,8 @@
 { pkgs }:
 with pkgs;
 let
-  jupyter = python311.withPackages (ps:
-    with ps; [
+  jupyter = python311.withPackages (
+    ps: with ps; [
       jupyterlab_server
       jupyter_core
       jupyter
@@ -13,6 +13,7 @@ let
       numpy
       toolz
       pandas
-    ]);
+    ]
+  );
 in
 mkShell { nativeBuildInputs = [ jupyter ]; }

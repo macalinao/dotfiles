@@ -16,44 +16,51 @@ let
     (python39Full.override {
       packageOverrides = pyself: pysuper: {
         # Disable tk tests in Pillow
-        pillow = (pysuper.pillow.overridePythonAttrs (old: rec {
-          postPatch = ''
-            ${old.postPatch}
-            rm Tests/test_imagetk.py
-          '';
-        }));
+        pillow = (
+          pysuper.pillow.overridePythonAttrs (old: rec {
+            postPatch = ''
+              ${old.postPatch}
+              rm Tests/test_imagetk.py
+            '';
+          })
+        );
         # For some reason, twisted tests trigger a trap
-        twisted = (pysuper.twisted.overridePythonAttrs (old: rec {
-          doCheck = false;
-        }));
+        twisted = (
+          pysuper.twisted.overridePythonAttrs (old: rec {
+            doCheck = false;
+          })
+        );
       };
-    }).withPackages (ps: with ps; [
-      pip
-      pyaudio
-      virtualenv
+    }).withPackages
+      (
+        ps: with ps; [
+          pip
+          pyaudio
+          virtualenv
 
-      tkinter
-      gevent
-      psutil
-      pydub
-      requests
-      googletrans
-      parse
-      pyperclip
-      pyyaml
+          tkinter
+          gevent
+          psutil
+          pydub
+          requests
+          googletrans
+          parse
+          pyperclip
+          pyyaml
 
-      levenshtein
-      pytesseract
-      opencv4
-      fuzzywuzzy
+          levenshtein
+          pytesseract
+          opencv4
+          fuzzywuzzy
 
-      # various dependencies
-      bottle
+          # various dependencies
+          bottle
 
-      # Broken for reason:
-      # > ERROR: Could not find a version that satisfies the requirement pyobjc-framework-Quartz>=8.0; sys_platform == "darwin" (from pynput) (from versions: none)
-      # pynput
-    ]);
+          # Broken for reason:
+          # > ERROR: Could not find a version that satisfies the requirement pyobjc-framework-Quartz>=8.0; sys_platform == "darwin" (from pynput) (from versions: none)
+          # pynput
+        ]
+      );
 in
 mkShell {
   name = "game2text";
@@ -69,7 +76,5 @@ mkShell {
 
     # needed for sudachi.rs to build properly
     rustup
-  ] ++ (
-    lib.optional stdenv.isDarwin [ libiconv ]
-  );
+  ] ++ (lib.optional stdenv.isDarwin [ libiconv ]);
 }

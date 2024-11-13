@@ -1,6 +1,12 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
-let static = ../static;
+let
+  static = ../static;
 in
 lib.mkMerge [
   { home.file.".vimrc".source = "${static}/vimrc"; }

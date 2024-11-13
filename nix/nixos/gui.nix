@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }@args:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}@args:
 
 {
   fonts.packages = with pkgs; [
@@ -35,7 +40,9 @@
 
     desktopManager = {
       xterm.enable = false;
-      xfce = { enable = true; };
+      xfce = {
+        enable = true;
+      };
     };
 
     displayManager = {

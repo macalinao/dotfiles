@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }@args:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}@args:
 
 with lib;
 
@@ -10,15 +15,18 @@ with lib;
     font = "Lat2-Terminus16";
   };
 
-  i18n = { defaultLocale = "en_US.UTF-8"; };
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.bash.enableCompletion = true;
   # programs.mtr.enable = true;
   # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
-  programs.zsh = { enable = true; };
-
+  programs.zsh = {
+    enable = true;
+  };
 
   # Enable bluetooth.
   hardware.bluetooth.enable = true;
@@ -65,8 +73,14 @@ with lib;
     package = pkgs.nixUnstable;
     settings = {
       sandbox = false;
-      trusted-users = [ "root" "igm" ];
-      experimental-features = [ "nix-command" "flakes" ];
+      trusted-users = [
+        "root"
+        "igm"
+      ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       keep-outputs = true;
       keep-derivations = true;
 

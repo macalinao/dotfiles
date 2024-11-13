@@ -21,84 +21,116 @@
   };
 
   outputs =
-    { nixpkgs
-    , home-manager
-    , darwin
-    , vscode-server
-    , saber-overlay
-    , flake-utils
-    , rnix-lsp
-    , ...
+    {
+      nixpkgs,
+      home-manager,
+      darwin,
+      vscode-server,
+      saber-overlay,
+      flake-utils,
+      rnix-lsp,
+      ...
     }:
     let
       mkPrivate = import ./private;
 
-      mkNixosSystem = { modules, additionalOverlays ? [ ], igm ? { } }:
+      mkNixosSystem =
+        {
+          modules,
+          additionalOverlays ? [ ],
+          igm ? { },
+        }:
         let
           system = "x86_64-linux";
         in
         nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-            ({ ... }: {
-              inherit igm;
-            })
-            ({ ... }: {
-              imports = [ "${vscode-server}/default.nix" ];
-            })
+            (
+              { ... }:
+              {
+                inherit igm;
+              }
+            )
+            (
+              { ... }:
+              {
+                imports = [ "${vscode-server}/default.nix" ];
+              }
+            )
             (import ./system.nix {
               isLinux = true;
             })
             home-manager.nixosModules.home-manager
             ({
               nixpkgs = import ./nixpkgs/config.nix {
-                additionalOverlays = [ saber-overlay.overlays.default ] ++ additionalOverlays ++ [
-                  (self: super: {
-                    rnix-lsp = rnix-lsp.defaultPackage.${system};
-                  })
-                ];
+                additionalOverlays =
+                  [ saber-overlay.overlays.default ]
+                  ++ additionalOverlays
+                  ++ [
+                    (self: super: {
+                      rnix-lsp = rnix-lsp.defaultPackage.${system};
+                    })
+                  ];
               };
             })
           ] ++ modules;
         };
 
-      mkDarwinSystem = { isM1 ? false, additionalOverlays ? [ ], modules ? [ ], computerName, hostName }:
+      mkDarwinSystem =
+        {
+          isM1 ? false,
+          additionalOverlays ? [ ],
+          modules ? [ ],
+          computerName,
+          hostName,
+        }:
         let
           system = if isM1 then "aarch64-darwin" else "x86_64-darwin";
         in
         darwin.lib.darwinSystem {
           inherit system;
-          modules = [
-            ({ ... }:
+          modules =
+            [
+              (
+                { ... }:
+                {
+                  igm = {
+                    inherit isM1;
+                    mode = "personal";
+                  };
+                  nixpkgs = import ./nixpkgs/config.nix {
+                    isDarwin = true;
+                    additionalOverlays =
+                      [ saber-overlay.overlays.default ]
+                      ++ additionalOverlays
+                      ++ [
+                        (self: super: {
+                          rnix-lsp = rnix-lsp.defaultPackage.${system};
+                        })
+                      ];
+                  };
+                }
+              )
+              (import ./system.nix { isDarwin = true; })
+              home-manager.darwinModules.home-manager
+            ]
+            ++ modules
+            ++ [
               {
-                igm = {
-                  inherit isM1;
-                  mode = "personal";
+                networking = {
+                  inherit computerName hostName;
+                  localHostName = hostName;
                 };
-                nixpkgs = import ./nixpkgs/config.nix {
-                  isDarwin = true;
-                  additionalOverlays = [ saber-overlay.overlays.default ] ++ additionalOverlays ++ [
-                    (self: super: {
-                      rnix-lsp = rnix-lsp.defaultPackage.${system};
-                    })
-                  ];
-                };
-              })
-            (import ./system.nix { isDarwin = true; })
-            home-manager.darwinModules.home-manager
-          ] ++ modules ++ [
-            {
-              networking = {
-                inherit computerName hostName;
-                localHostName = hostName;
-              };
-              services.nix-daemon.enable = true;
-            }
-          ];
+                services.nix-daemon.enable = true;
+              }
+            ];
         };
     in
     {
-      lib = { inherit mkNixosSystem mkDarwinSystem mkPrivate; };
+      lib = {
+        inherit mkNixosSystem mkDarwinSystem mkPrivate;
+      };
       nixosConfigurations.ci-home = mkNixosSystem {
         igm = {
           pure = true;
@@ -136,7 +168,8 @@
         computerName = "igm-darwin-ci-m1";
         hostName = "igm-darwin-ci-m1";
       };
-    } // (
+    }
+    // (
       let
         supportedSystems = [
           "aarch64-linux"
@@ -147,24 +180,29 @@
           "x86_64-linux"
         ];
       in
-      (flake-utils.lib.eachSystem supportedSystems
-        (system:
+      (flake-utils.lib.eachSystem supportedSystems (
+        system:
         let
-          nixpkgs-config-public = (import ./nixpkgs/config.nix rec {
-            isDarwin = nixpkgs.legacyPackages.${system}.lib.hasSuffix "-darwin" system;
+          nixpkgs-config-public = (
+            import ./nixpkgs/config.nix rec {
+              isDarwin = nixpkgs.legacyPackages.${system}.lib.hasSuffix "-darwin" system;
 
-            # There are lots of wrongfully broken packages on Darwin
-            # https://github.com/NixOS/nixpkgs/pull/173671
-            allowBroken = isDarwin;
-          });
-          pkgs = import nixpkgs
-            {
+              # There are lots of wrongfully broken packages on Darwin
+              # https://github.com/NixOS/nixpkgs/pull/173671
+              allowBroken = isDarwin;
+            }
+          );
+          pkgs =
+            import nixpkgs {
               inherit system;
               inherit (nixpkgs-config-public) config overlays;
-            } // saber-overlay.packages.${system};
+            }
+            // saber-overlay.packages.${system};
         in
-        rec {
+        {
+          formatter = pkgs.nixfmt-rfc-style;
           packages = import ./shells { inherit pkgs; };
-        }))
+        }
+      ))
     );
 }

@@ -1,4 +1,10 @@
-{ config, pkgs, lib, systemConfig, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  systemConfig,
+  ...
+}:
 
 {
   home.packages = with pkgs; [
@@ -45,7 +51,7 @@
     cargo-workspaces
     # cargo-outdated
 
-    nixpkgs-fmt
+    nixfmt-rfc-style
     pypi2nix
     cachix
     nil
@@ -72,7 +78,8 @@
     enable = true;
 
     # WARNING: this is impure, so we only do this on Linux
-    extensions = with pkgs.vscode-extensions;
+    extensions =
+      with pkgs.vscode-extensions;
       pkgs.lib.optionals (pkgs.stdenv.isLinux && !systemConfig.igm.pure) [ matklad.rust-analyzer ];
   };
 
@@ -85,8 +92,7 @@
       co = "checkout";
       ff = "merge --ff-only";
       ffo = "!git ffr origin";
-      ffr =
-        "!ffr() { git fetch $1 && git ff $1/$(git which-branch) && git suir; }; ffr";
+      ffr = "!ffr() { git fetch $1 && git ff $1/$(git which-branch) && git suir; }; ffr";
       frp = "!git ffo && git rom && git poh";
       master = "checkout origin/master -B master";
       poh = "push origin HEAD";
@@ -96,8 +102,7 @@
       root = "rev-parse --show-toplevel";
       sha = "rev-parse HEAD";
       suir = "submodule update --init --recursive";
-      which-branch = ''
-        !wb() { b="$(git symbolic-ref HEAD)" && echo ''${b#refs/heads/}; }; wb'';
+      which-branch = ''!wb() { b="$(git symbolic-ref HEAD)" && echo ''${b#refs/heads/}; }; wb'';
     };
     extraConfig = {
       core.excludesFile = "${./static/gitignore_global}";
@@ -114,9 +119,13 @@
     userEmail = "github@igm.pub";
   };
 
-  programs.go = { enable = true; };
+  programs.go = {
+    enable = true;
+  };
 
-  programs.home-manager = { enable = true; };
+  programs.home-manager = {
+    enable = true;
+  };
 
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
@@ -142,21 +151,26 @@
     extraConfig = builtins.readFile ./static/vimrc;
   };
 
-  home.sessionPath = [
-    "${config.home.homeDirectory}/.npm-packages/bin"
-    "${config.home.homeDirectory}/.cargo/bin"
-    "${config.home.homeDirectory}/dotfiles/scripts"
-  ] ++ (lib.optionals pkgs.stdenv.isDarwin [
-    "${config.home.homeDirectory}/.local/share/solana/install/active_release/bin"
-  ]);
+  home.sessionPath =
+    [
+      "${config.home.homeDirectory}/.npm-packages/bin"
+      "${config.home.homeDirectory}/.cargo/bin"
+      "${config.home.homeDirectory}/dotfiles/scripts"
+    ]
+    ++ (lib.optionals pkgs.stdenv.isDarwin [
+      "${config.home.homeDirectory}/.local/share/solana/install/active_release/bin"
+    ]);
 
   programs.zsh = {
     enable = true;
     oh-my-zsh = {
       enable = true;
       theme = "arrow";
-      plugins = [ "git" "yarn" "gitignore" ]
-        ++ (lib.optionals pkgs.stdenv.isDarwin [ "macos" ]);
+      plugins = [
+        "git"
+        "yarn"
+        "gitignore"
+      ] ++ (lib.optionals pkgs.stdenv.isDarwin [ "macos" ]);
     };
     initExtra = ''
       ${lib.optionalString pkgs.stdenv.isDarwin ''
@@ -185,14 +199,13 @@
 
       x = "exit";
       c = "clear";
-      nf = "nixpkgs-fmt **/*.nix";
+      nf = "nixfmt **/*.nix";
 
       vi = "vim";
       bear = "keybase chat send bearcott";
       dylan = "keybase chat send dylanmacalinao";
       unescape = "jq -r .";
-      localip =
-        "ifconfig | grep -Eo 'inet (addr:)?([0-9]*.){3}[0-9]*' | grep -Eo '([0-9]*.){3}[0-9]*' | grep -v '127.0.0.1'";
+      localip = "ifconfig | grep -Eo 'inet (addr:)?([0-9]*.){3}[0-9]*' | grep -Eo '([0-9]*.){3}[0-9]*' | grep -v '127.0.0.1'";
       funky = "sfxl fortnite";
       ysetup = "yarn set version canary";
       ysdk = "yarn dlx @yarnpkg/sdks vscode";
@@ -205,18 +218,26 @@
     };
   };
 
-  programs.z-lua = { enable = true; };
-  programs.skim = { enable = true; };
+  programs.z-lua = {
+    enable = true;
+  };
+  programs.skim = {
+    enable = true;
+  };
 
-  programs.jq = { enable = true; };
+  programs.jq = {
+    enable = true;
+  };
 
   programs.tmux = {
     enable = true;
     clock24 = true;
     keyMode = "vi";
     shell = "${pkgs.zsh}/bin/zsh";
-    plugins = with pkgs;
-      with tmuxPlugins; [
+    plugins =
+      with pkgs;
+      with tmuxPlugins;
+      [
         cpu
         nord
         tmux-fzf
@@ -267,4 +288,3 @@
     };
   };
 }
-

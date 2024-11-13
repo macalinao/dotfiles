@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   configure-monitors = pkgs.writeShellScriptBin "configure-monitors" ''
@@ -85,8 +90,12 @@ in
 
   programs.rofi = {
     enable = true;
-    package =
-      pkgs.rofi.override { plugins = with pkgs; [ rofi-emoji rofi-calc ]; };
+    package = pkgs.rofi.override {
+      plugins = with pkgs; [
+        rofi-emoji
+        rofi-calc
+      ];
+    };
     theme = "Arc-Dark";
   };
 

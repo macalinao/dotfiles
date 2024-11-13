@@ -80,7 +80,7 @@
   "svg.preview.mode": "svg",
   "nix.enableLanguageServer": true,
   "settingsSync.ignoredSettings": ["-rust-analyzer.server.path"],
-  "nixfmt.path": "nixpkgs-fmt",
+  "nixfmt.path": "nixfmt",
   "terminal.integrated.tabs.hideCondition": "singleGroup",
   "[properties]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"

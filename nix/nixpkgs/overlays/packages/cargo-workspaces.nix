@@ -1,13 +1,14 @@
-{ lib
-, rustPlatform
-, fetchCrate
-, pkg-config
-, libgit2_1_6
-, libssh2
-, openssl
-, zlib
-, stdenv
-, darwin
+{
+  lib,
+  rustPlatform,
+  fetchCrate,
+  pkg-config,
+  libgit2_1_6,
+  libssh2,
+  openssl,
+  zlib,
+  stdenv,
+  darwin,
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -25,15 +26,17 @@ rustPlatform.buildRustPackage rec {
     pkg-config
   ];
 
-  buildInputs = [
-    libgit2_1_6
-    libssh2
-    openssl
-    zlib
-  ] ++ lib.optionals stdenv.isDarwin [
-    darwin.apple_sdk.frameworks.Security
-    darwin.apple_sdk_11_0.frameworks.SystemConfiguration
-  ];
+  buildInputs =
+    [
+      libgit2_1_6
+      libssh2
+      openssl
+      zlib
+    ]
+    ++ lib.optionals stdenv.isDarwin [
+      darwin.apple_sdk.frameworks.Security
+      darwin.apple_sdk_11_0.frameworks.SystemConfiguration
+    ];
 
   env = {
     LIBSSH2_SYS_USE_PKG_CONFIG = true;
@@ -49,7 +52,11 @@ rustPlatform.buildRustPackage rec {
     homepage = "https://github.com/pksunkara/cargo-workspaces";
     changelog = "https://github.com/pksunkara/cargo-workspaces/blob/v${version}/CHANGELOG.md";
     license = licenses.mit;
-    maintainers = with maintainers; [ figsoda macalinao matthiasbeyer ];
+    maintainers = with maintainers; [
+      figsoda
+      macalinao
+      matthiasbeyer
+    ];
     mainProgram = "cargo-workspaces";
   };
 }

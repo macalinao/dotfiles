@@ -11,7 +11,8 @@ let
   mode = config.igm.mode;
   isM1 = config.igm.isM1;
 in
-with lib; rec {
+with lib;
+rec {
 
   enable = true;
 
@@ -33,47 +34,57 @@ with lib; rec {
     "source-foundry/taproom"
   ];
 
-  brews = (lib.optionals (!isM1) [ "openssl" "openssl@1.1" ]) ++ [
-    "yabai"
-    "skhd"
-    "sui"
-  ];
+  brews =
+    (lib.optionals (!isM1) [
+      "openssl"
+      "openssl@1.1"
+    ])
+    ++ [
+      "yabai"
+      "skhd"
+      "sui"
+    ];
 
-  casks = [
-    "android-studio"
-    "anki"
-    "arc"
-    "brave-browser"
-    # "dashlane"
-    "discord"
-    "docker"
-    "figma"
-    "google-chrome"
-    "keybase"
-    "linear-linear"
-    "ngrok"
-    "notion"
-    "numi"
-    "postman"
-    "private-internet-access"
-    "raycast"
-    "slack"
-    "sourcefoundry-slice"
-    "spaceid"
-    "spotify"
-    "tableplus"
-    "the-unarchiver"
-    "zoom"
-  ] ++ (lib.optionals (mode == "personal") ([
-    "google-drive"
-    "ledger-live"
-    "obsidian"
-    "signal"
-    "telegram"
-    "tor-browser"
-    "transmission"
-    "vlc"
-    "wechat"
-    "whatsapp@beta"
-  ] ++ games));
+  casks =
+    [
+      "android-studio"
+      "anki"
+      "arc"
+      "brave-browser"
+      # "dashlane"
+      "discord"
+      "docker"
+      "figma"
+      "google-chrome"
+      "keybase"
+      "linear-linear"
+      "ngrok"
+      "notion"
+      "numi"
+      "postman"
+      "private-internet-access"
+      "raycast"
+      "slack"
+      "sourcefoundry-slice"
+      "spaceid"
+      "spotify"
+      "tableplus"
+      "the-unarchiver"
+      "zoom"
+    ]
+    ++ (lib.optionals (mode == "personal") (
+      [
+        "google-drive"
+        "ledger-live"
+        "obsidian"
+        "signal"
+        "telegram"
+        "tor-browser"
+        "transmission"
+        "vlc"
+        "wechat"
+        "whatsapp@beta"
+      ]
+      ++ games
+    ));
 }

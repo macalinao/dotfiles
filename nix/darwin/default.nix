@@ -1,10 +1,16 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   homeBase = import ../home { systemConfig = config; };
   mode = config.igm.mode;
 in
-with lib; {
+with lib;
+{
   environment.systemPackages = with pkgs; [
     vim
     # Tor install is currently broken 2023-11-28
@@ -36,7 +42,10 @@ with lib; {
     configureBuildUsers = true;
     settings = {
       sandbox = false;
-      trusted-users = [ "root" "igm" ];
+      trusted-users = [
+        "root"
+        "igm"
+      ];
     };
     extraOptions = ''
       experimental-features = nix-command flakes

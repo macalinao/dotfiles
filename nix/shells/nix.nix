@@ -1,14 +1,13 @@
 { pkgs }:
 with pkgs;
 mkShell {
-  nativeBuildInputs =
-    [
-      coreutils-full
-      nixpkgs-fmt
-      shfmt
-      (yarn.override {
-        nodejs = nodejs_22;
-      })
-      nodejs_22
-    ];
+  nativeBuildInputs = [
+    coreutils-full
+    nixfmt-rfc-style
+    shfmt
+    (yarn.override {
+      nodejs = nodejs_22;
+    })
+    nodejs_22
+  ];
 }

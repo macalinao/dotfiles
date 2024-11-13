@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   services.transmission = {
@@ -15,19 +20,23 @@
     };
   };
 
-  systemd.services.transmission = { ... }: {
-    options = {
-      serviceConfig = lib.mkOption {
-        apply = old:
-          old // {
-            ExecStartPre = pkgs.writeScript "transmission-pre-start-two" ''
-              #!${pkgs.runtimeShell}
-              ${old.ExecStartPre}
-              chmod 777 /home/igm/torrents
-            '';
-          };
+  systemd.services.transmission =
+    { ... }:
+    {
+      options = {
+        serviceConfig = lib.mkOption {
+          apply =
+            old:
+            old
+            // {
+              ExecStartPre = pkgs.writeScript "transmission-pre-start-two" ''
+                #!${pkgs.runtimeShell}
+                ${old.ExecStartPre}
+                chmod 777 /home/igm/torrents
+              '';
+            };
+        };
       };
     };
-  };
 
 }

@@ -7,7 +7,7 @@ source $DOTFILES/scripts/igm-helpers.sh
 FLAKE_PATH=$(flake_path)
 echo "Using flake at path $FLAKE_PATH."
 
-zsh -c 'nixpkgs-fmt **/*.nix'
+zsh -c 'nixfmt **/*.nix'
 
 nix_cmd() {
   nix --extra-experimental-features flakes --extra-experimental-features nix-command $@
