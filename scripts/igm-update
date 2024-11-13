@@ -1,21 +1,16 @@
 #!/usr/bin/env -S bash -xe
 
 DOTFILES=$HOME/dotfiles
-cd $DOTFILES
-
 source $DOTFILES/scripts/igm-helpers.sh
-FLAKE_PATH=$(flake_path)
-echo "Using flake at path $FLAKE_PATH."
 
+cd $DOTFILES
 zsh -c 'nixfmt **/*.nix'
-
-nix_cmd() {
-  nix --extra-experimental-features flakes --extra-experimental-features nix-command $@
-}
 
 nix_cmd flake update $DOTFILES/nix
 nix_cmd flake update
-
-nix_cmd flake update $FLAKE_PATH
-
 git add .
+
+FLAKE_PATH=$(flake_path)
+echo "Using flake at path $FLAKE_PATH."
+cd $FLAKE_PATH
+nix_cmd flake update
