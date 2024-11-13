@@ -2,6 +2,7 @@
 with pkgs;
 mkShell {
   nativeBuildInputs = [
+    git
     coreutils-full
     nixfmt-rfc-style
     shfmt
