@@ -26,6 +26,8 @@ nixos
 Omni
 omnimask
 ouroboros
+ovalph
+paymongo
 permissionless
 pubkey
 pubkeys
