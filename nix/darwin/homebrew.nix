@@ -11,8 +11,7 @@ let
   mode = config.igm.mode;
   isM1 = config.igm.isM1;
 in
-with lib;
-rec {
+{
 
   enable = true;
 
@@ -83,7 +82,7 @@ rec {
         "transmission"
         "vlc"
         "wechat"
-        "whatsapp@beta"
+        "whatsapp"
       ]
       ++ games
     ));
