@@ -25,7 +25,9 @@
     (yarn.override {
       nodejs = nodejs_22;
     })
-    nodePackages.pnpm
+    (nodePackages.pnpm.override {
+      nodejs = nodejs_22;
+    })
     # python
 
     python3
