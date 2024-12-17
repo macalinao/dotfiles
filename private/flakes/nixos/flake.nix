@@ -27,9 +27,12 @@
     {
       nixosConfigurations.primary = igm.lib.mkNixosSystem {
         additionalOverlays = private.overlays;
-        modules = [
-          ./machines/ian-nixdesktop.nix
-        ] ++ private.modules ++ private.nixosModules;
+        modules =
+          [
+            ./machines/ian-nixdesktop.nix
+          ]
+          ++ private.modules
+          ++ private.nixosModules;
         igm = {
           hostName = "ianix";
           headless = true;
