@@ -69,6 +69,7 @@ in
       "spotify"
       "tableplus"
       "the-unarchiver"
+      "viber"
       "zoom"
     ]
     ++ (lib.optionals (mode == "personal") (
