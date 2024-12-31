@@ -4,10 +4,12 @@ DOTFILES=$HOME/dotfiles
 source $DOTFILES/scripts/igm-helpers.sh
 
 cd $DOTFILES
-zsh -c 'nixfmt **/*.nix'
 
 nix_cmd flake update $DOTFILES/nix
 nix_cmd flake update
+
+nix_cmd fmt $DOTFILES/nix
+nix_cmd fmt
 git add .
 
 FLAKE_PATH=$(flake_path)
