@@ -13,12 +13,12 @@ jobs:
       matrix:
         runsOn:
           - ubuntu-22.04
-          - macos-12
-          - macos-14
+          - macos-13
+          - macos-15
     runs-on: ${{ matrix.runsOn }}
     steps:
       - uses: actions/checkout@v4
-      - uses: cachix/install-nix-action@v25
+      - uses: cachix/install-nix-action@v30
       - uses: cachix/cachix-action@v15
         with:
           name: igm
@@ -32,12 +32,12 @@ jobs:
       matrix:
         runsOn:
           - ubuntu-22.04
-          - macos-12
-          - macos-14
+          - macos-13
+          - macos-15
     runs-on: ${{ matrix.runsOn }}
     steps:
       - uses: actions/checkout@v4
-      - uses: cachix/install-nix-action@v25
+      - uses: cachix/install-nix-action@v30
       - uses: cachix/cachix-action@v15
         with:
           name: igm
@@ -58,23 +58,23 @@ jobs:
     steps:
       - run: sudo apt-get clean
       - uses: actions/checkout@v4
-      - uses: cachix/install-nix-action@v25
+      - uses: cachix/install-nix-action@v30
       - uses: cachix/cachix-action@v15
         with:
           name: igm
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       - run: nix -Lv build "./nix#nixosConfigurations.${{ matrix.nixosConfiguration }}.config.system.build.toplevel"
 
-  macos-14:
+  macos-15:
     strategy:
       fail-fast: false
       matrix:
         runsOn:
-          - macos-14
+          - macos-15
     runs-on: ${{ matrix.runsOn }}
     steps:
       - uses: actions/checkout@v4
-      - uses: cachix/install-nix-action@v25
+      - uses: cachix/install-nix-action@v30
       - uses: cachix/cachix-action@v15
         with:
           name: igm
