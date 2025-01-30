@@ -1,14 +1,21 @@
 { pkgs }:
 with pkgs;
+
+let
+  nodejs = nodejs_22;
+in
 mkShell {
   nativeBuildInputs = [
     git
     coreutils-full
     nixfmt-rfc-style
     shfmt
-    (yarn.override {
-      nodejs = nodejs_22;
+    (pnpm.override {
+      inherit nodejs;
     })
-    nodejs_22
+    nodejs
+    (yarn.override {
+      inherit nodejs;
+    })
   ];
 }

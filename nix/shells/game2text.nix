@@ -17,7 +17,7 @@ let
       packageOverrides = pyself: pysuper: {
         # Disable tk tests in Pillow
         pillow = (
-          pysuper.pillow.overridePythonAttrs (old: rec {
+          pysuper.pillow.overridePythonAttrs (old: {
             postPatch = ''
               ${old.postPatch}
               rm Tests/test_imagetk.py
@@ -26,7 +26,7 @@ let
         );
         # For some reason, twisted tests trigger a trap
         twisted = (
-          pysuper.twisted.overridePythonAttrs (old: rec {
+          pysuper.twisted.overridePythonAttrs (old: {
             doCheck = false;
           })
         );
