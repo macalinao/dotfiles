@@ -2,10 +2,5 @@
   "editor.formatOnSave": true,
   "[nix]": {
     "editor.defaultFormatter": "brettm12345.nixfmt-vscode"
-  },
-  "search.exclude": {
-    "**/.yarn": true,
-    "**/.pnp.*": true
-  },
-  "prettier.prettierPath": ".yarn/sdks/prettier/index.cjs"
+  }
 }

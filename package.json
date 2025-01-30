@@ -1,4 +1,6 @@
 {
+  "name": "dotfiles",
+  "private": true,
   "devDependencies": {
     "husky": "^9.1.7",
     "lint-staged": "^15.4.3",
@@ -12,5 +14,5 @@
   "scripts": {
     "prepare": "husky"
   },
-  "packageManager": "yarn@4.5.3"
+  "packageManager": "pnpm@10.1.0"
 }
