@@ -14,8 +14,5 @@ mkShell {
       inherit nodejs;
     })
     nodejs
-    (yarn.override {
-      inherit nodejs;
-    })
   ];
 }
