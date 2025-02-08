@@ -1,4 +1,4 @@
-self: super: rec {
+self: super: {
   pypi2nix = super.fetchFromGitHub {
     owner = "nix-community";
     repo = "pypi2nix";
