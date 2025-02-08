@@ -244,7 +244,7 @@
         nord
         tmux-fzf
         yank
-        resurrect
+        # resurrect
         continuum
       ];
     extraConfig = ''
