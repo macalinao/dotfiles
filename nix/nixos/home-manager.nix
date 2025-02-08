@@ -1,4 +1,4 @@
-{ config, pkgs, ... }@args:
+{ config, ... }:
 
 let
   homeBase = import ../home { systemConfig = config; };
