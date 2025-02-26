@@ -39,7 +39,7 @@ with lib;
   homebrew = import ./homebrew.nix { inherit config lib; };
 
   nix = {
-    configureBuildUsers = true;
+    # configureBuildUsers = true;
     settings = {
       sandbox = false;
       trusted-users = [

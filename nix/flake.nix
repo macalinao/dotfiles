@@ -122,7 +122,7 @@
                   inherit computerName hostName;
                   localHostName = hostName;
                 };
-                services.nix-daemon.enable = true;
+                # services.nix-daemon.enable = true;
               }
             ];
         };
