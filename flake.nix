@@ -20,7 +20,7 @@
         pkgs = import nixpkgs { inherit system; };
         treefmtEval = treefmt-nix.lib.evalModule pkgs {
           projectRootFile = "flake.nix";
-          programs.nixfmt-rfc-style.enable = true;
+          programs.nixfmt.enable = true;
           programs.shfmt.enable = true;
         };
       in
