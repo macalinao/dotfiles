@@ -5,7 +5,7 @@ source $DOTFILES/scripts/igm-helpers.sh
 
 cd $DOTFILES
 
-nix_cmd flake update $DOTFILES/nix
+nix_cmd flake update --flake $DOTFILES/nix
 nix_cmd flake update
 
 nix_cmd fmt $DOTFILES/nix

@@ -80,7 +80,7 @@
     enable = true;
 
     # WARNING: this is impure, so we only do this on Linux
-    extensions =
+    profiles.default.extensions =
       with pkgs.vscode-extensions;
       pkgs.lib.optionals (pkgs.stdenv.isLinux && !systemConfig.igm.pure) [ matklad.rust-analyzer ];
   };
