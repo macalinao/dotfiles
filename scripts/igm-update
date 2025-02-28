@@ -12,6 +12,8 @@ nix_cmd fmt $DOTFILES/nix
 nix_cmd fmt
 git add .
 
+git commit -am "Run nix flake update via igm-update"
+
 FLAKE_PATH=$(flake_path)
 echo "Using flake at path $FLAKE_PATH."
 cd $FLAKE_PATH

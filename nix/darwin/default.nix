@@ -7,7 +7,6 @@
 
 let
   homeBase = import ../home { systemConfig = config; };
-  mode = config.igm.mode;
 in
 with lib;
 {
