@@ -72,6 +72,9 @@
     # Wrangler is no longer available on Darwin
     # wrangler
     android-tools
+
+    jdk23
+    proxmark3
   ];
 
   home.stateVersion = "22.05";
