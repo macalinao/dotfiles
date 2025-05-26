@@ -30,6 +30,6 @@ fi
 
 if $(uname -a | grep -q "Darwin"); then
     nix build "$FLAKE_PATH#$SYSTEM_CONFIG_ATTRIBUTE" $SHOW_TRACE || exit 1
-    ./result/sw/bin/darwin-rebuild switch --flake "$FLAKE_PATH#$(hostname)"
+    sudo ./result/sw/bin/darwin-rebuild switch --flake "$FLAKE_PATH#$(hostname)"
     rm -r result
 fi
