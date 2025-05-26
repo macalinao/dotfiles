@@ -75,6 +75,7 @@
 
     jdk23
     proxmark3
+    devenv
   ];
 
   home.stateVersion = "22.05";
