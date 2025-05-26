@@ -20,6 +20,7 @@ with lib;
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
 
+  system.primaryUser = "igm";
   system.defaults = {
     dock = {
       mru-spaces = false;
