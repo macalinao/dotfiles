@@ -28,6 +28,8 @@
     (nodePackages.pnpm.override {
       nodejs = nodejs_22;
     })
+    bun
+    pnpm
     # python
 
     python3
@@ -160,6 +162,7 @@
   home.sessionPath =
     [
       "${config.home.homeDirectory}/.npm-packages/bin"
+      "${config.home.homeDirectory}/.cache/.bun/bin"
       "${config.home.homeDirectory}/.cargo/bin"
       "${config.home.homeDirectory}/dotfiles/scripts"
     ]
