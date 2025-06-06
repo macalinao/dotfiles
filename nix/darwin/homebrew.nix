@@ -50,6 +50,7 @@ in
       "anki"
       "arc"
       "brave-browser"
+      "claude"
       # "dashlane"
       "discord"
       "docker"
