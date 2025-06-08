@@ -1,5 +1,8 @@
+.devenv/
+.claude/settings.local.json
 .direnv/
 .pre-commit-config.yaml
 /result
 
 node_modules/
+.devenv.flake.nix

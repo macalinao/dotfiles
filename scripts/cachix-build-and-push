@@ -4,5 +4,5 @@ CACHIX_CACHE="${2:-igm}"
 echo "Building $1 and pushing to $CACHIX_CACHE"
 
 nix -Lv build $1 --json |
-    jq -r '.[].outputs | to_entries[].value' |
-    cachix push $CACHIX_CACHE
+	jq -r '.[].outputs | to_entries[].value' |
+	cachix push $CACHIX_CACHE
