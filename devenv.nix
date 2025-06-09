@@ -1,8 +1,5 @@
 {
   pkgs,
-  lib,
-  config,
-  inputs,
   ...
 }:
 
@@ -15,6 +12,10 @@
     shfmt
     biome
   ];
+
+  languages.nix = {
+    enable = true;
+  };
 
   # https://devenv.sh/languages/
   languages.javascript = {
@@ -31,30 +32,21 @@
 
   # https://devenv.sh/git-hooks/
   git-hooks.hooks = {
-    # Format Nix files
-    nixfmt-rfc-style = {
-      enable = true;
-      entry = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
-      files = "\.nix$";
-    };
+    nixfmt-rfc-style.enable = true;
     # Format shell scripts
-    shfmt = {
-      enable = true;
-      entry = "${pkgs.shfmt}/bin/shfmt -w";
-      files = "\.(sh|bash|zsh)$";
-    };
+    shfmt.enable = true;
     # Format JavaScript/TypeScript/JSON/CSS files with Biome
     biome = {
       enable = true;
       entry = "${pkgs.biome}/bin/biome format --write";
-      files = "\.(js|jsx|ts|tsx|css|graphql)$";
+      files = "\.(js|jsx|ts|tsx|css|graphql|json|jsonc)$";
       excludes = [ "config/.*\\.json$" ];
     };
     # Run prettier on other files that Biome doesn't support
     prettier = {
       enable = true;
       entry = "${pkgs.nodePackages.prettier}/bin/prettier --write --ignore-unknown";
-      files = "\.(md|html|yml|yaml|json|jsonc)$";
+      files = "\.(md|html|yml|yaml)$";
     };
   };
 }

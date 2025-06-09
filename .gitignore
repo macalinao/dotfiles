@@ -4,5 +4,10 @@
 .pre-commit-config.yaml
 /result
 
+# Devenv
+.devenv*
+devenv.local.nix
+
+# direnv
+.direnv
 node_modules/
-.devenv.flake.nix

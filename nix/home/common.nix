@@ -12,6 +12,7 @@
     git
     htop
     silver-searcher
+    ripgrep
     tmux
     unzip
     wget
