@@ -3,18 +3,10 @@
 DOTFILES=$HOME/dotfiles
 source $DOTFILES/scripts/igm-helpers.sh
 
-cd $DOTFILES
-
-nix_cmd flake update --flake $DOTFILES/nix
+cd $DOTFILES/nix
 nix_cmd flake update
 
-nix_cmd fmt $DOTFILES/nix
-nix_cmd fmt
+cd $DOTFILES
 git add .
 
 git commit -am "Run nix flake update via igm-update"
-
-FLAKE_PATH=$(flake_path)
-echo "Using flake at path $FLAKE_PATH."
-cd $FLAKE_PATH
-nix_cmd flake update
