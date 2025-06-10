@@ -182,7 +182,7 @@
         "gitignore"
       ] ++ (lib.optionals pkgs.stdenv.isDarwin [ "macos" ]);
     };
-    initExtra = ''
+    initContent = ''
       ${lib.optionalString pkgs.stdenv.isDarwin ''
         bindkey '^[[1;3C' forward-word
         bindkey '^[[1;3D' backward-word
