@@ -228,15 +228,22 @@
     };
   };
 
-  programs.z-lua = {
-    enable = true;
-  };
-  programs.skim = {
-    enable = true;
-  };
+  programs = {
+    zellij = {
+      enable = true;
+      settings = {
+        theme = "nord";
+        default-mode = "locked";
+      };
+    };
 
-  programs.jq = {
-    enable = true;
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
+    skim.enable = true;
+    jq.enable = true;
   };
 
   programs.tmux = {
