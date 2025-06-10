@@ -1,9 +1,12 @@
 42crunch.vscode-openapi
 aaron-bond.better-comments
+anthropic.claude-code
+anysphere.pyright
 arcanis.vscode-zipfs
 austenc.tailwind-docs
 b4dm4n.nixpkgs-fmt
 bbenoist.nix
+biomejs.biome
 bodil.prettier-toml
 bourhaouta.tailwindshades
 bradlc.vscode-tailwindcss
@@ -59,6 +62,7 @@ ms-python.vscode-pylance
 ms-vscode.test-adapter-converter
 ms-vsliveshare.vsliveshare
 naumovs.color-highlight
+openai.chatgpt
 orta.vscode-jest
 redhat.vscode-yaml
 rust-lang.rust-analyzer
@@ -79,6 +83,5 @@ visualstudioexptteam.vscodeintellicode
 vitest.explorer
 vscodevim.vim
 vue.volar
-wallabyjs.quokka-vscode
 wallabyjs.wallaby-vscode
 yzhang.markdown-all-in-one

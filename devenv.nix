@@ -38,15 +38,13 @@
     # Format JavaScript/TypeScript/JSON/CSS files with Biome
     biome = {
       enable = true;
-      entry = "${pkgs.biome}/bin/biome format --write";
-      files = "\.(js|jsx|ts|tsx|css|graphql|json|jsonc)$";
+      files = "\.(js|jsx|ts|tsx|css|graphql|jsonc)$";
       excludes = [ "config/.*\\.json$" ];
     };
     # Run prettier on other files that Biome doesn't support
     prettier = {
       enable = true;
-      entry = "${pkgs.nodePackages.prettier}/bin/prettier --write --ignore-unknown";
-      files = "\.(md|html|yml|yaml)$";
+      files = "\.(md|html|yml|yaml|json)$";
     };
   };
 }
