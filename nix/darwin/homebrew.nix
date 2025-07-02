@@ -53,7 +53,7 @@ in
       "claude"
       # "dashlane"
       "discord"
-      "docker"
+      "docker-desktop"
       "figma"
       "google-chrome"
       "keybase"
