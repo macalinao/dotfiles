@@ -8,7 +8,10 @@ let
   static = ../static;
 in
 lib.mkMerge [
-  { home.file.".vimrc".source = "${static}/vimrc"; }
+  {
+    home.file.".vimrc".source = "${static}/vimrc";
+    home.file.".claude/settings.json".source = "${static}/claude/settings.json";
+  }
   (lib.mkIf pkgs.stdenv.isLinux {
     home.file.".xscreensaver".source = "${static}/xscreensaver";
 

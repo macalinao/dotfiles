@@ -18,3 +18,4 @@ dump.rdb
 main.iml
 npm-debug.log
 ~$*
+.claude/settings.local.json
