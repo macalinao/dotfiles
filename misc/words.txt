@@ -10,6 +10,7 @@ condvar
 cpus
 datapoint
 datetime
+devenv
 formik
 hashset
 incentivized
@@ -23,6 +24,8 @@ macalinao
 millibps
 movingco
 nixos
+nixpkgs
+oklch
 Omni
 omnimask
 ouroboros
@@ -43,6 +46,7 @@ semibold
 snapshotted
 snapshotting
 solana
+sonner
 ssds
 Staker
 sysvar
