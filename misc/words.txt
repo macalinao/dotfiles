@@ -6,6 +6,7 @@ blockstore
 botstudio
 builtins
 chao
+codama
 condvar
 cpus
 datapoint
