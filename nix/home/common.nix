@@ -160,16 +160,15 @@
     extraConfig = builtins.readFile ./static/vimrc;
   };
 
-  home.sessionPath =
-    [
-      "${config.home.homeDirectory}/.npm-packages/bin"
-      "${config.home.homeDirectory}/.cache/.bun/bin"
-      "${config.home.homeDirectory}/.cargo/bin"
-      "${config.home.homeDirectory}/dotfiles/scripts"
-    ]
-    ++ (lib.optionals pkgs.stdenv.isDarwin [
-      "${config.home.homeDirectory}/.local/share/solana/install/active_release/bin"
-    ]);
+  home.sessionPath = [
+    "${config.home.homeDirectory}/.npm-packages/bin"
+    "${config.home.homeDirectory}/.cache/.bun/bin"
+    "${config.home.homeDirectory}/.cargo/bin"
+    "${config.home.homeDirectory}/dotfiles/scripts"
+  ]
+  ++ (lib.optionals pkgs.stdenv.isDarwin [
+    "${config.home.homeDirectory}/.local/share/solana/install/active_release/bin"
+  ]);
 
   programs.zsh = {
     enable = true;
@@ -180,7 +179,8 @@
         "git"
         "yarn"
         "gitignore"
-      ] ++ (lib.optionals pkgs.stdenv.isDarwin [ "macos" ]);
+      ]
+      ++ (lib.optionals pkgs.stdenv.isDarwin [ "macos" ]);
     };
     initContent = ''
       ${lib.optionalString pkgs.stdenv.isDarwin ''
