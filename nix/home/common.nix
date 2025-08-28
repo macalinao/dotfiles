@@ -139,12 +139,10 @@
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
 
-  programs.command-not-found.enable = true;
   programs.nix-index = {
     enable = true;
     enableZshIntegration = true; # or bash
   };
-  programs.nix-index-database.comma.enable = true;
 
   # Browser password management
   programs.browserpass.enable = true;
