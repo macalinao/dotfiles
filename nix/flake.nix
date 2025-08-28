@@ -119,7 +119,7 @@
               }
             )
             (import ./system.nix { isDarwin = true; })
-            nix-index-database.homeModules.nix-index
+            nix-index-database.darwinModules.nix-index
             home-manager.darwinModules.home-manager
           ]
           ++ modules
