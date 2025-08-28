@@ -18,6 +18,9 @@
     };
     saber-overlay.url = "github:saber-hq/saber-overlay/master";
     rnix-lsp.url = "github:nix-community/rnix-lsp/master";
+
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -29,6 +32,7 @@
       saber-overlay,
       flake-utils,
       rnix-lsp,
+      nix-index-database,
       ...
     }:
     let
@@ -64,17 +68,19 @@
             home-manager.nixosModules.home-manager
             ({
               nixpkgs = import ./nixpkgs/config.nix {
-                additionalOverlays =
-                  [ saber-overlay.overlays.default ]
-                  ++ additionalOverlays
-                  ++ [
-                    (self: super: {
-                      rnix-lsp = rnix-lsp.defaultPackage.${system};
-                    })
-                  ];
+                additionalOverlays = [
+                  saber-overlay.overlays.default
+                ]
+                ++ additionalOverlays
+                ++ [
+                  (self: super: {
+                    rnix-lsp = rnix-lsp.defaultPackage.${system};
+                  })
+                ];
               };
             })
-          ] ++ modules;
+          ]
+          ++ modules;
         };
 
       mkDarwinSystem =
@@ -90,41 +96,42 @@
         in
         darwin.lib.darwinSystem {
           inherit system;
-          modules =
-            [
-              (
-                { ... }:
-                {
-                  igm = {
-                    inherit isM1;
-                    mode = "personal";
-                  };
-                  nixpkgs = import ./nixpkgs/config.nix {
-                    isDarwin = true;
-                    additionalOverlays =
-                      [ saber-overlay.overlays.default ]
-                      ++ additionalOverlays
-                      ++ [
-                        (self: super: {
-                          rnix-lsp = rnix-lsp.defaultPackage.${system};
-                        })
-                      ];
-                  };
-                }
-              )
-              (import ./system.nix { isDarwin = true; })
-              home-manager.darwinModules.home-manager
-            ]
-            ++ modules
-            ++ [
+          modules = [
+            (
+              { ... }:
               {
-                networking = {
-                  inherit computerName hostName;
-                  localHostName = hostName;
+                igm = {
+                  inherit isM1;
+                  mode = "personal";
                 };
-                # services.nix-daemon.enable = true;
+                nixpkgs = import ./nixpkgs/config.nix {
+                  isDarwin = true;
+                  additionalOverlays = [
+                    saber-overlay.overlays.default
+                  ]
+                  ++ additionalOverlays
+                  ++ [
+                    (self: super: {
+                      rnix-lsp = rnix-lsp.defaultPackage.${system};
+                    })
+                  ];
+                };
               }
-            ];
+            )
+            (import ./system.nix { isDarwin = true; })
+            nix-index-database.homeModules.nix-index
+            home-manager.darwinModules.home-manager
+          ]
+          ++ modules
+          ++ [
+            {
+              networking = {
+                inherit computerName hostName;
+                localHostName = hostName;
+              };
+              # services.nix-daemon.enable = true;
+            }
+          ];
         };
     in
     {
