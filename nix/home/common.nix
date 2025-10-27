@@ -94,38 +94,46 @@
 
   programs.git = {
     enable = true;
-    aliases = {
-      amend = "commit -a --amend -C HEAD";
-      ac = "!git add -A $(git root) && git c -a -m";
-      c = "commit";
-      co = "checkout";
-      ff = "merge --ff-only";
-      ffo = "!git ffr origin";
-      ffr = "!ffr() { git fetch $1 && git ff $1/$(git which-branch) && git suir; }; ffr";
-      frp = "!git ffo && git rom && git poh";
-      master = "checkout origin/master -B master";
-      poh = "push origin HEAD";
-      pohm = "push origin HEAD:master";
-      rh = "reset --hard";
-      rom = "rebase origin/master";
-      root = "rev-parse --show-toplevel";
-      sha = "rev-parse HEAD";
-      suir = "submodule update --init --recursive";
-      which-branch = ''!wb() { b="$(git symbolic-ref HEAD)" && echo ''${b#refs/heads/}; }; wb'';
-    };
-    extraConfig = {
+    settings = {
+      alias = {
+        amend = "commit -a --amend -C HEAD";
+        ac = "!git add -A $(git root) && git c -a -m";
+        c = "commit";
+        co = "checkout";
+        ff = "merge --ff-only";
+        ffo = "!git ffr origin";
+        ffr = "!ffr() { git fetch $1 && git ff $1/$(git which-branch) && git suir; }; ffr";
+        frp = "!git ffo && git rom && git poh";
+        master = "checkout origin/master -B master";
+        poh = "push origin HEAD";
+        pohm = "push origin HEAD:master";
+        rh = "reset --hard";
+        rom = "rebase origin/master";
+        root = "rev-parse --show-toplevel";
+        sha = "rev-parse HEAD";
+        suir = "submodule update --init --recursive";
+        which-branch = ''!wb() { b="$(git symbolic-ref HEAD)" && echo ''${b#refs/heads/}; }; wb'';
+      };
+      user = {
+        name = "Ian Macalinao";
+        email = "github@igm.pub";
+      };
+
       core.excludesFile = "${./static/gitignore_global}";
       push.default = "simple";
       init.defaultBranch = "master";
     };
-    delta.enable = true;
+
     lfs.enable = true;
     signing = {
       signByDefault = true;
       key = "5A246DACA92D4485";
     };
-    userName = "Ian Macalinao";
-    userEmail = "github@igm.pub";
+  };
+
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
   };
 
   programs.go = {
