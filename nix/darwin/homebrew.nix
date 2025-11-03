@@ -30,6 +30,7 @@ in
     # "homebrew/core"
     "homebrew/services"
     "koekeishiya/formulae"
+    "jackielii/tab"
     "source-foundry/taproom"
   ];
 
@@ -40,52 +41,51 @@ in
     ])
     ++ [
       "yabai"
-      "skhd"
+      "skhd-zig"
       "sui"
     ];
 
-  casks =
+  casks = [
+    "android-studio"
+    "anki"
+    "arc"
+    "brave-browser"
+    "claude"
+    # "dashlane"
+    "discord"
+    "docker-desktop"
+    "figma"
+    "google-chrome"
+    "keybase"
+    "keymapp"
+    "linear-linear"
+    "ngrok"
+    "notion"
+    "postman"
+    "private-internet-access"
+    "raycast"
+    "slack"
+    "sourcefoundry-slice"
+    "spaceid"
+    "spotify"
+    "tableplus"
+    "the-unarchiver"
+    "viber"
+    "zoom"
+  ]
+  ++ (lib.optionals (mode == "personal") (
     [
-      "android-studio"
-      "anki"
-      "arc"
-      "brave-browser"
-      "claude"
-      # "dashlane"
-      "discord"
-      "docker-desktop"
-      "figma"
-      "google-chrome"
-      "keybase"
-      "keymapp"
-      "linear-linear"
-      "ngrok"
-      "notion"
-      "postman"
-      "private-internet-access"
-      "raycast"
-      "slack"
-      "sourcefoundry-slice"
-      "spaceid"
-      "spotify"
-      "tableplus"
-      "the-unarchiver"
-      "viber"
-      "zoom"
+      "google-drive"
+      "ledger-live"
+      "obsidian"
+      "signal"
+      "telegram"
+      "tor-browser"
+      "transmission"
+      "vlc"
+      "wechat"
+      "whatsapp"
     ]
-    ++ (lib.optionals (mode == "personal") (
-      [
-        "google-drive"
-        "ledger-live"
-        "obsidian"
-        "signal"
-        "telegram"
-        "tor-browser"
-        "transmission"
-        "vlc"
-        "wechat"
-        "whatsapp"
-      ]
-      ++ games
-    ));
+    ++ games
+  ));
 }
