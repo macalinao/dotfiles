@@ -30,7 +30,7 @@ in
     # "homebrew/core"
     "homebrew/services"
     "koekeishiya/formulae"
-    "jackielii/tab"
+    "jackielii/tap"
     "source-foundry/taproom"
   ];
 
