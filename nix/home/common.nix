@@ -135,12 +135,8 @@
     enable = true;
     git = {
       enable = true;
+      diffToolMode = true;
     };
-  };
-
-  programs.delta = {
-    enable = true;
-    enableGitIntegration = true;
   };
 
   programs.go = {
