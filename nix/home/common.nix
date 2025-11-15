@@ -129,6 +129,10 @@
       signByDefault = true;
       key = "5A246DACA92D4485";
     };
+
+    difftastic = {
+      enableAsDifftool = true;
+    };
   };
 
   programs.delta = {
