@@ -76,7 +76,7 @@
     # wrangler
     android-tools
 
-    jdk23
+    # jdk23
     proxmark3
     devenv
   ];
