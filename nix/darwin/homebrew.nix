@@ -51,6 +51,7 @@ in
     "arc"
     "brave-browser"
     "claude"
+    "cloudflare-warp"
     # "dashlane"
     "discord"
     "docker-desktop"
