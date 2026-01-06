@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+set -e
+
+# Swap windows between workspaces 1-5 and workspaces 6-10
+# Space 1 <-> Space 6, Space 2 <-> Space 7, etc.
+
+YABAI=/opt/homebrew/bin/yabai
+
+# Collect window IDs from both sets of spaces before moving anything
+declare -a WINDOWS_1_5
+declare -a WINDOWS_6_10
+
+for i in {1..5}; do
+	windows=$($YABAI -m query --windows --space $i 2>/dev/null | jq -r '.[].id' 2>/dev/null || echo "")
+	for wid in $windows; do
+		WINDOWS_1_5+=("$wid:$i")
+	done
+done
+
+for i in {6..10}; do
+	windows=$($YABAI -m query --windows --space $i 2>/dev/null | jq -r '.[].id' 2>/dev/null || echo "")
+	for wid in $windows; do
+		WINDOWS_6_10+=("$wid:$i")
+	done
+done
+
+# Move windows from spaces 1-5 to spaces 6-10
+for entry in "${WINDOWS_1_5[@]}"; do
+	wid="${entry%%:*}"
+	space="${entry##*:}"
+	target_space=$((space + 5))
+	$YABAI -m window "$wid" --space "$target_space" 2>/dev/null || true
+done
+
+# Move windows from spaces 6-10 to spaces 1-5
+for entry in "${WINDOWS_6_10[@]}"; do
+	wid="${entry%%:*}"
+	space="${entry##*:}"
+	target_space=$((space - 5))
+	$YABAI -m window "$wid" --space "$target_space" 2>/dev/null || true
+done
+
+echo "Swapped workspaces 1-5 with 6-10"
