@@ -78,7 +78,7 @@ in
   ++ (lib.optionals (mode == "personal") (
     [
       "google-drive"
-      "ledger-live"
+      "ledger-wallet"
       "obsidian"
       "signal"
       "telegram"
