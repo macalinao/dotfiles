@@ -22,15 +22,14 @@
     rnix-lsp
 
     # JS tools
-    nodejs_22
+    nodejs_24
     (yarn.override {
-      nodejs = nodejs_22;
+      nodejs = nodejs_24;
     })
     (nodePackages.pnpm.override {
-      nodejs = nodejs_22;
+      nodejs = nodejs_24;
     })
     bun
-    pnpm
     # python
 
     python3
