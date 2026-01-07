@@ -132,7 +132,11 @@
       signByDefault = true;
       key = "5A246DACA92D4485";
     };
-    delta.enable = true;
+  };
+
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
   };
 
   programs.difftastic.enable = true;
