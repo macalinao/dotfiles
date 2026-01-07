@@ -112,6 +112,7 @@
         sha = "rev-parse HEAD";
         suir = "submodule update --init --recursive";
         which-branch = ''!wb() { b="$(git symbolic-ref HEAD)" && echo ''${b#refs/heads/}; }; wb'';
+        dt = "difftool";
       };
       user = {
         name = "Ian Macalinao";
@@ -121,6 +122,9 @@
       core.excludesFile = "${./static/gitignore_global}";
       push.default = "simple";
       init.defaultBranch = "master";
+      diff.tool = "difftastic";
+      difftool.prompt = false;
+      difftool.difftastic.cmd = ''${pkgs.difftastic}/bin/difft "$LOCAL" "$REMOTE"'';
     };
 
     lfs.enable = true;
@@ -128,15 +132,10 @@
       signByDefault = true;
       key = "5A246DACA92D4485";
     };
+    delta.enable = true;
   };
 
-  programs.difftastic = {
-    enable = true;
-    git = {
-      enable = true;
-      diffToolMode = true;
-    };
-  };
+  programs.difftastic.enable = true;
 
   programs.go = {
     enable = true;
@@ -210,7 +209,7 @@
     shellAliases = {
       gac = "git ac";
       gj = "cd $(git root)";
-      gd = "git diff";
+      gd = "git dt";
       gs = "gst";
 
       ls = "${pkgs.eza}/bin/eza";
