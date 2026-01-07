@@ -13,7 +13,7 @@ echo "Synchronizing settings"
 
 SHOW_TRACE=''
 if [ "${1:none}" = '--debug' ]; then
-    SHOW_TRACE='--show-trace'
+	SHOW_TRACE='--show-trace'
 fi
 
 echo "Updating private dotfiles."
@@ -22,14 +22,14 @@ cd $HOME/dotfiles-private && git add -A . && git commit -m "Updates" && git frp
 cd $DOTFILES
 
 echo "Updating igm and dotfiles-private-raw flakes."
-nix flake lock --update-input igm --update-input dotfiles-private-raw $FLAKE_PATH
+nix flake update igm dotfiles-private-raw --flake $FLAKE_PATH
 
 if $(uname -a | grep -q "NixOS"); then
-    sudo nixos-rebuild switch --impure --flake "$FLAKE_PATH#$SYSTEM_CONFIG_ATTRIBUTE" $SHOW_TRACE
+	sudo nixos-rebuild switch --impure --flake "$FLAKE_PATH#$SYSTEM_CONFIG_ATTRIBUTE" $SHOW_TRACE
 fi
 
 if $(uname -a | grep -q "Darwin"); then
-    nix build "$FLAKE_PATH#$SYSTEM_CONFIG_ATTRIBUTE" $SHOW_TRACE || exit 1
-    sudo ./result/sw/bin/darwin-rebuild switch --flake "$FLAKE_PATH#$(hostname)"
-    rm -r result
+	nix build "$FLAKE_PATH#$SYSTEM_CONFIG_ATTRIBUTE" $SHOW_TRACE || exit 1
+	sudo ./result/sw/bin/darwin-rebuild switch --flake "$FLAKE_PATH#$(hostname)"
+	rm -r result
 fi
