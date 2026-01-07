@@ -56,6 +56,7 @@ in
     "discord"
     "docker-desktop"
     "figma"
+    "ghostty"
     "google-chrome"
     "keybase"
     "keymapp"
