@@ -1,7 +1,16 @@
-#!/usr/bin/env -S bash -xe
+#!/usr/bin/env bash
 
 DOTFILES=$HOME/dotfiles
 cd $DOTFILES
+
+# Check for uncommitted changes in dotfiles repo
+# Nix flakes only see committed files, so uncommitted changes won't be included in the build
+if ! git diff --quiet || ! git diff --cached --quiet; then
+	echo -e "\033[1;31mError:\033[0m There are uncommitted changes in the dotfiles repo."
+	echo -e "\033[33mNix only works on Git inputs, so uncommitted changes won't be included in the build.\033[0m"
+	echo -e "Please commit your changes first."
+	exit 1
+fi
 
 source $DOTFILES/scripts/igm-helpers.sh
 FLAKE_PATH=$(flake_path)

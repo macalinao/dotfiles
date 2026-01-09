@@ -1,4 +1,4 @@
-#!/usr/bin/env -S bash -xe
+#!/usr/bin/env bash
 
 DOTFILES=$HOME/dotfiles
 source $DOTFILES/scripts/igm-helpers.sh
