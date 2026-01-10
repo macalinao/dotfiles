@@ -22,8 +22,6 @@ in
       ffmpeg
 
       pm2
-
-      terminal-notifier
     ]
     ++ (lib.optionals isM1 [
       keybase
