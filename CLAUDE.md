@@ -29,7 +29,7 @@ igm-switch        # Apply the updates
 ### Development
 
 ```bash
-nix fmt           # Format Nix files using nixfmt-rfc-style
+igm-fmt           # Format Nix files using nixfmt-rfc-style
 pnpm prepare      # Set up git hooks (run after cloning)
 ```
 
@@ -45,7 +45,6 @@ cachix-push-m1-config  # Push M1 Darwin configuration to Cachix
 
 The repository uses a multi-flake architecture:
 
-- `/flake.nix`: Development environment with formatting tools
 - `/nix/flake.nix`: Main system configuration flake
 - Platform-specific flakes are located in:
   - `~/dotfiles-darwin` (macOS)

@@ -26,17 +26,16 @@ rustPlatform.buildRustPackage rec {
     pkg-config
   ];
 
-  buildInputs =
-    [
-      libgit2_1_6
-      libssh2
-      openssl
-      zlib
-    ]
-    ++ lib.optionals stdenv.isDarwin [
-      darwin.apple_sdk.frameworks.Security
-      darwin.apple_sdk_11_0.frameworks.SystemConfiguration
-    ];
+  buildInputs = [
+    libgit2_1_6
+    libssh2
+    openssl
+    zlib
+  ]
+  ++ lib.optionals stdenv.isDarwin [
+    darwin.apple_sdk.frameworks.Security
+    darwin.apple_sdk_11_0.frameworks.SystemConfiguration
+  ];
 
   env = {
     LIBSSH2_SYS_USE_PKG_CONFIG = true;

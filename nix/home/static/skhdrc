@@ -1,5 +1,5 @@
 # Program shortcuts
-shift + cmd - w : open -a "/etc/profiles/per-user/igm/bin/kitty"
+shift + cmd - w : /Applications/Ghostty.app/Contents/MacOS/ghostty
 
 # Move windows to spaces
 ctrl + shift - 1 : /opt/homebrew/bin/yabai -m window --space 1

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+find ~/dotfiles -name "*.nix" -exec nixfmt {} +

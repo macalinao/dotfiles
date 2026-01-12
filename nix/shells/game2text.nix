@@ -76,5 +76,6 @@ mkShell {
 
     # needed for sudachi.rs to build properly
     rustup
-  ] ++ (lib.optional stdenv.isDarwin [ libiconv ]);
+  ]
+  ++ (lib.optional stdenv.isDarwin [ libiconv ]);
 }

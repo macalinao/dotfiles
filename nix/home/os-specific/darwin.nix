@@ -33,14 +33,5 @@ in
     text = "pinentry-program ${pkgs.pinentry_mac}/${pkgs.pinentry_mac.passthru.binaryPath}";
   };
 
-  programs.kitty = {
-    enable = isM1;
-    themeFile = "GitHub_Dark";
-    font = {
-      name = "Menlo";
-      size = 12;
-    };
-  };
-
   programs.zsh.sessionVariables.ANDROID_HOME = "${config.home.homeDirectory}/Library/Android/sdk";
 }
