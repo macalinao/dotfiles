@@ -178,6 +178,7 @@
     "${config.home.homeDirectory}/dotfiles/scripts"
   ]
   ++ (lib.optionals pkgs.stdenv.isDarwin [
+    "/opt/homebrew/bin"
     "${config.home.homeDirectory}/.local/share/solana/install/active_release/bin"
   ]);
 
