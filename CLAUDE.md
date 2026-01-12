@@ -29,7 +29,8 @@ igm-switch        # Apply the updates
 ### Development
 
 ```bash
-igm-fmt           # Format Nix files using nixfmt-rfc-style
+igm-fmt           # Format all files (Nix, shell, Markdown, YAML, JSON)
+igm-fmt-check     # Check formatting without modifying files (used in CI)
 ```
 
 ### Cachix Operations

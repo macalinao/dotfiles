@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+DOTFILES=$HOME/dotfiles
+cd "$DOTFILES"
+
+./scripts/igm-fmt
+
+if [ -n "$(git status --porcelain)" ]; then
+	echo "Files were modified by formatter. Please run 'igm-fmt' and commit the changes."
+	git diff --stat
+	exit 1
+fi
+
+echo "All files formatted correctly!"

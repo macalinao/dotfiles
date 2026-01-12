@@ -1,3 +1,21 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
-find ~/dotfiles -name "*.nix" -exec nixfmt {} +
+DOTFILES=$HOME/dotfiles
+cd "$DOTFILES"
+
+echo "Formatting Nix files..."
+find . -name "*.nix" -not -path "./.devenv/*" -exec nixfmt {} +
+
+echo "Formatting shell scripts..."
+find . -name "*.sh" -o -name "*.bash" -o -name "*.zsh" | xargs -r shfmt -w
+
+echo "Formatting Markdown, YAML, and JSON files..."
+find . \( -name "*.md" -o -name "*.yml" -o -name "*.yaml" -o -name "*.json" \) \
+	-not -path "./.devenv/*" \
+	-not -path "./.git/*" \
+	-not -path "./config/*" \
+	-not -type l |
+	xargs -r prettier --write
+
+echo "Done!"
