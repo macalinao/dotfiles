@@ -7,7 +7,7 @@ on:
     branches: [master]
 
 jobs:
-  devshell:
+  devenv:
     strategy:
       fail-fast: false
       matrix:
@@ -21,12 +21,12 @@ jobs:
       - uses: cachix/install-nix-action@v30
       - uses: cachix/cachix-action@v15
         with:
-          name: igm
-          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      - run: nix -Lv flake check --show-trace
-      - run: nix -Lv develop -c echo OK
+          name: devenv
+      - run: nix profile install nixpkgs#devenv
+      - name: Build devenv shell
+        run: devenv shell -- echo OK
       - name: Check formatting
-        run: nix -Lv develop -c ./scripts/igm-fmt-check
+        run: devenv shell -- ./scripts/igm-fmt-check
 
   check:
     strategy:
@@ -46,7 +46,6 @@ jobs:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       - run: nix -Lv flake check --show-trace
         working-directory: nix/
-      - run: nix -Lv develop -c echo OK
 
   linux:
     strategy:
@@ -82,4 +81,3 @@ jobs:
           name: igm
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       - run: nix -Lv build "nix/#darwinConfigurations.ci-personal.system"
-      - run: nix -Lv develop -c echo OK
