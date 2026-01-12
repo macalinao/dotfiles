@@ -30,7 +30,6 @@ igm-switch        # Apply the updates
 
 ```bash
 igm-fmt           # Format Nix files using nixfmt-rfc-style
-pnpm prepare      # Set up git hooks (run after cloning)
 ```
 
 ### Cachix Operations
@@ -65,12 +64,11 @@ The repository uses a multi-flake architecture:
 
 1. Configurations are defined in Nix files under `/nix/`
 2. `igm-switch` builds and applies configurations based on the current platform
-3. Git hooks ensure code is formatted before commits
-4. Private configurations are managed separately in `~/dotfiles-private`
+3. Private configurations are managed separately in `~/dotfiles-private`
 
 ## Important Notes
 
 - Always use `igm-switch` to apply configuration changes, not raw Nix commands
 - The repository uses platform detection to determine which flake to use
-- Formatting is automatically applied on commit via lint-staged
+- Run `igm-fmt` before committing to format Nix files
 - Private configurations are updated automatically when running `igm-switch`

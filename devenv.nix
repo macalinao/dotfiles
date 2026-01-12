@@ -20,14 +20,8 @@
   # https://devenv.sh/languages/
   languages.javascript = {
     enable = true;
-    package = pkgs.nodejs_22;
+    package = pkgs.nodejs_24;
     bun.enable = true;
-    pnpm = {
-      enable = true;
-      package = pkgs.pnpm.override {
-        nodejs = pkgs.nodejs_22;
-      };
-    };
   };
 
   # https://devenv.sh/git-hooks/
