@@ -259,6 +259,15 @@
       enableZshIntegration = true;
     };
 
+    bat = {
+      enable = true;
+      extraPackages = with pkgs.bat-extras; [
+        batdiff
+        batman
+        batgrep
+        batwatch
+      ];
+    };
     skim.enable = true;
     jq.enable = true;
   };
