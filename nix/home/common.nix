@@ -232,6 +232,9 @@
       funky = "sfxl fortnite";
       ysetup = "yarn set version canary";
       ysdk = "yarn dlx @yarnpkg/sdks vscode";
+
+      # Claude Code with alternate account
+      claude-2 = "CLAUDE_CONFIG_DIR=~/.claude-2 claude";
     };
 
     history = {
