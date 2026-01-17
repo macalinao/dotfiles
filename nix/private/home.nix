@@ -1,36 +1,37 @@
 {
+  config,
   dotfiles-private,
   lib,
   pkgs,
 }:
 
-{
-  programs.git.includes = lib.flatten (
-    lib.mapAttrsToList (
-      profile:
-      {
-        name ? null,
-        signingKey ? null,
-        email ? "${profile}-github@igm.pub",
-        gitConfig ? null,
-        additionalGitignore ? null,
-        additionalPrefixes ? [ ],
-        ...
-      }@profileInfo:
-      let
-        github = ({ github = { }; } // profileInfo).github // {
-          username = "macalinao";
-          organization = profile;
-        };
-        prefixes = [ "~/proj/${github.organization}/" ] ++ additionalPrefixes;
-        excludesFile = pkgs.writeTextFile {
-          name = "gitignore_global";
-          text = ''
-            # Additional config for profile ${profile}
-            ${additionalGitignore}'';
-        };
-      in
-      map (prefix: {
+let
+  # Process all profiles to extract git includes and envrc files
+  processedProfiles = lib.mapAttrsToList (
+    profile:
+    {
+      name ? null,
+      signingKey ? null,
+      email ? "${profile}-github@igm.pub",
+      gitConfig ? null,
+      additionalGitignore ? null,
+      extraDirectories ? [ ],
+      ...
+    }@profileInfo:
+    let
+      github = ({ github = { }; } // profileInfo).github // {
+        username = "macalinao";
+        organization = profile;
+      };
+      directories = [ github.organization ] ++ extraDirectories;
+      prefixes = map (dir: "~/proj/${dir}/") directories;
+      excludesFile = pkgs.writeTextFile {
+        name = "gitignore_global";
+        text = ''
+          # Additional config for profile ${profile}
+          ${additionalGitignore}'';
+      };
+      gitIncludes = map (prefix: {
         contents = lib.mkMerge [
           gitConfig
           {
@@ -47,10 +48,32 @@
           })
         ];
         condition = "gitdir/i:${prefix}";
-      }) prefixes
-    ) dotfiles-private.profiles
-  );
+      }) prefixes;
+      # Generate .envrc files for each directory if github.username is set
+      envrcFiles = lib.optionalAttrs (github.username != null) (
+        lib.listToAttrs (
+          map (dir: {
+            name = "proj/${dir}/.envrc";
+            value = {
+              text = ''
+                export GH_CONFIG_DIR="${config.home.homeDirectory}/proj/${github.organization}/.gh"
+              '';
+            };
+          }) directories
+        )
+      );
+    in
+    {
+      inherit gitIncludes envrcFiles;
+    }
+  ) dotfiles-private.profiles;
 
-  home.file = dotfiles-private.homeFiles;
+  allGitIncludes = lib.flatten (map (p: p.gitIncludes) processedProfiles);
+  allEnvrcFiles = lib.foldl' (acc: p: acc // p.envrcFiles) { } processedProfiles;
+in
+{
+  programs.git.includes = allGitIncludes;
+
+  home.file = dotfiles-private.homeFiles // allEnvrcFiles;
   # xdg.configFile = dotfiles-private.xdgFiles;
 }

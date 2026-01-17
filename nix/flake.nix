@@ -16,7 +16,6 @@
       url = "github:msteen/nixos-vscode-server/master";
       flake = false;
     };
-    saber-overlay.url = "github:saber-hq/saber-overlay/master";
     rnix-lsp.url = "github:nix-community/rnix-lsp/master";
 
     nix-index-database.url = "github:nix-community/nix-index-database";
@@ -29,7 +28,6 @@
       home-manager,
       darwin,
       vscode-server,
-      saber-overlay,
       flake-utils,
       rnix-lsp,
       nix-index-database,
@@ -68,11 +66,7 @@
             home-manager.nixosModules.home-manager
             ({
               nixpkgs = import ./nixpkgs/config.nix {
-                additionalOverlays = [
-                  saber-overlay.overlays.default
-                ]
-                ++ additionalOverlays
-                ++ [
+                additionalOverlays = additionalOverlays ++ [
                   (self: super: {
                     rnix-lsp = rnix-lsp.defaultPackage.${system};
                   })
@@ -106,11 +100,7 @@
                 };
                 nixpkgs = import ./nixpkgs/config.nix {
                   isDarwin = true;
-                  additionalOverlays = [
-                    saber-overlay.overlays.default
-                  ]
-                  ++ additionalOverlays
-                  ++ [
+                  additionalOverlays = additionalOverlays ++ [
                     (self: super: {
                       rnix-lsp = rnix-lsp.defaultPackage.${system};
                     })
@@ -199,15 +189,13 @@
               allowBroken = isDarwin;
             }
           );
-          pkgs =
-            import nixpkgs {
-              inherit system;
-              inherit (nixpkgs-config-public) config overlays;
-            }
-            // saber-overlay.packages.${system};
+          pkgs = import nixpkgs {
+            inherit system;
+            inherit (nixpkgs-config-public) config overlays;
+          };
         in
         {
-          formatter = pkgs.nixfmt-rfc-style;
+          formatter = pkgs.nixfmt;
           packages = import ./shells { inherit pkgs; };
         }
       ))
