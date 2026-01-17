@@ -1,12 +1,11 @@
 {
-  config,
   dotfiles-private,
   lib,
   pkgs,
 }:
 
 let
-  # Process all profiles to extract git includes and envrc files
+  # Process all profiles to extract git includes
   processedProfiles = lib.mapAttrsToList (
     profile:
     {
@@ -23,7 +22,6 @@ let
         username = "macalinao";
         organization = profile;
       };
-      hasGithubConfig = profileInfo ? github;
       directories = [ github.organization ] ++ extraDirectories;
       prefixes = map (dir: "~/proj/${dir}/") directories;
       excludesFile = pkgs.writeTextFile {
@@ -50,31 +48,17 @@ let
         ];
         condition = "gitdir/i:${prefix}";
       }) prefixes;
-      # Generate .envrc files for each directory if github config exists in profile
-      envrcFiles = lib.optionalAttrs hasGithubConfig (
-        lib.listToAttrs (
-          map (dir: {
-            name = "proj/${dir}/.envrc";
-            value = {
-              text = ''
-                export GH_CONFIG_DIR="${config.home.homeDirectory}/proj/${github.organization}/.gh"
-              '';
-            };
-          }) directories
-        )
-      );
     in
     {
-      inherit gitIncludes envrcFiles;
+      inherit gitIncludes;
     }
   ) dotfiles-private.profiles;
 
   allGitIncludes = lib.flatten (map (p: p.gitIncludes) processedProfiles);
-  allEnvrcFiles = lib.foldl' (acc: p: acc // p.envrcFiles) { } processedProfiles;
 in
 {
   programs.git.includes = allGitIncludes;
 
-  home.file = dotfiles-private.homeFiles // allEnvrcFiles;
+  home.file = dotfiles-private.homeFiles;
   # xdg.configFile = dotfiles-private.xdgFiles;
 }

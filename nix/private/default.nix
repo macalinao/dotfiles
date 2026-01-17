@@ -19,12 +19,10 @@ in
     (
       { pkgs, lib, ... }:
       {
-        home-manager.users.igm =
-          { config, ... }:
-          import ./home.nix {
-            inherit config lib pkgs;
-            dotfiles-private = defaultConfig // (raw { inherit pkgs; });
-          };
+        home-manager.users.igm = import ./home.nix {
+          inherit lib pkgs;
+          dotfiles-private = defaultConfig // (raw { inherit pkgs; });
+        };
       }
     )
   ];
