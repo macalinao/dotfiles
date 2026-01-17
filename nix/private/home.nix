@@ -23,6 +23,7 @@ let
         username = "macalinao";
         organization = profile;
       };
+      hasExplicitGithubUsername = (profileInfo ? github) && (profileInfo.github ? username);
       directories = [ github.organization ] ++ extraDirectories;
       prefixes = map (dir: "~/proj/${dir}/") directories;
       excludesFile = pkgs.writeTextFile {
@@ -49,8 +50,8 @@ let
         ];
         condition = "gitdir/i:${prefix}";
       }) prefixes;
-      # Generate .envrc files for each directory if github.username is set
-      envrcFiles = lib.optionalAttrs (github.username != null) (
+      # Generate .envrc files for each directory if github.username is explicitly set in profile
+      envrcFiles = lib.optionalAttrs hasExplicitGithubUsername (
         lib.listToAttrs (
           map (dir: {
             name = "proj/${dir}/.envrc";

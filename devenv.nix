@@ -8,7 +8,7 @@
   packages = with pkgs; [
     git
     coreutils-full
-    nixfmt-rfc-style
+    nixfmt
     shfmt
     biome
   ];
@@ -21,12 +21,11 @@
   languages.javascript = {
     enable = true;
     package = pkgs.nodejs_24;
-    bun.enable = true;
   };
 
   # https://devenv.sh/git-hooks/
   git-hooks.hooks = {
-    nixfmt-rfc-style.enable = true;
+    nixfmt.enable = true;
     # Format shell scripts
     shfmt.enable = true;
     # Format JavaScript/TypeScript/JSON/CSS files with Biome
