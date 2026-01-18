@@ -73,6 +73,7 @@ in
     "tableplus"
     "the-unarchiver"
     "viber"
+    "zed"
     "zoom"
   ]
   ++ (lib.optionals (mode == "personal") (
