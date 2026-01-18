@@ -1,0 +1,69 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bun create:*)",
+      "Bash(bun init:*)",
+      "Bash(bun add:*)",
+      "Bash(mkdir:*)",
+      "Bash(mv:*)",
+      "Bash(bunx:*)",
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__get-library-docs",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_click",
+      "Bash(touch:*)",
+      "Bash(claude:*)",
+      "Bash(cargo check:*)",
+      "Bash(cargo clippy:*)",
+      "Bash(cargo fmt:*)",
+      "Bash(cargo run:*)",
+      "Bash(cargo build:*)",
+      "Bash(nix search:*)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "mcp__plugin_context7_context7__resolve-library-id",
+      "Bash(cargo doc:*)"
+    ],
+    "deny": []
+  },
+  "model": "opus",
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "idle_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "notifykit cchook --sound Glass"
+          }
+        ]
+      },
+      {
+        "matcher": "permission_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "notifykit cchook --sound Funk"
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "figma@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true,
+    "github@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "gitlab@claude-plugins-official": true,
+    "igm@igm-plugins": true,
+    "greptile@claude-plugins-official": true,
+    "plugin-dev@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true
+  }
+}

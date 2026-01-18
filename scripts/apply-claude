@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -e
+
+DOTFILES="${DOTFILES:-$HOME/dotfiles}"
+SETTINGS_FILE="$DOTFILES/config/claude/settings.json"
+
+if [ ! -f "$SETTINGS_FILE" ]; then
+	echo "No config/claude/settings.json found in dotfiles"
+	exit 1
+fi
+
+for dir in "$HOME/.claude" "$HOME/.claude-2"; do
+	if [ -d "$dir" ]; then
+		if [ -f "$dir/settings.json" ] && ! diff -q "$SETTINGS_FILE" "$dir/settings.json" >/dev/null 2>&1; then
+			echo "Changes for $dir/settings.json:"
+			diff "$dir/settings.json" "$SETTINGS_FILE" || true
+			echo ""
+		fi
+		echo "Deploying to $dir/settings.json"
+		cp "$SETTINGS_FILE" "$dir/settings.json"
+	fi
+done
+
+echo "Done."
