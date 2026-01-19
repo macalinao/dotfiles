@@ -236,6 +236,7 @@
 
       # Claude Code
       claude-2 = "CLAUDE_CONFIG_DIR=~/.claude-2 claude";
+      claude-3 = "CLAUDE_CONFIG_DIR=~/.claude-3 claude";
       claude-install = "curl -fsSL https://claude.ai/install.sh | bash";
     };
 

@@ -4,12 +4,18 @@ set -e
 DOTFILES="${DOTFILES:-$HOME/dotfiles}"
 SETTINGS_FILE="$DOTFILES/config/claude/settings.json"
 
+CLAUDE_DIRS=(
+	"$HOME/.claude"
+	"$HOME/.claude-2"
+	"$HOME/.claude-3"
+)
+
 if [ ! -f "$SETTINGS_FILE" ]; then
 	echo "No config/claude/settings.json found in dotfiles"
 	exit 1
 fi
 
-for dir in "$HOME/.claude" "$HOME/.claude-2"; do
+for dir in "${CLAUDE_DIRS[@]}"; do
 	if [ -d "$dir" ]; then
 		if [ -f "$dir/settings.json" ] && ! diff -q "$SETTINGS_FILE" "$dir/settings.json" >/dev/null 2>&1; then
 			echo "Changes for $dir/settings.json:"
@@ -23,6 +29,12 @@ for dir in "$HOME/.claude" "$HOME/.claude-2"; do
 		if ! CLAUDE_CONFIG_DIR="$dir" claude plugin marketplace list 2>/dev/null | grep -q "claude-plugin"; then
 			echo "Adding macalinao/claude-plugin marketplace to $dir"
 			CLAUDE_CONFIG_DIR="$dir" claude plugin marketplace add macalinao/claude-plugin
+		fi
+
+		# Add ast-grep marketplace if not present
+		if ! CLAUDE_CONFIG_DIR="$dir" claude plugin marketplace list 2>/dev/null | grep -q "ast-grep/claude-skill"; then
+			echo "Adding ast-grep/claude-skill marketplace to $dir"
+			CLAUDE_CONFIG_DIR="$dir" claude plugin marketplace add ast-grep/claude-skill
 		fi
 	fi
 done

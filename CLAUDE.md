@@ -73,3 +73,12 @@ The repository uses a multi-flake architecture:
 - The repository uses platform detection to determine which flake to use
 - Run `igm-fmt` before committing to format Nix files
 - Private configurations are updated automatically when running `igm-switch`
+
+### Claude Code Settings
+
+Claude Code settings are stored in `/config/claude/settings.json`. Run `apply-claude` to copy this file to `~/.claude/settings.json`. This file manages:
+
+- Allowed/denied tool permissions
+- Model preferences
+- Notification hooks
+- Enabled plugins
