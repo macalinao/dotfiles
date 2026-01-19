@@ -13,6 +13,7 @@
     htop
     silver-searcher
     ripgrep
+    ast-grep
     tmux
     unzip
     wget
