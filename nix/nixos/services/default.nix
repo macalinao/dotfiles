@@ -59,14 +59,8 @@ mkMerge [
     services.samba = {
       enable = true;
       package = pkgs.sambaFull;
-      securityType = "user";
       openFirewall = true;
-      extraConfig = ''
-        workgroup = WORKGROUP
-        server string = smbnix
-        netbios name = smbnix
-      '';
-      shares =
+      settings =
         let
           mkTimeCapsule = name: {
             "valid users" = "igm";
@@ -79,19 +73,18 @@ mkMerge [
             "vfs objects" = "catia fruit streams_xattr";
           };
         in
-        builtins.listToAttrs (
-          map
-            (name: {
-              inherit name;
-              value = mkTimeCapsule name;
-            })
-            [
-              # intel mbp
-              "time-capsule-intel"
-              # 2022 aarch64 mbp
-              "time-capsule-22"
-            ]
-        );
+        {
+          global = {
+            security = "user";
+            workgroup = "WORKGROUP";
+            "server string" = "smbnix";
+            "netbios name" = "smbnix";
+          };
+          # intel mbp
+          "time-capsule-intel" = mkTimeCapsule "time-capsule-intel";
+          # 2022 aarch64 mbp
+          "time-capsule-22" = mkTimeCapsule "time-capsule-22";
+        };
     };
 
     services.avahi = {

@@ -49,7 +49,7 @@ in
     # Comms
     discord
     signal-desktop
-    tdesktop
+    telegram-desktop
     slack
     zoom-us
 
@@ -64,7 +64,7 @@ in
 
     # games
     # factorio
-    minecraft
+    prismlauncher
     # openttd
 
     keybase-gui
@@ -74,8 +74,8 @@ in
     xclip
     xsel
     playerctl
-    gnome.gnome-keyring
-    gnome.seahorse
+    gnome-keyring
+    seahorse
 
     configure-monitors
 

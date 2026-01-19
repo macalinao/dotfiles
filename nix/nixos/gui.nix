@@ -20,16 +20,17 @@
   ];
 
   i18n.inputMethod = {
-    enabled = "fcitx5";
+    enable = true;
+    type = "fcitx5";
     fcitx5.addons = with pkgs; [
       fcitx5-mozc
       fcitx5-hangul
     ];
   };
 
-  # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio = {
+  # Enable sound with PulseAudio (disable PipeWire).
+  services.pipewire.enable = false;
+  services.pulseaudio = {
     enable = true;
     package = pkgs.pulseaudioFull;
   };
@@ -45,13 +46,14 @@
       };
     };
 
-    displayManager = {
-      defaultSession = "xfce";
-      lightdm.enable = true;
-      autoLogin = {
-        enable = true;
-        user = "igm";
-      };
+    displayManager.lightdm.enable = true;
+  };
+
+  services.displayManager = {
+    defaultSession = "xfce";
+    autoLogin = {
+      enable = true;
+      user = "igm";
     };
   };
 }

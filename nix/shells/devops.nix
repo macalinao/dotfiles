@@ -11,7 +11,7 @@ mkShell {
     skaffold
     sops
     terraform
-    terraform-providers.aws
+    terraform-providers.hashicorp_aws
 
     heroku
     google-cloud-sdk

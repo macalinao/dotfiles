@@ -118,6 +118,22 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1768661221,
+        "narHash": "sha256-MJwOjrIISfOpdI9x4C+5WFQXvHtOuj5mqLZ4TMEtk1M=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "3327b113f2ef698d380df83fbccefad7e83d7769",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
         "lastModified": 1656753965,
         "narHash": "sha256-BCrB3l0qpJokOnIVc3g2lHiGhnjUi0MoXiw6t1o8H1E=",
         "owner": "nixos",
@@ -132,10 +148,28 @@
         "type": "github"
       }
     },
+    "notifykit": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1768792881,
+        "narHash": "sha256-XIau1DU5pugslIZhSCX5MhBA+XDP1QzG5wyJtYG80d0=",
+        "owner": "macalinao",
+        "repo": "notifykit",
+        "rev": "69eb77d3edd507412a695e7e8012e60569427655",
+        "type": "github"
+      },
+      "original": {
+        "owner": "macalinao",
+        "repo": "notifykit",
+        "type": "github"
+      }
+    },
     "rnix-lsp": {
       "inputs": {
         "naersk": "naersk",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_3",
         "utils": "utils"
       },
       "locked": {
@@ -160,6 +194,7 @@
         "home-manager": "home-manager",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
+        "notifykit": "notifykit",
         "rnix-lsp": "rnix-lsp",
         "vscode-server": "vscode-server"
       }

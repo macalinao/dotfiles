@@ -3,8 +3,8 @@ with pkgs;
 let
   jupyter = python311.withPackages (
     ps: with ps; [
-      jupyterlab_server
-      jupyter_core
+      jupyterlab-server
+      jupyter-core
       jupyter
       ipython
       ipykernel

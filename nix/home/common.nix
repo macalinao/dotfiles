@@ -56,7 +56,7 @@
     cargo-workspaces
     # cargo-outdated
 
-    nixfmt-rfc-style
+    nixfmt
     pypi2nix
     cachix
     nil

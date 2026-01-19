@@ -8,7 +8,7 @@ mkShell {
   nativeBuildInputs = [
     git
     coreutils-full
-    nixfmt-rfc-style
+    nixfmt
     shfmt
     (pnpm.override {
       inherit nodejs;

@@ -20,6 +20,8 @@
 
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+
+    notifykit.url = "github:macalinao/notifykit";
   };
 
   outputs =
@@ -31,6 +33,7 @@
       flake-utils,
       rnix-lsp,
       nix-index-database,
+      notifykit,
       ...
     }:
     let
@@ -103,6 +106,7 @@
                   additionalOverlays = additionalOverlays ++ [
                     (self: super: {
                       rnix-lsp = rnix-lsp.defaultPackage.${system};
+                      notifykit = notifykit.packages.${system}.default;
                     })
                   ];
                 };

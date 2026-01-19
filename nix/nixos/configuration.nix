@@ -70,7 +70,7 @@ with lib;
   time.timeZone = "America/Chicago";
 
   nix = {
-    package = pkgs.nixUnstable;
+    package = pkgs.nix;
     settings = {
       sandbox = false;
       trusted-users = [
