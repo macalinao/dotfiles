@@ -82,3 +82,5 @@ Claude Code settings are stored in `/config/claude/settings.json`. Run `apply-cl
 - Model preferences
 - Notification hooks
 - Enabled plugins
+
+When editing permissions, keep them organized by category (bun, cargo, git, filesystem, search, web, mcp).
