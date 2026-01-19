@@ -76,11 +76,4 @@ The repository uses a multi-flake architecture:
 
 ### Claude Code Settings
 
-Claude Code settings are stored in `/config/claude/settings.json`. Run `apply-claude` to copy this file to `~/.claude/settings.json`. This file manages:
-
-- Allowed/denied tool permissions
-- Model preferences
-- Notification hooks
-- Enabled plugins
-
-When editing permissions, keep them organized by category (bun, cargo, git, filesystem, search, web, mcp).
+Claude Code settings are stored in `/config/claude/`. See [config/claude/CLAUDE.md](config/claude/CLAUDE.md) for documentation on the settings format and organization guidelines.
