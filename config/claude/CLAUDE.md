@@ -4,7 +4,25 @@ This directory contains Claude Code configuration.
 
 ## Files
 
-- `settings.json` - Main Claude Code settings file. Run `apply-claude` to copy to `~/.claude/settings.json`.
+- `settings.json` - Main Claude Code settings file
+
+## Commands
+
+### claude-config-apply
+
+Deploys `settings.json` from this directory to all Claude config directories (`~/.claude`, `~/.claude-2`, `~/.claude-3`). Also adds required plugin marketplaces.
+
+```bash
+claude-config-apply
+```
+
+### claude-config-sync
+
+Copies `~/.claude/settings.json` back to this directory. Use this after making changes via Claude Code that you want to persist.
+
+```bash
+claude-config-sync
+```
 
 ## Settings Structure
 
