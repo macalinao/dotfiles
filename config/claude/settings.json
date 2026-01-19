@@ -50,7 +50,10 @@
       "Bash(bun run lint:fix)",
       "Bash(bun run typecheck)",
       "Bash(bun run test)",
-      "Bash(bun run clean)"
+      "Bash(bun run clean)",
+      "mcp__plugin_context7_context7__query-docs",
+      "Bash(bun info:*)",
+      "WebFetch(domain:devenv.sh)"
     ],
     "deny": []
   },
