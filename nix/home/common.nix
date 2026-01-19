@@ -172,6 +172,7 @@
   };
 
   home.sessionPath = [
+    "${config.home.homeDirectory}/.local/bin"
     "${config.home.homeDirectory}/.npm-packages/bin"
     "${config.home.homeDirectory}/.cache/.bun/bin"
     "${config.home.homeDirectory}/.cargo/bin"
@@ -235,7 +236,7 @@
 
       # Claude Code
       claude-2 = "CLAUDE_CONFIG_DIR=~/.claude-2 claude";
-      claude-update = "${pkgs.bun}/bin/bun add --global @anthropic-ai/claude-code";
+      claude-install = "curl -fsSL https://claude.ai/install.sh | bash";
     };
 
     history = {
