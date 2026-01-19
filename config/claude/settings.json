@@ -49,7 +49,8 @@
       "Bash(bun run lint)",
       "Bash(bun run lint:fix)",
       "Bash(bun run typecheck)",
-      "Bash(bun run test)"
+      "Bash(bun run test)",
+      "Bash(bun run clean)"
     ],
     "deny": []
   },
