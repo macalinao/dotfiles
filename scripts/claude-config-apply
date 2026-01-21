@@ -26,7 +26,7 @@ for dir in "${CLAUDE_DIRS[@]}"; do
 		cp "$SETTINGS_FILE" "$dir/settings.json"
 
 		# Add igm-plugins marketplace if not present
-		if ! CLAUDE_CONFIG_DIR="$dir" claude plugin marketplace list 2>/dev/null | grep -q "claude-plugin"; then
+		if ! CLAUDE_CONFIG_DIR="$dir" claude plugin marketplace list 2>/dev/null | grep -q "macalinao/claude-plugin"; then
 			echo "Adding macalinao/claude-plugin marketplace to $dir"
 			CLAUDE_CONFIG_DIR="$dir" claude plugin marketplace add macalinao/claude-plugin
 		fi
