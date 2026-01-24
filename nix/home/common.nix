@@ -306,6 +306,17 @@
     settings.git_protocol = "ssh";
   };
 
+  programs.ssh = {
+    enable = true;
+    matchBlocks = {
+      "*" = {
+        setEnv = {
+          TERM = "xterm-256color";
+        };
+      };
+    };
+  };
+
   nix = {
     enable = true;
     # package = pkgs.nixUnstable;
