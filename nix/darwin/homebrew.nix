@@ -40,7 +40,6 @@ in
       "openssl@1.1"
     ])
     ++ [
-      "yabai"
       "skhd-zig"
       "sui"
     ];

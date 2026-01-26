@@ -14,10 +14,9 @@ fi
 cd $DOTFILES/nix
 nix_cmd flake update
 
-cd $HOME/dotfiles-darwin
-nix flake update
-
 cd $DOTFILES
 git add .
-
 git commit -am "Run nix flake update via igm-update"
+
+cd $HOME/dotfiles-darwin
+nix flake update
