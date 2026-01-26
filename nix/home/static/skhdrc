@@ -2,39 +2,39 @@
 shift + cmd - w : /Applications/Ghostty.app/Contents/MacOS/ghostty
 
 # Move windows to spaces
-ctrl + shift - 1 : /opt/homebrew/bin/yabai -m window --space 1
-ctrl + shift - 2 : /opt/homebrew/bin/yabai -m window --space 2
-ctrl + shift - 3 : /opt/homebrew/bin/yabai -m window --space 3
-ctrl + shift - 4 : /opt/homebrew/bin/yabai -m window --space 4
-ctrl + shift - 5 : /opt/homebrew/bin/yabai -m window --space 5
-ctrl + shift - 6 : /opt/homebrew/bin/yabai -m window --space 6
-ctrl + shift - 7 : /opt/homebrew/bin/yabai -m window --space 7
-ctrl + shift - 8 : /opt/homebrew/bin/yabai -m window --space 8
-ctrl + shift - 9 : /opt/homebrew/bin/yabai -m window --space 9
-ctrl + shift - 0 : /opt/homebrew/bin/yabai -m window --space 10
+ctrl + shift - 1 : /run/current-system/sw/bin/yabai -m window --space 1
+ctrl + shift - 2 : /run/current-system/sw/bin/yabai -m window --space 2
+ctrl + shift - 3 : /run/current-system/sw/bin/yabai -m window --space 3
+ctrl + shift - 4 : /run/current-system/sw/bin/yabai -m window --space 4
+ctrl + shift - 5 : /run/current-system/sw/bin/yabai -m window --space 5
+ctrl + shift - 6 : /run/current-system/sw/bin/yabai -m window --space 6
+ctrl + shift - 7 : /run/current-system/sw/bin/yabai -m window --space 7
+ctrl + shift - 8 : /run/current-system/sw/bin/yabai -m window --space 8
+ctrl + shift - 9 : /run/current-system/sw/bin/yabai -m window --space 9
+ctrl + shift - 0 : /run/current-system/sw/bin/yabai -m window --space 10
 
 # Switch spaces
-ctrl - 1 : /opt/homebrew/bin/yabai -m space --focus 1
-ctrl - 2 : /opt/homebrew/bin/yabai -m space --focus 2
-ctrl - 3 : /opt/homebrew/bin/yabai -m space --focus 3
-ctrl - 4 : /opt/homebrew/bin/yabai -m space --focus 4
-ctrl - 5 : /opt/homebrew/bin/yabai -m space --focus 5
+ctrl - 1 : /run/current-system/sw/bin/yabai -m space --focus 1
+ctrl - 2 : /run/current-system/sw/bin/yabai -m space --focus 2
+ctrl - 3 : /run/current-system/sw/bin/yabai -m space --focus 3
+ctrl - 4 : /run/current-system/sw/bin/yabai -m space --focus 4
+ctrl - 5 : /run/current-system/sw/bin/yabai -m space --focus 5
 
-alt - 1 : /opt/homebrew/bin/yabai -m space --focus 6
-alt - 2 : /opt/homebrew/bin/yabai -m space --focus 7
-alt - 3 : /opt/homebrew/bin/yabai -m space --focus 8
-alt - 4 : /opt/homebrew/bin/yabai -m space --focus 9
-alt - 5 : /opt/homebrew/bin/yabai -m space --focus 10
+alt - 1 : /run/current-system/sw/bin/yabai -m space --focus 6
+alt - 2 : /run/current-system/sw/bin/yabai -m space --focus 7
+alt - 3 : /run/current-system/sw/bin/yabai -m space --focus 8
+alt - 4 : /run/current-system/sw/bin/yabai -m space --focus 9
+alt - 5 : /run/current-system/sw/bin/yabai -m space --focus 10
 
-ctrl - 6 : /opt/homebrew/bin/yabai -m space --focus 6
-ctrl - 7 : /opt/homebrew/bin/yabai -m space --focus 7
-ctrl - 8 : /opt/homebrew/bin/yabai -m space --focus 8
-ctrl - 9 : /opt/homebrew/bin/yabai -m space --focus 9
-ctrl - 0 : /opt/homebrew/bin/yabai -m space --focus 10
+ctrl - 6 : /run/current-system/sw/bin/yabai -m space --focus 6
+ctrl - 7 : /run/current-system/sw/bin/yabai -m space --focus 7
+ctrl - 8 : /run/current-system/sw/bin/yabai -m space --focus 8
+ctrl - 9 : /run/current-system/sw/bin/yabai -m space --focus 9
+ctrl - 0 : /run/current-system/sw/bin/yabai -m space --focus 10
 
 # Switch spaces
-hyper - left : /opt/homebrew/bin/yabai -m space --focus prev
-hyper - right : /opt/homebrew/bin/yabai -m space --focus next
+hyper - left : /run/current-system/sw/bin/yabai -m space --focus prev
+hyper - right : /run/current-system/sw/bin/yabai -m space --focus next
 
-hyper - w : /opt/homebrew/bin/yabai -m space --destroy
-hyper - n : /opt/homebrew/bin/yabai -m space --create
+hyper - w : /run/current-system/sw/bin/yabai -m space --destroy
+hyper - n : /run/current-system/sw/bin/yabai -m space --create
