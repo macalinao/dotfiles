@@ -42,6 +42,7 @@ in
     ++ [
       "skhd-zig"
       "sui"
+      "yabai"
     ];
 
   casks = [

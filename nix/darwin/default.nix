@@ -12,7 +12,6 @@ with lib;
 {
   environment.systemPackages = with pkgs; [
     vim
-    yabai
     # Tor install is currently broken 2023-11-28
     # tor
   ];
