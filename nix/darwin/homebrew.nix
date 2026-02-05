@@ -29,8 +29,10 @@ in
     "homebrew/cask-versions"
     # "homebrew/core"
     "homebrew/services"
+    "asmvik/formulae"
     "koekeishiya/formulae"
     "jackielii/tap"
+    "schpet/tap"
     "source-foundry/taproom"
   ];
 
@@ -40,9 +42,10 @@ in
       "openssl@1.1"
     ])
     ++ [
+      "asmvik/formulae/yabai"
+      "schpet/tap/linear"
       "skhd-zig"
       "sui"
-      "yabai"
     ];
 
   casks = [
