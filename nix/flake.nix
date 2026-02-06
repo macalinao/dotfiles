@@ -200,7 +200,9 @@
         in
         {
           formatter = pkgs.nixfmt;
-          packages = import ./shells { inherit pkgs; };
+          packages = import ./shells { inherit pkgs; } // {
+            linear-cli = pkgs.linear-cli;
+          };
         }
       ))
     );

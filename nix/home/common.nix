@@ -79,6 +79,8 @@
     # jdk23
     proxmark3
     devenv
+
+    linear-cli
   ];
 
   home.stateVersion = "22.05";
