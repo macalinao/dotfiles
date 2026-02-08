@@ -81,6 +81,7 @@
     devenv
 
     linear-cli
+    wally-cli
   ];
 
   home.stateVersion = "22.05";
