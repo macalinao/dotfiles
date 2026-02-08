@@ -119,6 +119,8 @@
         dft = "-c diff.external=${pkgs.difftastic}/bin/difft diff";
         dl = "-c diff.external=${pkgs.difftastic}/bin/difft log -p --ext-diff";
         ds = "-c diff.external=${pkgs.difftastic}/bin/difft show --ext-diff";
+        # Check if current commit is merged into main branches
+        is-merged = ''!f() { commit=''${1:-HEAD}; for branch in origin/master origin/main master main; do if git merge-base --is-ancestor "$commit" "$branch" 2>/dev/null; then echo "✓ Commit is merged into $branch"; return 0; fi; done; echo "✗ Commit is not merged into any main branch"; return 1; }; f'';
       };
       user = {
         name = "Ian Macalinao";
