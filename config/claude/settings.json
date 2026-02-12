@@ -38,6 +38,7 @@
       "Bash(tail:*)",
       "Bash(touch:*)",
       "Bash(tree:*)",
+      "Bash(wc:*)",
       "Bash(ast-grep:*)",
       "Bash(grep:*)",
       "Bash(rg:*)",
