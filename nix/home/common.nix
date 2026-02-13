@@ -269,6 +269,9 @@
 
     bat = {
       enable = true;
+      config = {
+        map-syntax = [ "*.alloy:Terraform" ];
+      };
       extraPackages = with pkgs.bat-extras; [
         batdiff
         batman
