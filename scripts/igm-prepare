@@ -7,7 +7,7 @@ cd $DOTFILES
 
 SHOW_TRACE=''
 if [ $1 = '--debug' ]; then
-    SHOW_TRACE='--show-trace'
+	SHOW_TRACE='--show-trace'
 fi
 
 source $DOTFILES/scripts/igm-helpers.sh
@@ -24,9 +24,9 @@ echo "Updating igm and dotfiles-private-raw flakes."
 nix flake lock --update-input igm --update-input dotfiles-private-raw $FLAKE_PATH
 
 if $(uname -a | grep -q "NixOS"); then
-    nix build "$FLAKE_PATH#nixosConfigurations.$SYSTEM_CONFIG_ATTRIBUTE.system" $SHOW_TRACE || exit 1
+	nix build "$FLAKE_PATH#nixosConfigurations.$SYSTEM_CONFIG_ATTRIBUTE.system" $SHOW_TRACE || exit 1
 elif $(uname -a | grep -q "Darwin"); then
-    nix build "$FLAKE_PATH#$SYSTEM_CONFIG_ATTRIBUTE" $SHOW_TRACE || exit 1
+	nix build "$FLAKE_PATH#$SYSTEM_CONFIG_ATTRIBUTE" $SHOW_TRACE || exit 1
 fi
 
 echo "Success! Now run 'igm-switch'."

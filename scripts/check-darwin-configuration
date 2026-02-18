@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+nix -Lv build "nix/#darwinConfigurations.ci-personal-m1.system" --show-trace

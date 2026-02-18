@@ -13,8 +13,8 @@ jobs:
       matrix:
         runsOn:
           - ubuntu-22.04
-          - macos-13
-          - macos-15
+          - macos-15-intel # check things work on Intel
+          - macos-26
     runs-on: ${{ matrix.runsOn }}
     steps:
       - uses: actions/checkout@v4
@@ -23,10 +23,8 @@ jobs:
         with:
           name: devenv
       - run: nix profile install nixpkgs#devenv
-      - name: Build devenv shell
-        run: devenv shell -- echo OK
-      - name: Check formatting
-        run: devenv shell -- ./scripts/igm-fmt-check
+      - name: Run devenv tests
+        run: devenv test
 
   check:
     strategy:
@@ -34,8 +32,8 @@ jobs:
       matrix:
         runsOn:
           - ubuntu-22.04
-          - macos-13
-          - macos-15
+          - macos-15-intel # check things work on Intel
+          - macos-26
     runs-on: ${{ matrix.runsOn }}
     steps:
       - uses: actions/checkout@v4
@@ -66,12 +64,12 @@ jobs:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       - run: nix -Lv build "./nix#nixosConfigurations.${{ matrix.nixosConfiguration }}.config.system.build.toplevel"
 
-  macos-15:
+  macos-26:
     strategy:
       fail-fast: false
       matrix:
         runsOn:
-          - macos-15
+          - macos-26
     runs-on: ${{ matrix.runsOn }}
     steps:
       - uses: actions/checkout@v4
@@ -80,4 +78,4 @@ jobs:
         with:
           name: igm
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      - run: nix -Lv build "nix/#darwinConfigurations.ci-personal.system"
+      - run: nix -Lv build "nix/#darwinConfigurations.ci-personal-m1.system"
