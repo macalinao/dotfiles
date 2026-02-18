@@ -63,6 +63,14 @@
 
     imagemagick
 
+    # PDF tools
+    poppler_utils # pdftotext, pdfinfo, pdfimages
+    pdfgrep # grep for PDFs
+    qpdf # merge, split, transform PDFs
+    ghostscript # PDF rendering and conversion
+    mupdf # mutool for PDF inspection
+    ocrmypdf # OCR for scanned PDFs
+
     # yq
     yj # toml CLI
 
