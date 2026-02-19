@@ -26,8 +26,11 @@
   # https://devenv.sh/git-hooks/
   git-hooks.hooks = {
     nixfmt.enable = true;
-    # Format shell scripts
-    shfmt.enable = true;
+    # Format shell scripts with 2-space indent
+    shfmt = {
+      enable = true;
+      entry = "${pkgs.shfmt}/bin/shfmt -i 2 -w";
+    };
     # Format JavaScript/TypeScript/JSON/CSS files with Biome
     biome = {
       enable = true;
