@@ -59,6 +59,8 @@ in
 {
   programs.git.includes = allGitIncludes;
 
+  programs.ssh.matchBlocks = dotfiles-private.sshMatchBlocks or { };
+
   home.file = dotfiles-private.homeFiles;
   # xdg.configFile = dotfiles-private.xdgFiles;
 }
