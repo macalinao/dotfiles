@@ -61,6 +61,7 @@
     cachix
     nil
 
+    mosh
     imagemagick
 
     # PDF tools
@@ -261,6 +262,76 @@
     };
   };
 
+  programs.bash = {
+    enable = true;
+    enableCompletion = true;
+
+    shellOptions = [
+      # Append to history instead of overwriting
+      "histappend"
+      # Check window size after each command
+      "checkwinsize"
+      # Extended glob patterns (e.g. !(pattern), ?(pattern))
+      "extglob"
+      # Recursive glob with **
+      "globstar"
+      # cd into directory by typing its name
+      "autocd"
+      # Correct minor typos in cd directory names
+      "cdspell"
+      # Correct minor typos in directory names during completion
+      "dirspell"
+      # Include dotfiles in glob expansion
+      "dotglob"
+      # Expand aliases in non-interactive shells
+      "expand_aliases"
+      # Allow comments in interactive shell
+      "interactive_comments"
+      # Don't complete on empty line
+      "no_empty_cmd_completion"
+    ];
+
+    historySize = 500000;
+    historyFileSize = 500000;
+    historyControl = [
+      "ignoredups"
+      "ignorespace"
+      "erasedups"
+    ];
+
+    shellAliases = {
+      gac = "git ac";
+      gj = "cd $(git root)";
+      gd = "git dft";
+      gs = "git status";
+
+      ls = "${pkgs.eza}/bin/eza";
+      l = "${pkgs.eza}/bin/eza -lah";
+
+      x = "exit";
+      c = "clear";
+    };
+
+  };
+
+  programs.readline = {
+    enable = true;
+    bindings = {
+      "\\e[A" = "history-search-backward";
+      "\\e[B" = "history-search-forward";
+    };
+    variables = {
+      show-all-if-ambiguous = true;
+      completion-ignore-case = true;
+      completion-map-case = true;
+      colored-stats = true;
+      mark-directories = true;
+      mark-symlinked-directories = true;
+      bell-style = "none";
+      colored-completion-prefix = true;
+    };
+  };
+
   programs = {
     zellij = {
       enable = true;
@@ -273,6 +344,7 @@
     zoxide = {
       enable = true;
       enableZshIntegration = true;
+      enableBashIntegration = true;
     };
 
     bat = {
@@ -287,8 +359,26 @@
         batwatch
       ];
     };
-    skim.enable = true;
     jq.enable = true;
+
+    atuin = {
+      enable = true;
+      enableZshIntegration = true;
+      enableBashIntegration = true;
+      flags = [ "--disable-up-arrow" ];
+      settings = {
+        dialect = "us";
+        style = "compact";
+        inline_height = 20;
+        show_preview = true;
+        history_filter = [
+          "^secret"
+          "^export.*TOKEN"
+          "^export.*KEY"
+          "^export.*PASSWORD"
+        ];
+      };
+    };
   };
 
   programs.tmux = {
