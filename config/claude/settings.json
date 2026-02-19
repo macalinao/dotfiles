@@ -78,7 +78,14 @@
       "mcp__playwright__browser_click",
       "mcp__playwright__browser_navigate",
       "mcp__plugin_context7_context7__query-docs",
-      "mcp__plugin_context7_context7__resolve-library-id"
+      "mcp__plugin_context7_context7__resolve-library-id",
+      "mcp__deepwiki__ask_question",
+      "mcp__deepwiki__read_wiki_contents",
+      "mcp__deepwiki__read_wiki_structure",
+      "mcp__plugin_deepwiki_deepwiki__ask_question",
+      "mcp__plugin_deepwiki_deepwiki__read_wiki_contents",
+      "mcp__plugin_deepwiki_deepwiki__read_wiki_structure",
+      "mcp__plugin_figma_figma__get_design_context"
     ],
     "deny": []
   },
