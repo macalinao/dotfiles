@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [ $# -eq 0 ]; then
+  echo "Usage: claude-all <args...>"
+  echo "Runs 'claude <args...>' in each .claude directory (~/.claude, ~/.claude-2, etc.)"
+  exit 1
+fi
+
+for dir in "$HOME"/.claude "$HOME"/.claude-[0-9]*; do
+  [ -d "$dir" ] || continue
+  echo "==> $(basename "$dir")"
+  CLAUDE_CONFIG_DIR="$dir" claude "$@"
+  echo ""
+done

@@ -1,31 +1,17 @@
 #!/usr/bin/env bash
 set -e
 
-CLAUDE_DIRS=(
-	"$HOME/.claude"
-	"$HOME/.claude-2"
-	"$HOME/.claude-3"
-	"$HOME/.claude-4"
-)
-
 MARKETPLACES=(
-	macalinao/claude-plugins
-	ast-grep/claude-skill
-	schpet/linear-cli
-	Dammyjay93/interface-design
-	qazi0/claude-plugins
+  macalinao/claude-plugins
+  ast-grep/claude-skill
+  schpet/linear-cli
+  Dammyjay93/interface-design
+  qazi0/claude-plugins
 )
 
-for dir in "${CLAUDE_DIRS[@]}"; do
-	echo "==> $dir"
-	for mp in "${MARKETPLACES[@]}"; do
-		if ! CLAUDE_CONFIG_DIR="$dir" claude plugin marketplace list 2>/dev/null | grep -q "$mp"; then
-			echo "  Adding $mp"
-			CLAUDE_CONFIG_DIR="$dir" claude plugin marketplace add "$mp"
-		else
-			echo "  $mp already added"
-		fi
-	done
+for mp in "${MARKETPLACES[@]}"; do
+  echo "Adding marketplace: $mp"
+  claude-all plugin marketplace add "$mp"
 done
 
 echo "Done."
