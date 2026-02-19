@@ -124,7 +124,6 @@
     "github@claude-plugins-official": true,
     "gitlab@claude-plugins-official": true,
     "igm@igm-claude-plugins": true,
-    "greptile@claude-plugins-official": true,
     "plugin-dev@claude-plugins-official": true,
     "code-simplifier@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true,
