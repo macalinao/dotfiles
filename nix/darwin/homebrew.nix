@@ -30,7 +30,6 @@ in
     # "homebrew/core"
     "homebrew/services"
     "asmvik/formulae"
-    "koekeishiya/formulae"
     "jackielii/tap"
     "schpet/tap"
     "source-foundry/taproom"
