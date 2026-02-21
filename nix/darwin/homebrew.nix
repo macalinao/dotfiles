@@ -34,6 +34,7 @@ in
     "jackielii/tap"
     "schpet/tap"
     "source-foundry/taproom"
+    "steipete/tap"
   ];
 
   brews =
@@ -45,6 +46,7 @@ in
       "asmvik/formulae/yabai"
       "schpet/tap/linear"
       "skhd-zig"
+      "steipete/tap/gogcli"
       "sui"
     ];
 
