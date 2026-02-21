@@ -91,6 +91,8 @@
 
     linear-cli
     wally-cli
+    gogcli
+    wacli
   ];
 
   home.stateVersion = "22.05";

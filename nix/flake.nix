@@ -22,6 +22,8 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 
     notifykit.url = "github:macalinao/notifykit";
+
+    additional-nix-packages.url = "github:macalinao/additional-nix-packages";
   };
 
   outputs =
@@ -34,6 +36,7 @@
       rnix-lsp,
       nix-index-database,
       notifykit,
+      additional-nix-packages,
       ...
     }:
     let
@@ -70,6 +73,7 @@
             ({
               nixpkgs = import ./nixpkgs/config.nix {
                 additionalOverlays = additionalOverlays ++ [
+                  additional-nix-packages.overlays.default
                   (self: super: {
                     rnix-lsp = rnix-lsp.defaultPackage.${system};
                   })
@@ -104,6 +108,7 @@
                 nixpkgs = import ./nixpkgs/config.nix {
                   isDarwin = true;
                   additionalOverlays = additionalOverlays ++ [
+                    additional-nix-packages.overlays.default
                     (self: super: {
                       rnix-lsp = rnix-lsp.defaultPackage.${system};
                       notifykit = notifykit.packages.${system}.default;
