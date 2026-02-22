@@ -263,7 +263,7 @@
       # Auto-detect indent settings
       vim-sleuth
     ];
-    extraLuaConfig = builtins.readFile ./static/nvim-init.lua;
+    initLua = builtins.readFile ./static/nvim-init.lua;
   };
 
   programs.helix = {
