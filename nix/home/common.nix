@@ -192,7 +192,7 @@
     enable = true;
     defaultEditor = true;
     viAlias = true;
-    vimDiffMode = true;
+    vimdiffAlias = true;
     plugins = with pkgs.vimPlugins; [
       # Theme
       nord-nvim
