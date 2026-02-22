@@ -188,6 +188,31 @@
     extraConfig = builtins.readFile ./static/vimrc;
   };
 
+  programs.helix = {
+    enable = true;
+    settings = {
+      theme = "nord";
+      editor = {
+        cursor-shape = {
+          insert = "bar";
+          normal = "block";
+          select = "underline";
+        };
+        indent-guides.render = true;
+        lsp.display-messages = true;
+        file-picker.hidden = false;
+      };
+    };
+    languages = {
+      language = [
+        {
+          name = "nix";
+          formatter.command = "${pkgs.nixfmt}/bin/nixfmt";
+        }
+      ];
+    };
+  };
+
   home.sessionPath = [
     "${config.home.homeDirectory}/.local/bin"
     "${config.home.homeDirectory}/.npm-packages/bin"
