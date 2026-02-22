@@ -54,7 +54,7 @@ with lib;
     '';
   };
 
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   programs.bash.enable = true;
   programs.zsh = {
