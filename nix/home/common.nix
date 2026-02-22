@@ -188,6 +188,84 @@
     extraConfig = builtins.readFile ./static/vimrc;
   };
 
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimDiffMode = true;
+    plugins = with pkgs.vimPlugins; [
+      # Theme
+      nord-nvim
+
+      # Status line (replaces vim-airline)
+      lualine-nvim
+      nvim-web-devicons
+
+      # File picker (Ctrl-P)
+      telescope-nvim
+      plenary-nvim
+
+      # Treesitter
+      (nvim-treesitter.withPlugins (
+        p: with p; [
+          nix
+          lua
+          javascript
+          typescript
+          tsx
+          json
+          yaml
+          toml
+          bash
+          rust
+          go
+          python
+          markdown
+          html
+          css
+        ]
+      ))
+
+      # LSP
+      nvim-lspconfig
+
+      # Autocomplete
+      nvim-cmp
+      cmp-nvim-lsp
+      cmp-buffer
+      cmp-path
+
+      # Git integration
+      gitsigns-nvim
+
+      # Surround
+      nvim-surround
+
+      # Comment toggling
+      comment-nvim
+
+      # Autopairs
+      nvim-autopairs
+
+      # Indent guides
+      indent-blankline-nvim
+
+      # Which-key (keybinding hints)
+      which-key-nvim
+
+      # File explorer
+      neo-tree-nvim
+      nui-nvim
+
+      # Format on save
+      conform-nvim
+
+      # Auto-detect indent settings
+      vim-sleuth
+    ];
+    extraLuaConfig = builtins.readFile ./static/nvim-init.lua;
+  };
+
   programs.helix = {
     enable = true;
     settings = {
@@ -249,7 +327,7 @@
 
     sessionVariables = {
       DOTFILES = "${config.home.homeDirectory}/dotfiles";
-      EDITOR = "${pkgs.vim}/bin/vim";
+      EDITOR = "nvim";
       # If your computer is in a different language, the terminal may break without this line
       LC_ALL = "en_US.UTF-8";
     };
@@ -267,7 +345,7 @@
       c = "clear";
       nf = "nixfmt **/*.nix";
 
-      vi = "vim";
+      vi = "nvim";
       bear = "keybase chat send bearcott";
       dylan = "keybase chat send dylanmacalinao";
       unescape = "jq -r .";
