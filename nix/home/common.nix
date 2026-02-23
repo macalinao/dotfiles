@@ -90,6 +90,8 @@
     devenv
 
     linear-cli
+    lintel
+    biome
     wally-cli
     gogcli
     wacli

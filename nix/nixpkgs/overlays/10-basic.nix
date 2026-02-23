@@ -8,8 +8,6 @@ self: super: {
 
   stockfish = self.callPackage ./packages/stockfish.nix { };
 
-  linear-cli = self.callPackage ./packages/linear-cli.nix { };
-
   # cargo-workspaces = self.callPackage ./packages/cargo-workspaces.nix { };
 
   # kitty = super.kitty.overrideAttrs (existing: {
