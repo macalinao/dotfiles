@@ -38,27 +38,21 @@ require("lualine").setup({
   options = { theme = "nord" },
 })
 
--- Treesitter
-require("nvim-treesitter.configs").setup({
-  highlight = { enable = true },
-  indent = { enable = true },
-})
-
 -- LSP
-local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local servers = { "nil_ls", "rust_analyzer", "ts_ls", "gopls", "pyright" }
 for _, server in ipairs(servers) do
-  lspconfig[server].setup({ capabilities = capabilities })
+  vim.lsp.config(server, { capabilities = capabilities })
 end
+vim.lsp.enable(servers)
 
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 vim.keymap.set("n", "gr", vim.lsp.buf.references)
 vim.keymap.set("n", "K", vim.lsp.buf.hover)
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end)
+vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1, float = true }) end)
 
 -- Autocomplete
 local cmp = require("cmp")
