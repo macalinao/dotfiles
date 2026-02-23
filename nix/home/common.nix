@@ -262,6 +262,9 @@
 
       # Auto-detect indent settings
       vim-sleuth
+
+      # Markdown bullet points
+      bullets-vim
     ];
     initLua = builtins.readFile ./static/nvim-init.lua;
   };
