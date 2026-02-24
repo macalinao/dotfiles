@@ -196,9 +196,6 @@
     viAlias = true;
     vimdiffAlias = true;
     plugins = with pkgs.vimPlugins; [
-      # Theme
-      nord-nvim
-
       # Status line (replaces vim-airline)
       lualine-nvim
       nvim-web-devicons

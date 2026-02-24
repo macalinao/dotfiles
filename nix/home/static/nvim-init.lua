@@ -1,6 +1,3 @@
--- Theme
-vim.cmd.colorscheme("nord")
-
 -- Settings from vim config
 vim.opt.number = true
 vim.opt.splitbelow = true
@@ -34,9 +31,7 @@ vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
 vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
 
 -- Lualine (status line)
-require("lualine").setup({
-  options = { theme = "nord" },
-})
+require("lualine").setup()
 
 -- LSP
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
