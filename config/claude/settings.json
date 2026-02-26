@@ -57,6 +57,7 @@
       "Bash(gh search:*)",
       "Bash(cat:*)",
       "Bash(find:*)",
+      "Bash(head:*)",
       "Bash(ls:*)",
       "Bash(mkdir:*)",
       "Bash(mv:*)",
