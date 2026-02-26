@@ -54,6 +54,7 @@
       "Bash(gh pr diff:*)",
       "Bash(gh pr list:*)",
       "Bash(gh pr view:*)",
+      "Bash(gh release view:*)",
       "Bash(gh search:*)",
       "Bash(cat:*)",
       "Bash(find:*)",
