@@ -25,7 +25,6 @@ with lib;
       casks.claude
       casks.discord
       casks."docker-desktop"
-      casks.figma
       casks.ghostty
       casks."linear-linear"
       casks.ngrok

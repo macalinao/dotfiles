@@ -48,6 +48,7 @@ in
 
   # Casks not available in nix-casks (remaining managed by Homebrew)
   casks = [
+    "figma"
     "google-chrome"
     "keybase"
     "keymapp"
