@@ -11,6 +11,7 @@
     nixfmt
     shfmt
     biome
+    stylua
   ];
 
   languages.nix = {
@@ -36,6 +37,10 @@
       enable = true;
       files = "\.(js|jsx|ts|tsx|css|graphql|jsonc)$";
       excludes = [ "config/.*\\.json$" ];
+    };
+    # Format Lua files with stylua
+    stylua = {
+      enable = true;
     };
     # Run prettier on other files that Biome doesn't support
     prettier = {
