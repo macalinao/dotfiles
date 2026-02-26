@@ -71,8 +71,6 @@
     qpdf # merge, split, transform PDFs
     ghostscript # PDF rendering and conversion
     mupdf # mutool for PDF inspection
-    ocrmypdf # OCR for scanned PDFs
-
     # yq
     yj # toml CLI
 
