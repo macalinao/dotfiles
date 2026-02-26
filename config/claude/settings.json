@@ -72,6 +72,8 @@
       "Bash(rg:*)",
       "Bash(claude:*)",
       "Bash(echo:*)",
+      "Bash(nix eval:*)",
+      "Bash(nix flake show:*)",
       "Bash(nix search:*)",
       "WebSearch",
       "WebFetch(domain:devenv.sh)",

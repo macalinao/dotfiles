@@ -11,7 +11,7 @@ MARKETPLACES=(
 
 for mp in "${MARKETPLACES[@]}"; do
   echo "Adding marketplace: $mp"
-  claude-all plugin marketplace add "$mp"
+  claude-all plugin marketplace add "$mp" || echo "  (already added or failed, continuing)"
 done
 
 echo "Done."

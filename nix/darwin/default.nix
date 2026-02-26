@@ -7,17 +7,50 @@
 
 let
   homeBase = import ../home { systemConfig = config; };
+  mode = config.igm.mode;
+  casks = pkgs.nix-casks;
 in
 with lib;
 {
-  environment.systemPackages = with pkgs; [
-    vim
-    # Tor install is currently broken 2023-11-28
-    # tor
+  environment.systemPackages =
+    with pkgs;
+    [
+      vim
 
-    # macOS apps via nix-casks (in systemPackages for Spotlight indexing)
-    nix-casks.notion
-  ];
+      # macOS apps via nix-casks (in systemPackages for Spotlight indexing)
+      casks."android-studio"
+      casks.anki
+      casks.arc
+      casks."brave-browser"
+      casks.claude
+      casks.discord
+      casks."docker-desktop"
+      casks.figma
+      casks.ghostty
+      casks.keybase
+      casks."linear-linear"
+      casks.ngrok
+      casks.notion
+      casks.postman
+      casks.raycast
+      casks.slack
+      casks.spaceid
+      casks.tableplus
+      casks."the-unarchiver"
+      casks.zed
+    ]
+    ++ (optionals (mode == "personal") [
+      casks."ledger-wallet"
+      casks.obsidian
+      casks.signal
+      casks.telegram
+      casks."tor-browser"
+      casks.transmission
+      casks.vlc
+      casks.wechat
+      casks.whatsapp
+      casks.openttd
+    ]);
 
   home-manager.users.igm = homeBase;
   home-manager.useGlobalPkgs = true;
