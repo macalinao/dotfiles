@@ -60,6 +60,7 @@
     pypi2nix
     cachix
     nil
+    svelte-language-server
 
     mosh
     imagemagick
@@ -224,6 +225,7 @@
           markdown
           html
           css
+          svelte
         ]
       ))
 
