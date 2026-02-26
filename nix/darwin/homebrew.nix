@@ -48,7 +48,6 @@ in
     ];
 
   casks = [
-    "android-studio"
     "anki"
     "arc"
     "brave-browser"
@@ -83,8 +82,6 @@ in
       "obsidian"
       "signal"
       "telegram"
-      "transmission"
-      "vlc"
       "whatsapp"
     ]
     ++ games

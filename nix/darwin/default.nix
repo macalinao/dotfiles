@@ -16,6 +16,8 @@ with lib;
 
     # macOS apps via nix-casks (in systemPackages for Spotlight indexing)
     nix-casks.notion
+    nix-casks.transmission
+    nix-casks.vlc
   ];
 
   home-manager.users.igm = homeBase;
