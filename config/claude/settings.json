@@ -55,6 +55,7 @@
       "Bash(gh pr list:*)",
       "Bash(gh pr view:*)",
       "Bash(gh release view:*)",
+      "Bash(gh run list:*)",
       "Bash(gh search:*)",
       "Bash(cat:*)",
       "Bash(find:*)",
