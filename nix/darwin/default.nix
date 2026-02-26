@@ -14,6 +14,9 @@ with lib;
     vim
     # Tor install is currently broken 2023-11-28
     # tor
+
+    # macOS apps via nix-casks (in systemPackages for Spotlight indexing)
+    nix-casks.notion
   ];
 
   home-manager.users.igm = homeBase;

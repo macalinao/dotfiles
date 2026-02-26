@@ -25,9 +25,6 @@ in
 
       # macOS notification CLI with Claude Code hook support
       notifykit
-
-      # macOS apps via nix-casks (migrated from homebrew)
-      nix-casks.notion
     ]
     ++ (lib.optionals isM1 [
       keybase
