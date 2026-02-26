@@ -357,12 +357,17 @@
       ysdk = "yarn dlx @yarnpkg/sdks vscode";
 
       # Claude Code
-      claude-2 = "CLAUDE_CONFIG_DIR=~/.claude-2 claude";
-      claude-3 = "CLAUDE_CONFIG_DIR=~/.claude-3 claude";
-      claude-4 = "CLAUDE_CONFIG_DIR=~/.claude-4 claude";
-      claude-5 = "CLAUDE_CONFIG_DIR=~/.claude-5 claude";
       claude-install = "curl -fsSL https://claude.ai/install.sh | bash";
-    };
+    }
+    // lib.listToAttrs (
+      builtins.genList (
+        i:
+        let
+          n = i + 2;
+        in
+        lib.nameValuePair "claude-${toString n}" "CLAUDE_CONFIG_DIR=~/.claude-${toString n} claude"
+      ) (systemConfig.igm.claudeInstances - 1)
+    );
 
     history = {
       size = 500000;

@@ -72,6 +72,12 @@ in
       '';
     };
 
+    claudeInstances = mkOption {
+      type = types.int;
+      default = 6;
+      description = "Number of Claude Code instances (generates claude-2 through claude-N).";
+    };
+
     homeModules = mkOption {
       type = types.listOf types.raw;
       default = [ ];
