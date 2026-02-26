@@ -258,6 +258,9 @@
       neo-tree-nvim
       nui-nvim
 
+      # Inline diagnostics
+      tiny-inline-diagnostic-nvim
+
       # Format on save
       conform-nvim
 

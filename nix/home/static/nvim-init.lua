@@ -58,6 +58,10 @@ vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
 vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end)
 vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1, float = true }) end)
 
+-- Inline diagnostics
+require("tiny-inline-diagnostic").setup({ preset = "modern" })
+vim.diagnostic.config({ virtual_text = false })
+
 -- Autocomplete
 local cmp = require("cmp")
 cmp.setup({
