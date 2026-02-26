@@ -27,7 +27,6 @@ with lib;
       casks."docker-desktop"
       casks.figma
       casks.ghostty
-      casks.keybase
       casks."linear-linear"
       casks.ngrok
       casks.notion

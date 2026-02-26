@@ -49,6 +49,7 @@ in
   # Casks not available in nix-casks (remaining managed by Homebrew)
   casks = [
     "google-chrome"
+    "keybase"
     "keymapp"
     "private-internet-access"
     "sourcefoundry-slice"
