@@ -14,6 +14,9 @@ vim.opt.scrolloff = 8
 vim.opt.cursorline = true
 vim.opt.clipboard = "unnamedplus"
 
+-- theme
+vim.cmd.colorscheme "catppuccin"
+
 -- Leader key
 vim.g.mapleader = " "
 
@@ -123,3 +126,4 @@ require("conform").setup({
     lsp_format = "fallback",
   },
 })
+
