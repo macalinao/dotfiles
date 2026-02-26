@@ -63,6 +63,5 @@ in
 
   home.file = dotfiles-private.homeFiles;
 
-  home.sessionVariables = dotfiles-private.sessionVariables or { };
   # xdg.configFile = dotfiles-private.xdgFiles;
 }
