@@ -16,6 +16,7 @@ lib.mkMerge [
     home.file.".claude-2/settings.json".source = claude-settings;
     home.file.".claude-3/settings.json".source = claude-settings;
     home.file.".claude-4/settings.json".source = claude-settings;
+    home.file.".claude-5/settings.json".source = claude-settings;
 
     # Share plans across all claude config dirs
     home.file.".claude-2/plans".source =
@@ -23,6 +24,8 @@ lib.mkMerge [
     home.file.".claude-3/plans".source =
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.claude/plans";
     home.file.".claude-4/plans".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.claude/plans";
+    home.file.".claude-5/plans".source =
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.claude/plans";
   }
   (lib.mkIf pkgs.stdenv.isLinux {
