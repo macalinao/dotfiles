@@ -196,7 +196,7 @@
     viAlias = true;
     vimdiffAlias = true;
     plugins = with pkgs.vimPlugins; [
-      vimPlugins.catppuccin-nvim
+      catppuccin-nvim
 
       # Status line (replaces vim-airline)
       lualine-nvim
