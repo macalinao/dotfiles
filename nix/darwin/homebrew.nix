@@ -3,6 +3,7 @@
 
 let
   games = [
+    "openttd"
     "league-of-legends"
     "minecraft"
     # "steam"
@@ -46,22 +47,48 @@ in
       "sui"
     ];
 
-  # Casks not available in nix-casks (remaining managed by Homebrew)
   casks = [
+    "android-studio"
+    "anki"
+    "arc"
+    "brave-browser"
+    "claude"
+    # "dashlane"
+    "discord"
+    "docker-desktop"
     "figma"
+    "ghostty"
     "google-chrome"
     "keybase"
     "keymapp"
+    "linear-linear"
+    "ngrok"
+    "postman"
     "private-internet-access"
+    "raycast"
+    "slack"
     "sourcefoundry-slice"
+    "spaceid"
     "spotify"
+    "tableplus"
     "tailscale"
+    "the-unarchiver"
     "viber"
+    "zed"
     "zoom"
   ]
   ++ (lib.optionals (mode == "personal") (
     [
       "google-drive"
+      "ledger-wallet"
+      "obsidian"
+      "signal"
+      "telegram"
+      "tor-browser"
+      "transmission"
+      "vlc"
+      "wechat"
+      "whatsapp"
     ]
     ++ games
   ));
