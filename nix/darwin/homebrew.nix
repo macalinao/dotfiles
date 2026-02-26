@@ -21,7 +21,7 @@ in
     autoUpdate = true;
   };
 
-  brewPrefix = if isM1 then "/opt/homebrew/bin" else "/usr/local/bin";
+  prefix = if isM1 then "/opt/homebrew" else "/usr/local";
 
   taps = [
     "homebrew/bundle"
