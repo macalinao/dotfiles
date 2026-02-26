@@ -56,6 +56,24 @@
         "type": "github"
       }
     },
+    "flake-parts": {
+      "inputs": {
+        "nixpkgs-lib": "nixpkgs-lib"
+      },
+      "locked": {
+        "lastModified": 1767609335,
+        "narHash": "sha256-feveD98mQpptwrAEggBQKJTYbvwwglSbOv53uCfH9PY=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "250481aafeb741edfe23d29195671c19b36b6dca",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -171,6 +189,29 @@
         "type": "github"
       }
     },
+    "nix-casks": {
+      "inputs": {
+        "flake-parts": "flake-parts",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "treefmt-nix": "treefmt-nix"
+      },
+      "locked": {
+        "lastModified": 1771977677,
+        "narHash": "sha256-k7Rv9izJXVJv7a5C4UluVmAyZZFXLB7jrJeAt4OmJzc=",
+        "owner": "atahanyorganci",
+        "repo": "nix-casks",
+        "rev": "7df8734d8e478086f554fb08b968c55ee63fac37",
+        "type": "github"
+      },
+      "original": {
+        "owner": "atahanyorganci",
+        "ref": "archive",
+        "repo": "nix-casks",
+        "type": "github"
+      }
+    },
     "nix-index-database": {
       "inputs": {
         "nixpkgs": [
@@ -204,6 +245,21 @@
         "owner": "NixOS",
         "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-lib": {
+      "locked": {
+        "lastModified": 1765674936,
+        "narHash": "sha256-k00uTP4JNfmejrCLJOwdObYC9jHRrr/5M/a/8L2EIdo=",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "rev": "2075416fcb47225d9b68ac469a5c4801a9c4dd85",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
         "type": "github"
       }
     },
@@ -316,6 +372,7 @@
         "darwin": "darwin",
         "flake-utils": "flake-utils_3",
         "home-manager": "home-manager",
+        "nix-casks": "nix-casks",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_3",
         "notifykit": "notifykit",
@@ -365,6 +422,27 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "treefmt-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nix-casks",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1767738726,
+        "narHash": "sha256-bHATlMr42JABTJgi4Wc8SJCK8Cv9AnR6HCl3k8eTwEs=",
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "rev": "4db0238d79254c6d14f251808dc5264b8fc81b73",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "treefmt-nix",
         "type": "github"
       }
     },

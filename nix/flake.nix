@@ -24,6 +24,11 @@
     notifykit.url = "github:macalinao/notifykit";
 
     additional-nix-packages.url = "github:macalinao/additional-nix-packages";
+
+    nix-casks = {
+      url = "github:atahanyorganci/nix-casks/archive";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -37,6 +42,7 @@
       nix-index-database,
       notifykit,
       additional-nix-packages,
+      nix-casks,
       ...
     }:
     let
@@ -112,6 +118,7 @@
                     (self: super: {
                       rnix-lsp = rnix-lsp.defaultPackage.${system};
                       notifykit = notifykit.packages.${system}.default;
+                      nix-casks = nix-casks.packages.${system};
                     })
                   ];
                 };

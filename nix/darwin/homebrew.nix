@@ -63,7 +63,6 @@ in
     "keymapp"
     "linear-linear"
     "ngrok"
-    "notion"
     "postman"
     "private-internet-access"
     "raycast"
