@@ -83,10 +83,8 @@ in
       "obsidian"
       "signal"
       "telegram"
-      "tor-browser"
       "transmission"
       "vlc"
-      "wechat"
       "whatsapp"
     ]
     ++ games

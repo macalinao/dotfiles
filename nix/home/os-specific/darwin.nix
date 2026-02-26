@@ -25,6 +25,8 @@ in
 
       # macOS notification CLI with Claude Code hook support
       notifykit
+
+      nix-search
     ]
     ++ (lib.optionals isM1 [
       keybase

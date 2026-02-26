@@ -29,6 +29,11 @@
       url = "github:atahanyorganci/nix-casks/archive";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-search = {
+      url = "github:diamondburned/nix-search";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -43,6 +48,7 @@
       notifykit,
       additional-nix-packages,
       nix-casks,
+      nix-search,
       ...
     }:
     let
@@ -119,6 +125,7 @@
                       rnix-lsp = rnix-lsp.defaultPackage.${system};
                       notifykit = notifykit.packages.${system}.default;
                       nix-casks = nix-casks.packages.${system};
+                      nix-search = nix-search.packages.${system}.default;
                     })
                   ];
                 };
