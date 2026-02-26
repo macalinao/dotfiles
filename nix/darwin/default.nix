@@ -12,6 +12,7 @@ with lib;
 {
   environment.systemPackages = with pkgs; [
     vim
+    ghostty-bin
 
     # macOS apps via nix-casks (in systemPackages for Spotlight indexing)
     nix-casks.notion
