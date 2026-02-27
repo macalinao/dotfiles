@@ -348,6 +348,7 @@
       # so that atuin keeps ctrl-r precedence (last binding wins)
       source "${pkgs.skim}/share/skim/key-bindings.zsh"
       bindkey '^I' expand-or-complete
+      bindkey '^R' _atuin_search_widget
 
       ${lib.optionalString pkgs.stdenv.isDarwin ''
         bindkey '^[[1;3C' forward-word

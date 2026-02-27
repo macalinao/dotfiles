@@ -23,12 +23,21 @@
         inherit (nixpkgs) lib;
         raw = import dotfiles-private-raw;
       };
+      hmSecrets = {
+        home-manager.users.igm = {
+          imports = [
+            dotfiles-private-raw.homeManagerModules.age
+            dotfiles-private-raw.homeManagerModules.default
+          ];
+        };
+      };
     in
     {
       nixosConfigurations.primary = igm.lib.mkNixosSystem {
         additionalOverlays = private.overlays;
         modules = [
           ./machines/ian-nixdesktop.nix
+          hmSecrets
         ]
         ++ private.modules
         ++ private.nixosModules;
