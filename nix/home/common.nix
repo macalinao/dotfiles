@@ -310,6 +310,11 @@
     "${config.home.homeDirectory}/.local/share/solana/install/active_release/bin"
   ]);
 
+  programs.skim = {
+    enable = true;
+    enableZshIntegration = false;
+  };
+
   programs.zsh = {
     enable = true;
     dotDir = "${config.xdg.configHome}/zsh";
@@ -324,6 +329,10 @@
       ++ (lib.optionals pkgs.stdenv.isDarwin [ "macos" ]);
     };
     initContent = ''
+      # skim: enable ctrl-t and alt-c, but keep default tab and let atuin handle ctrl-r
+      source "${pkgs.skim}/share/skim/key-bindings.zsh"
+      bindkey '^I' expand-or-complete
+
       ${lib.optionalString pkgs.stdenv.isDarwin ''
         bindkey '^[[1;3C' forward-word
         bindkey '^[[1;3D' backward-word
