@@ -31,8 +31,6 @@ in
     "homebrew/services"
     "asmvik/formulae"
     "jackielii/tap"
-    "schpet/tap"
-    "source-foundry/taproom"
   ];
 
   brews =
@@ -42,7 +40,6 @@ in
     ])
     ++ [
       "asmvik/formulae/yabai"
-      "schpet/tap/linear"
       "skhd-zig"
       "sui"
     ];
@@ -61,11 +58,8 @@ in
     "keymapp"
     "linear-linear"
     "ngrok"
-    "postman"
     "private-internet-access"
-    "raycast"
     "slack"
-    "sourcefoundry-slice"
     "spaceid"
     "spotify"
     "tableplus"
