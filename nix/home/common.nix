@@ -310,9 +310,24 @@
     "${config.home.homeDirectory}/.local/share/solana/install/active_release/bin"
   ]);
 
+  programs.fd = {
+    enable = true;
+    hidden = true;
+    extraOptions = [
+      "--follow"
+    ];
+    ignores = [
+      ".git/"
+      "node_modules/"
+    ];
+  };
+
   programs.skim = {
     enable = true;
+    # disabled: we manually source key-bindings.zsh in initContent so atuin keeps ctrl-r
     enableZshIntegration = false;
+    fileWidgetCommand = "fd --type f --type d --type l";
+    changeDirWidgetCommand = "fd --type d";
   };
 
   programs.zsh = {
@@ -329,7 +344,8 @@
       ++ (lib.optionals pkgs.stdenv.isDarwin [ "macos" ]);
     };
     initContent = ''
-      # skim: enable ctrl-t and alt-c, but keep default tab and let atuin handle ctrl-r
+      # skim: source key-bindings for ctrl-t and alt-c, but not via enableZshIntegration
+      # so that atuin keeps ctrl-r precedence (last binding wins)
       source "${pkgs.skim}/share/skim/key-bindings.zsh"
       bindkey '^I' expand-or-complete
 
