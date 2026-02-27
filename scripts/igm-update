@@ -5,10 +5,10 @@ source $DOTFILES/scripts/igm-helpers.sh
 
 # Check for uncommitted changes in dotfiles-private
 if [ -d "$HOME/dotfiles-private" ]; then
-	if [ -n "$(git -C "$HOME/dotfiles-private" status --porcelain)" ]; then
-		echo "Error: dotfiles-private has uncommitted changes. Please commit or stash them first."
-		exit 1
-	fi
+  if [ -n "$(git -C "$HOME/dotfiles-private" status --porcelain)" ]; then
+    echo "Error: dotfiles-private has uncommitted changes. Please commit or stash them first."
+    exit 1
+  fi
 fi
 
 cd $DOTFILES/nix
@@ -20,3 +20,5 @@ git commit -am "Run nix flake update via igm-update"
 
 cd $HOME/dotfiles-darwin
 nix flake update
+git add .
+git commit -am "Run nix flake update via igm-update"

@@ -63,7 +63,7 @@ in
     "spaceid"
     "spotify"
     "tableplus"
-    "tailscale"
+    "tailscale-app"
     "the-unarchiver"
     "viber"
     "zed"
