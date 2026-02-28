@@ -44,7 +44,7 @@ require("lualine").setup()
 
 -- LSP
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local servers = { "nil_ls", "rust_analyzer", "ts_ls", "gopls", "pyright", "svelte" }
+local servers = { "nil_ls", "rust_analyzer", "ts_ls", "basedpyright", "svelte" }
 for _, server in ipairs(servers) do
 	vim.lsp.config(server, { capabilities = capabilities })
 end

@@ -50,7 +50,9 @@
     # cargo
     # rustc
     openssl
-    rust-analyzer
+    # rust-analyzer provided by rustup
+    basedpyright
+    typescript-language-server
 
     shfmt
     cargo-workspaces

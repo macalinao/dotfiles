@@ -12,16 +12,11 @@
     shfmt
     biome
     stylua
+    nodejs_24
   ];
 
   languages.nix = {
     enable = true;
-  };
-
-  # https://devenv.sh/languages/
-  languages.javascript = {
-    enable = true;
-    package = pkgs.nodejs_24;
   };
 
   # https://devenv.sh/git-hooks/
