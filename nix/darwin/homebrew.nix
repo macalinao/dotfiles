@@ -66,7 +66,6 @@ in
     "tailscale-app"
     "the-unarchiver"
     "viber"
-    "zed"
     "zoom"
   ]
   ++ (lib.optionals (mode == "personal") (

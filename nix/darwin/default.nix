@@ -13,6 +13,7 @@ with lib;
   environment.systemPackages = with pkgs; [
     vim
     ghostty-bin
+    zed-editor
 
     # macOS apps via nix-casks (in systemPackages for Spotlight indexing)
     nix-casks.notion
