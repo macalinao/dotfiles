@@ -206,6 +206,8 @@
       # File picker (Ctrl-P)
       telescope-nvim
       plenary-nvim
+      smart-open-nvim
+      sqlite-lua
 
       # Treesitter
       (nvim-treesitter.withPlugins (

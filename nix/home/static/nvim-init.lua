@@ -27,7 +27,10 @@ telescope.setup({
 		file_ignore_patterns = { "node_modules", ".git/" },
 	},
 })
-vim.keymap.set("n", "<C-p>", "<cmd>Telescope find_files<cr>")
+telescope.load_extension("smart_open")
+vim.keymap.set("n", "<C-p>", function()
+	require("telescope").extensions.smart_open.smart_open({ cwd_only = true })
+end)
 vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")
 vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
 vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
