@@ -381,6 +381,7 @@
       nf = "nixfmt **/*.nix";
 
       vi = "nvim";
+      zed = "zeditor";
       bear = "keybase chat send bearcott";
       dylan = "keybase chat send dylanmacalinao";
       unescape = "jq -r .";
