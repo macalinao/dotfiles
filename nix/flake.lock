@@ -5,14 +5,16 @@
         "flake-parts": "flake-parts",
         "lintel": "lintel",
         "mad": "mad",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
-        "lastModified": 1772446285,
-        "narHash": "sha256-QGywyv7jLRxdGTPoWf1yr/TxPnD7IZWg9E8PaXrLtyE=",
+        "lastModified": 1772446511,
+        "narHash": "sha256-JtiTi/cUQMjKuzIa7cTW/Lc8SfZCRNX/JwcPCza6OpY=",
         "owner": "macalinao",
         "repo": "additional-nix-packages",
-        "rev": "5289cdd3c3f8b2a05862649f67913fa6f7285034",
+        "rev": "3a1aa7c1bafeac9bf0ec10e7d955860a31353d0b",
         "type": "github"
       },
       "original": {
@@ -397,22 +399,6 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1772173633,
-        "narHash": "sha256-MOH58F4AIbCkh6qlQcwMycyk5SWvsqnS/TCfnqDlpj4=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "c0f3d81a7ddbc2b1332be0d8481a672b4f6004d6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_3": {
-      "locked": {
         "lastModified": 1768661221,
         "narHash": "sha256-MJwOjrIISfOpdI9x4C+5WFQXvHtOuj5mqLZ4TMEtk1M=",
         "owner": "NixOS",
@@ -427,7 +413,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1656753965,
         "narHash": "sha256-BCrB3l0qpJokOnIVc3g2lHiGhnjUi0MoXiw6t1o8H1E=",
@@ -445,7 +431,7 @@
     },
     "notifykit": {
       "inputs": {
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
         "lastModified": 1768792881,
@@ -464,7 +450,7 @@
     "rnix-lsp": {
       "inputs": {
         "naersk": "naersk",
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_3",
         "utils": "utils"
       },
       "locked": {
@@ -491,7 +477,7 @@
         "nix-casks": "nix-casks",
         "nix-index-database": "nix-index-database",
         "nix-search": "nix-search",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs",
         "notifykit": "notifykit",
         "rnix-lsp": "rnix-lsp",
         "vscode-server": "vscode-server"
