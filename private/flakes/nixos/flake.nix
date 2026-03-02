@@ -26,8 +26,7 @@
       hmSecrets = {
         home-manager.users.igm = {
           imports = [
-            dotfiles-private-raw.homeManagerModules.age
-            dotfiles-private-raw.homeManagerModules.default
+            dotfiles-private-raw.homeModules.default
           ];
         };
       };
