@@ -66,6 +66,7 @@
 
     mosh
     imagemagick
+    chafa
 
     # PDF tools
     poppler-utils # pdftotext, pdfinfo, pdfimages
