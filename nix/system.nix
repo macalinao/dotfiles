@@ -85,6 +85,14 @@ in
         Additional modules to merge into the home module.
       '';
     };
+
+    extraHomePackages = mkOption {
+      type = types.listOf types.package;
+      default = [ ];
+      description = ''
+        Extra packages to add to home.packages (e.g. from external flakes).
+      '';
+    };
   };
 
   config =

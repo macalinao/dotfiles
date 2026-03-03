@@ -7,92 +7,95 @@
 }:
 
 {
-  home.packages = with pkgs; [
-    eza
-    git
-    htop
-    silver-searcher
-    ripgrep
-    ast-grep
-    tmux
-    unzip
-    wget
-    # whois
+  home.packages =
+    with pkgs;
+    [
+      eza
+      git
+      htop
+      silver-searcher
+      ripgrep
+      ast-grep
+      tmux
+      unzip
+      wget
+      # whois
 
-    # nix language server
-    rnix-lsp
+      # nix language server
+      rnix-lsp
 
-    # JS tools
-    nodejs_24
-    (yarn.override {
-      nodejs = nodejs_24;
-    })
-    (nodePackages.pnpm.override {
-      nodejs = nodejs_24;
-    })
-    bun
-    # python
+      # JS tools
+      nodejs_24
+      (yarn.override {
+        nodejs = nodejs_24;
+      })
+      (nodePackages.pnpm.override {
+        nodejs = nodejs_24;
+      })
+      bun
+      # python
 
-    python3
-    # poetry
+      python3
+      # poetry
 
-    # docker-compose
+      # docker-compose
 
-    findutils
-    coreutils-full
+      findutils
+      coreutils-full
 
-    cmatrix
-    zsh
-    gnugrep
+      cmatrix
+      zsh
+      gnugrep
 
-    # Rust tools
-    rustup
-    # cargo
-    # rustc
-    openssl
-    # rust-analyzer provided by rustup
-    basedpyright
-    typescript-language-server
+      # Rust tools
+      rustup
+      # cargo
+      # rustc
+      openssl
+      # rust-analyzer provided by rustup
+      basedpyright
+      typescript-language-server
 
-    shfmt
-    cargo-workspaces
-    # cargo-outdated
+      shfmt
+      cargo-workspaces
+      # cargo-outdated
 
-    nixfmt
-    pypi2nix
-    cachix
-    nil
-    svelte-language-server
+      nixfmt
+      pypi2nix
+      cachix
+      nil
+      svelte-language-server
 
-    mosh
-    imagemagick
-    chafa
+      mosh
+      imagemagick
+      chafa
 
-    # PDF tools
-    poppler-utils # pdftotext, pdfinfo, pdfimages
-    pdfgrep # grep for PDFs
-    qpdf # merge, split, transform PDFs
-    ghostscript # PDF rendering and conversion
-    mupdf # mutool for PDF inspection
-    # yq
-    yj # toml CLI
+      # PDF tools
+      poppler-utils # pdftotext, pdfinfo, pdfimages
+      pdfgrep # grep for PDFs
+      qpdf # merge, split, transform PDFs
+      ghostscript # PDF rendering and conversion
+      mupdf # mutool for PDF inspection
+      # yq
+      yj # toml CLI
 
-    lice
+      lice
 
-    # formatting
-    shfmt
+      # formatting
+      shfmt
 
-    stockfish
-    # Wrangler is no longer available on Darwin
-    # wrangler
-    android-tools
+      stockfish
+      # Wrangler is no longer available on Darwin
+      # wrangler
+      android-tools
 
-    # jdk23
-    proxmark3
-    devenv
+      # jdk23
+      proxmark3
+      devenv
 
-    wally-cli
-  ];
+      wally-cli
+    ]
+    ++ systemConfig.igm.extraHomePackages;
 
   home.stateVersion = "22.05";
 

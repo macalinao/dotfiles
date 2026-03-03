@@ -93,7 +93,7 @@
               };
             })
             {
-              home-manager.users.igm.home.packages = with additional-nix-packages.packages.${system}; [
+              igm.extraHomePackages = with additional-nix-packages.packages.${system}; [
                 biome
                 gogcli
                 linear-cli
@@ -153,7 +153,7 @@
               # services.nix-daemon.enable = true;
             }
             {
-              home-manager.users.igm.home.packages = with additional-nix-packages.packages.${system}; [
+              igm.extraHomePackages = with additional-nix-packages.packages.${system}; [
                 biome
                 gogcli
                 linear-cli
