@@ -86,13 +86,21 @@
             ({
               nixpkgs = import ./nixpkgs/config.nix {
                 additionalOverlays = additionalOverlays ++ [
-                  additional-nix-packages.overlays.default
                   (self: super: {
                     rnix-lsp = rnix-lsp.defaultPackage.${system};
                   })
                 ];
               };
             })
+            {
+              home-manager.users.igm.home.packages = with additional-nix-packages.packages.${system}; [
+                biome
+                gogcli
+                linear-cli
+                lintel
+                wacli
+              ];
+            }
           ]
           ++ modules;
         };
@@ -121,7 +129,6 @@
                 nixpkgs = import ./nixpkgs/config.nix {
                   isDarwin = true;
                   additionalOverlays = additionalOverlays ++ [
-                    additional-nix-packages.overlays.default
                     (self: super: {
                       rnix-lsp = rnix-lsp.defaultPackage.${system};
                       notifykit = notifykit.packages.${system}.default;
@@ -144,6 +151,15 @@
                 localHostName = hostName;
               };
               # services.nix-daemon.enable = true;
+            }
+            {
+              home-manager.users.igm.home.packages = with additional-nix-packages.packages.${system}; [
+                biome
+                gogcli
+                linear-cli
+                lintel
+                wacli
+              ];
             }
           ];
         };

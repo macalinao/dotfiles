@@ -91,12 +91,7 @@
     proxmark3
     devenv
 
-    linear-cli
-    lintel
-    biome
     wally-cli
-    gogcli
-    wacli
   ];
 
   home.stateVersion = "22.05";
