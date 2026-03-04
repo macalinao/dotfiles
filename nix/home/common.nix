@@ -33,6 +33,8 @@
         nodejs = nodejs_24;
       })
       bun
+      oxfmt
+      oxlint
       # python
 
       python3
