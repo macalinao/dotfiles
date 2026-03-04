@@ -24,7 +24,6 @@
     notifykit.url = "github:macalinao/notifykit";
 
     additional-nix-packages.url = "github:macalinao/additional-nix-packages";
-    additional-nix-packages.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-casks = {
       url = "github:atahanyorganci/nix-casks/archive";
