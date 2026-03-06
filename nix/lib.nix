@@ -12,7 +12,6 @@ let
     notifykit
     nix-casks
     nix-search
-    devenv-main
     ;
 
   mkNixosSystem =
@@ -47,7 +46,7 @@ let
             additionalOverlays = [
               (self: super: {
                 rnix-lsp = rnix-lsp.defaultPackage.${system};
-                devenv = devenv-main.packages.${system}.devenv;
+                devenv = additional-nix-packages.packages.${system}.devenv;
               })
             ];
           };
@@ -93,7 +92,7 @@ let
                   notifykit = notifykit.packages.${system}.default;
                   nix-casks = nix-casks.packages.${system};
                   nix-search = nix-search.packages.${system}.default;
-                  devenv = devenv-main.packages.${system}.devenv;
+                  devenv = additional-nix-packages.packages.${system}.devenv;
                 })
               ];
             };

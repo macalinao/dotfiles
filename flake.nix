@@ -39,11 +39,6 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs-devenv.url = "github:cachix/devenv-nixpkgs/d1c30452ebecfc55185ae6d1c983c09da0c274ff";
-    devenv-main = {
-      url = "github:cachix/devenv/v1.11.2";
-      inputs.nixpkgs.follows = "nixpkgs-devenv";
-    };
   };
 
   outputs =
