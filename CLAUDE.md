@@ -29,8 +29,7 @@ igm-switch        # Apply the updates
 ### Development
 
 ```bash
-igm-fmt           # Format all files (Nix, shell, Markdown, YAML, JSON)
-igm-fmt-check     # Check formatting without modifying files (used in CI)
+nix fmt            # Format all files (Nix, shell, Markdown, YAML, JSON)
 ```
 
 ### Cachix Operations
@@ -71,7 +70,7 @@ The repository uses a multi-flake architecture:
 
 - Always use `igm-switch` to apply configuration changes, not raw Nix commands
 - The repository uses platform detection to determine which flake to use
-- Run `igm-fmt` before committing to format Nix files
+- Run `nix fmt` before committing to format files
 - Private configurations are updated automatically when running `igm-switch`
 
 ### Claude Code Settings

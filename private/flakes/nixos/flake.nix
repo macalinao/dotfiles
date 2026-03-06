@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    igm.url = "path:/home/igm/dotfiles/nix";
+    igm.url = "path:/home/igm/dotfiles";
     igm.inputs.nixpkgs.follows = "nixpkgs";
 
     dotfiles-private-raw = {

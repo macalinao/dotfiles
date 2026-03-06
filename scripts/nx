@@ -9,4 +9,4 @@ if [ ! -e $SHELL_PATH ]; then
 	echo "Shell does not exist."
 	exit 1
 fi
-nix develop $DOTFILES/nix#$1 --command $SHELL
+nix develop $DOTFILES#$1 --command $SHELL

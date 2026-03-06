@@ -7,25 +7,6 @@ on:
     branches: [master]
 
 jobs:
-  devenv:
-    strategy:
-      fail-fast: false
-      matrix:
-        runsOn:
-          - ubuntu-22.04
-          - macos-15-intel # check things work on Intel
-          - macos-26
-    runs-on: ${{ matrix.runsOn }}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: cachix/install-nix-action@v30
-      - uses: cachix/cachix-action@v15
-        with:
-          name: devenv
-      - run: nix profile install nixpkgs#devenv
-      - name: Run devenv tests
-        run: devenv test
-
   check:
     strategy:
       fail-fast: false
@@ -43,7 +24,6 @@ jobs:
           name: igm
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       - run: nix -Lv flake check --show-trace
-        working-directory: nix/
 
   linux:
     strategy:
@@ -62,7 +42,7 @@ jobs:
         with:
           name: igm
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      - run: nix -Lv build "./nix#nixosConfigurations.${{ matrix.nixosConfiguration }}.config.system.build.toplevel"
+      - run: nix -Lv build ".#nixosConfigurations.${{ matrix.nixosConfiguration }}.config.system.build.toplevel"
 
   macos-26:
     strategy:
@@ -78,4 +58,4 @@ jobs:
         with:
           name: igm
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      - run: nix -Lv build "nix/#darwinConfigurations.ci-personal-m1.system"
+      - run: nix -Lv build ".#darwinConfigurations.ci-personal-m1.system"

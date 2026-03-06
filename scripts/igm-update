@@ -11,7 +11,7 @@ if [ -d "$HOME/dotfiles-private" ]; then
   fi
 fi
 
-cd $DOTFILES/nix
+cd $DOTFILES
 nix_cmd flake update
 
 cd $DOTFILES
