@@ -41,7 +41,7 @@
     };
     nixpkgs-devenv.url = "github:cachix/devenv-nixpkgs/rolling";
     devenv-main = {
-      url = "github:cachix/devenv/v2.0.2";
+      url = "github:cachix/devenv/v1.11.2";
       inputs.nixpkgs.follows = "nixpkgs-devenv";
     };
   };
