@@ -64,7 +64,6 @@
           inherit (import ./nix/lib.nix { inherit inputs; })
             mkNixosSystem
             mkDarwinSystem
-            mkPrivate
             ;
         };
       };

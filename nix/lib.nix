@@ -14,12 +14,9 @@ let
     nix-search
     ;
 
-  mkPrivate = import ./private;
-
   mkNixosSystem =
     {
       modules,
-      additionalOverlays ? [ ],
       igm ? { },
     }:
     let
@@ -46,7 +43,7 @@ let
         home-manager.nixosModules.home-manager
         ({
           nixpkgs = import ./nixpkgs/config.nix {
-            additionalOverlays = additionalOverlays ++ [
+            additionalOverlays = [
               (self: super: {
                 rnix-lsp = rnix-lsp.defaultPackage.${system};
               })
@@ -69,7 +66,6 @@ let
   mkDarwinSystem =
     {
       isM1 ? false,
-      additionalOverlays ? [ ],
       modules ? [ ],
       computerName,
       hostName,
@@ -89,7 +85,7 @@ let
             };
             nixpkgs = import ./nixpkgs/config.nix {
               isDarwin = true;
-              additionalOverlays = additionalOverlays ++ [
+              additionalOverlays = [
                 (self: super: {
                   rnix-lsp = rnix-lsp.defaultPackage.${system};
                   notifykit = notifykit.packages.${system}.default;
@@ -126,5 +122,5 @@ let
     };
 in
 {
-  inherit mkNixosSystem mkDarwinSystem mkPrivate;
+  inherit mkNixosSystem mkDarwinSystem;
 }
