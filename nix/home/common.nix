@@ -430,16 +430,12 @@
       "autocd"
       # Correct minor typos in cd directory names
       "cdspell"
-      # Correct minor typos in directory names during completion
-      "dirspell"
       # Include dotfiles in glob expansion
       "dotglob"
       # Expand aliases in non-interactive shells
       "expand_aliases"
       # Allow comments in interactive shell
       "interactive_comments"
-      # Don't complete on empty line
-      "no_empty_cmd_completion"
     ];
 
     historySize = 500000;

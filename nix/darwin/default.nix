@@ -74,6 +74,7 @@ with lib;
   users.users.igm = {
     name = "igm";
     home = "/Users/igm";
+    shell = pkgs.zsh;
   };
 
   # Tor broken 2023-11-28
