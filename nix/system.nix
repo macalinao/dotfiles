@@ -56,14 +56,6 @@ in
       '';
     };
 
-    vscode-server = mkOption {
-      type = types.bool;
-      default = false;
-      description = ''
-        Install VSCode Server.
-      '';
-    };
-
     hostName = mkOption {
       type = types.str;
       default = "igm-machine";
@@ -106,9 +98,6 @@ in
           (mkIf (!cfg.headless) (import ./nixos/gui.nix args))
           (mkIf cfg.virtualbox (import ./nixos/services/virtualbox.nix args))
           (import ./nixos/users.nix args)
-          (mkIf cfg.vscode-server {
-            services.vscode-server.enable = true;
-          })
         ])
       else
         { }

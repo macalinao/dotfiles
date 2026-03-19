@@ -5,8 +5,6 @@ let
     nixpkgs
     home-manager
     darwin
-    vscode-server
-    rnix-lsp
     nix-index-database
     additional-nix-packages
     nix-casks
@@ -29,12 +27,6 @@ let
             inherit igm;
           }
         )
-        (
-          { ... }:
-          {
-            imports = [ "${vscode-server}/default.nix" ];
-          }
-        )
         (import ./system.nix {
           isLinux = true;
         })
@@ -42,11 +34,7 @@ let
         home-manager.nixosModules.home-manager
         ({
           nixpkgs = import ./nixpkgs/config.nix {
-            additionalOverlays = [
-              (self: super: {
-                rnix-lsp = rnix-lsp.defaultPackage.${system};
-              })
-            ];
+            additionalOverlays = [ ];
           };
         })
         {
@@ -86,7 +74,6 @@ let
               isDarwin = true;
               additionalOverlays = [
                 (self: super: {
-                  rnix-lsp = rnix-lsp.defaultPackage.${system};
                   nix-casks = nix-casks.packages.${system};
                 })
               ];

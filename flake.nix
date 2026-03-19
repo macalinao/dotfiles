@@ -12,11 +12,6 @@
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    vscode-server = {
-      url = "github:msteen/nixos-vscode-server/master";
-      flake = false;
-    };
-    rnix-lsp.url = "github:nix-community/rnix-lsp/master";
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
