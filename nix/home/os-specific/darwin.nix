@@ -22,9 +22,6 @@ in
       ffmpeg
 
       pm2
-
-      # macOS notification CLI with Claude Code hook support
-      notifykit
     ]
     ++ (lib.optionals isM1 [
       keybase

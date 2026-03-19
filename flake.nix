@@ -21,7 +21,6 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    notifykit.url = "github:macalinao/notifykit";
     additional-nix-packages.url = "github:macalinao/additional-nix-packages";
     nix-casks = {
       url = "github:atahanyorganci/nix-casks/archive";
@@ -35,7 +34,6 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    devenv.url = "github:cachix/devenv/v2.0.2";
   };
 
   outputs =

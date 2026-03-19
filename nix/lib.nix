@@ -9,7 +9,6 @@ let
     rnix-lsp
     nix-index-database
     additional-nix-packages
-    notifykit
     nix-casks
     ;
 
@@ -46,7 +45,6 @@ let
             additionalOverlays = [
               (self: super: {
                 rnix-lsp = rnix-lsp.defaultPackage.${system};
-                devenv = inputs.devenv.packages.${system}.devenv;
               })
             ];
           };
@@ -89,9 +87,7 @@ let
               additionalOverlays = [
                 (self: super: {
                   rnix-lsp = rnix-lsp.defaultPackage.${system};
-                  notifykit = notifykit.packages.${system}.default;
                   nix-casks = nix-casks.packages.${system};
-                  devenv = inputs.devenv.packages.${system}.devenv;
                 })
               ];
             };
@@ -117,6 +113,7 @@ let
             gogcli
             linear-cli
             lintel
+            notifykit
             wacli
           ];
         }
