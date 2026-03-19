@@ -11,7 +11,6 @@ let
     additional-nix-packages
     notifykit
     nix-casks
-    nix-search
     ;
 
   mkNixosSystem =
@@ -91,7 +90,6 @@ let
                   rnix-lsp = rnix-lsp.defaultPackage.${system};
                   notifykit = notifykit.packages.${system}.default;
                   nix-casks = nix-casks.packages.${system};
-                  nix-search = nix-search.packages.${system}.default;
                   devenv = inputs.devenv.packages.${system}.devenv;
                 })
               ];

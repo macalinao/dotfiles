@@ -21,8 +21,16 @@
       wget
       # whois
 
-      # nix language server
-      rnix-lsp
+      # nix tools
+      nixd
+      nixfmt
+
+      # formatters
+      pgformatter
+      shfmt
+
+      # infra
+      opentofu
 
       # JS tools
       nodejs_24

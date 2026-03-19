@@ -27,10 +27,6 @@
       url = "github:atahanyorganci/nix-casks/archive";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-search = {
-      url = "github:diamondburned/nix-search";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     git-hooks-nix = {
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
