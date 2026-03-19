@@ -17,6 +17,7 @@ with lib;
     nix-casks.notion
     nix-casks.transmission
     nix-casks.vlc
+
   ];
 
   home-manager.users.igm = {
