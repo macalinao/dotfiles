@@ -38,7 +38,6 @@ lib.mkMerge [
     };
   })
   (lib.mkIf pkgs.stdenv.isDarwin {
-    home.file.".yabairc".source = "${static}/yabairc";
     home.file.".skhdrc".source = "${static}/skhdrc";
   })
 ]

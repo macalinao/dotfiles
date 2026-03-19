@@ -56,6 +56,18 @@ with lib;
     };
   };
 
+  services.yabai = {
+    enable = true;
+    enableScriptingAddition = true;
+    config = {
+      layout = "bsp";
+    };
+    extraConfig = ''
+      yabai -m rule --add app="^Simulator" manage=off
+      yabai -m rule --add app="^qemu-system-aarch64" manage=off
+    '';
+  };
+
   programs.gnupg.agent.enable = true;
 
   users.users.igm = {

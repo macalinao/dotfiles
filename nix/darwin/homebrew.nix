@@ -29,7 +29,6 @@ in
     "homebrew/cask-versions"
     # "homebrew/core"
     "homebrew/services"
-    "asmvik/formulae"
     "jackielii/tap"
   ];
 
@@ -39,7 +38,6 @@ in
       "openssl@1.1"
     ])
     ++ [
-      "asmvik/formulae/yabai"
       "skhd-zig"
       "sui"
     ];
