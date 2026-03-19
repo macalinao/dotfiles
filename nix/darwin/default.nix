@@ -43,29 +43,7 @@ with lib;
 
   homebrew = import ./homebrew.nix { inherit config lib; };
 
-  nix = {
-    # configureBuildUsers = true;
-    settings = {
-      sandbox = false;
-      trusted-users = [
-        "root"
-        "igm"
-      ];
-      substituters = [
-        "https://cache.nixos.org/"
-        "https://igm.cachix.org"
-      ];
-      trusted-public-keys = [
-        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-        "igm.cachix.org-1:JzRjOzUEP3tfmQv9hy7MP7LqaA5CEg418KKVMyJFd10="
-      ];
-    };
-    extraOptions = ''
-      experimental-features = nix-command flakes
-      keep-outputs = true
-      keep-derivations = true
-    '';
-  };
+  # nix.configureBuildUsers = true;
 
   security.pam.services.sudo_local.touchIdAuth = true;
 
@@ -73,7 +51,7 @@ with lib;
   programs.zsh = {
     enable = true;
     variables = {
-      EDITOR = "${pkgs.vim}/bin/vim";
+      EDITOR = "${pkgs.neovim}/bin/nvim";
     };
   };
 

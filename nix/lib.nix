@@ -39,6 +39,7 @@ let
         (import ./system.nix {
           isLinux = true;
         })
+        ./nix-settings.nix
         home-manager.nixosModules.home-manager
         ({
           nixpkgs = import ./nixpkgs/config.nix {
@@ -97,6 +98,7 @@ let
           }
         )
         (import ./system.nix { isDarwin = true; })
+        ./nix-settings.nix
         nix-index-database.darwinModules.nix-index
         home-manager.darwinModules.home-manager
       ]

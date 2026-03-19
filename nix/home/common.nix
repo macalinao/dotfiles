@@ -582,6 +582,14 @@
   nix = {
     enable = true;
     # package = pkgs.nixUnstable;
+    settings = {
+      extra-substituters = [
+        "https://igm.cachix.org"
+      ];
+      extra-trusted-public-keys = [
+        "igm.cachix.org-1:JzRjOzUEP3tfmQv9hy7MP7LqaA5CEg418KKVMyJFd10="
+      ];
+    };
     registry = {
       move = {
         from = {
