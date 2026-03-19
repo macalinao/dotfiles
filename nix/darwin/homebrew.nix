@@ -1,7 +1,13 @@
 # Contains all of my Homebrew packages.
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
+  isAarch64 = pkgs.stdenv.hostPlatform.isAarch64;
   games = [
     "openttd"
     "league-of-legends"
@@ -9,7 +15,6 @@ let
     # "steam"
   ];
   mode = config.igm.mode;
-  isM1 = config.igm.isM1;
 in
 {
 
@@ -21,7 +26,7 @@ in
     autoUpdate = true;
   };
 
-  prefix = if isM1 then "/opt/homebrew" else "/usr/local";
+  prefix = if isAarch64 then "/opt/homebrew" else "/usr/local";
 
   taps = [
     "homebrew/bundle"
@@ -33,7 +38,7 @@ in
   ];
 
   brews =
-    (lib.optionals (!isM1) [
+    (lib.optionals (!isAarch64) [
       "openssl"
       "openssl@1.1"
     ])

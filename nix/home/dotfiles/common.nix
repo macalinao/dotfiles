@@ -2,7 +2,6 @@
   config,
   pkgs,
   lib,
-  systemConfig,
   ...
 }:
 
@@ -10,34 +9,43 @@ let
   static = ../static;
   claude-settings = ../../../config/claude/settings.json;
 in
-lib.mkMerge [
-  {
-    home.file.".vimrc".source = "${static}/vimrc";
-    home.file.".claude/settings.json".source = claude-settings;
+{
+  home.file = {
+    ".vimrc".source = "${static}/vimrc";
+    ".claude/settings.json".source = claude-settings;
   }
-  # Generate .claude-N/settings.json and .claude-N/plans for instances 2 through claudeInstances
-  (lib.mkMerge (
-    builtins.genList (
-      i:
-      let
-        n = toString (i + 2);
-      in
-      {
-        home.file.".claude-${n}/settings.json".source = claude-settings;
-        home.file.".claude-${n}/plans".source =
-          config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.claude/plans";
-      }
-    ) (systemConfig.igm.claudeInstances - 1)
+  // (builtins.listToAttrs (
+    builtins.concatLists (
+      builtins.genList (
+        i:
+        let
+          n = toString (i + 2);
+        in
+        [
+          {
+            name = ".claude-${n}/settings.json";
+            value = {
+              source = claude-settings;
+            };
+          }
+          {
+            name = ".claude-${n}/plans";
+            value = {
+              source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.claude/plans";
+            };
+          }
+        ]
+      ) (config.igm.claudeInstances - 1)
+    )
   ))
-  (lib.mkIf pkgs.stdenv.isLinux {
-    home.file.".xscreensaver".source = "${static}/xscreensaver";
-
-    home.file.".config/fcitx" = {
+  // (lib.optionalAttrs pkgs.stdenv.isLinux {
+    ".xscreensaver".source = "${static}/xscreensaver";
+    ".config/fcitx" = {
       source = "${static}/fcitx";
       recursive = true;
     };
   })
-  (lib.mkIf pkgs.stdenv.isDarwin {
-    home.file.".skhdrc".source = "${static}/skhdrc";
-  })
-]
+  // (lib.optionalAttrs pkgs.stdenv.isDarwin {
+    ".skhdrc".source = "${static}/skhdrc";
+  });
+}

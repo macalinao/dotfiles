@@ -5,9 +5,6 @@
   ...
 }:
 
-let
-  homeBase = import ../home { systemConfig = config; };
-in
 with lib;
 {
   environment.systemPackages = with pkgs; [
@@ -22,7 +19,10 @@ with lib;
     nix-casks.vlc
   ];
 
-  home-manager.users.igm = homeBase;
+  home-manager.users.igm = {
+    imports = [ ../home ];
+
+  };
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
 
@@ -42,7 +42,7 @@ with lib;
   };
   ids.gids.nixbld = 30000;
 
-  homebrew = import ./homebrew.nix { inherit config lib; };
+  homebrew = import ./homebrew.nix { inherit config lib pkgs; };
 
   # nix.configureBuildUsers = true;
 
@@ -75,16 +75,4 @@ with lib;
     home = "/Users/igm";
     shell = pkgs.zsh;
   };
-
-  # Tor broken 2023-11-28
-  # launchd.user.agents.tor = {
-  #   command = with pkgs; "${tor}/bin/tor";
-  #   serviceConfig = {
-  #     KeepAlive = true;
-  #     RunAtLoad = true;
-  #     ProcessType = "Background";
-  #     StandardOutPath = "/var/tmp/tor.log";
-  #     StandardErrorPath = "/var/tmp/tor.error.log";
-  #   };
-  # };
 }

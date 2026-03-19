@@ -56,6 +56,10 @@
             mkDarwinSystem
             ;
         };
+
+        homeManagerModules = {
+          headless = import ./nix/home/headless.nix;
+        };
       };
     };
 }

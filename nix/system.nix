@@ -24,14 +24,6 @@ in
       '';
     };
 
-    isM1 = mkOption {
-      type = types.bool;
-      default = false;
-      description = ''
-        If true, this is to be compiled for an M1.
-      '';
-    };
-
     headless = mkOption {
       type = types.bool;
       default = false;
@@ -48,26 +40,12 @@ in
       '';
     };
 
-    pure = mkOption {
-      type = types.bool;
-      default = false;
-      description = ''
-        Only install pure packages.
-      '';
-    };
-
     hostName = mkOption {
       type = types.str;
       default = "igm-machine";
       description = ''
         Host name of the machine.
       '';
-    };
-
-    claudeInstances = mkOption {
-      type = types.int;
-      default = 6;
-      description = "Number of Claude Code instances (generates claude-2 through claude-N).";
     };
 
     homeModules = mkOption {
@@ -78,13 +56,6 @@ in
       '';
     };
 
-    extraHomePackages = mkOption {
-      type = types.listOf types.package;
-      default = [ ];
-      description = ''
-        Extra packages to add to home.packages (e.g. from external flakes).
-      '';
-    };
   };
 
   config =

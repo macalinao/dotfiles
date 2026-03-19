@@ -10,6 +10,10 @@ let
     nix-casks
     ;
 
+  additionalOverlay = system: self: super: {
+    additional-nix-packages = additional-nix-packages.packages.${system};
+  };
+
   mkNixosSystem =
     {
       modules,
@@ -34,18 +38,9 @@ let
         home-manager.nixosModules.home-manager
         ({
           nixpkgs = import ./nixpkgs/config.nix {
-            additionalOverlays = [ ];
+            additionalOverlays = [ (additionalOverlay system) ];
           };
         })
-        {
-          igm.extraHomePackages = with additional-nix-packages.packages.${system}; [
-            biome
-            gogcli
-            linear-cli
-            lintel
-            wacli
-          ];
-        }
       ]
       ++ modules;
     };
@@ -67,12 +62,12 @@ let
           { ... }:
           {
             igm = {
-              inherit isM1;
               mode = "personal";
             };
             nixpkgs = import ./nixpkgs/config.nix {
               isDarwin = true;
               additionalOverlays = [
+                (additionalOverlay system)
                 (self: super: {
                   nix-casks = nix-casks.packages.${system};
                 })
@@ -93,16 +88,6 @@ let
             localHostName = hostName;
           };
           # services.nix-daemon.enable = true;
-        }
-        {
-          igm.extraHomePackages = with additional-nix-packages.packages.${system}; [
-            biome
-            gogcli
-            linear-cli
-            lintel
-            notifykit
-            wacli
-          ];
         }
       ];
     };

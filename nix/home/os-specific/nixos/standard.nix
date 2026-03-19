@@ -6,38 +6,40 @@
 }:
 
 {
-  home.packages = with pkgs; [
-    # rust stuff
-    openssl
-    pkg-config
-    udev
+  config = lib.mkIf pkgs.stdenv.isLinux {
+    home.packages = with pkgs; [
+      # rust stuff
+      openssl
+      pkg-config
+      udev
 
-    # Etc
-    rofi-systemd
+      # Etc
+      rofi-systemd
 
-    # scripts
-    ngrok
-    # vagrant
+      # scripts
+      ngrok
+      # vagrant
 
-    # for xmonad
-    haskell-language-server
-    cabal-install
-    stack
-    ghc
+      # for xmonad
+      haskell-language-server
+      cabal-install
+      stack
+      ghc
 
-    home-assistant-cli
-    usbutils
+      home-assistant-cli
+      usbutils
 
-    keybase
-  ];
+      keybase
+    ];
 
-  services.gpg-agent = {
-    enable = true;
-    defaultCacheTtl = 24 * 60 * 60;
-    maxCacheTtl = 24 * 60 * 60;
-    enableSshSupport = true;
+    services.gpg-agent = {
+      enable = true;
+      defaultCacheTtl = 24 * 60 * 60;
+      maxCacheTtl = 24 * 60 * 60;
+      enableSshSupport = true;
+    };
+
+    services.keybase.enable = true;
+    services.kbfs.enable = true;
   };
-
-  services.keybase.enable = true;
-  services.kbfs.enable = true;
 }

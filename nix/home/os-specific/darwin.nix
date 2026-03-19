@@ -1,37 +1,68 @@
 {
   pkgs,
   lib,
-  systemConfig,
   config,
   ...
 }:
 
-let
-  isM1 = systemConfig.igm.isM1;
-in
 {
-  home.packages =
-    with pkgs;
-    [
-      reattach-to-user-namespace
-      pinentry_mac
-      gnupg
-      kbfs
+  config = lib.mkIf pkgs.stdenv.isDarwin {
+    home.packages =
+      with pkgs;
+      [
+        reattach-to-user-namespace
+        pinentry_mac
+        gnupg
+        kbfs
 
-      # Used for Thorium/Animecards
-      ffmpeg
+        # Used for Thorium/Animecards
+        ffmpeg
 
-      pm2
-    ]
-    ++ (lib.optionals isM1 [
-      keybase
-    ]);
+        pm2
 
-  xdg.enable = true;
+        # file associations
+        duti
+      ]
+      ++ (lib.optionals pkgs.stdenv.hostPlatform.isAarch64 [
+        keybase
+      ]);
 
-  home.file.".gnupg/gpg-agent.conf" = {
-    text = "pinentry-program ${pkgs.pinentry_mac}/${pkgs.pinentry_mac.passthru.binaryPath}";
+    xdg.enable = true;
+
+    home.file.".gnupg/gpg-agent.conf" = {
+      text = "pinentry-program ${pkgs.pinentry_mac}/${pkgs.pinentry_mac.passthru.binaryPath}";
+    };
+
+    # macOS file associations via duti
+    home.file.".duti.conf".text = ''
+      # Zed — source code and config files
+      dev.zed.Zed .ts all
+      dev.zed.Zed .tsx all
+      dev.zed.Zed .js all
+      dev.zed.Zed .jsx all
+      dev.zed.Zed .json all
+      dev.zed.Zed .nix all
+      dev.zed.Zed .rs all
+      dev.zed.Zed .toml all
+      dev.zed.Zed .yaml all
+      dev.zed.Zed .yml all
+      dev.zed.Zed .md all
+      dev.zed.Zed .py all
+      dev.zed.Zed .go all
+      dev.zed.Zed .css all
+      dev.zed.Zed .html all
+      dev.zed.Zed .sh all
+      dev.zed.Zed .zsh all
+      dev.zed.Zed .svelte all
+      dev.zed.Zed public.source-code all
+      dev.zed.Zed public.plain-text all
+    '';
+
+    home.activation.setFileAssociations = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      echo "Setting file associations with duti..."
+      ${pkgs.duti}/bin/duti ~/.duti.conf
+    '';
+
+    programs.zsh.sessionVariables.ANDROID_HOME = "${config.home.homeDirectory}/Library/Android/sdk";
   };
-
-  programs.zsh.sessionVariables.ANDROID_HOME = "${config.home.homeDirectory}/Library/Android/sdk";
 }

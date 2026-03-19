@@ -27,118 +27,120 @@ let
   '';
 in
 {
-  xsession.enable = true;
-  xsession.profileExtra = "$HOME/dotfiles/bin/desktop_monitors.sh";
+  config = lib.mkIf (pkgs.stdenv.isLinux && !config.igm.headless) {
+    xsession.enable = true;
+    xsession.profileExtra = "$HOME/dotfiles/bin/desktop_monitors.sh";
 
-  xsession.windowManager.xmonad = {
-    enable = true;
-    enableContribAndExtras = true;
-    config = ../../xmonad/xmonad.hs;
-  };
-
-  home.packages = with pkgs; [
-    # Browsers
-    brave
-    firefox
-    google-chrome
-
-    # Media
-    spotify
-    vlc
-
-    # Comms
-    discord
-    signal-desktop
-    telegram-desktop
-    slack
-    zoom-us
-
-    # Developer
-    postman
-
-    # Etc
-    rofi-systemd
-
-    # Video
-    libreoffice
-
-    # games
-    # factorio
-    prismlauncher
-    # openttd
-
-    keybase-gui
-    ledger-live-desktop
-    solaar
-
-    xclip
-    xsel
-    playerctl
-    gnome-keyring
-    seahorse
-
-    configure-monitors
-
-    # for xmonad
-    haskell-language-server
-    cabal-install
-    stack
-    ghc
-  ];
-
-  services.xscreensaver.enable = true;
-
-  programs.rofi = {
-    enable = true;
-    package = pkgs.rofi.override {
-      plugins = with pkgs; [
-        rofi-emoji
-        rofi-calc
-      ];
+    xsession.windowManager.xmonad = {
+      enable = true;
+      enableContribAndExtras = true;
+      config = ../../xmonad/xmonad.hs;
     };
-    theme = "Arc-Dark";
-  };
 
-  programs.kitty = {
-    enable = true;
-  };
+    home.packages = with pkgs; [
+      # Browsers
+      brave
+      firefox
+      google-chrome
 
-  services.polybar = {
-    enable = true;
-    script = "polybar top &";
-    config = {
-      "bar/top" = {
-        font-0 = "Inter:pixelsize=12;6";
-        font-1 = "Noto Emoji:scale=10;6";
-        monitor = "DP-0";
-        width = "100%";
-        height = "3%";
-        radius = 0;
-        modules-left = "time-cet";
-        modules-center = "time-computer";
-        modules-right = "alsa";
-        padding = 2;
+      # Media
+      spotify
+      vlc
+
+      # Comms
+      discord
+      signal-desktop
+      telegram-desktop
+      slack
+      zoom-us
+
+      # Developer
+      postman
+
+      # Etc
+      rofi-systemd
+
+      # Video
+      libreoffice
+
+      # games
+      # factorio
+      prismlauncher
+      # openttd
+
+      keybase-gui
+      ledger-live-desktop
+      solaar
+
+      xclip
+      xsel
+      playerctl
+      gnome-keyring
+      seahorse
+
+      configure-monitors
+
+      # for xmonad
+      haskell-language-server
+      cabal-install
+      stack
+      ghc
+    ];
+
+    services.xscreensaver.enable = true;
+
+    programs.rofi = {
+      enable = true;
+      package = pkgs.rofi.override {
+        plugins = with pkgs; [
+          rofi-emoji
+          rofi-calc
+        ];
       };
+      theme = "Arc-Dark";
+    };
 
-      "module/alsa" = {
-        type = "internal/alsa";
-        format-volume = "<ramp-volume> <label-volume>";
-        label-muted = "🔇 muted";
-        ramp-volume-0 = "🔈";
-        ramp-volume-1 = "🔉";
-        ramp-volume-2 = "🔊";
-      };
+    programs.kitty = {
+      enable = true;
+    };
 
-      "module/time-computer" = {
-        type = "custom/script";
-        exec = "${pkgs.coreutils}/bin/date";
-        interval = 1;
-      };
+    services.polybar = {
+      enable = true;
+      script = "polybar top &";
+      config = {
+        "bar/top" = {
+          font-0 = "Inter:pixelsize=12;6";
+          font-1 = "Noto Emoji:scale=10;6";
+          monitor = "DP-0";
+          width = "100%";
+          height = "3%";
+          radius = 0;
+          modules-left = "time-cet";
+          modules-center = "time-computer";
+          modules-right = "alsa";
+          padding = 2;
+        };
 
-      "module/time-cet" = {
-        type = "custom/script";
-        exec = "TZ=CET ${pkgs.coreutils}/bin/date";
-        interval = 1;
+        "module/alsa" = {
+          type = "internal/alsa";
+          format-volume = "<ramp-volume> <label-volume>";
+          label-muted = "🔇 muted";
+          ramp-volume-0 = "🔈";
+          ramp-volume-1 = "🔉";
+          ramp-volume-2 = "🔊";
+        };
+
+        "module/time-computer" = {
+          type = "custom/script";
+          exec = "${pkgs.coreutils}/bin/date";
+          interval = 1;
+        };
+
+        "module/time-cet" = {
+          type = "custom/script";
+          exec = "TZ=CET ${pkgs.coreutils}/bin/date";
+          interval = 1;
+        };
       };
     };
   };

@@ -6,9 +6,6 @@ in
 {
   flake = {
     nixosConfigurations.ci-home = mkNixosSystem {
-      igm = {
-        pure = true;
-      };
       modules = [
         ./nixos/machines/ci.nix
       ];
@@ -16,7 +13,6 @@ in
     nixosConfigurations.ci-bare = mkNixosSystem {
       igm = {
         headless = true;
-        pure = true;
       };
       modules = [
         ./nixos/machines/ci.nix
@@ -26,7 +22,6 @@ in
       igm = {
         headless = true;
         virtualbox = true;
-        pure = true;
       };
       modules = [
         ./nixos/machines/ci.nix
