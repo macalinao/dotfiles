@@ -56,7 +56,6 @@ in
     "google-chrome"
     "keybase"
     "keymapp"
-    "linear-linear"
     "ngrok"
     "private-internet-access"
     "slack"

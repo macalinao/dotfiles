@@ -16,6 +16,7 @@ with lib;
     zed-editor
 
     # macOS apps via nix-casks (in systemPackages for Spotlight indexing)
+    nix-casks.linear-linear
     nix-casks.notion
     nix-casks.transmission
     nix-casks.vlc
