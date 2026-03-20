@@ -71,6 +71,17 @@
       fi
     '';
 
+    programs.ghostty = {
+      enable = true;
+      package = null; # installed via nix-darwin as ghostty-bin
+      settings = {
+        macos-titlebar-tabs = true;
+        window-padding-balance = true;
+        window-animation-duration = 0;
+        resize-overlay = "never";
+      };
+    };
+
     programs.zsh.sessionVariables.ANDROID_HOME = "${config.home.homeDirectory}/Library/Android/sdk";
   };
 }
