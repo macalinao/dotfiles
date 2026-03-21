@@ -37,17 +37,19 @@ in
     ];
   };
 
-  environment.systemPackages = with pkgs; [
-    vim
-    ghostty-bin
-    zed-editor
-
+  environment.systemPackages =
+    (with pkgs; [
+      vim
+      ghostty-bin
+      zed-editor
+    ])
     # macOS apps via nix-casks (in systemPackages for Spotlight indexing)
-    nix-casks.linear-linear
-    nix-casks.notion
-    nix-casks.transmission
-    nix-casks.vlc
-  ];
+    ++ (with pkgs.nix-casks; [
+      linear-linear
+      notion
+      transmission
+      vlc
+    ]);
 
   home-manager.users.igm = {
     imports = [ self.homeModules.default ];
