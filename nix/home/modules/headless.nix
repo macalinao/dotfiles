@@ -286,6 +286,15 @@
         bindkey '^[[1;3D' backward-word
       ''}
 
+      # Rename zellij tab to current directory basename
+      __zellij_tab_name() {
+        if [[ -n "$ZELLIJ" ]]; then
+          command zellij action rename-tab "''${PWD##*/}"
+        fi
+      }
+      add-zsh-hook chpwd __zellij_tab_name
+      __zellij_tab_name
+
       ${builtins.readFile ../static/shell-utils.zsh};
       source $HOME/dotfiles-private/helpers.zsh
     '';
@@ -397,7 +406,26 @@
       enable = true;
       settings = {
         theme = "nord";
-        default-mode = "locked";
+        default_mode = "locked";
+        keybinds = {
+          locked = lib.listToAttrs (
+            map (n: {
+              name = "bind \"Alt ${toString n}\"";
+              value = {
+                GoToTab = n;
+              };
+            }) (lib.range 1 9)
+          );
+          "shared_except \"locked\"" = lib.listToAttrs (
+            map (n: {
+              name = "bind \"Alt ${toString n}\"";
+              value = {
+                GoToTab = n;
+                SwitchToMode = "locked";
+              };
+            }) (lib.range 1 9)
+          );
+        };
       };
     };
 
@@ -483,4 +511,5 @@
       };
     };
   };
+
 }
