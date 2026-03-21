@@ -15,6 +15,7 @@
     [
       eza
       git
+      btop
       htop
       ripgrep
       ast-grep
