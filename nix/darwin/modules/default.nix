@@ -2,6 +2,7 @@
 
 let
   inherit (inputs)
+    self
     home-manager
     nix-index-database
     additional-nix-packages
@@ -12,7 +13,6 @@ in
   config,
   lib,
   pkgs,
-  self,
   ...
 }:
 {

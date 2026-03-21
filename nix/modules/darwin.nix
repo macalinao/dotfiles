@@ -16,22 +16,14 @@
       let
         inherit (inputs) darwin;
         darwinModule = import ../darwin/modules { inherit inputs; };
-
-        mkSystem =
-          { modules }:
-          darwin.lib.darwinSystem {
-            specialArgs = {
-              self = inputs.self;
-            };
-            modules = [ darwinModule ] ++ modules;
-          };
       in
       {
         flake = {
           darwinModules.default = darwinModule;
 
-          darwinConfigurations.ci-personal = mkSystem {
+          darwinConfigurations.ci-personal = darwin.lib.darwinSystem {
             modules = [
+              darwinModule
               {
                 nixpkgs.hostPlatform = "x86_64-darwin";
                 networking = {
@@ -42,8 +34,9 @@
               }
             ];
           };
-          darwinConfigurations.ci-personal-m1 = mkSystem {
+          darwinConfigurations.ci-personal-m1 = darwin.lib.darwinSystem {
             modules = [
+              darwinModule
               {
                 nixpkgs.hostPlatform = "aarch64-darwin";
                 networking = {

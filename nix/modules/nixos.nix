@@ -14,67 +14,23 @@
     module =
       { inputs, ... }:
       let
-        inherit (inputs)
-          nixpkgs
-          home-manager
-          additional-nix-packages
-          ;
-
-        nixosModule = {
-          imports = [
-            ../system.nix
-            ../nixos/configuration.nix
-            ../nixos/home-manager.nix
-            ../nixos/services
-            ../nixos/users.nix
-            (
-              {
-                config,
-                lib,
-                pkgs,
-                ...
-              }@args:
-              {
-                config = lib.mkMerge [
-                  (lib.mkIf (!config.igm.headless) (import ../nixos/gui.nix args))
-                  (lib.mkIf config.igm.virtualbox (import ../nixos/services/virtualbox.nix args))
-                ];
-              }
-            )
-            ../nix-settings.nix
-            home-manager.nixosModules.home-manager
-          ];
-
-          nixpkgs = import ../nixpkgs/config.nix {
-            additionalOverlays = [
-              (self: super: {
-                additional-nix-packages = additional-nix-packages.packages.${self.stdenv.hostPlatform.system};
-              })
-            ];
-          };
-        };
-
-        mkSystem =
-          { modules }:
-          nixpkgs.lib.nixosSystem {
-            specialArgs = {
-              self = inputs.self;
-            };
-            modules = [ nixosModule ] ++ modules;
-          };
+        inherit (inputs) nixpkgs;
+        nixosModule = import ../nixos/modules { inherit inputs; };
       in
       {
         flake = {
           nixosModules.default = nixosModule;
 
-          nixosConfigurations.ci-home = mkSystem {
+          nixosConfigurations.ci-home = nixpkgs.lib.nixosSystem {
             modules = [
+              nixosModule
               ../nixos/machines/ci.nix
               { nixpkgs.hostPlatform = "x86_64-linux"; }
             ];
           };
-          nixosConfigurations.ci-bare = mkSystem {
+          nixosConfigurations.ci-bare = nixpkgs.lib.nixosSystem {
             modules = [
+              nixosModule
               ../nixos/machines/ci.nix
               {
                 nixpkgs.hostPlatform = "x86_64-linux";
@@ -82,8 +38,9 @@
               }
             ];
           };
-          nixosConfigurations.vbox-host = mkSystem {
+          nixosConfigurations.vbox-host = nixpkgs.lib.nixosSystem {
             modules = [
+              nixosModule
               ../nixos/machines/ci.nix
               {
                 nixpkgs.hostPlatform = "x86_64-linux";
