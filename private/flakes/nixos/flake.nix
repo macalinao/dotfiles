@@ -3,9 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    igm.url = "path:/home/igm/dotfiles";
-    igm.inputs.nixpkgs.follows = "nixpkgs";
-
+    igm = {
+      url = "path:/home/igm/dotfiles";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     dotfiles-private-raw = {
       url = "path:/home/igm/dotfiles-private";
     };
@@ -19,17 +20,20 @@
       ...
     }:
     {
-      nixosConfigurations.primary = igm.lib.mkNixosSystem {
+      nixosConfigurations.primary = nixpkgs.lib.nixosSystem {
         modules = [
-          ./machines/ian-nixdesktop.nix
+          igm.nixosModules.default
           dotfiles-private-raw.nixosModules.default
+          ./machines/ian-nixdesktop.nix
+          {
+            nixpkgs.hostPlatform = "x86_64-linux";
+            networking.hostName = "ianix";
+            igm = {
+              headless = true;
+              virtualbox = false;
+            };
+          }
         ];
-        igm = {
-          hostName = "ianix";
-          headless = true;
-          virtualbox = false;
-          vscode-server = true;
-        };
       };
     };
 }

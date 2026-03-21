@@ -1,12 +1,42 @@
+{ inputs }:
+
+let
+  inherit (inputs)
+    home-manager
+    nix-index-database
+    additional-nix-packages
+    nix-casks
+    ;
+in
 {
   config,
   lib,
   pkgs,
+  self,
   ...
 }:
-
-with lib;
 {
+  imports = [
+    ../../system.nix
+    ../../nix-settings.nix
+    nix-index-database.darwinModules.nix-index
+    home-manager.darwinModules.home-manager
+  ];
+
+  igm.mode = "personal";
+
+  nixpkgs = import ../../nixpkgs/config.nix {
+    isDarwin = true;
+    additionalOverlays = [
+      (self: super: {
+        additional-nix-packages = additional-nix-packages.packages.${self.stdenv.hostPlatform.system};
+      })
+      (self: super: {
+        nix-casks = nix-casks.packages.${self.stdenv.hostPlatform.system};
+      })
+    ];
+  };
+
   environment.systemPackages = with pkgs; [
     vim
     ghostty-bin
@@ -17,12 +47,10 @@ with lib;
     nix-casks.notion
     nix-casks.transmission
     nix-casks.vlc
-
   ];
 
   home-manager.users.igm = {
-    imports = [ ../home ];
-
+    imports = [ self.homeModules.default ];
   };
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
@@ -43,9 +71,7 @@ with lib;
   };
   ids.gids.nixbld = 30000;
 
-  homebrew = import ./homebrew.nix { inherit config lib pkgs; };
-
-  # nix.configureBuildUsers = true;
+  homebrew = import ../homebrew.nix { inherit config lib pkgs; };
 
   security.pam.services.sudo_local.touchIdAuth = true;
 

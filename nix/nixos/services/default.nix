@@ -58,7 +58,6 @@ mkMerge [
     networking.firewall.extraCommands = "iptables -t raw -A OUTPUT -p udp -m udp --dport 137 -j CT --helper netbios-ns";
     services.samba = {
       enable = true;
-      package = pkgs.sambaFull;
       openFirewall = true;
       settings =
         let

@@ -8,7 +8,7 @@
 }:
 
 {
-  imports = [ ./options.nix ];
+  imports = [ ../options.nix ];
 
   home.packages =
     with pkgs;
@@ -119,7 +119,7 @@
         is-merged = ''!f() { commit=''${1:-HEAD}; for branch in origin/master origin/main master main; do if git merge-base --is-ancestor "$commit" "$branch" 2>/dev/null; then echo "✓ Commit is merged into $branch"; return 0; fi; done; echo "✗ Commit is not merged into any main branch"; return 1; }; f'';
       };
 
-      core.excludesFile = "${./static/gitignore_global}";
+      core.excludesFile = "${../static/gitignore_global}";
       push.default = "simple";
       init.defaultBranch = "master";
     };
@@ -149,7 +149,7 @@
       shiftwidth = 2;
       expandtab = true;
     };
-    extraConfig = builtins.readFile ./static/vimrc;
+    extraConfig = builtins.readFile ../static/vimrc;
   };
 
   programs.neovim = {
@@ -203,7 +203,7 @@
       vim-sleuth
       bullets-vim
     ];
-    initLua = builtins.readFile ./static/nvim-init.lua;
+    initLua = builtins.readFile ../static/nvim-init.lua;
   };
 
   programs.helix = {
@@ -285,7 +285,7 @@
         bindkey '^[[1;3D' backward-word
       ''}
 
-      ${builtins.readFile ./static/shell-utils.zsh};
+      ${builtins.readFile ../static/shell-utils.zsh};
       source $HOME/dotfiles-private/helpers.zsh
     '';
 

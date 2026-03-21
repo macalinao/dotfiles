@@ -1,19 +1,12 @@
 {
-  isLinux ? false,
-  isDarwin ? false,
-}:
-{
   config,
   pkgs,
   lib,
   ...
-}@args:
+}:
 
 with lib;
 
-let
-  cfg = config.igm;
-in
 {
   options.igm = {
     mode = mkOption {
@@ -40,37 +33,5 @@ in
       '';
     };
 
-    hostName = mkOption {
-      type = types.str;
-      default = "igm-machine";
-      description = ''
-        Host name of the machine.
-      '';
-    };
-
   };
-
-  config =
-    (
-      if isLinux then
-        (mkMerge [
-          (import ./nixos/configuration.nix args)
-          (import ./nixos/home-manager.nix args)
-          (import ./nixos/services args)
-          # (import ./nixos/services/home-assistant.nix args)
-          (mkIf (!cfg.headless) (import ./nixos/gui.nix args))
-          (mkIf cfg.virtualbox (import ./nixos/services/virtualbox.nix args))
-          (import ./nixos/users.nix args)
-        ])
-      else
-        { }
-    )
-    // (
-      if isDarwin then
-        (mkMerge [
-          (import ./darwin args)
-        ])
-      else
-        { }
-    );
 }

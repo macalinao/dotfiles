@@ -1,8 +1,8 @@
-{ config, ... }:
+{ config, self, ... }:
 
 {
   home-manager.users.igm = {
-    imports = [ ../home ];
+    imports = [ self.homeModules.default ];
     igm.headless = config.igm.headless;
   };
   # home-manager.useUserPackages = true;

@@ -7,7 +7,7 @@
 }:
 
 {
-  imports = [ ./headless.nix ];
+  imports = [ ./modules/headless.nix ];
 
   home.packages = with pkgs; [
     cmatrix

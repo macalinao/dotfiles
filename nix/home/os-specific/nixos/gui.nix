@@ -8,7 +8,7 @@
 let
   configure-monitors = pkgs.writeShellScriptBin "configure-monitors" ''
     configure_monitors() {
-      ${pkgs.xorg.xrandr}/bin/xrandr \
+      ${pkgs.xrandr}/bin/xrandr \
         --output DVI-D-0 --off \
         --output HDMI-0 --mode 3840x2160 --pos 3840x0 --rotate normal \
         --output HDMI-1 --mode 2560x1440 --pos 2161x2160 --rotate normal --rate 143.91 \

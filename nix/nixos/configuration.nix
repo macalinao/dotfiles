@@ -8,8 +8,6 @@
 with lib;
 
 {
-  networking.hostName = config.igm.hostName;
-
   console = {
     keyMap = "us";
     font = "Lat2-Terminus16";
