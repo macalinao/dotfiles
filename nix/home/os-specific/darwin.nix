@@ -77,7 +77,6 @@
       settings = {
         macos-titlebar-style = "hidden";
         window-padding-balance = true;
-        window-animation-duration = 0;
         resize-overlay = "never";
       };
     };
