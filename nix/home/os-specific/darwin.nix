@@ -75,7 +75,7 @@
       enable = true;
       package = null; # installed via nix-darwin as ghostty-bin
       settings = {
-        macos-titlebar-style = "tabs";
+        macos-titlebar-style = "hidden";
         window-padding-balance = true;
         resize-overlay = "never";
       };
