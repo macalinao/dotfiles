@@ -286,14 +286,10 @@
         bindkey '^[[1;3D' backward-word
       ''}
 
-      # Rename zellij tab to current directory basename
-      __zellij_tab_name() {
-        if [[ -n "$ZELLIJ" ]]; then
-          command zellij action rename-tab "''${PWD##*/}"
-        fi
-      }
-      add-zsh-hook chpwd __zellij_tab_name
-      __zellij_tab_name
+      # Name zellij tab after initial working directory
+      if [[ -n "$ZELLIJ" ]]; then
+        command zellij action rename-tab "''${PWD##*/}"
+      fi
 
       ${builtins.readFile ../static/shell-utils.zsh};
       source $HOME/dotfiles-private/helpers.zsh

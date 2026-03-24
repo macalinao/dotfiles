@@ -47,6 +47,7 @@ in
     ++ (with pkgs.nix-casks; [
       linear-linear
       notion
+      notunes
       transmission
       vlc
     ]);
