@@ -60,10 +60,13 @@ in
 
   system.primaryUser = "igm";
   system.defaults = {
+    NSGlobalDomain.NSAutomaticWindowAnimationsEnabled = false;
+    universalaccess.reduceMotion = true;
     dock = {
       mru-spaces = false;
       autohide = true;
       tilesize = 32;
+      expose-animation-duration = 0.0;
     };
   };
 
