@@ -14,12 +14,9 @@
     module =
       { inputs, ... }:
       let
-        inherit (inputs) darwin dotfiles-private nixpkgs;
+        inherit (inputs) darwin dotfiles-private;
         darwinModule = import ../darwin/modules { inherit inputs; };
         privateModule = dotfiles-private.darwinModules.default;
-        nixpkgsSource = {
-          nixpkgs.source = nixpkgs;
-        };
       in
       {
         flake = {
@@ -29,7 +26,7 @@
             modules = [
               darwinModule
               privateModule
-              nixpkgsSource
+
               {
                 nixpkgs.hostPlatform = "x86_64-darwin";
                 networking = {
@@ -44,7 +41,7 @@
             modules = [
               darwinModule
               privateModule
-              nixpkgsSource
+
               {
                 nixpkgs.hostPlatform = "aarch64-darwin";
                 networking = {
@@ -58,7 +55,7 @@
           darwinConfigurations.ci-personal = darwin.lib.darwinSystem {
             modules = [
               darwinModule
-              nixpkgsSource
+
               {
                 nixpkgs.hostPlatform = "x86_64-darwin";
                 networking = {
@@ -72,7 +69,7 @@
           darwinConfigurations.ci-personal-m1 = darwin.lib.darwinSystem {
             modules = [
               darwinModule
-              nixpkgsSource
+
               {
                 nixpkgs.hostPlatform = "aarch64-darwin";
                 networking = {

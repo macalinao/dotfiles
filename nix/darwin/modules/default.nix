@@ -3,6 +3,7 @@
 let
   inherit (inputs)
     self
+    nixpkgs
     home-manager
     nix-index-database
     additional-nix-packages
@@ -25,7 +26,10 @@ in
 
   igm.mode = "personal";
 
-  nixpkgs = import ../../nixpkgs/config.nix {
+  nixpkgs = {
+    source = nixpkgs;
+  }
+  // import ../../nixpkgs/config.nix {
     isDarwin = true;
     additionalOverlays = [
       (self: super: {
@@ -61,7 +65,6 @@ in
   system.primaryUser = "igm";
   system.defaults = {
     NSGlobalDomain.NSAutomaticWindowAnimationsEnabled = false;
-    universalaccess.reduceMotion = true;
     dock = {
       mru-spaces = false;
       autohide = true;
