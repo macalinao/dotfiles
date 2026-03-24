@@ -42,12 +42,13 @@ cachix-push-m1-config  # Push M1 Darwin configuration to Cachix
 
 ### Flake Structure
 
-The repository uses a multi-flake architecture:
+The repository uses flake-parts with partitions:
 
-- `/nix/flake.nix`: Main system configuration flake
-- Platform-specific flakes are located in:
-  - `~/dotfiles-darwin` (macOS)
-  - `./private/flakes/nixos` (NixOS)
+- `/flake.nix`: Main flake using flake-parts
+- Platform-specific inputs are isolated via partitions:
+  - `nix/darwin/flake.nix`: Darwin partition inputs (nix-darwin, home-manager, nix-casks, etc.)
+  - `./private/flakes/nixos`: NixOS configuration
+- Private configurations (`~/dotfiles-private`) are injected at build time via `--override-input dotfiles-private`; a stub at `nix/private-stub/` is used by default (for CI)
 
 ### Key Directories
 

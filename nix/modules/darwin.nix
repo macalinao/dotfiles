@@ -14,16 +14,51 @@
     module =
       { inputs, ... }:
       let
-        inherit (inputs) darwin;
+        inherit (inputs) darwin dotfiles-private nixpkgs;
         darwinModule = import ../darwin/modules { inherit inputs; };
+        privateModule = dotfiles-private.darwinModules.default;
+        nixpkgsSource = {
+          nixpkgs.source = nixpkgs;
+        };
       in
       {
         flake = {
           darwinModules.default = darwinModule;
 
+          darwinConfigurations."ian-mbp-intel" = darwin.lib.darwinSystem {
+            modules = [
+              darwinModule
+              privateModule
+              nixpkgsSource
+              {
+                nixpkgs.hostPlatform = "x86_64-darwin";
+                networking = {
+                  computerName = "Ian's Macbook Pro Intel";
+                  hostName = "ian-mbp-intel";
+                  localHostName = "ian-mbp-intel";
+                };
+              }
+            ];
+          };
+          darwinConfigurations."ian-mbp-2022" = darwin.lib.darwinSystem {
+            modules = [
+              darwinModule
+              privateModule
+              nixpkgsSource
+              {
+                nixpkgs.hostPlatform = "aarch64-darwin";
+                networking = {
+                  computerName = "Ian's Macbook Pro 2022";
+                  hostName = "ian-mbp-2022";
+                  localHostName = "ian-mbp-2022";
+                };
+              }
+            ];
+          };
           darwinConfigurations.ci-personal = darwin.lib.darwinSystem {
             modules = [
               darwinModule
+              nixpkgsSource
               {
                 nixpkgs.hostPlatform = "x86_64-darwin";
                 networking = {
@@ -37,6 +72,7 @@
           darwinConfigurations.ci-personal-m1 = darwin.lib.darwinSystem {
             modules = [
               darwinModule
+              nixpkgsSource
               {
                 nixpkgs.hostPlatform = "aarch64-darwin";
                 networking = {

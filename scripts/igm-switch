@@ -13,12 +13,7 @@ if ! git diff --quiet || ! git diff --cached --quiet; then
 fi
 
 source $DOTFILES/scripts/igm-helpers.sh
-FLAKE_PATH=$(flake_path)
 SYSTEM_CONFIG_ATTRIBUTE=$(system_config_attribute)
-echo "Using flake at path $FLAKE_PATH."
-
-echo "Synchronizing settings"
-# igm-sync
 
 SHOW_TRACE=''
 if [ "${1:none}" = '--debug' ]; then
@@ -30,15 +25,14 @@ cd $HOME/dotfiles-private && git add -A . && git commit -m "Updates" && git frp
 
 cd $DOTFILES
 
-echo "Updating igm and dotfiles-private-raw flakes."
-nix flake update igm dotfiles-private-raw --flake $FLAKE_PATH
+PRIVATE_OVERRIDE="--override-input dotfiles-private git+file:///Users/igm/dotfiles-private"
 
 if $(uname -a | grep -q "NixOS"); then
-	sudo nixos-rebuild switch --impure --flake "$FLAKE_PATH#$SYSTEM_CONFIG_ATTRIBUTE" $SHOW_TRACE
+	sudo nixos-rebuild switch --impure --flake ".#$SYSTEM_CONFIG_ATTRIBUTE" $SHOW_TRACE
 fi
 
 if $(uname -a | grep -q "Darwin"); then
-	nix build "$FLAKE_PATH#$SYSTEM_CONFIG_ATTRIBUTE" $SHOW_TRACE || exit 1
-	sudo ./result/sw/bin/darwin-rebuild switch --flake "$FLAKE_PATH#$(hostname)"
+	nix build ".#$SYSTEM_CONFIG_ATTRIBUTE" $PRIVATE_OVERRIDE $SHOW_TRACE || exit 1
+	sudo ./result/sw/bin/darwin-rebuild switch --flake ".#$(hostname)" $PRIVATE_OVERRIDE
 	rm -r result
 fi
