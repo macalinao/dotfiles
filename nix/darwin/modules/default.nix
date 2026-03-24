@@ -3,7 +3,6 @@
 let
   inherit (inputs)
     self
-    nixpkgs
     home-manager
     nix-index-database
     additional-nix-packages
@@ -26,10 +25,7 @@ in
 
   igm.mode = "personal";
 
-  nixpkgs = {
-    source = nixpkgs;
-  }
-  // import ../../nixpkgs/config.nix {
+  nixpkgs = import ../../nixpkgs/config.nix {
     isDarwin = true;
     additionalOverlays = [
       (self: super: {
