@@ -68,6 +68,7 @@ The repository uses a multi-flake architecture:
 
 ## Important Notes
 
+- Always commit changes before running `igm-switch`, as it reads from the git tree
 - Always use `igm-switch` to apply configuration changes, not raw Nix commands
 - The repository uses platform detection to determine which flake to use
 - Run `nix fmt` before committing to format files
