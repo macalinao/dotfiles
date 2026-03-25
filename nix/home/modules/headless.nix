@@ -36,6 +36,7 @@
 
       # infra
       opentofu
+      go-task
 
       # JS tools
       nodejs_24
