@@ -47,8 +47,8 @@ The repository uses flake-parts with partitions:
 - `/flake.nix`: Main flake using flake-parts
 - Platform-specific inputs are isolated via partitions:
   - `nix/darwin/flake.nix`: Darwin partition inputs (nix-darwin, home-manager, nix-casks, etc.)
-  - `./private/flakes/nixos`: NixOS configuration
-- Private configurations (`~/dotfiles-private`) are injected at build time via `--override-input dotfiles-private`; a stub at `nix/private-stub/` is used by default (for CI)
+  - `nix/nixos/flake.nix`: NixOS partition inputs
+- Private configurations (`~/dotfiles-private`) are injected at build time via `--override-input dotfiles-private`; a stub at `github:macalinao/dotfiles-private-stub` is used by default (for CI)
 
 ### Key Directories
 
@@ -57,9 +57,8 @@ The repository uses flake-parts with partitions:
   - `home/`: Home Manager user environment configuration
   - `nixos/`: NixOS system configuration
   - `shells/`: Development shells for various languages
-  - `private/`: Private configuration management
 - `/scripts/`: Helper scripts (igm-\* commands)
-- `/config/`: Application configurations (VSCode, Cursor)
+- `/config/`: Application configurations (VSCode, Cursor, Claude Code)
 
 ### Configuration Flow
 
