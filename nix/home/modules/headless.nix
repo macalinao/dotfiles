@@ -510,6 +510,9 @@
     enableDefaultConfig = false;
     matchBlocks = {
       "*" = {
+        extraOptions = {
+          AddKeysToAgent = "yes";
+        };
         setEnv = {
           TERM = "xterm-256color";
         };
