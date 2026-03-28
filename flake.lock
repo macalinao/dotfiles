@@ -20,15 +20,16 @@
       }
     },
     "dotfiles-private": {
+      "flake": false,
       "locked": {
-        "path": "./nix/private-stub",
-        "type": "path"
+        "narHash": "sha256-d6xi4mKdjkX2JFicDIv5niSzpyI0m/Hnm8GGAIU04kY=",
+        "type": "file",
+        "url": "file:///dev/null"
       },
       "original": {
-        "path": "./nix/private-stub",
-        "type": "path"
-      },
-      "parent": []
+        "type": "file",
+        "url": "file:///dev/null"
+      }
     },
     "flake-parts": {
       "inputs": {
