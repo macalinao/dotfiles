@@ -16,8 +16,7 @@
       let
         inherit (inputs) darwin dotfiles-private;
         darwinModule = import ../darwin/modules { inherit inputs; };
-        privateModule =
-          if dotfiles-private ? darwinModules then dotfiles-private.darwinModules.default else { };
+        privateModule = dotfiles-private.darwinModules.default;
       in
       {
         flake = {

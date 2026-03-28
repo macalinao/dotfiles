@@ -6,10 +6,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     home-manager.url = "github:nix-community/home-manager";
     additional-nix-packages.url = "github:macalinao/additional-nix-packages";
-    dotfiles-private = {
-      url = "file+file:///dev/null";
-      flake = false;
-    };
+    dotfiles-private.url = "github:macalinao/dotfiles-private-stub";
   };
 
   outputs =

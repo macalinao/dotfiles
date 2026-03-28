@@ -20,15 +20,18 @@
       }
     },
     "dotfiles-private": {
-      "flake": false,
       "locked": {
-        "narHash": "sha256-d6xi4mKdjkX2JFicDIv5niSzpyI0m/Hnm8GGAIU04kY=",
-        "type": "file",
-        "url": "file:///dev/null"
+        "lastModified": 1774668658,
+        "narHash": "sha256-4Caruq6VATj99E9nttf9ub70EfNaW6Fefwbf8rE+mRo=",
+        "owner": "macalinao",
+        "repo": "dotfiles-private-stub",
+        "rev": "b61cd36fbb3ec8f74f32822e6b16fcf96332e2e0",
+        "type": "github"
       },
       "original": {
-        "type": "file",
-        "url": "file:///dev/null"
+        "owner": "macalinao",
+        "repo": "dotfiles-private-stub",
+        "type": "github"
       }
     },
     "flake-parts": {
