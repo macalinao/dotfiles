@@ -139,8 +139,16 @@
   programs.go.enable = true;
   programs.home-manager.enable = true;
 
-  programs.direnv.enable = true;
-  programs.direnv.nix-direnv.enable = true;
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+    # FIXME: Remove once NixOS/nixpkgs#502769 lands in nixpkgs-unstable
+    package = pkgs.direnv.overrideAttrs (old: {
+      env = (old.env or { }) // {
+        CGO_ENABLED = 1;
+      };
+    });
+  };
 
   programs.vim = {
     enable = true;
