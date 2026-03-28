@@ -81,7 +81,10 @@
       };
     };
 
-    programs.ssh.matchBlocks."*".extraOptions.UseKeychain = "yes";
+    programs.ssh.matchBlocks."*".extraOptions = {
+      IgnoreUnknown = "UseKeychain";
+      UseKeychain = "yes";
+    };
 
     programs.zsh.sessionVariables.ANDROID_HOME = "${config.home.homeDirectory}/Library/Android/sdk";
   };
