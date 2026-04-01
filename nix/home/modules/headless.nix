@@ -296,7 +296,7 @@
       ''}
 
       # Name zellij tab after initial working directory
-      if [[ -n "$ZELLIJ" ]]; then
+      if [[ -n "$ZELLIJ" && "$ZELLIJ" != "0" ]]; then
         command zellij action rename-tab "''${PWD##*/}"
       fi
 
