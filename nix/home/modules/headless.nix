@@ -77,7 +77,6 @@
 
       yj
       devenv
-      pypi2nix
       lice
 
       # from additional-nix-packages overlay
@@ -91,7 +90,7 @@
       additional-nix-packages.notifykit
     ]);
 
-  home.stateVersion = "22.05";
+  home.stateVersion = "26.05";
 
   programs.git = {
     enable = true;
