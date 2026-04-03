@@ -8,7 +8,10 @@
 }:
 
 {
-  imports = [ ../options.nix ];
+  imports = [
+    ../options.nix
+    ../dotfiles/common.nix
+  ];
 
   home.packages =
     with pkgs;
