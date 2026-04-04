@@ -44,7 +44,7 @@
       # JS tools
       nodejs_24
       (yarn.override { nodejs = nodejs_24; })
-      (nodePackages.pnpm.override { nodejs = nodejs_24; })
+      pnpm
       bun
       oxfmt
       oxlint

@@ -26,16 +26,6 @@
       pkgs.lib.optionals pkgs.stdenv.isLinux [ rust-lang.rust-analyzer ];
   };
 
-  # Personal git identity and signing
-  programs.git.settings.user = {
-    name = "Ian Macalinao";
-    email = "github@igm.pub";
-  };
-  programs.git.signing = {
-    signByDefault = true;
-    key = "5A246DACA92D4485";
-  };
-
   # Browser password management
   programs.browserpass.enable = true;
   programs.password-store = {
