@@ -15,9 +15,9 @@ cd $DOTFILES
 
 # Update root flake and all partition sub-flakes
 nix_cmd flake update
-nix_cmd flake update --flake nix/darwin
-nix_cmd flake update --flake nix/dev
-nix_cmd flake update --flake nix/nixos
+nix_cmd flake update --flake ./nix/darwin
+nix_cmd flake update --flake ./nix/dev
+nix_cmd flake update --flake ./nix/nixos
 
 git add .
 git commit -am "Run nix flake update via igm-update"
