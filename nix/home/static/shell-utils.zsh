@@ -67,3 +67,11 @@ sfxl() {
 docker-stop-all() {
   docker container stop $(docker container ls -aq)
 }
+
+# Disable mouse tracking after SSH exits to prevent escape sequence
+# garbage (e.g. 35;70;18M35;71) from appearing in the terminal when
+# the remote session (tmux, vim, etc.) disconnects without cleanup.
+ssh() {
+  command ssh "$@"
+  printf '\e[?1000l\e[?1002l\e[?1003l\e[?1005l\e[?1006l\e[?1015l\e[?1016l'
+}
