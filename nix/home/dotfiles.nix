@@ -6,8 +6,8 @@
 }:
 
 let
-  static = ../static;
-  claude-settings = ../../../config/claude/settings.json;
+  static = ./static;
+  claude-settings = ../../config/claude/settings.json;
 in
 {
   home.file = {
