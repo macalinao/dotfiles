@@ -10,7 +10,8 @@
 {
   imports = [
     ../options.nix
-    ../dotfiles/common.nix
+    ../dotfiles.nix
+    ../../nix-settings-shared.nix
   ];
 
   home.packages =
