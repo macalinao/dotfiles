@@ -60,10 +60,6 @@ tunnelport() {
   fi
 }
 
-sfxl() {
-  play -v 10.0 $DOTFILES/sfx/$1.ogg
-}
-
 docker-stop-all() {
   docker container stop $(docker container ls -aq)
 }

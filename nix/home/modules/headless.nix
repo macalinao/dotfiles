@@ -306,13 +306,19 @@
       fi
 
       ${builtins.readFile ../static/shell-utils.zsh};
+
+      sfxl() {
+        ${pkgs.sox}/bin/play -v 10.0 ${
+          pkgs.callPackage ../../packages/dotfiles-sfx.nix { }
+        }/share/sfx/$1.ogg
+      }
+
       source $HOME/dotfiles-private/helpers.zsh
     '';
 
     sessionVariables = {
       EDITOR = "nvim";
       LC_ALL = "en_US.UTF-8";
-      DOTFILES = "${config.home.homeDirectory}/dotfiles";
     };
 
     shellAliases = {
