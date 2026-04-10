@@ -147,6 +147,7 @@
     "code-context@igm-claude-plugins": true,
     "igm@igm-claude-plugins": true,
     "notifykit@igm-claude-plugins": true,
-    "linear-cli@linear-cli": true
+    "linear-cli@linear-cli": true,
+    "slack@claude-plugins-official": true
   }
 }
