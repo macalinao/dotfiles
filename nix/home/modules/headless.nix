@@ -136,10 +136,36 @@
         is-merged = ''!f() { commit=''${1:-HEAD}; for branch in origin/master origin/main master main; do if git merge-base --is-ancestor "$commit" "$branch" 2>/dev/null; then echo "✓ Commit is merged into $branch"; return 0; fi; done; echo "✗ Commit is not merged into any main branch"; return 1; }; f'';
       };
 
-      core.excludesFile = "${../static/gitignore_global}";
       push.default = "simple";
       init.defaultBranch = "master";
     };
+
+    ignores = [
+      "*.swo"
+      "*.swp"
+      ".#*"
+      ".DS_Store"
+      ".bloop/"
+      ".direnv/"
+      ".ensime"
+      ".ensime_cache/"
+      ".env"
+      ".gradle/"
+      ".gradletasknamecache"
+      ".idea/"
+      ".metals/"
+      ".nb-gradle/"
+      ".tern-port"
+      ".tmp"
+      "dump.rdb"
+      "main.iml"
+      "npm-debug.log"
+      "~$*"
+      ".claude/settings.local.json"
+      ".claude/scheduled_tasks.lock"
+      ".codex"
+      "!.codex/"
+    ];
 
     lfs.enable = true;
   };
