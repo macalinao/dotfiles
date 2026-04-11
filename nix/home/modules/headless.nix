@@ -20,6 +20,7 @@
       (callPackage ../../packages/dotfiles-scripts.nix {
         dotfilesPath = config.igm.dotfilesPath;
       })
+      (callPackage ../../packages/git-worktree-runner.nix { })
       eza
       git
       btop
@@ -62,6 +63,7 @@
       # Rust
       rustup
       openssl
+      cargo-nextest
       cargo-workspaces
 
       # language servers
@@ -512,6 +514,20 @@
         batwatch
       ];
     };
+  };
+
+  # KDL syntax highlighting for bat. The upstream Sublime package has
+  # multiple interdependent files (KDL_.sublime-syntax dispatches to
+  # KDL1/KDL2 which extend a shared base), so drop the whole repo into
+  # bat/syntaxes/kdl/ and let `bat cache --build` walk it recursively.
+  xdg.configFile."bat/syntaxes/kdl".source = pkgs.fetchFromGitHub {
+    owner = "eugenesvk";
+    repo = "sublime-kdl";
+    rev = "d4ceee8eed073f6b4f1cb50806b3a7ae74a8d8b2";
+    hash = "sha256-ZuOcNPmN7R3peV/jecPthwyYx56na+XBkw8r7e8h+c8=";
+  };
+
+  programs = {
 
     jq.enable = true;
 
