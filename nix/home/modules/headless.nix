@@ -95,6 +95,11 @@
     ]
     ++ (lib.optionals pkgs.stdenv.isDarwin [
       additional-nix-packages.notifykit
+    ])
+    ++ (lib.optionals pkgs.stdenv.isLinux [
+      bubblewrap
+      socat
+      libseccomp
     ]);
 
   home.stateVersion = "26.05";
