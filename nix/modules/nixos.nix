@@ -20,6 +20,7 @@
       {
         flake = {
           nixosModules.default = nixosModule;
+          nixosModules.headless = import ../nixos/modules/headless.nix { inherit inputs; };
 
           nixosConfigurations.ci-home = nixpkgs.lib.nixosSystem {
             modules = [
