@@ -257,7 +257,6 @@
   };
 
   home.sessionPath = [
-    "${config.home.homeDirectory}/.local/bin"
     "${config.home.homeDirectory}/.npm-packages/bin"
     "${config.home.homeDirectory}/.cache/.bun/bin"
     "${config.home.homeDirectory}/.cargo/bin"
@@ -266,6 +265,15 @@
     "/opt/homebrew/bin"
     "${config.home.homeDirectory}/.local/share/solana/install/active_release/bin"
   ]);
+
+  # ~/.local/bin is appended (not prepended) so Nix-managed binaries
+  # take precedence over anything the user drops there manually.
+  programs.zsh.envExtra = ''
+    export PATH="$PATH:$HOME/.local/bin"
+  '';
+  programs.bash.bashrcExtra = ''
+    export PATH="$PATH:$HOME/.local/bin"
+  '';
 
   programs.fd = {
     enable = true;
