@@ -1,0 +1,75 @@
+%YAML 1.2
+---
+name: KDL
+file_extensions: [kdl]
+scope: source.kdl
+
+variables:
+  identifier: '[A-Za-z_$][A-Za-z0-9_$.\-]*'
+
+contexts:
+  main:
+    - include: comments
+    - include: nodes
+
+  comments:
+    - match: '//'
+      scope: punctuation.definition.comment.kdl
+      push:
+        - meta_scope: comment.line.double-slash.kdl
+        - match: $
+          pop: true
+    - match: '/\*'
+      scope: punctuation.definition.comment.begin.kdl
+      push:
+        - meta_scope: comment.block.kdl
+        - match: '\*/'
+          scope: punctuation.definition.comment.end.kdl
+          pop: true
+    - match: '/-'
+      scope: comment.block.slashdash.kdl
+
+  nodes:
+    - match: '(\()({{identifier}})(\))'
+      captures:
+        1: punctuation.definition.annotation.begin.kdl
+        2: entity.name.type.kdl
+        3: punctuation.definition.annotation.end.kdl
+    - match: '\b(true|false|null)\b'
+      scope: constant.language.kdl
+    - match: '\b-?\d+(\.\d+)?([eE][+-]?\d+)?\b'
+      scope: constant.numeric.kdl
+    - match: '\b0x[0-9a-fA-F_]+\b'
+      scope: constant.numeric.hex.kdl
+    - match: '\b0o[0-7_]+\b'
+      scope: constant.numeric.octal.kdl
+    - match: '\b0b[01_]+\b'
+      scope: constant.numeric.binary.kdl
+    - match: '({{identifier}})\s*(=)'
+      captures:
+        1: variable.parameter.kdl
+        2: keyword.operator.assignment.kdl
+    - match: 'r(#*)"'
+      scope: punctuation.definition.string.begin.kdl
+      push:
+        - meta_scope: string.quoted.raw.kdl
+        - match: '"\1'
+          scope: punctuation.definition.string.end.kdl
+          pop: true
+    - match: '"'
+      scope: punctuation.definition.string.begin.kdl
+      push:
+        - meta_scope: string.quoted.double.kdl
+        - match: '\\.'
+          scope: constant.character.escape.kdl
+        - match: '"'
+          scope: punctuation.definition.string.end.kdl
+          pop: true
+    - match: '\{'
+      scope: punctuation.section.block.begin.kdl
+    - match: '\}'
+      scope: punctuation.section.block.end.kdl
+    - match: ';'
+      scope: punctuation.terminator.kdl
+    - match: '{{identifier}}'
+      scope: entity.name.tag.kdl
