@@ -258,7 +258,6 @@
 
   home.sessionPath = [
     "${config.home.homeDirectory}/.npm-packages/bin"
-    "${config.home.homeDirectory}/.cache/.bun/bin"
     "${config.home.homeDirectory}/.cargo/bin"
   ]
   ++ (lib.optionals pkgs.stdenv.isDarwin [
