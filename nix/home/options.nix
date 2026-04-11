@@ -1,7 +1,7 @@
 # Home Manager options for igm settings.
 # These mirror the system-level igm options so home modules
 # can access them without the systemConfig hack.
-{ lib, ... }:
+{ config, lib, ... }:
 
 {
   options.igm = {
@@ -15,6 +15,17 @@
       type = lib.types.bool;
       default = false;
       description = "Do not install GUI apps, window manager, desktop environment, etc.";
+    };
+
+    dotfilesPath = lib.mkOption {
+      type = lib.types.str;
+      default = "${config.home.homeDirectory}/dotfiles";
+      defaultText = lib.literalExpression ''"''${config.home.homeDirectory}/dotfiles"'';
+      description = ''
+        Absolute path to the working copy of the dotfiles repo on the
+        target machine. Baked into dotfiles-scripts (igm-switch, etc.)
+        so they know where to run flake commands from.
+      '';
     };
   };
 }

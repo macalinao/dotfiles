@@ -49,9 +49,12 @@ in
       vlc
     ]);
 
-  home-manager.users.igm = {
-    imports = [ self.homeModules.default ];
-  };
+  home-manager.users.igm =
+    { config, ... }:
+    {
+      imports = [ self.homeModules.default ];
+      igm.dotfilesPath = "${config.home.homeDirectory}/dotfiles";
+    };
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
 

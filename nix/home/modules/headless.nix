@@ -18,7 +18,7 @@
     with pkgs;
     [
       (callPackage ../../packages/dotfiles-scripts.nix {
-        dotfilesPath = "${config.home.homeDirectory}/dotfiles";
+        dotfilesPath = config.igm.dotfilesPath;
       })
       eza
       git
