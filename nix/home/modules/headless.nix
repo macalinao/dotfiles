@@ -46,7 +46,6 @@
       go-task
 
       # JS tools
-      nodejs_24
       (yarn.override { nodejs = nodejs_24; })
       pnpm
       oxfmt
@@ -151,8 +150,22 @@
   programs.difftastic.enable = true;
 
   programs.bun.enable = true;
+  programs.cargo = {
+    enable = true;
+    package = null;
+  };
   programs.go.enable = true;
   programs.home-manager.enable = true;
+  programs.npm = {
+    enable = true;
+    package = pkgs.nodejs_24;
+    settings = {
+      prefix = "\${HOME}/.npm";
+      scripts-prepend-node-path = "auto";
+      "//registry.npmjs.org/:_authToken" = "\${NPM_AUTH_TOKEN}";
+      "//npm.pkg.github.com/:_authToken" = "\${NPM_GITHUB_AUTH_TOKEN}";
+    };
+  };
 
   programs.direnv = {
     enable = true;
@@ -257,7 +270,7 @@
   };
 
   home.sessionPath = [
-    "${config.home.homeDirectory}/.npm-packages/bin"
+    "${config.home.homeDirectory}/.npm/bin"
     "${config.home.homeDirectory}/.cargo/bin"
   ]
   ++ (lib.optionals pkgs.stdenv.isDarwin [
@@ -329,7 +342,9 @@
         }/share/sfx/$1.ogg
       }
 
-      source $HOME/dotfiles-private/helpers.zsh
+      # Shift+Enter (kitty kbd protocol \e[13;2u) accepts the current line
+      # so prompts that would otherwise insert a literal newline submit instead.
+      bindkey '\e[13;2u' accept-line
     '';
 
     sessionVariables = {
@@ -359,6 +374,8 @@
 
       # Claude Code
       claude-install = "curl -fsSL https://claude.ai/install.sh | bash";
+
+      git-presign = ''gpg --sign --local-user "$(git config user.signingkey)" -o /dev/null </dev/null'';
     }
     // lib.listToAttrs (
       builtins.genList (
@@ -440,14 +457,20 @@
         theme = "nord";
         default_mode = "locked";
         keybinds = {
-          locked = lib.listToAttrs (
-            map (n: {
-              name = "bind \"Alt ${toString n}\"";
-              value = {
-                GoToTab = n;
+          locked =
+            lib.listToAttrs (
+              map (n: {
+                name = "bind \"Alt ${toString n}\"";
+                value = {
+                  GoToTab = n;
+                };
+              }) (lib.range 1 9)
+            )
+            // {
+              "bind \"Shift Enter\"" = {
+                Write = 10;
               };
-            }) (lib.range 1 9)
-          );
+            };
           "shared_except \"locked\"" = lib.listToAttrs (
             map (n: {
               name = "bind \"Alt ${toString n}\"";
@@ -460,6 +483,16 @@
         };
       };
     };
+
+    # Custom default layout that swaps zellij's built-in tab/status bar for
+    # zjstatus, so we can show the local hostname (and mode/session/tabs) in
+    # one templated bar.
+  };
+
+  xdg.configFile."zellij/layouts/default.kdl".source = pkgs.replaceVars ../static/zellij-default.kdl {
+    ZJSTATUS = "${pkgs.zjstatus}/bin/zjstatus.wasm";
+  };
+  programs = {
 
     zoxide = {
       enable = true;

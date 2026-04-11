@@ -1,0 +1,29 @@
+// Default zellij layout. Replaces the built-in tab/status bar with zjstatus
+// so we can show the local hostname alongside session/mode/tabs in one
+// templated bar. The @ZJSTATUS@ placeholder is substituted at build time
+// with the absolute store path of the zjstatus.wasm artifact.
+layout {
+    default_tab_template {
+        children
+        pane size=1 borderless=true {
+            plugin location="file:@ZJSTATUS@" {
+                format_left   "#[bg=#5E81AC,fg=#2E3440,bold] {session} #[bg=default,fg=#A3BE8C] @{command_host}"
+                format_center "{tabs}"
+                format_right  "#[fg=#88C0D0]{mode}"
+                format_space  ""
+
+                hide_frame_for_single_pane "true"
+
+                mode_normal "#[bg=#A3BE8C,fg=#2E3440,bold] NORMAL "
+                mode_locked "#[bg=#5E81AC,fg=#2E3440,bold] LOCKED "
+
+                tab_normal "#[fg=#6C7086] {index} {name} "
+                tab_active "#[fg=#A3BE8C,bold] {index} {name} "
+
+                command_host_command  "hostname"
+                command_host_format   "{stdout}"
+                command_host_interval "60"
+            }
+        }
+    }
+}

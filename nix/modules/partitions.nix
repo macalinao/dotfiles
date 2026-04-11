@@ -41,6 +41,7 @@
                 indent_size = 2;
               };
               programs.stylua.enable = true;
+              programs.kdlfmt.enable = true;
               programs.dprint = {
                 enable = true;
                 includes = [
