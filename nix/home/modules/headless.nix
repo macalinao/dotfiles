@@ -581,6 +581,8 @@
     settings.git_protocol = "ssh";
   };
 
+  services.ssh-agent.enable = pkgs.stdenv.isLinux;
+
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
