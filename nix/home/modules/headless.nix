@@ -86,6 +86,10 @@
       devenv
       lice
 
+      # AI coding tools
+      claude-code
+      codex
+
       # from additional-nix-packages overlay
       additional-nix-packages.biome
       additional-nix-packages.gogcli

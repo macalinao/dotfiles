@@ -5,7 +5,6 @@ let
     self
     home-manager
     nix-index-database
-    additional-nix-packages
     nix-casks
     ;
 in
@@ -28,10 +27,8 @@ in
   nixpkgs = import ../../nixpkgs/config.nix {
     isDarwin = true;
     additionalOverlays = [
-      (self: super: {
-        additional-nix-packages = additional-nix-packages.packages.${self.stdenv.hostPlatform.system};
-      })
-      (self: super: {
+      self.overlays.default
+      (self: _super: {
         nix-casks = nix-casks.packages.${self.stdenv.hostPlatform.system};
       })
     ];

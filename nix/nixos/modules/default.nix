@@ -4,7 +4,6 @@ let
   inherit (inputs)
     self
     home-manager
-    additional-nix-packages
     ;
 in
 {
@@ -48,10 +47,6 @@ in
   ];
 
   nixpkgs = import ../../nixpkgs/config.nix {
-    additionalOverlays = [
-      (self: super: {
-        additional-nix-packages = additional-nix-packages.packages.${self.stdenv.hostPlatform.system};
-      })
-    ];
+    additionalOverlays = [ self.overlays.default ];
   };
 }

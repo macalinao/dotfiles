@@ -7,6 +7,14 @@
     home-manager.url = "github:nix-community/home-manager";
     additional-nix-packages.url = "github:macalinao/additional-nix-packages";
     dotfiles-private.url = "github:macalinao/dotfiles-private-stub";
+    claude-code-nix = {
+      url = "github:sadjow/claude-code-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    codex-cli-nix = {
+      url = "github:sadjow/codex-cli-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -21,6 +29,7 @@
 
       imports = [
         ./nix/modules/partitions.nix
+        ./nix/modules/overlays.nix
         ./nix/modules/nixos.nix
         ./nix/modules/darwin.nix
         ./nix/modules/home-manager.nix
