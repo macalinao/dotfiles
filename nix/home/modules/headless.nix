@@ -49,7 +49,6 @@
       nodejs_24
       (yarn.override { nodejs = nodejs_24; })
       pnpm
-      bun
       oxfmt
       oxlint
 
@@ -151,6 +150,7 @@
 
   programs.difftastic.enable = true;
 
+  programs.bun.enable = true;
   programs.go.enable = true;
   programs.home-manager.enable = true;
 
