@@ -22,6 +22,17 @@
           nixosModules.default = nixosModule;
           nixosModules.headless = import ../nixos/modules/headless.nix { inherit inputs; };
 
+          nixosConfigurations.ci-headless = nixpkgs.lib.nixosSystem {
+            modules = [
+              (import ../nixos/modules/headless.nix { inherit inputs; })
+              ../nixos/machines/ci.nix
+              {
+                nixpkgs.hostPlatform = "x86_64-linux";
+                system.stateVersion = "24.05";
+              }
+            ];
+          };
+
           nixosConfigurations.ci-home = nixpkgs.lib.nixosSystem {
             modules = [
               nixosModule

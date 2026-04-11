@@ -287,6 +287,11 @@
   '';
   programs.bash.bashrcExtra = ''
     export PATH="$PATH:$HOME/.local/bin"
+
+    # git-worktree-runner (gtr) shell integration + completions
+    if command -v git-gtr >/dev/null 2>&1; then
+      eval "$(git gtr init bash)"
+    fi
   '';
 
   programs.fd = {
@@ -347,6 +352,9 @@
       # Shift+Enter (kitty kbd protocol \e[13;2u) accepts the current line
       # so prompts that would otherwise insert a literal newline submit instead.
       bindkey '\e[13;2u' accept-line
+
+      # git-worktree-runner (gtr) shell integration + completions
+      eval "$(git gtr init zsh)"
     '';
 
     sessionVariables = {

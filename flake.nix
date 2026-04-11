@@ -6,7 +6,12 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     home-manager.url = "github:nix-community/home-manager";
     additional-nix-packages.url = "github:macalinao/additional-nix-packages";
-    dotfiles-private.url = "github:macalinao/dotfiles-private-stub";
+    dotfiles-private = {
+      url = "github:macalinao/dotfiles-private-stub";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+      inputs.flake-parts.follows = "flake-parts";
+    };
     claude-code-nix = {
       url = "github:sadjow/claude-code-nix";
       inputs.nixpkgs.follows = "nixpkgs";

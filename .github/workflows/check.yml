@@ -32,6 +32,7 @@ jobs:
         nixosConfiguration:
           - ci-home
           - ci-bare
+          - ci-headless
           - vbox-host
     runs-on: ubuntu-latest
     steps:
