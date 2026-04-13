@@ -162,7 +162,7 @@
       "main.iml"
       "npm-debug.log"
       "~$*"
-      ".claude/settings.local.json"
+      "**/.claude/settings.local.json"
       ".claude/scheduled_tasks.lock"
       ".codex"
       "!.codex/"
