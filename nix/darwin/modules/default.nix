@@ -53,7 +53,7 @@ in
     { config, ... }:
     {
       imports = [ self.homeModules.default ];
-      igm.dotfilesPath = "${config.home.homeDirectory}/dotfiles";
+      igm.dotfilesPath = "${config.home.homeDirectory}/proj/macalinao/dotfiles";
     };
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;

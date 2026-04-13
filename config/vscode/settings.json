@@ -63,7 +63,7 @@
   "cSpell.customDictionaries": {
     "igm": {
       "name": "igm",
-      "path": "~/dotfiles/misc/words.txt",
+      "path": "~/proj/macalinao/dotfiles/misc/words.txt",
       "scope": "user",
       "addWords": true
     }

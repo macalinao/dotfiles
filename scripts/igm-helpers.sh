@@ -4,7 +4,7 @@
 flake_path() {
   FLAKE_PATH=''
   if $(uname -a | grep -q "Darwin"); then
-    FLAKE_PATH="$HOME/dotfiles"
+    FLAKE_PATH="$DOTFILES"
   elif $(uname -a | grep -q "NixOS"); then
     FLAKE_PATH="./private/flakes/nixos"
   else
