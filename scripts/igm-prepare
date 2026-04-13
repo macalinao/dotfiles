@@ -2,7 +2,7 @@
 
 echo "Building the latest system configuration..."
 
-DOTFILES=$HOME/dotfiles
+DOTFILES="$(cd "$(dirname "$0")/.." && pwd)"
 cd $DOTFILES
 
 SHOW_TRACE=''
