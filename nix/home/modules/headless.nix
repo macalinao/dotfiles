@@ -31,6 +31,7 @@
       unzip
       wget
       silver-searcher
+      dnsutils
 
       # nix tools
       nixd
