@@ -503,19 +503,29 @@
               }) (lib.range 1 9)
             )
             // {
+              "bind \"Alt 0\"" = {
+                GoToTab = 10;
+              };
               "bind \"Shift Enter\"" = {
                 Write = 10;
               };
             };
-          "shared_except \"locked\"" = lib.listToAttrs (
-            map (n: {
-              name = "bind \"Alt ${toString n}\"";
-              value = {
-                GoToTab = n;
+          "shared_except \"locked\"" =
+            lib.listToAttrs (
+              map (n: {
+                name = "bind \"Alt ${toString n}\"";
+                value = {
+                  GoToTab = n;
+                  SwitchToMode = "locked";
+                };
+              }) (lib.range 1 9)
+            )
+            // {
+              "bind \"Alt 0\"" = {
+                GoToTab = 10;
                 SwitchToMode = "locked";
               };
-            }) (lib.range 1 9)
-          );
+            };
         };
       };
     };
