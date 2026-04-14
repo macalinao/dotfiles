@@ -10,7 +10,220 @@ variables:
 contexts:
   main:
     - include: comments
-    - include: nodes
+    - include: node_start
+
+  block_body:
+    - match: '\}'
+      scope: punctuation.section.block.end.kdl
+      pop: true
+    - include: comments
+    - include: node_start
+
+  node_start:
+    - match: '/-'
+      scope: punctuation.definition.comment.kdl
+      push: slashdash_node
+    - match: '(\()({{identifier}})(\))'
+      captures:
+        1: punctuation.definition.annotation.begin.kdl
+        2: entity.name.type.kdl
+        3: punctuation.definition.annotation.end.kdl
+    - match: '{{identifier}}'
+      scope: keyword.declaration.kdl
+      push: node_args
+    - match: 'r(#*)"'
+      scope: punctuation.definition.string.begin.kdl
+      push:
+        - - include: node_args
+        - - meta_scope: string.quoted.raw.kdl keyword.declaration.kdl
+          - match: '"\1'
+            scope: punctuation.definition.string.end.kdl
+            pop: true
+    - match: '"'
+      scope: punctuation.definition.string.begin.kdl
+      push:
+        - - include: node_args
+        - - meta_scope: string.quoted.double.kdl keyword.declaration.kdl
+          - include: string_escapes
+          - match: '"'
+            scope: punctuation.definition.string.end.kdl
+            pop: true
+
+  node_args:
+    - match: '(?=\})'
+      pop: true
+    - match: '\\\n'
+      scope: constant.character.escape.continuation.kdl
+    - match: '\n'
+      pop: true
+    - match: ';'
+      scope: punctuation.terminator.kdl
+      pop: true
+    - match: '\{'
+      scope: punctuation.section.block.begin.kdl
+      push: block_body
+    - match: '/-'
+      scope: punctuation.definition.comment.kdl
+      push: slashdash_value
+    - include: comments
+    - match: '(\()({{identifier}})(\))'
+      captures:
+        1: punctuation.definition.annotation.begin.kdl
+        2: entity.name.type.kdl
+        3: punctuation.definition.annotation.end.kdl
+    - match: '({{identifier}})\s*(=)'
+      captures:
+        1: variable.parameter.kdl
+        2: punctuation.separator.key-value.kdl
+    - match: '#(true|false|null)(?![A-Za-z0-9_$.\-])'
+      scope: constant.language.kdl
+    - match: '#(-inf|inf|nan)(?![A-Za-z0-9_$.\-])'
+      scope: constant.numeric.kdl
+    - match: '(?<![A-Za-z0-9_$.\-])(true|false|null)(?![A-Za-z0-9_$.\-])'
+      scope: invalid.illegal.bare-keyword.kdl
+    - match: '(?<![A-Za-z0-9_$.\-])0x[0-9a-fA-F_]+(?![A-Za-z0-9_$.\-])'
+      scope: constant.numeric.hex.kdl
+    - match: '(?<![A-Za-z0-9_$.\-])0o[0-7_]+(?![A-Za-z0-9_$.\-])'
+      scope: constant.numeric.octal.kdl
+    - match: '(?<![A-Za-z0-9_$.\-])0b[01_]+(?![A-Za-z0-9_$.\-])'
+      scope: constant.numeric.binary.kdl
+    - match: '(?<![A-Za-z0-9_$.\-])-?\d+(\.\d+)?([eE][+-]?\d+)?(?![A-Za-z0-9_$.\-])'
+      scope: constant.numeric.kdl
+    - match: 'r(#*)"'
+      scope: punctuation.definition.string.begin.kdl
+      push:
+        - meta_scope: string.quoted.raw.kdl
+        - match: '"\1'
+          scope: punctuation.definition.string.end.kdl
+          pop: true
+    - match: '"'
+      scope: punctuation.definition.string.begin.kdl
+      push:
+        - meta_scope: string.quoted.double.kdl
+        - include: string_escapes
+        - match: '"'
+          scope: punctuation.definition.string.end.kdl
+          pop: true
+    - match: '{{identifier}}'
+      scope: entity.name.label.kdl string.unquoted.kdl
+
+  string_escapes:
+    - match: '\\u\{[0-9a-fA-F]+\}'
+      scope: constant.character.escape.unicode.kdl
+    - match: '\\[nrtbfs\\"/0]'
+      scope: constant.character.escape.kdl
+    - match: '\\.'
+      scope: constant.character.escape.kdl
+
+  # Slashdash on a full node: /- (type)name args... { children } is all comment.
+  slashdash_node:
+    - meta_scope: comment.block.slashdash.kdl
+    - match: '(?=\})'
+      pop: true
+    - match: '\n'
+      pop: true
+    - match: '[ \t]+'
+    - match: '\('
+      push: slashdash_paren
+    - match: '{{identifier}}'
+      set: slashdash_node_body
+    - match: 'r(#*)"'
+      set: [slashdash_node_body, slashdash_raw_string]
+    - match: '"'
+      set: [slashdash_node_body, slashdash_string]
+
+  slashdash_paren:
+    - meta_scope: comment.block.slashdash.kdl
+    - match: '\)'
+      pop: true
+    - match: '[^)]+'
+
+  slashdash_node_body:
+    - meta_scope: comment.block.slashdash.kdl
+    - match: '(?=\})'
+      pop: true
+    - match: '\\\n'
+    - match: '\n'
+      pop: true
+    - match: ';'
+      pop: true
+    - match: '\{'
+      push: slashdash_brace_body
+    - match: '"'
+      push: slashdash_string
+    - match: 'r(#*)"'
+      push: slashdash_raw_string
+    - match: '//[^\n]*'
+    - match: '/\*'
+      push: slashdash_blockcomment
+    - match: '[^\n;{}"/]+'
+
+  slashdash_brace_body:
+    - meta_scope: comment.block.slashdash.kdl
+    - match: '\}'
+      pop: true
+    - match: '\{'
+      push: slashdash_brace_body
+    - match: '"'
+      push: slashdash_string
+    - match: 'r(#*)"'
+      push: slashdash_raw_string
+    - match: '//[^\n]*'
+    - match: '/\*'
+      push: slashdash_blockcomment
+    - match: '[^{}"/]+'
+
+  slashdash_string:
+    - meta_scope: comment.block.slashdash.kdl
+    - match: '\\.'
+    - match: '"'
+      pop: true
+    - match: '[^"\\]+'
+
+  slashdash_raw_string:
+    - meta_scope: comment.block.slashdash.kdl
+    - match: '"\1'
+      pop: true
+    - match: '.'
+
+  slashdash_blockcomment:
+    - meta_scope: comment.block.slashdash.kdl
+    - match: '\*/'
+      pop: true
+    - match: '[^*]+|\*'
+
+  # Slashdash inside a node: /- before a single arg, property, or child block.
+  slashdash_value:
+    - meta_scope: comment.block.slashdash.kdl
+    - match: '(?=[\n;}])'
+      pop: true
+    - match: '[ \t]+'
+    - match: '\('
+      push: slashdash_paren
+    - match: '\{'
+      set: slashdash_brace_body
+    - match: '"'
+      set: slashdash_string
+    - match: 'r(#*)"'
+      set: slashdash_raw_string
+    - match: '{{identifier}}\s*='
+      set: slashdash_prop_rhs
+    - match: '#?-?[^\s;{}"]+'
+      pop: true
+
+  slashdash_prop_rhs:
+    - meta_scope: comment.block.slashdash.kdl
+    - match: '(?=[\n;}])'
+      pop: true
+    - match: '[ \t]+'
+    - match: '\{'
+      set: slashdash_brace_body
+    - match: '"'
+      set: slashdash_string
+    - match: 'r(#*)"'
+      set: slashdash_raw_string
+    - match: '[^\s;{}]+'
+      pop: true
 
   comments:
     - match: '//'
@@ -26,50 +239,3 @@ contexts:
         - match: '\*/'
           scope: punctuation.definition.comment.end.kdl
           pop: true
-    - match: '/-'
-      scope: comment.block.slashdash.kdl
-
-  nodes:
-    - match: '(\()({{identifier}})(\))'
-      captures:
-        1: punctuation.definition.annotation.begin.kdl
-        2: entity.name.type.kdl
-        3: punctuation.definition.annotation.end.kdl
-    - match: '\b(true|false|null)\b'
-      scope: constant.language.kdl
-    - match: '\b-?\d+(\.\d+)?([eE][+-]?\d+)?\b'
-      scope: constant.numeric.kdl
-    - match: '\b0x[0-9a-fA-F_]+\b'
-      scope: constant.numeric.hex.kdl
-    - match: '\b0o[0-7_]+\b'
-      scope: constant.numeric.octal.kdl
-    - match: '\b0b[01_]+\b'
-      scope: constant.numeric.binary.kdl
-    - match: '({{identifier}})\s*(=)'
-      captures:
-        1: variable.parameter.kdl
-        2: keyword.operator.assignment.kdl
-    - match: 'r(#*)"'
-      scope: punctuation.definition.string.begin.kdl
-      push:
-        - meta_scope: string.quoted.raw.kdl
-        - match: '"\1'
-          scope: punctuation.definition.string.end.kdl
-          pop: true
-    - match: '"'
-      scope: punctuation.definition.string.begin.kdl
-      push:
-        - meta_scope: string.quoted.double.kdl
-        - match: '\\.'
-          scope: constant.character.escape.kdl
-        - match: '"'
-          scope: punctuation.definition.string.end.kdl
-          pop: true
-    - match: '\{'
-      scope: punctuation.section.block.begin.kdl
-    - match: '\}'
-      scope: punctuation.section.block.end.kdl
-    - match: ';'
-      scope: punctuation.terminator.kdl
-    - match: '{{identifier}}'
-      scope: entity.name.tag.kdl
