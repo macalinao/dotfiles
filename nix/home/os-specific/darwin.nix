@@ -22,6 +22,41 @@
 
         # file associations
         duti
+
+        # Immich client + an archive wrapper that moves a folder into the
+        # home Immich server and deletes the local copies once the server
+        # confirms ingest. First-time auth on each machine:
+        #
+        #   immich login-key https://immich.yourhost.com/api <API_KEY>
+        #
+        # Get the API key from Immich's web UI: Account Settings → API Keys.
+        immich-cli
+        (writeShellApplication {
+          name = "immich-archive";
+          runtimeInputs = [
+            immich-cli
+            findutils
+          ];
+          text = ''
+            if [ $# -eq 0 ]; then
+              echo "usage: immich-archive <directory> [more dirs...]" >&2
+              exit 64
+            fi
+            for dir in "$@"; do
+              if [ ! -d "$dir" ]; then
+                echo "not a directory: $dir" >&2
+                exit 66
+              fi
+              # --delete removes each file only after the server confirms a
+              # successful upload. Immich dedupes by hash, so re-runs are
+              # idempotent.
+              immich upload --recursive --delete -- "$dir"
+              # CLI leaves empty dirs behind; prune them (but keep the
+              # root arg so the user can see the archive completed).
+              find "$dir" -mindepth 1 -type d -empty -delete
+            done
+          '';
+        })
       ]
       ++ (lib.optionals pkgs.stdenv.hostPlatform.isAarch64 [
         keybase
