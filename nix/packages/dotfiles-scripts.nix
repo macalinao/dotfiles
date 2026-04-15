@@ -19,13 +19,13 @@ stdenvNoCC.mkDerivation {
     for f in $out/bin/*; do
       # Replace hardcoded DOTFILES derivations with the known path
       substituteInPlace "$f" \
-        --replace-quiet 'DOTFILES="$(cd "$(dirname "$0")/.." && pwd)"' 'DOTFILES="''${DOTFILES:-${dotfilesPath}}"' \
-        --replace-quiet 'DOTFILES=$HOME/dotfiles' 'DOTFILES="''${DOTFILES:-${dotfilesPath}}"' \
+        --replace-quiet 'DOTFILES="$(cd "$(dirname "$0")/.." && pwd)"' 'DOTFILES="${dotfilesPath}"' \
+        --replace-quiet 'DOTFILES=$HOME/dotfiles' 'DOTFILES="${dotfilesPath}"' \
         --replace-quiet 'source $DOTFILES/scripts/igm-helpers.sh' "source $out/lib/igm-helpers.sh" \
         --replace-quiet 'source "$DOTFILES/scripts/igm-helpers.sh"' "source $out/lib/igm-helpers.sh"
       # Inject DOTFILES default for scripts that don't set it
       if ! grep -q 'DOTFILES=' "$f"; then
-        ${gnused}/bin/sed -i '1 a\DOTFILES="''${DOTFILES:-${dotfilesPath}}"' "$f"
+        ${gnused}/bin/sed -i '1 a\DOTFILES="${dotfilesPath}"' "$f"
       fi
     done
   '';
