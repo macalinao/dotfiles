@@ -29,6 +29,10 @@
 
     xdg.enable = true;
 
+    # asimeow: exclude dev build artifacts from Time Machine backups.
+    # Installed + scheduled via nix-darwin homebrew (see nix/darwin/modules/time-machine.nix).
+    igm.asimeow.enable = true;
+
     home.file.".gnupg/gpg-agent.conf" = {
       text = "pinentry-program ${pkgs.pinentry_mac}/${pkgs.pinentry_mac.passthru.binaryPath}";
     };

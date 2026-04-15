@@ -18,6 +18,7 @@ in
   imports = [
     ../../system.nix
     ../../nix-settings.nix
+    ./time-machine.nix
     nix-index-database.darwinModules.nix-index
     home-manager.darwinModules.home-manager
   ];
