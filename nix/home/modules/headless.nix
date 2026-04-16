@@ -399,10 +399,16 @@
       bindkey '^I' expand-or-complete
       bindkey '^R' _atuin_search_widget
 
+      export LS_COLORS="$(${pkgs.vivid}/bin/vivid generate nord)"
+      zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
+
       ${lib.optionalString pkgs.stdenv.isDarwin ''
         bindkey '^[[1;3C' forward-word
         bindkey '^[[1;3D' backward-word
       ''}
+
+      # Alt+Backspace: backward-kill-word
+      bindkey '\e^?' backward-kill-word
 
       # Name zellij tab after initial working directory
       if [[ -n "$ZELLIJ" && "$ZELLIJ" != "0" ]]; then
