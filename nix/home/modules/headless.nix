@@ -40,6 +40,7 @@
     zed = "zeditor";
     localip = "ifconfig | grep -Eo 'inet (addr:)?([0-9]*.){3}[0-9]*' | grep -Eo '([0-9]*.){3}[0-9]*' | grep -v '127.0.0.1'";
     funky = "sfxl fortnite";
+    dotfiles = "cd ${config.igm.dotfilesPath}";
 
     # Claude Code
     claude-install = "curl -fsSL https://claude.ai/install.sh | bash";
