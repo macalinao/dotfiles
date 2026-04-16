@@ -19,6 +19,7 @@ in
     ../../system.nix
     ../../nix-settings.nix
     ./time-machine.nix
+    ./lemonade.nix
     nix-index-database.darwinModules.nix-index
     home-manager.darwinModules.home-manager
   ];

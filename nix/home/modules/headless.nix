@@ -14,6 +14,34 @@
     ../../nix-settings-shared.nix
   ];
 
+  # Aliases shared across all shells.
+  home.shellAliases = {
+    gac = "git ac";
+    gj = "cd $(git root)";
+    gd = "git dft";
+    gs = "git status";
+    gst = "git status";
+
+    ls = "${pkgs.eza}/bin/eza";
+    l = "${pkgs.eza}/bin/eza -lah";
+
+    x = "exit";
+    c = "clear";
+    nf = "nixfmt **/*.nix";
+
+    vi = "nvim";
+    unescape = "jq -r .";
+
+    zed = "zeditor";
+    localip = "ifconfig | grep -Eo 'inet (addr:)?([0-9]*.){3}[0-9]*' | grep -Eo '([0-9]*.){3}[0-9]*' | grep -v '127.0.0.1'";
+    funky = "sfxl fortnite";
+
+    # Claude Code
+    claude-install = "curl -fsSL https://claude.ai/install.sh | bash";
+
+    git-presign = ''gpg --sign --local-user "$(git config user.signingkey)" -o /dev/null </dev/null'';
+  };
+
   home.packages =
     with pkgs;
     [
@@ -23,6 +51,7 @@
       (callPackage ../../packages/git-worktree-runner.nix { })
       eza
       git
+      gibo
       btop
       htop
       ripgrep
@@ -307,6 +336,10 @@
     "${config.home.homeDirectory}/.local/share/solana/install/active_release/bin"
   ]);
 
+  home.sessionVariables = lib.mkIf config.igm.disableSwitch {
+    IGM_SWITCH_DISABLE = "true";
+  };
+
   # ~/.local/bin is appended (not prepended) so Nix-managed binaries
   # take precedence over anything the user drops there manually.
   programs.zsh.envExtra = ''
@@ -341,17 +374,18 @@
   programs.zsh = {
     enable = true;
     dotDir = "${config.xdg.configHome}/zsh";
-    oh-my-zsh = {
-      enable = true;
-      theme = "arrow";
-      plugins = [
-        "git"
-        "yarn"
-        "gitignore"
-      ]
-      ++ (lib.optionals pkgs.stdenv.isDarwin [ "macos" ]);
-    };
+    plugins = [
+      {
+        name = "powerlevel10k";
+        src = pkgs.zsh-powerlevel10k;
+        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      }
+    ];
     initContent = ''
+      # powerlevel10k: source user's wizard-generated config if present.
+      # Run `p10k configure` once to create ~/.p10k.zsh.
+      [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+
       # skim: source key-bindings for ctrl-t and alt-c, but not via enableZshIntegration
       # so that atuin keeps ctrl-r precedence (last binding wins)
       source "${pkgs.skim}/share/skim/key-bindings.zsh"
@@ -389,32 +423,7 @@
       LC_ALL = "en_US.UTF-8";
     };
 
-    shellAliases = {
-      gac = "git ac";
-      gj = "cd $(git root)";
-      gd = "git dft";
-      gs = "gst";
-
-      ls = "${pkgs.eza}/bin/eza";
-      l = "${pkgs.eza}/bin/eza -lah";
-
-      x = "exit";
-      c = "clear";
-      nf = "nixfmt **/*.nix";
-
-      vi = "nvim";
-      unescape = "jq -r .";
-
-      zed = "zeditor";
-      localip = "ifconfig | grep -Eo 'inet (addr:)?([0-9]*.){3}[0-9]*' | grep -Eo '([0-9]*.){3}[0-9]*' | grep -v '127.0.0.1'";
-      funky = "sfxl fortnite";
-
-      # Claude Code
-      claude-install = "curl -fsSL https://claude.ai/install.sh | bash";
-
-      git-presign = ''gpg --sign --local-user "$(git config user.signingkey)" -o /dev/null </dev/null'';
-    }
-    // lib.listToAttrs (
+    shellAliases = lib.listToAttrs (
       builtins.genList (
         i:
         let
@@ -455,18 +464,6 @@
       "erasedups"
     ];
 
-    shellAliases = {
-      gac = "git ac";
-      gj = "cd $(git root)";
-      gd = "git dft";
-      gs = "git status";
-
-      ls = "${pkgs.eza}/bin/eza";
-      l = "${pkgs.eza}/bin/eza -lah";
-
-      x = "exit";
-      c = "clear";
-    };
   };
 
   programs.readline = {

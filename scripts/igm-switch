@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+if [ "${IGM_SWITCH_DISABLE:-}" = "true" ]; then
+	echo "igm-switch: disabled on this machine (IGM_SWITCH_DISABLE=true)." >&2
+	exit 1
+fi
+
 DOTFILES="$(cd "$(dirname "$0")/.." && pwd)"
 cd $DOTFILES
 

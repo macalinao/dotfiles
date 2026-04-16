@@ -17,6 +17,16 @@
       description = "Do not install GUI apps, window manager, desktop environment, etc.";
     };
 
+    disableSwitch = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = ''
+        Block `igm-switch` from running on this machine. Use when the host
+        is managed by a different flake. Sets IGM_SWITCH_DISABLE=true in
+        the shell env.
+      '';
+    };
+
     dotfilesPath = lib.mkOption {
       type = lib.types.str;
       default = "${config.home.homeDirectory}/dotfiles";
