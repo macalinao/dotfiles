@@ -382,9 +382,11 @@
       }
     ];
     initContent = ''
-      # powerlevel10k: source user's wizard-generated config if present.
-      # Run `p10k configure` once to create ~/.p10k.zsh.
-      [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+      # powerlevel10k: source the committed wizard-generated config.
+      # Managed declaratively via xdg.configFile below; re-run `p10k configure`
+      # and copy the resulting $ZDOTDIR/.p10k.zsh back to config/zsh/p10k.zsh
+      # in the dotfiles repo to update.
+      source "${config.xdg.configHome}/zsh/.p10k.zsh"
 
       # skim: source key-bindings for ctrl-t and alt-c, but not via enableZshIntegration
       # so that atuin keeps ctrl-r precedence (last binding wins)
@@ -536,6 +538,10 @@
   xdg.configFile."zellij/layouts/default.kdl".source = pkgs.replaceVars ../static/zellij-default.kdl {
     ZJSTATUS = "${pkgs.zjstatus}/bin/zjstatus.wasm";
   };
+
+  # powerlevel10k config generated via `p10k configure`. Regenerate by running
+  # the wizard, then copy ~/.config/zsh/.p10k.zsh back to config/zsh/p10k.zsh.
+  xdg.configFile."zsh/.p10k.zsh".source = ../../../config/zsh/p10k.zsh;
   programs = {
 
     zoxide = {
