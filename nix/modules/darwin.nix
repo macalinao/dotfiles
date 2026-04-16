@@ -45,7 +45,7 @@
               {
                 nixpkgs.hostPlatform = "aarch64-darwin";
                 networking = {
-                  computerName = "Ian's Macbook Pro 2022";
+                  computerName = "Ian MBP 2022";
                   hostName = "ian-mbp-2022";
                   localHostName = "ian-mbp-2022";
                 };
