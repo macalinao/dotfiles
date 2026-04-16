@@ -25,6 +25,11 @@
     ls = "${pkgs.eza}/bin/eza";
     l = "${pkgs.eza}/bin/eza -lah";
 
+    ".." = "cd ..";
+    "..." = "cd ../..";
+    "...." = "cd ../../..";
+    "....." = "cd ../../../..";
+
     x = "exit";
     c = "clear";
     nf = "nixfmt **/*.nix";
