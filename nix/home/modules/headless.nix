@@ -644,6 +644,8 @@
       "*" = {
         extraOptions = {
           AddKeysToAgent = "yes";
+          ServerAliveInterval = "60";
+          ServerAliveCountMax = "3";
         };
         setEnv = {
           TERM = "xterm-256color";
