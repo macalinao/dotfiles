@@ -379,6 +379,7 @@
 
   programs.zsh = {
     enable = true;
+    defaultKeymap = "emacs";
     dotDir = "${config.xdg.configHome}/zsh";
     plugins = [
       {
@@ -403,10 +404,11 @@
       export LS_COLORS="$(${pkgs.vivid}/bin/vivid generate nord)"
       zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
 
-      ${lib.optionalString pkgs.stdenv.isDarwin ''
-        bindkey '^[[1;3C' forward-word
-        bindkey '^[[1;3D' backward-word
-      ''}
+      # All non-alphanumeric characters are word separators (like oh-my-zsh)
+      WORDCHARS=
+
+      bindkey '^[[1;3C' forward-word
+      bindkey '^[[1;3D' backward-word
 
       # Alt+Backspace: backward-kill-word
       bindkey '\e^?' backward-kill-word
