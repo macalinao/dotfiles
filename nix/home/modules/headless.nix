@@ -358,6 +358,16 @@
     if command -v git-gtr >/dev/null 2>&1; then
       eval "$(git gtr init bash)"
     fi
+
+    # Claude Code runs commands in non-interactive shells, so the direnv
+    # hook registered by home-manager never fires. Load it manually and
+    # export the current dir's env so tools resolve correctly.
+    if command -v direnv >/dev/null 2>&1; then
+      if [ -n "$CLAUDECODE" ]; then
+        eval "$(direnv hook bash)"
+        eval "$(DIRENV_LOG_FORMAT= direnv export bash)"
+      fi
+    fi
   '';
 
   programs.fd = {
@@ -432,6 +442,16 @@
 
       # git-worktree-runner (gtr) shell integration + completions
       eval "$(git gtr init zsh)"
+
+      # Claude Code runs commands in non-interactive shells, so the direnv
+      # hook registered by home-manager never fires. Load it manually and
+      # export the current dir's env so tools resolve correctly.
+      if command -v direnv >/dev/null 2>&1; then
+        if [[ -n "$CLAUDECODE" ]]; then
+          eval "$(direnv hook zsh)"
+          eval "$(DIRENV_LOG_FORMAT= direnv export zsh)"
+        fi
+      fi
     '';
 
     sessionVariables = {
