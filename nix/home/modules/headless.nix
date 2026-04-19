@@ -351,28 +351,43 @@
   programs.zsh.envExtra = ''
     export PATH="$PATH:$HOME/.local/bin"
   '';
-  programs.bash.bashrcExtra = ''
-    export PATH="$PATH:$HOME/.local/bin"
+  programs.bash.bashrcExtra = lib.mkMerge [
+    ''
+      export PATH="$PATH:$HOME/.local/bin"
 
-    # git-worktree-runner (gtr) shell integration + completions
-    # Sources cached output directly for fast startup (~1ms vs ~60ms).
-    if command -v git-gtr >/dev/null 2>&1; then
-      _gtr_init="''${XDG_CACHE_HOME:-$HOME/.cache}/gtr/init-gtr.bash"
-      [[ -f "$_gtr_init" ]] || eval "$(git gtr init bash)" || true
-      source "$_gtr_init" 2>/dev/null || true
-      unset _gtr_init
-    fi
-
-    # Claude Code runs commands in non-interactive shells, so the direnv
-    # hook registered by home-manager never fires. Load it manually and
-    # export the current dir's env so tools resolve correctly.
-    if command -v direnv >/dev/null 2>&1; then
-      if [ -n "$CLAUDECODE" ]; then
-        eval "$(direnv hook bash)"
-        eval "$(DIRENV_LOG_FORMAT= direnv export bash)"
+      # git-worktree-runner (gtr) shell integration + completions
+      # Sources cached output directly for fast startup (~1ms vs ~60ms).
+      if command -v git-gtr >/dev/null 2>&1; then
+        _gtr_init="''${XDG_CACHE_HOME:-$HOME/.cache}/gtr/init-gtr.bash"
+        [[ -f "$_gtr_init" ]] || eval "$(git gtr init bash)" || true
+        source "$_gtr_init" 2>/dev/null || true
+        unset _gtr_init
       fi
-    fi
-  '';
+
+      # Claude Code runs commands in non-interactive shells, so the direnv
+      # hook registered by home-manager never fires. Load it manually and
+      # export the current dir's env so tools resolve correctly.
+      if command -v direnv >/dev/null 2>&1; then
+        if [ -n "$CLAUDECODE" ]; then
+          eval "$(direnv hook bash)"
+          eval "$(DIRENV_LOG_FORMAT= direnv export bash)"
+        fi
+      fi
+    ''
+
+    # Short-circuit non-interactive shells with a clean status 0. The
+    # home-manager-generated guard further down is `[[ $- == *i* ]] ||
+    # return` — no explicit status — which returns 1 (from the failed
+    # [[ ]]) and kills any caller running under `set -e`. In particular,
+    # home-manager's own setup-env wrapper runs `#!bash -el` and sources
+    # .profile → .bashrc, so the 1 aborts the activation before the
+    # generation is applied. Run last (order 2000, after other modules'
+    # mkAfter at 1500) so project env like profile-env still sources for
+    # non-interactive Claude Code shells before this guard fires.
+    (lib.mkOrder 2000 ''
+      [[ $- == *i* ]] || return 0
+    '')
+  ];
 
   programs.fd = {
     enable = true;
