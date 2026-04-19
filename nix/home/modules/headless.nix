@@ -355,8 +355,12 @@
     export PATH="$PATH:$HOME/.local/bin"
 
     # git-worktree-runner (gtr) shell integration + completions
+    # Sources cached output directly for fast startup (~1ms vs ~60ms).
     if command -v git-gtr >/dev/null 2>&1; then
-      eval "$(git gtr init bash)"
+      _gtr_init="''${XDG_CACHE_HOME:-$HOME/.cache}/gtr/init-gtr.bash"
+      [[ -f "$_gtr_init" ]] || eval "$(git gtr init bash)" || true
+      source "$_gtr_init" 2>/dev/null || true
+      unset _gtr_init
     fi
 
     # Claude Code runs commands in non-interactive shells, so the direnv
@@ -441,7 +445,11 @@
       bindkey '\e[13;2u' accept-line
 
       # git-worktree-runner (gtr) shell integration + completions
-      eval "$(git gtr init zsh)"
+      # Sources cached output directly for fast startup (~1ms vs ~60ms).
+      _gtr_init="''${XDG_CACHE_HOME:-$HOME/.cache}/gtr/init-gtr.zsh"
+      [[ -f "$_gtr_init" ]] || eval "$(git gtr init zsh)" || true
+      source "$_gtr_init" 2>/dev/null || true
+      unset _gtr_init
 
       # Claude Code runs commands in non-interactive shells, so the direnv
       # hook registered by home-manager never fires. Load it manually and
