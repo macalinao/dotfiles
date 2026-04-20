@@ -67,6 +67,7 @@
       wget
       silver-searcher
       dnsutils
+      lsof
 
       # nix tools
       nixd
@@ -681,7 +682,9 @@
     settings.git_protocol = "ssh";
   };
 
-  services.ssh-agent.enable = pkgs.stdenv.isLinux;
+  services.ssh-agent.enable =
+    pkgs.stdenv.isLinux
+    && !(config.services.gpg-agent.enable && config.services.gpg-agent.enableSshSupport);
 
   programs.ssh = {
     enable = true;
