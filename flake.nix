@@ -12,14 +12,14 @@
       inputs.home-manager.follows = "home-manager";
       inputs.flake-parts.follows = "flake-parts";
     };
-    claude-code-nix = {
-      url = "github:sadjow/claude-code-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    codex-cli-nix = {
-      url = "github:sadjow/codex-cli-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # Deliberately do NOT follow nixpkgs for claude-code-nix / codex-cli-nix:
+    # the upstream cachix caches (claude-code.cachix.org, codex-cli.cachix.org)
+    # are built against these flakes' own pinned nixpkgs. Rebinding nixpkgs
+    # here forces local rebuilds on every release. The small duplication in
+    # the store (second nixpkgs closure) is cheaper than rebuilding these
+    # from source.
+    claude-code-nix.url = "github:sadjow/claude-code-nix";
+    codex-cli-nix.url = "github:sadjow/codex-cli-nix";
     zjstatus = {
       url = "github:dj95/zjstatus";
       inputs.nixpkgs.follows = "nixpkgs";
