@@ -561,11 +561,16 @@
               }) (lib.range 1 9)
             )
             // {
+              # Alt 0 is a "tens" chord prefix: enters tab mode, where the next
+              # digit 0..9 jumps to tabs 10..19 and returns to locked.
               "bind \"Alt 0\"" = {
-                GoToTab = 10;
+                SwitchToMode = "tab";
               };
               "bind \"Shift Enter\"" = {
                 Write = 10;
+              };
+              "bind \"Ctrl b\"" = {
+                SwitchToMode = "tmux";
               };
             };
           "shared_except \"locked\"" =
@@ -580,7 +585,21 @@
             )
             // {
               "bind \"Alt 0\"" = {
-                GoToTab = 10;
+                SwitchToMode = "tab";
+              };
+            };
+          tab =
+            lib.listToAttrs (
+              map (n: {
+                name = "bind \"${toString n}\"";
+                value = {
+                  GoToTab = 10 + n;
+                  SwitchToMode = "locked";
+                };
+              }) (lib.range 0 9)
+            )
+            // {
+              "bind \"Esc\"" = {
                 SwitchToMode = "locked";
               };
             };
