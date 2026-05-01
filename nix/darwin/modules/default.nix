@@ -30,20 +30,20 @@ in
     isDarwin = true;
     additionalOverlays = [
       self.overlays.default
-      (self: _super: {
-        nix-casks = nix-casks.packages.${self.stdenv.hostPlatform.system};
-      })
     ];
   };
 
   environment.systemPackages =
+    let
+      casks = nix-casks.packages.${pkgs.stdenv.hostPlatform.system};
+    in
     (with pkgs; [
       vim
       ghostty-bin
       zed-editor
     ])
     # macOS apps via nix-casks (in systemPackages for Spotlight indexing)
-    ++ (with pkgs.nix-casks; [
+    ++ (with casks; [
       beeper
       linear-linear
       notion
