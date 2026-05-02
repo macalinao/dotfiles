@@ -130,7 +130,6 @@
       # from additional-nix-packages overlay
       additional-nix-packages.biome
       additional-nix-packages.gogcli
-      additional-nix-packages.linear-cli
       additional-nix-packages.lintel
       additional-nix-packages.wacli
     ]
