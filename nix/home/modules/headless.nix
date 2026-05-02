@@ -4,6 +4,7 @@
   config,
   pkgs,
   lib,
+  inputs,
   ...
 }:
 
@@ -123,9 +124,11 @@
       devenv
       lice
 
-      # AI coding tools
-      claude-code
-      codex
+      # AI coding tools — pulled directly from their flakes (own pinned nixpkgs +
+      # cachix caches), bypassing the default overlay so they don't shadow
+      # nixpkgs and don't force rebuilds against this repo's nixpkgs pin.
+      inputs.claude-code-nix.packages.${pkgs.stdenv.hostPlatform.system}.claude-code
+      inputs.codex-cli-nix.packages.${pkgs.stdenv.hostPlatform.system}.codex
 
       # from additional-nix-packages overlay
       additional-nix-packages.biome

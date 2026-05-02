@@ -24,6 +24,7 @@ in
           igm.headless = config.igm.headless;
         };
         home-manager.useGlobalPkgs = true;
+        home-manager.extraSpecialArgs = { inherit inputs; };
       }
     )
     ../services
