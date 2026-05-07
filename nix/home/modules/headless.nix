@@ -413,19 +413,17 @@
     enable = true;
     defaultKeymap = "emacs";
     dotDir = "${config.xdg.configHome}/zsh";
-    plugins = [
-      {
-        name = "powerlevel10k";
-        src = pkgs.zsh-powerlevel10k;
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
-    ];
     initContent = ''
-      # powerlevel10k: source the committed wizard-generated config.
-      # Managed declaratively via xdg.configFile below; re-run `p10k configure`
-      # and copy the resulting $ZDOTDIR/.p10k.zsh back to config/zsh/p10k.zsh
-      # in the dotfiles repo to update.
-      source "${config.xdg.configHome}/zsh/.p10k.zsh"
+      # Load powerlevel10k only when attached to a TTY. Without one,
+      # gitstatus' `setopt monitor` errors out and corrupts the env-capture
+      # output Zed reads from `zsh -lic` (and similar SSH/headless probes).
+      # The committed wizard config is sourced after the theme; regenerate
+      # via `p10k configure` and copy $ZDOTDIR/.p10k.zsh back to
+      # config/zsh/p10k.zsh in the dotfiles repo to update.
+      if [[ -t 0 && -t 1 && -t 2 ]]; then
+        source "${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"
+        source "${config.xdg.configHome}/zsh/.p10k.zsh"
+      fi
 
       # skim: source key-bindings for ctrl-t and alt-c, but not via enableZshIntegration
       # so that atuin keeps ctrl-r precedence (last binding wins)
