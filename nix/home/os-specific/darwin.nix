@@ -110,6 +110,19 @@
       fi
     '';
 
+    programs.firefox = {
+      enable = true;
+      package = null; # installed via homebrew cask
+      policies = {
+        ExtensionSettings = {
+          "uBlock0@raymondhill.net" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+            installation_mode = "force_installed";
+          };
+        };
+      };
+    };
+
     programs.ghostty = {
       enable = true;
       package = null; # installed via nix-darwin as ghostty-bin
