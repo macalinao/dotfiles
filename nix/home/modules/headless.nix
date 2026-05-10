@@ -715,9 +715,10 @@
           ServerAliveInterval = "60";
           ServerAliveCountMax = "3";
         };
-        setEnv = {
-          TERM = "xterm-256color";
-        };
+        # No setEnv TERM override: ghostty's ssh-terminfo integration
+        # (programs.ghostty in os-specific/darwin.nix) handles the fallback
+        # automatically and lets sessions upgrade to xterm-ghostty once the
+        # remote has the terminfo entry.
       };
     };
   };

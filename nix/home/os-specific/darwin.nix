@@ -112,7 +112,7 @@
 
     programs.firefox = {
       enable = true;
-      package = null; # installed via homebrew cask
+      package = null; # installed via nix-casks
       policies = {
         ExtensionSettings = {
           "uBlock0@raymondhill.net" = {
@@ -130,6 +130,11 @@
         macos-titlebar-style = "native";
         window-padding-balance = true;
         resize-overlay = "never";
+        # Wrap `ssh` so xterm-ghostty terminfo is auto-installed on the remote
+        # (cached per-host) and TERM is set sanely. ssh-env sets TERM=xterm-256color
+        # on the wire as a safe fallback; ssh-terminfo upgrades back to xterm-ghostty
+        # once it has installed the terminfo entry on the remote, then remembers.
+        shell-integration-features = "ssh-env,ssh-terminfo";
       };
     };
 
