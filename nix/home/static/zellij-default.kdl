@@ -10,7 +10,7 @@ layout {
         format_center "{tabs}"
         format_right "#[fg=#88C0D0]{mode}"
         format_space ""
-        hide_frame_for_single_pane "true"
+        hide_frame_for_single_pane "false"
         mode_normal "#[bg=#A3BE8C,fg=#2E3440,bold] NORMAL "
         mode_locked "#[bg=#5E81AC,fg=#2E3440,bold] LOCKED "
         tab_normal "#[fg=#6C7086] {index} {name} "
