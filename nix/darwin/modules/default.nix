@@ -20,6 +20,7 @@ in
     ../../nix-settings.nix
     ./time-machine.nix
     ./lemonade.nix
+    ./syncthing.nix
     nix-index-database.darwinModules.nix-index
     home-manager.darwinModules.home-manager
   ];
@@ -49,6 +50,7 @@ in
       obsidian
       signal-desktop
       spotify
+      tableplus
       telegram-desktop
       zed-editor
       zoom-us

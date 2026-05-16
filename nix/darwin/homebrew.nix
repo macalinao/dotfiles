@@ -53,7 +53,6 @@ in
     "moonlight"
     "private-internet-access"
     "slack"
-    "tableplus"
     "tailscale-app"
     "viber"
   ]

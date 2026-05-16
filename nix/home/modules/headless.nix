@@ -70,6 +70,11 @@
       dnsutils
       lsof
 
+      # Bitwarden CLI (`bw`). Auth: `bw login`, then `export BW_SESSION=$(bw
+      # unlock --raw)` to get a session token; reads/writes secrets via
+      # `bw get`, `bw list`, `bw create`.
+      bitwarden-cli
+
       # nix tools
       nixd
       nixfmt
