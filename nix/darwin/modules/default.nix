@@ -46,7 +46,6 @@ in
     ++ (with casks; [
       beeper
       firefox
-      linear-linear
       notion
       notunes
       transmission

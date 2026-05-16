@@ -59,6 +59,7 @@ in
     "google-chrome"
     "keybase"
     "keymapp"
+    "linear"
     "moonlight"
     "ngrok"
     "private-internet-access"
