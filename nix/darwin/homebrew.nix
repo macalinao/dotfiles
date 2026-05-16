@@ -37,15 +37,9 @@ in
     "jackielii/tap"
   ];
 
-  brews =
-    (lib.optionals (!isAarch64) [
-      "openssl"
-      "openssl@1.1"
-    ])
-    ++ [
-      "skhd-zig"
-      "sui"
-    ];
+  brews = [
+    "skhd-zig"
+  ];
 
   casks = [
     "anki"
@@ -61,10 +55,8 @@ in
     "keymapp"
     "linear"
     "moonlight"
-    "ngrok"
     "private-internet-access"
     "slack"
-    "spaceid"
     "spotify"
     "tableplus"
     "tailscale-app"
