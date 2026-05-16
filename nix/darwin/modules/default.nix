@@ -39,8 +39,19 @@ in
     in
     (with pkgs; [
       vim
+      anki-bin
+      bitwarden-desktop
+      brave
       ghostty-bin
+      google-chrome
+      keka
+      keymapp
+      obsidian
+      signal-desktop
+      spotify
+      telegram-desktop
       zed-editor
+      zoom-us
     ])
     # macOS apps via nix-casks (in systemPackages for Spotlight indexing)
     ++ (with casks; [

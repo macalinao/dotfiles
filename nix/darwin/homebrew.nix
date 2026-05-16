@@ -42,35 +42,25 @@ in
   ];
 
   casks = [
-    "anki"
     "arc"
-    "brave-browser"
     "claude"
     # "dashlane"
     "discord"
     "docker-desktop"
     "figma"
-    "google-chrome"
     "keybase"
-    "keymapp"
     "linear"
     "moonlight"
     "private-internet-access"
     "slack"
-    "spotify"
     "tableplus"
     "tailscale-app"
-    "the-unarchiver"
     "viber"
-    "zoom"
   ]
   ++ (lib.optionals (mode == "personal") (
     [
       "google-drive"
       "ledger-wallet"
-      "obsidian"
-      "signal"
-      "telegram"
       "whatsapp"
     ]
     ++ games

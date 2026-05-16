@@ -630,6 +630,7 @@
     bat = {
       enable = true;
       config = {
+        theme = "ansi";
         map-syntax = [ "*.alloy:Terraform" ];
       };
       extraPackages = with pkgs.bat-extras; [

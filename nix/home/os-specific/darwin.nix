@@ -123,6 +123,15 @@
       };
     };
 
+    programs.brave = {
+      enable = true;
+      package = null; # installed via nix-darwin systemPackages
+      extensions = [
+        { id = "nngceckbapebfimnlniiiahkandclblb"; } # Bitwarden
+        { id = "fcoeoabgfenejglbffodgkkbkcdhcgfn"; } # Claude
+      ];
+    };
+
     programs.ghostty = {
       enable = true;
       package = null; # installed via nix-darwin as ghostty-bin
