@@ -135,6 +135,12 @@
         # on the wire as a safe fallback; ssh-terminfo upgrades back to xterm-ghostty
         # once it has installed the terminfo entry on the remote, then remembers.
         shell-integration-features = "ssh-env,ssh-terminfo";
+        # Quit the app when the last window closes (matches iTerm2 / Terminal.app).
+        quit-after-last-window-closed = true;
+        # Allow OSC 52 read/write so yank in remote vim/nvim/tmux copies to the
+        # local macOS clipboard over ssh.
+        clipboard-read = "allow";
+        clipboard-write = "allow";
       };
     };
 

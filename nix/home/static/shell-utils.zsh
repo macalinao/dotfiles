@@ -64,10 +64,17 @@ docker-stop-all() {
   docker container stop $(docker container ls -aq)
 }
 
-# Disable mouse tracking after SSH exits to prevent escape sequence
-# garbage (e.g. 35;70;18M35;71) from appearing in the terminal when
-# the remote session (tmux, vim, etc.) disconnects without cleanup.
-ssh() {
-  command ssh "$@"
-  printf '\e[?1000l\e[?1002l\e[?1003l\e[?1005l\e[?1006l\e[?1015l\e[?1016l'
+# Restore terminal modes before each prompt. Programs run via ssh
+# (tmux, vim, etc.) may leave xterm/kitty modes enabled if the
+# connection drops uncleanly, producing gibberish like `35;70;18M`
+# (mouse tracking) or `4;5u` on Ctrl-R (kitty keyboard protocol).
+# Resetting unconditionally is safe: disabling an already-disabled
+# mode is a no-op, and popping an empty kitty kbd stack is a no-op.
+# Done in precmd rather than wrapping ssh because Ghostty's own ssh
+# integration (shell-integration-features = ssh-env,ssh-terminfo)
+# defines its own ssh() that overrides anything we'd put here.
+_igm_restore_terminal_modes() {
+  printf '\e[?1000l\e[?1002l\e[?1003l\e[?1005l\e[?1006l\e[?1015l\e[?1016l\e[<u'
 }
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd _igm_restore_terminal_modes
