@@ -42,7 +42,6 @@ in
       vim
       anki-bin
       bitwarden-desktop
-      brave
       ghostty-bin
       google-chrome
       keka
@@ -58,6 +57,7 @@ in
     # macOS apps via nix-casks (in systemPackages for Spotlight indexing)
     ++ (with casks; [
       beeper
+      brave-browser
       firefox
       notion
       notunes
