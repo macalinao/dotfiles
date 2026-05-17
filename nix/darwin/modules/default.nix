@@ -41,7 +41,6 @@ in
     (with pkgs; [
       vim
       anki-bin
-      bitwarden-desktop
       ghostty-bin
       google-chrome
       keka
@@ -57,6 +56,7 @@ in
     # macOS apps via nix-casks (in systemPackages for Spotlight indexing)
     ++ (with casks; [
       beeper
+      bitwarden
       brave-browser
       firefox
       notion
