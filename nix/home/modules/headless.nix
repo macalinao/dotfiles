@@ -135,8 +135,11 @@
       inputs.claude-code-nix.packages.${pkgs.stdenv.hostPlatform.system}.claude-code
       inputs.codex-cli-nix.packages.${pkgs.stdenv.hostPlatform.system}.codex
 
+      # nixpkgs biome is binary-cached; the additional-nix-packages
+      # build is a rustPlatform.buildRustPackage and rebuilds from source.
+      biome
+
       # from additional-nix-packages overlay
-      additional-nix-packages.biome
       additional-nix-packages.gogcli
       additional-nix-packages.lintel
       additional-nix-packages.wacli
