@@ -35,10 +35,12 @@ in
     # "homebrew/core"
     "homebrew/services"
     "jackielii/tap"
+    "acsandmann/tap"
   ];
 
   brews = [
     "skhd-zig"
+    "rift"
   ];
 
   casks = [

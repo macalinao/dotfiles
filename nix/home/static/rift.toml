@@ -1,0 +1,135 @@
+# Rift window manager config
+# Symlinked to ~/.config/rift/config.toml via nix/home/dotfiles.nix
+
+[settings]
+animate = true
+animation_duration = 0.2
+animation_fps = 120.0
+
+# Manage every macOS space by default. Default is true, which makes
+# Rift wait for an Alt+Z toggle per space before tiling.
+default_disable = false
+
+focus_follows_mouse = false
+mouse_follows_focus = false
+mouse_hides_on_focus = false
+
+auto_focus_blacklist = [
+  "com.apple.dock",
+  "com.apple.systemuiserver",
+  "com.apple.Spotlight",
+  "com.raycast.macos",
+]
+
+run_on_start = []
+hot_reload = true
+
+[settings.layout]
+mode = "traditional"
+
+[settings.layout.gaps.outer]
+top = 6
+left = 6
+bottom = 6
+right = 6
+
+[settings.layout.gaps.inner]
+horizontal = 6
+vertical = 6
+
+[settings.ui.menu_bar]
+enabled = true
+show_empty = false
+# "active" shows just the current workspace (fits cleanly with notch),
+# "all" shows every workspace as separate menubar items.
+mode = "active"
+active_label = "name"
+display_style = "label"
+
+[settings.gestures]
+enabled = true
+fingers = 3
+skip_empty = true
+
+[virtual_workspaces]
+enabled = true
+default_workspace_count = 10
+auto_assign_windows = true
+preserve_focus_per_workspace = true
+workspace_auto_back_and_forth = false
+workspace_rules = []
+
+workspace_names = [
+  "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"
+]
+
+app_rules = [
+  { app_name = "Simulator", manage = false },
+  { app_name = "qemu-system-aarch64", manage = false },
+  { app_id = "com.apple.systempreferences", floating = true },
+  { ax_subrole = "AXDialog", floating = true },
+  { ax_subrole = "AXSystemDialog", floating = true },
+]
+
+[modifier_combinations]
+move = "Ctrl + Shift"
+
+[keys]
+# Master toggle (Rift convention)
+"Alt + Z" = "toggle_space_activated"
+
+# Focus movement (vim-style, matches Alt+hjkl convention)
+"Alt + H" = { move_focus = "left" }
+"Alt + J" = { move_focus = "down" }
+"Alt + K" = { move_focus = "up" }
+"Alt + L" = { move_focus = "right" }
+
+# Move window in tree
+"Alt + Shift + H" = { move_node = "left" }
+"Alt + Shift + J" = { move_node = "down" }
+"Alt + Shift + K" = { move_node = "up" }
+"Alt + Shift + L" = { move_node = "right" }
+
+# Workspace switching (matches existing skhdrc: ctrl - N)
+"Ctrl + 1" = { switch_to_workspace = 0 }
+"Ctrl + 2" = { switch_to_workspace = 1 }
+"Ctrl + 3" = { switch_to_workspace = 2 }
+"Ctrl + 4" = { switch_to_workspace = 3 }
+"Ctrl + 5" = { switch_to_workspace = 4 }
+"Ctrl + 6" = { switch_to_workspace = 5 }
+"Ctrl + 7" = { switch_to_workspace = 6 }
+"Ctrl + 8" = { switch_to_workspace = 7 }
+"Ctrl + 9" = { switch_to_workspace = 8 }
+"Ctrl + 0" = { switch_to_workspace = 9 }
+
+# Move window to workspace (matches existing skhdrc: ctrl + shift - N)
+"move + 1" = { move_window_to_workspace = 0 }
+"move + 2" = { move_window_to_workspace = 1 }
+"move + 3" = { move_window_to_workspace = 2 }
+"move + 4" = { move_window_to_workspace = 3 }
+"move + 5" = { move_window_to_workspace = 4 }
+"move + 6" = { move_window_to_workspace = 5 }
+"move + 7" = { move_window_to_workspace = 6 }
+"move + 8" = { move_window_to_workspace = 7 }
+"move + 9" = { move_window_to_workspace = 8 }
+"move + 0" = { move_window_to_workspace = 9 }
+
+# Back-and-forth
+"Alt + Tab" = "switch_to_last_workspace"
+
+# Layout / container manipulation
+"Alt + Comma" = "toggle_stack"
+"Alt + Slash" = "toggle_orientation"
+"Alt + Ctrl + E" = "unjoin_windows"
+
+# Floating / fullscreen
+"Alt + Shift + Space" = "toggle_window_floating"
+"Alt + F" = "toggle_fullscreen"
+"Alt + Shift + F" = "toggle_fullscreen_within_gaps"
+
+# Resize
+"Alt + Shift + Equal" = "resize_window_grow"
+"Alt + Shift + Minus" = "resize_window_shrink"
+
+# Launch Ghostty (replaces the shift+cmd+w binding in skhdrc)
+"Alt + Return" = { "exec" = ["/bin/bash", "-c", "open -a Ghostty"] }

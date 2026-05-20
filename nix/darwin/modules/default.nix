@@ -105,9 +105,10 @@ in
     };
   };
 
+  # Disabled while trialing Rift (acsandmann/rift). Re-enable to switch back.
   services.yabai = {
-    enable = true;
-    enableScriptingAddition = true;
+    enable = false;
+    enableScriptingAddition = false;
     config = {
       layout = "bsp";
     };
