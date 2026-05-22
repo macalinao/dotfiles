@@ -124,10 +124,10 @@ hyper = "Cmd + Alt + Ctrl + Shift"
 "Ctrl + Shift + J" = { focus_display = "down" }
 "Ctrl + Shift + K" = { focus_display = "up" }
 "Ctrl + Shift + L" = { focus_display = "right" }
-"hyper + H" = { move_window_to_display = "left" }
-"hyper + J" = { move_window_to_display = "down" }
-"hyper + K" = { move_window_to_display = "up" }
-"hyper + L" = { move_window_to_display = "right" }
+"hyper + H" = { move_window_to_display = { selector = "left" } }
+"hyper + J" = { move_window_to_display = { selector = "down" } }
+"hyper + K" = { move_window_to_display = { selector = "up" } }
+"hyper + L" = { move_window_to_display = { selector = "right" } }
 
 # Layout / container manipulation
 "Alt + Comma" = "toggle_stack"
