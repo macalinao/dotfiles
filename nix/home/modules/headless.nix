@@ -376,13 +376,22 @@
       fi
 
       # Claude Code runs commands in non-interactive shells, so the direnv
-      # hook registered by home-manager never fires. Load it manually and
-      # export the current dir's env so tools resolve correctly.
-      if command -v direnv >/dev/null 2>&1; then
-        if [ -n "$CLAUDECODE" ]; then
-          eval "$(direnv hook bash)"
-          eval "$(DIRENV_LOG_FORMAT= direnv export bash)"
-        fi
+      # hook registered by home-manager never fires. Manually export the
+      # current dir's env so tools resolve correctly. Skip the export when
+      # no .envrc is in the cwd-to-root walk — spawning direnv per Bash
+      # call in non-direnv dirs (home, scratch, dotfiles) burns CPU for
+      # no gain. The PROMPT_COMMAND hook is intentionally not registered;
+      # it can never fire in `bash -c '...'` shells.
+      if [ -n "$CLAUDECODE" ] && command -v direnv >/dev/null 2>&1; then
+        _d="$PWD"
+        while [ "$_d" != "/" ]; do
+          if [ -e "$_d/.envrc" ]; then
+            eval "$(DIRENV_LOG_FORMAT= direnv export bash)"
+            break
+          fi
+          _d="$(dirname "$_d")"
+        done
+        unset _d
       fi
     ''
 
@@ -476,13 +485,22 @@
       unset _gtr_init
 
       # Claude Code runs commands in non-interactive shells, so the direnv
-      # hook registered by home-manager never fires. Load it manually and
-      # export the current dir's env so tools resolve correctly.
-      if command -v direnv >/dev/null 2>&1; then
-        if [[ -n "$CLAUDECODE" ]]; then
-          eval "$(direnv hook zsh)"
-          eval "$(DIRENV_LOG_FORMAT= direnv export zsh)"
-        fi
+      # hook registered by home-manager never fires. Manually export the
+      # current dir's env so tools resolve correctly. Skip the export when
+      # no .envrc is in the cwd-to-root walk — spawning direnv per shell
+      # in non-direnv dirs (home, scratch, dotfiles) burns CPU for no gain.
+      # The precmd hook is intentionally not registered; it can never fire
+      # in `zsh -c '...'` shells.
+      if [[ -n "$CLAUDECODE" ]] && command -v direnv >/dev/null 2>&1; then
+        _d="$PWD"
+        while [[ "$_d" != "/" ]]; do
+          if [[ -e "$_d/.envrc" ]]; then
+            eval "$(DIRENV_LOG_FORMAT= direnv export zsh)"
+            break
+          fi
+          _d="''${_d:h}"
+        done
+        unset _d
       fi
     '';
 
