@@ -55,7 +55,6 @@
       (callPackage ../../packages/dotfiles-scripts.nix {
         dotfilesPath = config.igm.dotfilesPath;
       })
-      (callPackage ../../packages/git-worktree-runner.nix { })
       eza
       git
       gibo
@@ -140,6 +139,7 @@
       biome
 
       # from additional-nix-packages overlay
+      additional-nix-packages.git-worktree-runner
       additional-nix-packages.gogcli
       additional-nix-packages.lintel
       additional-nix-packages.wacli
