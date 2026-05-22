@@ -72,7 +72,8 @@ app_rules = [
 ]
 
 [modifier_combinations]
-move = "Ctrl + Shift"
+move = "Ctrl + Alt"
+hyper = "Cmd + Alt + Ctrl + Shift"
 
 [keys]
 # Master toggle (Rift convention)
@@ -90,7 +91,7 @@ move = "Ctrl + Shift"
 "Alt + Shift + K" = { move_node = "up" }
 "Alt + Shift + L" = { move_node = "right" }
 
-# Workspace switching (matches existing skhdrc: ctrl - N)
+# Workspace switching
 "Ctrl + 1" = { switch_to_workspace = 0 }
 "Ctrl + 2" = { switch_to_workspace = 1 }
 "Ctrl + 3" = { switch_to_workspace = 2 }
@@ -102,7 +103,7 @@ move = "Ctrl + Shift"
 "Ctrl + 9" = { switch_to_workspace = 8 }
 "Ctrl + 0" = { switch_to_workspace = 9 }
 
-# Move window to workspace (matches existing skhdrc: ctrl + shift - N)
+# Move window to workspace
 "move + 1" = { move_window_to_workspace = 0 }
 "move + 2" = { move_window_to_workspace = 1 }
 "move + 3" = { move_window_to_workspace = 2 }
@@ -117,10 +118,29 @@ move = "Ctrl + Shift"
 # Back-and-forth
 "Alt + Tab" = "switch_to_last_workspace"
 
+# Multi-monitor: focus a display / send focused window to a display.
+# Direction is based on the physical arrangement in System Settings → Displays.
+"Ctrl + Shift + H" = { focus_display = "left" }
+"Ctrl + Shift + J" = { focus_display = "down" }
+"Ctrl + Shift + K" = { focus_display = "up" }
+"Ctrl + Shift + L" = { focus_display = "right" }
+"hyper + H" = { move_window_to_display = "left" }
+"hyper + J" = { move_window_to_display = "down" }
+"hyper + K" = { move_window_to_display = "up" }
+"hyper + L" = { move_window_to_display = "right" }
+
 # Layout / container manipulation
 "Alt + Comma" = "toggle_stack"
 "Alt + Slash" = "toggle_orientation"
 "Alt + Ctrl + E" = "unjoin_windows"
+
+# Nest the focused window into a sub-container with its neighbor.
+# This is how you build grids / sidebars-in-stacks / arbitrary i3 layouts.
+# On arrow keys to free up hjkl for display navigation.
+"Alt + Ctrl + Left" = { join_window = "left" }
+"Alt + Ctrl + Down" = { join_window = "down" }
+"Alt + Ctrl + Up" = { join_window = "up" }
+"Alt + Ctrl + Right" = { join_window = "right" }
 
 # Floating / fullscreen
 "Alt + Shift + Space" = "toggle_window_floating"
@@ -131,5 +151,5 @@ move = "Ctrl + Shift"
 "Alt + Shift + Equal" = "resize_window_grow"
 "Alt + Shift + Minus" = "resize_window_shrink"
 
-# Launch Ghostty (replaces the shift+cmd+w binding in skhdrc)
+# Launch Ghostty
 "Alt + Return" = { "exec" = ["/bin/bash", "-c", "open -a Ghostty"] }

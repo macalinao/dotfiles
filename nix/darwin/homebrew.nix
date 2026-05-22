@@ -34,12 +34,10 @@ in
     "homebrew/cask-versions"
     # "homebrew/core"
     "homebrew/services"
-    "jackielii/tap"
     "acsandmann/tap"
   ];
 
   brews = [
-    "skhd-zig"
     "rift"
   ];
 
@@ -52,6 +50,7 @@ in
     "figma"
     "keybase"
     "linear"
+    "logi-options-plus"
     "moonlight"
     "private-internet-access"
     "slack"

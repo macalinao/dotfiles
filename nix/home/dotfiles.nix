@@ -46,7 +46,6 @@ in
     };
   })
   // (lib.optionalAttrs pkgs.stdenv.isDarwin {
-    ".skhdrc".source = "${static}/skhdrc";
     ".config/rift/config.toml".source = "${static}/rift.toml";
   });
 }
