@@ -8,6 +8,10 @@
   ...
 }:
 
+let
+  git-worktree-runner = pkgs.callPackage ../../packages/git-worktree-runner.nix { };
+  feat = pkgs.callPackage ../../packages/feat.nix { inherit git-worktree-runner; };
+in
 {
   imports = [
     ../options.nix
@@ -55,7 +59,7 @@
       (callPackage ../../packages/dotfiles-scripts.nix {
         dotfilesPath = config.igm.dotfilesPath;
       })
-      (callPackage ../../packages/git-worktree-runner.nix { })
+      git-worktree-runner
       eza
       git
       gibo
@@ -474,6 +478,8 @@
       [[ -f "$_gtr_init" ]] || eval "$(git gtr init zsh)" || true
       source "$_gtr_init" 2>/dev/null || true
       unset _gtr_init
+
+      source ${feat}/share/feat/feat.zsh
 
       # Claude Code runs commands in non-interactive shells, so the direnv
       # hook registered by home-manager never fires. Load it manually and
