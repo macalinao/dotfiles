@@ -115,6 +115,18 @@ hyper = "Cmd + Alt + Ctrl + Shift"
 "move + 9" = { move_window_to_workspace = 8 }
 "move + 0" = { move_window_to_workspace = 9 }
 
+# Move window to workspace (hyper mirror of move + 1-0)
+"hyper + 1" = { move_window_to_workspace = 0 }
+"hyper + 2" = { move_window_to_workspace = 1 }
+"hyper + 3" = { move_window_to_workspace = 2 }
+"hyper + 4" = { move_window_to_workspace = 3 }
+"hyper + 5" = { move_window_to_workspace = 4 }
+"hyper + 6" = { move_window_to_workspace = 5 }
+"hyper + 7" = { move_window_to_workspace = 6 }
+"hyper + 8" = { move_window_to_workspace = 7 }
+"hyper + 9" = { move_window_to_workspace = 8 }
+"hyper + 0" = { move_window_to_workspace = 9 }
+
 # Back-and-forth
 "Alt + Tab" = "switch_to_last_workspace"
 
@@ -136,11 +148,10 @@ hyper = "Cmd + Alt + Ctrl + Shift"
 
 # Nest the focused window into a sub-container with its neighbor.
 # This is how you build grids / sidebars-in-stacks / arbitrary i3 layouts.
-# On arrow keys to free up hjkl for display navigation.
-"Alt + Ctrl + Left" = { join_window = "left" }
-"Alt + Ctrl + Down" = { join_window = "down" }
-"Alt + Ctrl + Up" = { join_window = "up" }
-"Alt + Ctrl + Right" = { join_window = "right" }
+"Alt + Ctrl + H" = { join_window = "left" }
+"Alt + Ctrl + J" = { join_window = "down" }
+"Alt + Ctrl + K" = { join_window = "up" }
+"Alt + Ctrl + L" = { join_window = "right" }
 
 # Floating / fullscreen
 "Alt + Shift + Space" = "toggle_window_floating"
