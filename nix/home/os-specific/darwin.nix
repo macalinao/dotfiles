@@ -18,6 +18,9 @@
         # Used for Thorium/Animecards
         ffmpeg
 
+        # RAW photo editor (prebuilt for darwin in cache.nixos.org)
+        darktable
+
         pm2
 
         # file associations
