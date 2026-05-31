@@ -24,6 +24,9 @@ in
     cleanup = "uninstall";
     upgrade = true;
     autoUpdate = true;
+    # Homebrew >= 5.1 refuses `brew bundle --cleanup` non-interactively without
+    # an explicit force flag; pass one so activation doesn't abort.
+    extraFlags = [ "--force-cleanup" ];
   };
 
   prefix = if isAarch64 then "/opt/homebrew" else "/usr/local";
