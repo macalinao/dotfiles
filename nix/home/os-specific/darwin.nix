@@ -89,7 +89,9 @@
       dev.zed.Zed .py all
       dev.zed.Zed .go all
       dev.zed.Zed .css all
-      dev.zed.Zed .html all
+      # editor role (not "all") so Zed doesn't claim the HTML viewer role,
+      # which macOS treats as the default browser and re-prompts about on every switch
+      dev.zed.Zed .html editor
       dev.zed.Zed .sh all
       dev.zed.Zed .zsh all
       dev.zed.Zed .svelte all
