@@ -47,6 +47,7 @@ in
   casks = [
     "arc"
     "claude"
+    "darktable"
     # "dashlane"
     "discord"
     "docker-desktop"
