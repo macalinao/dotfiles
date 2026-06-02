@@ -75,6 +75,27 @@ in
             done
           '';
         })
+
+        # dt-edit: render photos through the darktable film-emulation style
+        # packs headlessly (darktable-cli), converting each .dtstyle to an .xmp
+        # sidecar on the fly so no GUI style import is needed. See
+        # scripts/dt-edit.sh. Usage: `dt-edit contact photo.CR3` then
+        # `dt-edit apply photo.CR3 "Portra 400"`.
+        (writeShellApplication {
+          name = "dt-edit";
+          runtimeInputs = [
+            darktable
+            python3
+            coreutils
+            findutils
+            gnugrep
+          ];
+          text = ''
+            DTSTYLE2XMP=${../../../scripts/dtstyle2xmp.py}
+            export DTSTYLE2XMP
+          ''
+          + builtins.readFile ../../../scripts/dt-edit.sh;
+        })
       ]
       ++ (lib.optionals pkgs.stdenv.hostPlatform.isAarch64 [
         keybase
