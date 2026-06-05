@@ -741,13 +741,11 @@ in
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    matchBlocks = {
+    settings = {
       "*" = {
-        extraOptions = {
-          AddKeysToAgent = "yes";
-          ServerAliveInterval = "60";
-          ServerAliveCountMax = "3";
-        };
+        AddKeysToAgent = "yes";
+        ServerAliveInterval = "60";
+        ServerAliveCountMax = "3";
         # No setEnv TERM override: ghostty's ssh-terminfo integration
         # (programs.ghostty in os-specific/darwin.nix) handles the fallback
         # automatically and lets sessions upgrade to xterm-ghostty once the

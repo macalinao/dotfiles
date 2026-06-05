@@ -213,7 +213,7 @@ in
       };
     };
 
-    programs.ssh.matchBlocks."*".extraOptions = {
+    programs.ssh.settings."*" = {
       IgnoreUnknown = "UseKeychain";
       UseKeychain = "yes";
     };
