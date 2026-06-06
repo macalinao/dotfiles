@@ -113,27 +113,26 @@ in
 
     # macOS file associations via duti
     home.file.".duti.conf".text = ''
-      # Zed — source code and config files
+      # Zed — source code and config files.
+      # Only extensions with a real registered UTI are listed. Extensions macOS
+      # has no UTI for (.jsx .nix .rs .go .svelte) resolve to dynamic UTIs, which
+      # LaunchServices refuses to bind a handler to (duti prints "error -50").
+      # They're covered by the public.source-code line below instead.
       dev.zed.Zed .ts all
       dev.zed.Zed .tsx all
       dev.zed.Zed .js all
-      dev.zed.Zed .jsx all
       dev.zed.Zed .json all
-      dev.zed.Zed .nix all
-      dev.zed.Zed .rs all
       dev.zed.Zed .toml all
       dev.zed.Zed .yaml all
       dev.zed.Zed .yml all
       dev.zed.Zed .md all
       dev.zed.Zed .py all
-      dev.zed.Zed .go all
       dev.zed.Zed .css all
       # editor role (not "all") so Zed doesn't claim the HTML viewer role,
       # which macOS treats as the default browser and re-prompts about on every switch
       dev.zed.Zed .html editor
       dev.zed.Zed .sh all
       dev.zed.Zed .zsh all
-      dev.zed.Zed .svelte all
       dev.zed.Zed public.source-code all
       dev.zed.Zed public.plain-text all
     '';

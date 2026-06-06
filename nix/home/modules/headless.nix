@@ -159,6 +159,12 @@ in
 
   home.stateVersion = "26.05";
 
+  # We track nixpkgs-unstable (currently labeled 26.05) and home-manager
+  # master (already bumped to 26.11). The version labels legitimately drift
+  # by a cycle until the unstable channel flips, so silence the otherwise-
+  # benign release mismatch warning.
+  home.enableNixpkgsReleaseCheck = false;
+
   programs.git = {
     enable = true;
     settings = {
