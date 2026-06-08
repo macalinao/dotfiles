@@ -25,81 +25,93 @@ let
 in
 {
   config = lib.mkIf pkgs.stdenv.isDarwin {
-    home.packages =
-      with pkgs;
-      [
-        reattach-to-user-namespace
-        pinentry_mac
-        gnupg
-        kbfs
+    home.packages = with pkgs; [
+      reattach-to-user-namespace
+      pinentry_mac
+      gnupg
+      kbfs
 
-        # Used for Thorium/Animecards
-        ffmpeg
+      # Used for Thorium/Animecards
+      ffmpeg
 
-        pm2
+      pm2
 
-        # file associations
-        duti
+      # file associations
+      duti
 
-        # Immich client + an archive wrapper that moves a folder into the
-        # home Immich server and deletes the local copies once the server
-        # confirms ingest. First-time auth on each machine:
-        #
-        #   immich login-key https://immich.yourhost.com/api <API_KEY>
-        #
-        # Get the API key from Immich's web UI: Account Settings → API Keys.
-        immich-cli
-        (writeShellApplication {
-          name = "immich-archive";
-          runtimeInputs = [
-            immich-cli
-            findutils
-          ];
-          text = ''
-            if [ $# -eq 0 ]; then
-              echo "usage: immich-archive <directory> [more dirs...]" >&2
-              exit 64
+      # Immich client + an archive wrapper that moves a folder into the
+      # home Immich server and deletes the local copies once the server
+      # confirms ingest. First-time auth on each machine:
+      #
+      #   immich login-key https://immich.yourhost.com/api <API_KEY>
+      #
+      # Get the API key from Immich's web UI: Account Settings → API Keys.
+      immich-cli
+      (writeShellApplication {
+        name = "immich-archive";
+        runtimeInputs = [
+          immich-cli
+          findutils
+        ];
+        text = ''
+          if [ $# -eq 0 ]; then
+            echo "usage: immich-archive <directory> [more dirs...]" >&2
+            exit 64
+          fi
+          for dir in "$@"; do
+            if [ ! -d "$dir" ]; then
+              echo "not a directory: $dir" >&2
+              exit 66
             fi
-            for dir in "$@"; do
-              if [ ! -d "$dir" ]; then
-                echo "not a directory: $dir" >&2
-                exit 66
-              fi
-              # --delete removes each file only after the server confirms a
-              # successful upload. Immich dedupes by hash, so re-runs are
-              # idempotent.
-              immich upload --recursive --delete -- "$dir"
-              # CLI leaves empty dirs behind; prune them (but keep the
-              # root arg so the user can see the archive completed).
-              find "$dir" -mindepth 1 -type d -empty -delete
-            done
-          '';
-        })
+            # --delete removes each file only after the server confirms a
+            # successful upload. Immich dedupes by hash, so re-runs are
+            # idempotent.
+            immich upload --recursive --delete -- "$dir"
+            # CLI leaves empty dirs behind; prune them (but keep the
+            # root arg so the user can see the archive completed).
+            find "$dir" -mindepth 1 -type d -empty -delete
+          done
+        '';
+      })
 
-        # dt-edit: render photos through the darktable film-emulation style
-        # packs headlessly (darktable-cli), converting each .dtstyle to an .xmp
-        # sidecar on the fly so no GUI style import is needed. See
-        # scripts/dt-edit.sh. Usage: `dt-edit contact photo.CR3` then
-        # `dt-edit apply photo.CR3 "Portra 400"`.
-        (writeShellApplication {
-          name = "dt-edit";
-          runtimeInputs = [
-            darktable
-            python3
-            coreutils
-            findutils
-            gnugrep
-          ];
-          text = ''
-            DTSTYLE2XMP=${../../../scripts/dtstyle2xmp.py}
-            export DTSTYLE2XMP
-          ''
-          + builtins.readFile ../../../scripts/dt-edit.sh;
-        })
-      ]
-      ++ (lib.optionals pkgs.stdenv.hostPlatform.isAarch64 [
-        keybase
-      ]);
+      # dt-edit: render photos through the darktable film-emulation style
+      # packs headlessly (darktable-cli), converting each .dtstyle to an .xmp
+      # sidecar on the fly so no GUI style import is needed. See
+      # scripts/dt-edit.sh. Usage: `dt-edit contact photo.CR3` then
+      # `dt-edit apply photo.CR3 "Portra 400"`.
+      (writeShellApplication {
+        name = "dt-edit";
+        runtimeInputs = [
+          darktable
+          python3
+          coreutils
+          findutils
+          gnugrep
+        ];
+        text = ''
+          DTSTYLE2XMP=${../../../scripts/dtstyle2xmp.py}
+          export DTSTYLE2XMP
+        ''
+        + builtins.readFile ../../../scripts/dt-edit.sh;
+      })
+
+      # immich-fix-dates: repair capture dates for assets bulk-imported from
+      # an Apple Photos library. UUID-named originals exported without their
+      # EXIF date fall back to the file mtime (the migration day); this tool
+      # reads each UUID's authoritative date from Apple Photos via osxphotos
+      # and pushes corrections to Immich. Dry-run by default; --apply to write.
+      # See scripts/immich-fix-dates.py. Requires osxphotos on PATH
+      # (`uv tool install osxphotos`) and `immich login-key` already run.
+      (writeShellApplication {
+        name = "immich-fix-dates";
+        runtimeInputs = [ python3 ];
+        text = ''exec ${python3}/bin/python3 ${../../../scripts/immich-fix-dates.py} "$@"'';
+      })
+    ];
+
+    # Use the keybase CLI bundled in Keybase.app so the client always matches
+    # the auto-updating service. Avoids version-skew warnings from a Nix-pinned CLI.
+    home.sessionPath = [ "/Applications/Keybase.app/Contents/SharedSupport/bin" ];
 
     xdg.enable = true;
 
