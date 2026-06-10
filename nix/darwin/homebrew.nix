@@ -63,6 +63,7 @@ in
   ++ (lib.optionals (mode == "personal") (
     [
       "autodesk-fusion"
+      "bambu-studio"
       "google-drive"
       "ledger-wallet"
       "whatsapp"
