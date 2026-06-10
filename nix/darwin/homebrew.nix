@@ -62,6 +62,7 @@ in
   ]
   ++ (lib.optionals (mode == "personal") (
     [
+      "autodesk-fusion"
       "google-drive"
       "ledger-wallet"
       "whatsapp"
