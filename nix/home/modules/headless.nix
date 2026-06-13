@@ -69,7 +69,6 @@ in
       tmux
       unzip
       wget
-      silver-searcher
       dnsutils
       lsof
 
