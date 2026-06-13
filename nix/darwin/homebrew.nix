@@ -58,6 +58,7 @@ in
     "private-internet-access"
     "slack"
     "tailscale-app"
+    "tor-browser"
     "viber"
   ]
   ++ (lib.optionals (mode == "personal") (
