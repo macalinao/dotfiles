@@ -10,7 +10,7 @@ animation_fps = 120.0
 # Rift wait for an Alt+Z toggle per space before tiling.
 default_disable = false
 
-focus_follows_mouse = false
+focus_follows_mouse = true
 mouse_follows_focus = false
 mouse_hides_on_focus = false
 
