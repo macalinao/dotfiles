@@ -108,7 +108,6 @@ in
     ++ (with casks; [
       beeper
       bitwarden
-      brave-browser
       firefox
       notion
       notunes

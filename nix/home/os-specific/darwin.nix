@@ -196,7 +196,7 @@ in
 
     programs.brave = {
       enable = true;
-      package = null; # installed via nix-darwin systemPackages
+      package = null; # installed via Homebrew cask
       extensions = [
         { id = "nngceckbapebfimnlniiiahkandclblb"; } # Bitwarden
         { id = "fcoeoabgfenejglbffodgkkbkcdhcgfn"; } # Claude

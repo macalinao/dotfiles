@@ -46,6 +46,7 @@ in
 
   casks = [
     "arc"
+    "brave-browser"
     "claude"
     # "dashlane"
     "discord"
