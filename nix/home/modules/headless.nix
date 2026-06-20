@@ -16,6 +16,7 @@ in
   imports = [
     ../options.nix
     ../dotfiles.nix
+    ./agent-skills.nix
     ../../nix-settings-shared.nix
   ];
 

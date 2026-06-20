@@ -47,6 +47,29 @@
         "type": "github"
       }
     },
+    "agent-skills": {
+      "inputs": {
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1781510879,
+        "narHash": "sha256-YE3NCJtgZVa1U2VTjwQVuAhmEJW4raVq7eJaFiX60X8=",
+        "owner": "Kyure-A",
+        "repo": "agent-skills-nix",
+        "rev": "5ff9039277a9d62907426d033ecf76addb2402cb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Kyure-A",
+        "repo": "agent-skills-nix",
+        "type": "github"
+      }
+    },
     "claude-code-nix": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -481,12 +504,15 @@
     "root": {
       "inputs": {
         "additional-nix-packages": "additional-nix-packages",
+        "agent-skills": "agent-skills",
         "claude-code-nix": "claude-code-nix",
         "codex-cli-nix": "codex-cli-nix",
         "dotfiles-private": "dotfiles-private",
         "flake-parts": "flake-parts_2",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_5",
+        "shadcn-improve": "shadcn-improve",
+        "vercel-skills": "vercel-skills",
         "zjstatus": "zjstatus"
       }
     },
@@ -530,6 +556,22 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "shadcn-improve": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1781504319,
+        "narHash": "sha256-m0a1n8xguDI2nooJ856sWPofh+tZI5VvIrVZrQH6XgY=",
+        "owner": "shadcn",
+        "repo": "improve",
+        "rev": "03369ee6d7cafbfcecc4346539b05b3dc0a603bb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "shadcn",
+        "repo": "improve",
         "type": "github"
       }
     },
@@ -626,6 +668,22 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "vercel-skills": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1781932973,
+        "narHash": "sha256-BBN0MWqXNury3gLfm9Fmq7g+lB5ruAnCyCiTfieZcu8=",
+        "owner": "vercel-labs",
+        "repo": "skills",
+        "rev": "e5c075e3a84b37c5eb398ab74e581558d3fceb0e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vercel-labs",
+        "repo": "skills",
         "type": "github"
       }
     },

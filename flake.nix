@@ -20,6 +20,21 @@
     # from source.
     claude-code-nix.url = "github:sadjow/claude-code-nix";
     codex-cli-nix.url = "github:sadjow/codex-cli-nix";
+    # Declarative agent skills (SKILL.md bundles) synced into ~/.claude*/skills
+    # and ~/.codex/skills. Skill sources below are flake=false repos.
+    agent-skills = {
+      url = "github:Kyure-A/agent-skills-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+    shadcn-improve = {
+      url = "github:shadcn/improve";
+      flake = false;
+    };
+    vercel-skills = {
+      url = "github:vercel-labs/skills";
+      flake = false;
+    };
     zjstatus = {
       url = "github:dj95/zjstatus";
       inputs.nixpkgs.follows = "nixpkgs";
