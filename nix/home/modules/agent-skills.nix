@@ -1,10 +1,10 @@
 # Declarative agent skills (https://github.com/Kyure-A/agent-skills-nix).
 #
 # Bundles selected SKILL.md skills from flake-pinned sources and syncs them
-# into the Claude Code and Codex skills directories. We use the `link`
-# structure (home.file symlinks) rather than the default `symlink-tree`
-# (rsync --delete) so that skills installed by hand (e.g. `npx skills add`)
-# alongside the Nix-managed ones are never clobbered.
+# into the Claude Code and Codex skills directories using the `symlink-tree`
+# structure (rsync -a --delete in home.activation). The module's default
+# exclude pattern (`/.system`) keeps Codex's `~/.codex/skills/.system` dir
+# from being deleted by the sync.
 {
   config,
   lib,
@@ -27,8 +27,8 @@ let
         name = "claude-${n}";
         value = {
           enable = true;
-          dest = ".claude-${n}/skills";
-          structure = "link";
+          dest = "$HOME/.claude-${n}/skills";
+          structure = "symlink-tree";
         };
       }
     ) (cfg.claudeInstances - 1)
@@ -61,11 +61,11 @@ in
     targets = {
       claude = {
         enable = true;
-        structure = "link";
+        structure = "symlink-tree";
       };
       codex = {
         enable = true;
-        structure = "link";
+        structure = "symlink-tree";
       };
     }
     // instanceTargets;
