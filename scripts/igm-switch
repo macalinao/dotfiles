@@ -28,6 +28,16 @@ if $(uname -a | grep -q "NixOS"); then
 fi
 
 if $(uname -a | grep -q "Darwin"); then
+	# Homebrew >= 6 refuses to load formulae from non-core taps unless they are
+	# explicitly trusted. During nix-darwin activation brew runs via
+	# `sudo --preserve-env=PATH --user=igm --set-home env brew bundle`, which
+	# strips XDG_CONFIG_HOME, so brew reads trust from ~/.homebrew/trust.json
+	# rather than the interactive ~/.config/homebrew/trust.json. Seed that
+	# fallback location (idempotent) so `brew bundle` finds the trusted tap.
+	if command -v brew >/dev/null 2>&1; then
+		env -u XDG_CONFIG_HOME brew trust --tap acsandmann/tap >/dev/null 2>&1 || true
+	fi
+
 	nix build ".#$SYSTEM_CONFIG_ATTRIBUTE" $PRIVATE_OVERRIDE $SHOW_TRACE || exit 1
 	sudo ./result/sw/bin/darwin-rebuild switch --flake ".#$(hostname)" $PRIVATE_OVERRIDE
 	rm -r result
