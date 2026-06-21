@@ -32,24 +32,10 @@
               };
               programs.stylua.enable = true;
               programs.kdlfmt.enable = true;
-              programs.dprint = {
-                enable = true;
-                includes = [
-                  "*.md"
-                  "*.json"
-                  "*.yml"
-                  "*.yaml"
-                  "*.html"
-                ];
-                settings.plugins = pkgs.dprint-plugins.getPluginList (
-                  plugins: with plugins; [
-                    dprint-plugin-json
-                    dprint-plugin-markdown
-                    g-plane-pretty_yaml
-                    g-plane-markup_fmt
-                  ]
-                );
-              };
+              # Oxc formatter (oxfmt) handles the full web/data set via its
+              # default includes: JS/TS/JSX/TSX, JSON/JSONC/JSON5, CSS/SCSS,
+              # HTML, Markdown/MDX, YAML, GraphQL, Vue. Replaces dprint entirely.
+              programs.oxfmt.enable = true;
             };
 
             pre-commit.check.enable = false;
@@ -60,7 +46,6 @@
               packages = with pkgs; [
                 git
                 coreutils-full
-                dprint
               ];
             };
           };
