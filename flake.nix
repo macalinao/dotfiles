@@ -62,7 +62,5 @@
         ./nix/modules/darwin.nix
         ./nix/modules/home-manager.nix
       ];
-
-      flake = { };
     };
 }

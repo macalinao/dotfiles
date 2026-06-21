@@ -48,6 +48,6 @@ in
   ];
 
   nixpkgs = import ../../nixpkgs/config.nix {
-    additionalOverlays = [ self.overlays.default ];
+    inherit self;
   };
 }

@@ -28,10 +28,8 @@ in
   igm.mode = "personal";
 
   nixpkgs = import ../../nixpkgs/config.nix {
+    inherit self;
     isDarwin = true;
-    additionalOverlays = [
-      self.overlays.default
-    ];
   };
 
   environment.systemPackages =
