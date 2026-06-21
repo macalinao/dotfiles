@@ -53,11 +53,17 @@ in
         path = inputs.vercel-skills.outPath;
         subdir = "skills";
       };
+      # github:blader/humanizer -> SKILL.md lives at the repo root (no subdir),
+      # so the discovered skill id is the source name `humanizer`.
+      humanizer = {
+        path = inputs.humanizer.outPath;
+      };
     };
 
     skills.enable = [
       "improve"
       "find-skills"
+      "humanizer"
     ];
 
     targets = {

@@ -35,6 +35,10 @@
       url = "github:vercel-labs/skills";
       flake = false;
     };
+    humanizer = {
+      url = "github:blader/humanizer";
+      flake = false;
+    };
     zjstatus = {
       url = "github:dj95/zjstatus";
       inputs.nixpkgs.follows = "nixpkgs";
