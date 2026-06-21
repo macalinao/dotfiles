@@ -1,9 +1,5 @@
 { inputs, ... }:
 {
-  imports = [
-    inputs.flake-parts.flakeModules.partitions
-  ];
-
   partitionedAttrs = {
     nixosModules = "nixos";
     nixosConfigurations = "nixos";
@@ -16,52 +12,53 @@
       let
         inherit (inputs) nixpkgs;
         nixosModule = import ../nixos/modules { inherit inputs; };
+        headlessModule = import ../nixos/modules/headless.nix { inherit inputs; };
+
+        mkNixosHost =
+          {
+            system ? "x86_64-linux",
+            modules ? [ ],
+          }:
+          nixpkgs.lib.nixosSystem {
+            modules = [
+              ../nixos/machines/ci.nix
+              { nixpkgs.hostPlatform = system; }
+            ]
+            ++ modules;
+          };
       in
       {
         flake = {
           nixosModules.default = nixosModule;
-          nixosModules.headless = import ../nixos/modules/headless.nix { inherit inputs; };
+          nixosModules.headless = headlessModule;
 
-          nixosConfigurations.ci-headless = nixpkgs.lib.nixosSystem {
-            modules = [
-              (import ../nixos/modules/headless.nix { inherit inputs; })
-              ../nixos/machines/ci.nix
-              {
-                nixpkgs.hostPlatform = "x86_64-linux";
-                system.stateVersion = "24.05";
-              }
-            ];
-          };
-
-          nixosConfigurations.ci-home = nixpkgs.lib.nixosSystem {
-            modules = [
-              nixosModule
-              ../nixos/machines/ci.nix
-              { nixpkgs.hostPlatform = "x86_64-linux"; }
-            ];
-          };
-          nixosConfigurations.ci-bare = nixpkgs.lib.nixosSystem {
-            modules = [
-              nixosModule
-              ../nixos/machines/ci.nix
-              {
-                nixpkgs.hostPlatform = "x86_64-linux";
-                igm.headless = true;
-              }
-            ];
-          };
-          nixosConfigurations.vbox-host = nixpkgs.lib.nixosSystem {
-            modules = [
-              nixosModule
-              ../nixos/machines/ci.nix
-              {
-                nixpkgs.hostPlatform = "x86_64-linux";
-                igm = {
-                  headless = true;
-                  virtualbox = true;
-                };
-              }
-            ];
+          nixosConfigurations = {
+            ci-headless = mkNixosHost {
+              modules = [
+                headlessModule
+                { system.stateVersion = "24.05"; }
+              ];
+            };
+            ci-home = mkNixosHost {
+              modules = [ nixosModule ];
+            };
+            ci-bare = mkNixosHost {
+              modules = [
+                nixosModule
+                { igm.headless = true; }
+              ];
+            };
+            vbox-host = mkNixosHost {
+              modules = [
+                nixosModule
+                {
+                  igm = {
+                    headless = true;
+                    virtualbox = true;
+                  };
+                }
+              ];
+            };
           };
         };
       };
