@@ -23,13 +23,16 @@
     ];
   };
 
-  nixpkgs.overlays = [ inputs.self.overlays.default ];
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
-    builtins.elem (pkg.pname or "") [
-      "claude-code"
-      "codex"
-    ];
+  nixpkgs = import ../../nixpkgs/config.nix {
+    self = inputs.self;
+    pulseaudio = false;
+    allowUnfreePredicate =
+      pkg:
+      builtins.elem (pkg.pname or "") [
+        "claude-code"
+        "codex"
+      ];
+  };
 
   programs.zsh.enable = true;
   programs.nix-ld.enable = true;

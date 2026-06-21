@@ -1,12 +1,17 @@
 {
-  additionalOverlays ? [ ],
+  self,
   isDarwin ? false,
+  pulseaudio ? !isDarwin,
+  allowUnfree ? true,
+  allowUnfreePredicate ? null,
 }:
 {
   config = {
-    allowUnfree = true;
-    pulseaudio = !isDarwin;
-  };
+    inherit pulseaudio;
+  }
+  // (
+    if allowUnfreePredicate != null then { inherit allowUnfreePredicate; } else { inherit allowUnfree; }
+  );
 
-  overlays = additionalOverlays;
+  overlays = [ self.overlays.default ];
 }
