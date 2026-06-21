@@ -35,6 +35,10 @@
       url = "github:vercel-labs/skills";
       flake = false;
     };
+    obsidian-skills = {
+      url = "github:kepano/obsidian-skills";
+      flake = false;
+    };
     humanizer = {
       url = "github:blader/humanizer";
       flake = false;

@@ -53,6 +53,11 @@ in
         path = inputs.vercel-skills.outPath;
         subdir = "skills";
       };
+      # github:kepano/obsidian-skills -> skills/{defuddle,json-canvas,obsidian-bases,obsidian-cli,obsidian-markdown}
+      obsidian-skills = {
+        path = inputs.obsidian-skills.outPath;
+        subdir = "skills";
+      };
       # github:blader/humanizer -> SKILL.md lives at the repo root (no subdir),
       # so the discovered skill id is the source name `humanizer`.
       humanizer = {
@@ -63,6 +68,11 @@ in
     skills.enable = [
       "improve"
       "find-skills"
+      "defuddle"
+      "json-canvas"
+      "obsidian-bases"
+      "obsidian-cli"
+      "obsidian-markdown"
       "humanizer"
     ];
 

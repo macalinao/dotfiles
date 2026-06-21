@@ -492,6 +492,22 @@
         "type": "github"
       }
     },
+    "obsidian-skills": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1780935121,
+        "narHash": "sha256-/Kr3cMaN81WXFxgWMNt/QQhEMzuu3e3WJpspqjrnPss=",
+        "owner": "kepano",
+        "repo": "obsidian-skills",
+        "rev": "a1dc48e68138490d522c04cbf5822214c6eb1202",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kepano",
+        "repo": "obsidian-skills",
+        "type": "github"
+      }
+    },
     "ragenix": {
       "inputs": {
         "agenix": "agenix",
@@ -528,6 +544,7 @@
         "home-manager": "home-manager",
         "humanizer": "humanizer",
         "nixpkgs": "nixpkgs_5",
+        "obsidian-skills": "obsidian-skills",
         "shadcn-improve": "shadcn-improve",
         "vercel-skills": "vercel-skills",
         "zjstatus": "zjstatus"
