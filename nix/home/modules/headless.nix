@@ -1,10 +1,14 @@
 # Headless home-manager module: cross-platform, no GUI, no personal identity.
 # Import this on any remote server for a batteries-included terminal environment.
+#
+# Curried over dotfiles' own flake `inputs` so claude-code-nix / codex-cli-nix
+# (and, via agent-skills.nix, the skill sources) resolve from dotfiles' pins
+# rather than from the consumer's extraSpecialArgs.
+{ inputs }:
 {
   config,
   pkgs,
   lib,
-  inputs,
   ...
 }:
 
@@ -16,7 +20,7 @@ in
   imports = [
     ../options.nix
     ../dotfiles.nix
-    ./agent-skills.nix
+    (import ./agent-skills.nix { inherit inputs; })
     ../../nix-settings-shared.nix
   ];
 
