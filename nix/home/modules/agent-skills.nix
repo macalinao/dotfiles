@@ -5,10 +5,10 @@
 # structure (rsync -a --delete in home.activation). The module's default
 # exclude pattern (`/.system`) keeps Codex's `~/.codex/skills/.system` dir
 # from being deleted by the sync.
+{ inputs }:
 {
   config,
   lib,
-  inputs,
   ...
 }:
 
@@ -42,13 +42,15 @@ in
 
     sources = {
       # github:shadcn/improve -> skills/improve
+      # Resolved by store path from dotfiles' own pin so the consumer doesn't
+      # have to expose a `shadcn-improve` flake input via extraSpecialArgs.
       shadcn-improve = {
-        input = "shadcn-improve";
+        path = inputs.shadcn-improve.outPath;
         subdir = "skills";
       };
       # github:vercel-labs/skills -> skills/find-skills
       vercel-skills = {
-        input = "vercel-skills";
+        path = inputs.vercel-skills.outPath;
         subdir = "skills";
       };
     };

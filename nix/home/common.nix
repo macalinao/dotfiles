@@ -1,4 +1,5 @@
 # Full personal machine config — imports headless.nix, adds GUI/personal/hobby stuff.
+{ inputs }:
 {
   config,
   pkgs,
@@ -7,7 +8,7 @@
 }:
 
 {
-  imports = [ ./modules/headless.nix ];
+  imports = [ (import ./modules/headless.nix { inherit inputs; }) ];
 
   home.packages = with pkgs; [
     cmatrix
