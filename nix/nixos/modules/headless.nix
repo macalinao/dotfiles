@@ -25,7 +25,14 @@
 
   nixpkgs = import ../../nixpkgs/config.nix {
     self = inputs.self;
-    pulseaudio = false;
+    # Keep pulseaudio = true (the prior effective value via `!isDarwin`).
+    # Flipping it to false rebuilds every pulseaudio-touching package
+    # (libopenmpt, ffmpeg, SDL, …) as `--without-pulseaudio`, a non-default
+    # variant the binary caches don't carry — which cascades the whole
+    # downstream closure (incl. torch/opencv-CUDA) off cache.nixos.org /
+    # cache.nixos-cuda.org into a from-source rebuild. Headless hosts still
+    # run audio services (Kokoro TTS, the PowerConf voice satellite).
+    pulseaudio = true;
     allowUnfreePredicate =
       pkg:
       builtins.elem (pkg.pname or "") [
