@@ -63,6 +63,12 @@ in
       humanizer = {
         path = inputs.humanizer.outPath;
       };
+      # github:apollographql/skills -> skills/rust-best-practices (and other
+      # Apollo skills); only rust-best-practices is enabled below.
+      apollo-skills = {
+        path = inputs.apollo-skills.outPath;
+        subdir = "skills";
+      };
     };
 
     skills.enable = [
@@ -74,6 +80,7 @@ in
       "obsidian-cli"
       "obsidian-markdown"
       "humanizer"
+      "rust-best-practices"
     ];
 
     targets = {

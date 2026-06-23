@@ -70,6 +70,22 @@
         "type": "github"
       }
     },
+    "apollo-skills": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1780589749,
+        "narHash": "sha256-UW2HLQ8L6klCAdqmtzCyZbCjphbCvIbvPpbCEo+CDko=",
+        "owner": "apollographql",
+        "repo": "skills",
+        "rev": "605089108a198e412f7f0c1926c91eb94a6d1727",
+        "type": "github"
+      },
+      "original": {
+        "owner": "apollographql",
+        "repo": "skills",
+        "type": "github"
+      }
+    },
     "claude-code-nix": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -537,6 +553,7 @@
       "inputs": {
         "additional-nix-packages": "additional-nix-packages",
         "agent-skills": "agent-skills",
+        "apollo-skills": "apollo-skills",
         "claude-code-nix": "claude-code-nix",
         "codex-cli-nix": "codex-cli-nix",
         "dotfiles-private": "dotfiles-private",

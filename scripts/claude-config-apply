@@ -4,10 +4,8 @@ set -e
 MARKETPLACES=(
   macalinao/claude-plugins
   ast-grep/claude-skill
-  schpet/linear-cli
   Dammyjay93/interface-design
   qazi0/claude-plugins
-  apollographql/skills
 )
 
 for mp in "${MARKETPLACES[@]}"; do

@@ -43,6 +43,10 @@
       url = "github:blader/humanizer";
       flake = false;
     };
+    apollo-skills = {
+      url = "github:apollographql/skills";
+      flake = false;
+    };
     zjstatus = {
       url = "github:dj95/zjstatus";
       inputs.nixpkgs.follows = "nixpkgs";
