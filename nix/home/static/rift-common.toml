@@ -1,5 +1,11 @@
-# Rift window manager config
-# Symlinked to ~/.config/rift/config.toml via nix/home/dotfiles.nix
+# Rift window manager config — common base.
+#
+# Symlinked to ~/.config/rift/config.toml via nix/home/rift.nix, which
+# appends machine/identity-specific app_rules from the
+# igm.rift.extraAppRules option (set in dotfiles-private). Because
+# app_rules is a TOML array of tables, extra
+# [[virtual_workspaces.app_rules]] blocks concatenated after this file
+# simply append to the rule list — keep app_rules at the END of this file.
 
 [settings]
 animate = true
@@ -59,16 +65,14 @@ preserve_focus_per_workspace = true
 workspace_auto_back_and_forth = false
 workspace_rules = []
 
+# Re-evaluate app_rules whenever a window's title changes, not just when
+# it first appears. This is what makes the title-based rules (appended from
+# igm.rift.extraAppRules) move windows after their title updates (e.g.
+# switching files in Zed, or a mosh session's title changing).
+reapply_app_rules_on_title_change = true
+
 workspace_names = [
   "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"
-]
-
-app_rules = [
-  { app_name = "Simulator", manage = false },
-  { app_name = "qemu-system-aarch64", manage = false },
-  { app_id = "com.apple.systempreferences", floating = true },
-  { ax_subrole = "AXDialog", floating = true },
-  { ax_subrole = "AXSystemDialog", floating = true },
 ]
 
 [modifier_combinations]
@@ -164,3 +168,27 @@ hyper = "Cmd + Alt + Ctrl + Shift"
 
 # Launch Ghostty
 "Alt + Return" = { "exec" = ["/bin/bash", "-c", "open -a Ghostty"] }
+
+# --- app_rules (TOML array of tables) -------------------------------------
+# Keep these LAST: igm.rift.extraAppRules is concatenated after this file
+# and appends more [[virtual_workspaces.app_rules]] entries.
+
+[[virtual_workspaces.app_rules]]
+app_name = "Simulator"
+manage = false
+
+[[virtual_workspaces.app_rules]]
+app_name = "qemu-system-aarch64"
+manage = false
+
+[[virtual_workspaces.app_rules]]
+app_id = "com.apple.systempreferences"
+floating = true
+
+[[virtual_workspaces.app_rules]]
+ax_subrole = "AXDialog"
+floating = true
+
+[[virtual_workspaces.app_rules]]
+ax_subrole = "AXSystemDialog"
+floating = true

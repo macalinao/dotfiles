@@ -20,6 +20,7 @@ in
   imports = [
     ../options.nix
     ../dotfiles.nix
+    ../rift.nix
     (import ./agent-skills.nix { inherit inputs; })
     ../../nix-settings-shared.nix
   ];

@@ -44,8 +44,5 @@ in
       source = "${static}/fcitx";
       recursive = true;
     };
-  })
-  // (lib.optionalAttrs pkgs.stdenv.isDarwin {
-    ".config/rift/config.toml".source = "${static}/rift.toml";
   });
 }
