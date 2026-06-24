@@ -104,7 +104,6 @@ in
     ])
     # macOS apps via nix-casks (in systemPackages for Spotlight indexing)
     ++ (with casks; [
-      beeper
       bitwarden
       firefox
       notion

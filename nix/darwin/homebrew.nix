@@ -46,6 +46,7 @@ in
 
   casks = [
     "arc"
+    "beeper"
     "brave-browser"
     "claude"
     # "dashlane"
