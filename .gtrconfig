@@ -1,0 +1,9 @@
+# .gtrconfig - Repository-level git-worktree-runner configuration
+# gitconfig syntax, parsed natively by git. Committed to the repo.
+# Docs: https://github.com/coderabbitai/git-worktree-runner
+
+[hooks]
+    # Run after creating a worktree. The hook runs in the new worktree
+    # directory, so `direnv allow` trusts that worktree's .envrc.
+    # Env available: REPO_ROOT, WORKTREE_PATH, BRANCH
+    postCreate = direnv allow
