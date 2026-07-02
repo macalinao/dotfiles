@@ -123,6 +123,7 @@ in
       svelte-language-server
 
       mosh
+      eternal-terminal # `et <host>` — persistent shell that survives roaming
       imagemagick
       chafa
 
