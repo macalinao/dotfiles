@@ -136,7 +136,6 @@ in
 
       yj
       devenv
-      lice
 
       # AI coding tools — pulled directly from their flakes (own pinned nixpkgs +
       # cachix caches), bypassing the default overlay so they don't shadow
