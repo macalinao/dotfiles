@@ -1,0 +1,50 @@
+name: Semgrep
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  schedule:
+    - cron: "31 5 * * 1"
+
+jobs:
+  semgrep:
+    name: Scan
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+
+      - name: Setup Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+
+      - name: Install Semgrep
+        run: pip install semgrep==1.170.0
+
+      # No SEMGREP_APP_TOKEN needed — these registry rulesets are free.
+      # Semgrep exits 0 on findings by default (no --error), so a non-zero exit
+      # means a genuine scan/config failure and should fail the job — hence no
+      # continue-on-error here. The upload step below uses if: always() so the
+      # SARIF is still published even when the scan fails.
+      - name: Run Semgrep
+        run: >
+          semgrep scan
+          --config p/default
+          --config p/security-audit
+          --config p/secrets
+          --sarif --output semgrep.sarif
+
+      - name: Upload SARIF to GitHub code scanning
+        if: always()
+        uses: github/codeql-action/upload-sarif@b7351df727350dca84cb9d725d57dcf5bc82ba26 # v3.37.1
+        with:
+          sarif_file: semgrep.sarif

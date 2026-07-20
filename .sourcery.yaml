@@ -1,0 +1,21 @@
+# Sourcery is free for public/open-source repositories.
+# Install the app once at https://github.com/apps/sourcery-ai
+rule_settings:
+  enable:
+    - default
+  rule_types:
+    - refactoring
+    - suggestion
+    - comment
+
+github:
+  review_comments: true
+  request_review: author
+  sourcery_branch: sourcery/{base_branch}
+
+# Sourcery does not support recursive `**` globs; use directory paths and
+# single-level wildcards. This repo is Nix + shell; skip the generated
+# lockfile and any Nix build output symlinks.
+ignore:
+  - flake.lock
+  - result
