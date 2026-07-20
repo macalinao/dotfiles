@@ -8,6 +8,11 @@ on:
   schedule:
     - cron: "51 5 * * 1"
 
+# Keep only the latest run per branch; cancel superseded runs on rapid pushes.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   scan:
     name: Vulnerability scan

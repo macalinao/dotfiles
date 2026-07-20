@@ -15,7 +15,9 @@ github:
 
 # Sourcery does not support recursive `**` globs; use directory paths and
 # single-level wildcards. This repo is Nix + shell; skip the generated
-# lockfile and any Nix build output symlinks.
+# lockfile and any Nix build output symlinks (`result`, plus `result-1`,
+# `result-2`, … that `nix build` emits for multiple outputs).
 ignore:
   - flake.lock
   - result
+  - result-*

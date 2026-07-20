@@ -8,6 +8,11 @@ on:
   schedule:
     - cron: "27 5 * * 1"
 
+# Keep only the latest run per branch; cancel superseded runs on rapid pushes.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   analyze:
     name: Analyze (${{ matrix.language }})

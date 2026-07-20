@@ -7,6 +7,11 @@ on:
   push:
     branches: [master]
 
+# Keep only the latest run per branch; cancel superseded runs on rapid pushes.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions: read-all
 
 jobs:
