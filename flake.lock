@@ -413,6 +413,22 @@
         "type": "github"
       }
     },
+    "i-have-adhd": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1784476576,
+        "narHash": "sha256-gvJ1M+T/Hjft2/rgha82YRNRcRDFXu2pMtA72pa/HsE=",
+        "owner": "ayghri",
+        "repo": "i-have-adhd",
+        "rev": "72c33eee81ea439cf01991e93729adfce2ffc99e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ayghri",
+        "repo": "i-have-adhd",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1780365719,
@@ -560,6 +576,7 @@
         "flake-parts": "flake-parts_2",
         "home-manager": "home-manager",
         "humanizer": "humanizer",
+        "i-have-adhd": "i-have-adhd",
         "nixpkgs": "nixpkgs_5",
         "obsidian-skills": "obsidian-skills",
         "shadcn-improve": "shadcn-improve",

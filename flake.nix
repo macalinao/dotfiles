@@ -47,6 +47,10 @@
       url = "github:apollographql/skills";
       flake = false;
     };
+    i-have-adhd = {
+      url = "github:ayghri/i-have-adhd";
+      flake = false;
+    };
     zjstatus = {
       url = "github:dj95/zjstatus";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -69,6 +69,11 @@ in
         path = inputs.apollo-skills.outPath;
         subdir = "skills";
       };
+      # github:ayghri/i-have-adhd -> skills/i-have-adhd (ADHD-friendly output style)
+      i-have-adhd = {
+        path = inputs.i-have-adhd.outPath;
+        subdir = "skills";
+      };
     };
 
     skills.enable = [
@@ -81,6 +86,7 @@ in
       "obsidian-markdown"
       "humanizer"
       "rust-best-practices"
+      "i-have-adhd"
     ];
 
     targets = {
