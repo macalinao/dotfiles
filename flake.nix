@@ -38,9 +38,10 @@
   outputs =
     inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
+      # nixpkgs unstable (26.11+) has dropped support for x86_64-darwin, so it
+      # is intentionally omitted here.
       systems = [
         "x86_64-linux"
-        "x86_64-darwin"
         "aarch64-darwin"
         "aarch64-linux"
       ];
