@@ -131,7 +131,18 @@ in
       tilesize = 32;
       expose-animation-duration = 0.0;
     };
+    # Keep the Mac awake: never auto-start the screensaver and never demand a
+    # password on wake. A manual lock (Ctrl-Cmd-Q) still locks the screen.
+    screensaver.askForPassword = false;
+    CustomUserPreferences."com.apple.screensaver".idleTime = 0;
   };
+
+  # Never sleep the machine, display, or disks on their own. Combined with the
+  # screensaver settings above this keeps the Mac fully on until I lock it.
+  system.activationScripts.postActivation.text = ''
+    echo "power: disabling automatic sleep" >&2
+    /usr/bin/pmset -a displaysleep 0 sleep 0 disksleep 0
+  '';
 
   system.stateVersion = 5;
   system.keyboard = {
