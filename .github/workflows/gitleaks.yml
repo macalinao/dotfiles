@@ -24,10 +24,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
-          # Full history is only needed for the weekly schedule, which sweeps
-          # the entire repo. On push/PR gitleaks scans just the new commits, so
-          # a shallow checkout keeps those runs cheap as history grows.
-          fetch-depth: ${{ github.event_name == 'schedule' && '0' || '1' }}
+          # gitleaks-action diffs the full base..head commit range (and the
+          # weekly schedule sweeps the entire repo), so it needs every commit
+          # in that range present. A shallow checkout omits the base commit and
+          # makes the scan fail with "unknown revision", so fetch full history.
+          fetch-depth: 0
           persist-credentials: false
 
       # Gitleaks is free for public repositories — no GITLEAKS_LICENSE needed.
