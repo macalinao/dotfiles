@@ -41,21 +41,13 @@
         flake = {
           darwinModules.default = darwinModule;
 
+          # nixpkgs unstable (26.11+) has dropped support for x86_64-darwin, so
+          # only aarch64-darwin (Apple Silicon) hosts remain.
           darwinConfigurations = {
-            "ian-mbp-intel" = mkDarwinHost {
-              system = "x86_64-darwin";
-              hostName = "ian-mbp-intel";
-              computerName = "Ian's Macbook Pro Intel";
-            };
             "ian-mbp-2022" = mkDarwinHost {
               system = "aarch64-darwin";
               hostName = "ian-mbp-2022";
               computerName = "Ian MBP 2022";
-            };
-            ci-personal = mkDarwinHost {
-              system = "x86_64-darwin";
-              hostName = "igm-darwin-ci";
-              private = false;
             };
             ci-personal-m1 = mkDarwinHost {
               system = "aarch64-darwin";
