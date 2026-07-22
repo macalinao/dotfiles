@@ -19,6 +19,9 @@ jobs:
     name: Scorecard analysis
     runs-on: ubuntu-latest
     permissions:
+      # Job-level permissions fully replace the workflow-level read-all, so
+      # contents: read must be restated here or actions/checkout 403s.
+      contents: read
       security-events: write
       id-token: write
 
@@ -35,7 +38,10 @@ jobs:
           results_format: sarif
           publish_results: true
 
+      # if: always() so a failed analysis step still publishes whatever SARIF
+      # was produced, matching the other scanner workflows.
       - name: Upload SARIF to GitHub code scanning
+        if: always()
         uses: github/codeql-action/upload-sarif@b7351df727350dca84cb9d725d57dcf5bc82ba26 # v3.37.1
         with:
           sarif_file: results.sarif
