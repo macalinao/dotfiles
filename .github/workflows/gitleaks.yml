@@ -1,0 +1,49 @@
+name: Gitleaks
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  schedule:
+    - cron: "42 5 * * 1"
+
+# Keep only the latest run per branch; cancel superseded runs on rapid pushes.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  scan:
+    name: Secret scan
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          # gitleaks-action diffs the full base..head commit range (and the
+          # weekly schedule sweeps the entire repo), so it needs every commit
+          # in that range present. A shallow checkout omits the base commit and
+          # makes the scan fail with "unknown revision", so fetch full history.
+          fetch-depth: 0
+          persist-credentials: false
+
+      # Gitleaks is free for public repositories — no GITLEAKS_LICENSE needed.
+      - name: Run Gitleaks
+        uses: gitleaks/gitleaks-action@e0c47f4f8be36e29cdc102c57e68cb5cbf0e8d1e # v3.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # The action always writes results.sarif to the workspace; we publish
+          # it to code scanning below, so skip the redundant workflow artifact.
+          GITLEAKS_ENABLE_UPLOAD_ARTIFACT: false
+
+      # if: always() so a finding (which fails the step above) still publishes
+      # the report to code scanning before the job is marked failed.
+      - name: Upload SARIF to GitHub code scanning
+        if: always()
+        uses: github/codeql-action/upload-sarif@b7351df727350dca84cb9d725d57dcf5bc82ba26 # v3.37.1
+        with:
+          sarif_file: results.sarif
