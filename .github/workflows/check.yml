@@ -16,7 +16,7 @@ jobs:
           - macos-26 # Apple Silicon; nixpkgs unstable dropped x86_64-darwin
     runs-on: ${{ matrix.runsOn }}
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
       - uses: cachix/install-nix-action@v31
       - uses: cachix/cachix-action@v17
         with:
@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: sudo apt-get clean
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
       - uses: cachix/install-nix-action@v31
       - uses: cachix/cachix-action@v17
         with:
@@ -52,7 +52,7 @@ jobs:
           - macos-26
     runs-on: ${{ matrix.runsOn }}
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
       - uses: cachix/install-nix-action@v31
       - uses: cachix/cachix-action@v17
         with:
