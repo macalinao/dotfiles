@@ -15,6 +15,13 @@
 let
   inherit (pkgs.additional-nix-packages) git-worktree-runner;
   feat = pkgs.callPackage ../../packages/feat.nix { inherit git-worktree-runner; };
+
+  sfx = pkgs.callPackage ../../packages/dotfiles-sfx.nix { };
+  # macOS ships afplay and CoreAudio decodes Vorbis, so Darwin keeps sox out of
+  # the profile closure. The sfx are already at 0 dBFS; sox's -v 10.0 just
+  # clips them louder, which afplay's 0.0-1.0 volume can't (and needn't) match.
+  sfxPlay =
+    if pkgs.stdenv.hostPlatform.isDarwin then "/usr/bin/afplay" else "${pkgs.sox}/bin/play -v 10.0";
 in
 {
   imports = [
@@ -483,9 +490,7 @@ in
       ${builtins.readFile ../static/shell-utils.zsh};
 
       sfxl() {
-        ${pkgs.sox}/bin/play -v 10.0 ${
-          pkgs.callPackage ../../packages/dotfiles-sfx.nix { }
-        }/share/sfx/$1.ogg
+        ${sfxPlay} ${sfx}/share/sfx/$1.ogg
       }
 
       # Shift+Enter (kitty kbd protocol \e[13;2u) accepts the current line
