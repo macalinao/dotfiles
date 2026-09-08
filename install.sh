@@ -92,6 +92,20 @@ if [ $(whoami) = igm ]; then
     cd ~/dotfiles-private && git frp
     success "Private dotfiles set up"
   fi
+
+  if [[ "$(uname -s)" == "Darwin" ]]; then
+    section "Set up darwin-configuration"
+    DARWIN_CONFIG=~/proj/macalinao/darwin-configuration
+    if [ ! -e "$DARWIN_CONFIG" ]; then
+      mkdir -p "$(dirname "$DARWIN_CONFIG")"
+      git clone git@github.com:macalinao/darwin-configuration.git "$DARWIN_CONFIG"
+      success "darwin-configuration set up"
+    else
+      info "darwin-configuration already found. Updating..."
+      cd "$DARWIN_CONFIG" && git frp
+      success "darwin-configuration set up"
+    fi
+  fi
 else
   info "User is not igm; skipping private repos setup."
 fi
