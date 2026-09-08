@@ -153,10 +153,10 @@ in
       additional-nix-packages.lintel
       additional-nix-packages.wacli
     ]
-    ++ (lib.optionals pkgs.stdenv.isDarwin [
+    ++ (lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
       additional-nix-packages.notifykit
     ])
-    ++ (lib.optionals pkgs.stdenv.isLinux [
+    ++ (lib.optionals pkgs.stdenv.hostPlatform.isLinux [
       bubblewrap
       socat
       libseccomp
@@ -363,7 +363,7 @@ in
     "${config.home.homeDirectory}/.npm/bin"
     "${config.home.homeDirectory}/.cargo/bin"
   ]
-  ++ (lib.optionals pkgs.stdenv.isDarwin [
+  ++ (lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
     "/opt/homebrew/bin"
     "${config.home.homeDirectory}/.local/share/solana/install/active_release/bin"
   ]);
@@ -735,7 +735,7 @@ in
       bind  %  split-window -h -c "#{pane_current_path}"
       bind '"' split-window -v -c "#{pane_current_path}"
     ''
-    + lib.optionalString pkgs.stdenv.isDarwin ''
+    + lib.optionalString pkgs.stdenv.hostPlatform.isDarwin ''
       set-option -g default-command "${pkgs.reattach-to-user-namespace}/bin/reattach-to-user-namespace -l ${pkgs.zsh}/bin/zsh"
     '';
   };
@@ -746,7 +746,7 @@ in
   };
 
   services.ssh-agent.enable =
-    pkgs.stdenv.isLinux
+    pkgs.stdenv.hostPlatform.isLinux
     && !(config.services.gpg-agent.enable && config.services.gpg-agent.enableSshSupport);
 
   programs.ssh = {

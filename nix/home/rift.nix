@@ -25,7 +25,7 @@
     '';
   };
 
-  config = lib.mkIf pkgs.stdenv.isDarwin {
+  config = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
     home.file.".config/rift/config.toml".text =
       builtins.readFile ./static/rift-common.toml + config.igm.rift.extraAppRules;
   };

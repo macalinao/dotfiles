@@ -45,7 +45,7 @@ in
       }
     ) (config.igm.claudeInstances - 1)
   ))
-  // (lib.optionalAttrs pkgs.stdenv.isLinux {
+  // (lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux {
     ".xscreensaver".source = "${static}/xscreensaver";
     ".config/fcitx" = {
       source = "${static}/fcitx";

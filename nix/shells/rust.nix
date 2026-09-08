@@ -11,7 +11,7 @@ mkShell {
     cargo-readme
     cargo-workspaces
   ]
-  ++ (lib.optional stdenv.isDarwin ([
+  ++ (lib.optional stdenv.hostPlatform.isDarwin ([
     libiconv
     apple-sdk
   ]));

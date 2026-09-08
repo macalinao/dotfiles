@@ -27,7 +27,7 @@ let
   '';
 in
 {
-  config = lib.mkIf (pkgs.stdenv.isLinux && !config.igm.headless) {
+  config = lib.mkIf (pkgs.stdenv.hostPlatform.isLinux && !config.igm.headless) {
     xsession.enable = true;
     xsession.profileExtra = "$HOME/dotfiles/bin/desktop_monitors.sh";
 

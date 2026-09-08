@@ -24,7 +24,7 @@ let
   '';
 in
 {
-  config = lib.mkIf pkgs.stdenv.isDarwin {
+  config = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
     home.packages = with pkgs; [
       reattach-to-user-namespace
       pinentry_mac

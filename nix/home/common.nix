@@ -24,7 +24,7 @@
     # WARNING: this is impure, so we only do this on Linux
     profiles.default.extensions =
       with pkgs.vscode-extensions;
-      pkgs.lib.optionals pkgs.stdenv.isLinux [ rust-lang.rust-analyzer ];
+      pkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux [ rust-lang.rust-analyzer ];
   };
 
   # Browser password management
