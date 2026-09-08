@@ -48,7 +48,10 @@ The repository uses flake-parts with partitions:
 - Platform-specific inputs are isolated via partitions:
   - `nix/darwin/flake.nix`: Darwin partition inputs (nix-darwin, home-manager, nix-casks, etc.)
   - `nix/nixos/flake.nix`: NixOS partition inputs
-- Private configurations (`~/dotfiles-private`) are injected at build time via `--override-input dotfiles-private`; a stub at `github:macalinao/dotfiles-private-stub` is used by default (for CI)
+- This repo is public and has no private inputs. It exports the building blocks — `darwinModules.default`, `homeModules.{default,headless}`, and `lib.mkDarwinHost` — which private flakes compose:
+  - `~/proj/macalinao/darwin-configuration` (macOS hosts)
+  - `~/proj/macalinao/devbox` (NixOS hosts)
+- `darwinConfigurations` here contains only `ci-personal-m1`, the private-free host CI builds
 
 ### Key Directories
 
@@ -63,8 +66,8 @@ The repository uses flake-parts with partitions:
 ### Configuration Flow
 
 1. Configurations are defined in Nix files under `/nix/`
-2. `igm-switch` builds and applies configurations based on the current platform
-3. Private configurations are managed separately in `~/dotfiles-private`
+2. `igm-switch` builds and applies configurations based on the current platform. On macOS it delegates to `~/proj/macalinao/darwin-configuration/scripts/darwin-switch`, which owns the host definitions and the `--override-input` wiring for both this repo and `~/dotfiles-private`
+3. Private configurations are managed separately in `~/dotfiles-private` (shared Linux/macOS) and `~/proj/macalinao/darwin-configuration` (Mac-only)
 
 ## Important Notes
 

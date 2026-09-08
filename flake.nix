@@ -6,12 +6,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     home-manager.url = "github:nix-community/home-manager";
     additional-nix-packages.url = "github:macalinao/additional-nix-packages";
-    dotfiles-private = {
-      url = "github:macalinao/dotfiles-private-stub";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-      inputs.flake-parts.follows = "flake-parts";
-    };
     # Deliberately do NOT follow nixpkgs for claude-code-nix / codex-cli-nix:
     # the upstream cachix caches (claude-code.cachix.org, codex-cli.cachix.org)
     # are built against these flakes' own pinned nixpkgs. Rebinding nixpkgs

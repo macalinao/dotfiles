@@ -9,36 +9,31 @@ DOTFILES="$(cd "$(dirname "$0")/.." && pwd)"
 cd $DOTFILES
 
 source $DOTFILES/scripts/igm-helpers.sh
-SYSTEM_CONFIG_ATTRIBUTE=$(system_config_attribute)
 
 SHOW_TRACE=''
 if [ "${1:none}" = '--debug' ]; then
 	SHOW_TRACE='--show-trace'
 fi
 
-echo "Updating private dotfiles."
-cd $HOME/dotfiles-private && git add -A . && git commit -m "Updates" && git frp
-
-cd $DOTFILES
-
-PRIVATE_OVERRIDE="--override-input dotfiles-private git+file:///Users/igm/dotfiles-private"
-
-if $(uname -a | grep -q "NixOS"); then
-	sudo nixos-rebuild switch --impure --flake ".#$SYSTEM_CONFIG_ATTRIBUTE" $SHOW_TRACE
+if $(uname -a | grep -q "Darwin"); then
+	# Mac hosts are no longer defined here — they live in the private
+	# darwin-configuration flake, which consumes this repo (via
+	# lib.mkDarwinHost) plus dotfiles-private. Delegate to its switch script,
+	# which handles the local --override-input wiring for both.
+	DARWIN_CONFIG="${DARWIN_CONFIG:-$HOME/proj/macalinao/darwin-configuration}"
+	if [ ! -x "$DARWIN_CONFIG/scripts/darwin-switch" ]; then
+		echo "igm-switch: no darwin-switch at $DARWIN_CONFIG." >&2
+		echo "Clone github:macalinao/darwin-configuration there, or set DARWIN_CONFIG." >&2
+		exit 1
+	fi
+	exec "$DARWIN_CONFIG/scripts/darwin-switch" $SHOW_TRACE
 fi
 
-if $(uname -a | grep -q "Darwin"); then
-	# Homebrew >= 6 refuses to load formulae from non-core taps unless they are
-	# explicitly trusted. During nix-darwin activation brew runs via
-	# `sudo --preserve-env=PATH --user=igm --set-home env brew bundle`, which
-	# strips XDG_CONFIG_HOME, so brew reads trust from ~/.homebrew/trust.json
-	# rather than the interactive ~/.config/homebrew/trust.json. Seed that
-	# fallback location (idempotent) so `brew bundle` finds the trusted tap.
-	if command -v brew >/dev/null 2>&1; then
-		env -u XDG_CONFIG_HOME brew trust --tap acsandmann/tap >/dev/null 2>&1 || true
-	fi
+if $(uname -a | grep -q "NixOS"); then
+	echo "Updating private dotfiles."
+	cd $HOME/dotfiles-private && git add -A . && git commit -m "Updates" && git frp
 
-	nix build ".#$SYSTEM_CONFIG_ATTRIBUTE" $PRIVATE_OVERRIDE $SHOW_TRACE || exit 1
-	sudo ./result/sw/bin/darwin-rebuild switch --flake ".#$(hostname)" $PRIVATE_OVERRIDE
-	rm -r result
+	cd $DOTFILES
+	SYSTEM_CONFIG_ATTRIBUTE=$(system_config_attribute)
+	sudo nixos-rebuild switch --impure --flake ".#$SYSTEM_CONFIG_ATTRIBUTE" $SHOW_TRACE
 fi
