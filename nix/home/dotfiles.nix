@@ -21,16 +21,21 @@ let
   # Claude has written in between.
   claude-settings = ../../config/claude/settings.json;
 
-  # All Claude config dirs: .claude plus .claude-2 .. .claude-N.
-  claudeDirs = [
-    ".claude"
-  ]
-  ++ builtins.genList (i: ".claude-${toString (i + 2)}") (config.igm.claudeInstances - 1);
+  # All Claude config dirs: .claude-1 .. .claude-N. Instance 1 is the one
+  # bare `claude` uses -- headless.nix exports CLAUDE_CONFIG_DIR=~/.claude-1
+  # so no session ever falls back to ~/.claude. Keeping every instance in
+  # the same shape means nothing has to special-case the default scope.
+  claudeDirs = builtins.genList (i: ".claude-${toString (i + 1)}") config.igm.claudeInstances;
 in
 {
   home.file = {
     ".vimrc".source = "${static}/vimrc";
   }
+  # Plans are shared across instances: .claude-1/plans is the anchor and
+  # every other instance symlinks to it, so a plan written under one
+  # instance is visible from all of them. Instance 1 owns the real
+  # directory and so is skipped here (it must not symlink to itself); the
+  # activation below creates it.
   // (builtins.listToAttrs (
     builtins.genList (
       i:
@@ -40,7 +45,7 @@ in
       {
         name = ".claude-${n}/plans";
         value = {
-          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.claude/plans";
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.claude-1/plans";
         };
       }
     ) (config.igm.claudeInstances - 1)
@@ -59,6 +64,11 @@ in
   home.activation.claudeSettings = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     seed=${claude-settings}
     jq=${pkgs.jq}/bin/jq
+
+    # Anchor for the shared plans symlinks above. Without this the
+    # .claude-N/plans links dangle (they did for the whole life of the
+    # old ~/.claude/plans anchor, which was never created).
+    $DRY_RUN_CMD mkdir -p "$HOME/.claude-1/plans"
     for dir in ${lib.concatStringsSep " " claudeDirs}; do
       target="$HOME/$dir/settings.json"
       tmp="$(mktemp)"

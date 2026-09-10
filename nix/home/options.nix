@@ -8,7 +8,7 @@
     claudeInstances = lib.mkOption {
       type = lib.types.int;
       default = 6;
-      description = "Number of Claude Code instances (generates claude-2 through claude-N).";
+      description = "Number of Claude Code instances (generates claude-1 through claude-N).";
     };
 
     headless = lib.mkOption {

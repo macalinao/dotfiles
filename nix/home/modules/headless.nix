@@ -375,9 +375,32 @@ in
     "${config.home.homeDirectory}/.local/share/solana/install/active_release/bin"
   ]);
 
-  home.sessionVariables = lib.mkIf config.igm.disableSwitch {
-    IGM_SWITCH_DISABLE = "true";
-  };
+  home.sessionVariables = lib.mkMerge [
+    (lib.mkIf config.igm.disableSwitch {
+      IGM_SWITCH_DISABLE = "true";
+    })
+    {
+      # Pin bare `claude` to instance 1 so nothing ever writes to the
+      # default ~/.claude scope. That scope used to be special in four
+      # places (the alias list below, `claudeDirs` in dotfiles.nix, and
+      # the vault-notes/browser-mcp loops in the configuration repo),
+      # because its .claude.json sits at $HOME/.claude.json rather than
+      # inside the dir. Worse, $HOME/.claude/CLAUDE.md was picked up as
+      # *project* memory by every other instance -- Claude Code walks cwd
+      # upward for `CLAUDE.md` and `<dir>/.claude/CLAUDE.md`, and $HOME is
+      # an ancestor of nearly every working directory -- so the shared
+      # vault rule was loaded twice in every session. Making instance 1
+      # an ordinary .claude-N dir removes both the special case and the
+      # double load.
+      #
+      # This lives in home.sessionVariables rather than the zsh block so
+      # bash and non-login invocations get it too; a session that missed
+      # it would silently recreate ~/.claude. The claude-N aliases
+      # override it for N >= 2, and the systemd units that run Claude set
+      # CLAUDE_CONFIG_DIR explicitly regardless.
+      CLAUDE_CONFIG_DIR = "$HOME/.claude-1";
+    }
+  ];
 
   # ~/.local/bin is appended (not prepended) so Nix-managed binaries
   # take precedence over anything the user drops there manually.
@@ -532,13 +555,9 @@ in
     };
 
     shellAliases = lib.listToAttrs (
-      builtins.genList (
-        i:
-        let
-          n = i + 2;
-        in
-        lib.nameValuePair "claude-${toString n}" "CLAUDE_CONFIG_DIR=~/.claude-${toString n} claude"
-      ) (config.igm.claudeInstances - 1)
+      map (
+        n: lib.nameValuePair "claude-${toString n}" "CLAUDE_CONFIG_DIR=~/.claude-${toString n} claude"
+      ) (lib.range 1 config.igm.claudeInstances)
     );
 
     history = {
