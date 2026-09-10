@@ -16,10 +16,38 @@ let
   # Claude replaces it with a plain mutable file, which then silently drifts
   # from the repo — including dropping includeCoAuthoredBy and bringing the
   # "Co-Authored-By: Claude" commit trailer back. Instead we seed the file on
-  # first install and re-assert includeCoAuthoredBy=false on every activation
-  # (see home.activation.claudeSettings below), while preserving whatever
+  # first install and re-assert `forcedSettings` on every activation (see
+  # home.activation.claudeSettings below), while preserving whatever
   # Claude has written in between.
   claude-settings = ../../config/claude/settings.json;
+
+  # Settings re-asserted on every activation, not just seeded.
+  #
+  # Seeding alone is not enough: the seed is only consulted when
+  # settings.json does not exist, so anything Claude rewrites afterwards
+  # drifts permanently. That is how one machine ended up with six
+  # different settings.json variants across its instance dirs.
+  #
+  # `model` and `theme` are deliberately NOT here. Claude Code writes
+  # both from its own UI (/model, /theme), so forcing them would silently
+  # revert the user's choice on the next switch. They stay in the seed,
+  # which is a starting point rather than a policy.
+  #
+  # Host-specific settings whose value depends on which user is running
+  # (per-user storage paths and extra readable directories) are NOT here
+  # either. This repo is shared across users, so a literal path would
+  # point all of them at one user's location; those keys are forced by
+  # the private host module that knows the mapping.
+  forcedSettings = {
+    includeCoAuthoredBy = false;
+    outputStyle = "Concise";
+    attribution = {
+      commit = "";
+      pr = "";
+      sessionUrl = false;
+    };
+    skipDangerousModePermissionPrompt = true;
+  };
 
   # All Claude config dirs: .claude-1 .. .claude-N. Instance 1 is the one
   # bare `claude` uses -- headless.nix exports CLAUDE_CONFIG_DIR=~/.claude-1
@@ -58,12 +86,13 @@ in
     };
   });
 
-  # Seed Claude settings on fresh installs and always force the co-author
-  # trailer off, without clobbering runtime changes Claude makes to the file.
+  # Seed Claude settings on fresh installs and re-assert `forcedSettings`
+  # every time, without clobbering runtime changes Claude makes to the file.
   # Runs after the write boundary so home.file linking has already happened.
   home.activation.claudeSettings = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     seed=${claude-settings}
     jq=${pkgs.jq}/bin/jq
+    forced=${lib.escapeShellArg (builtins.toJSON forcedSettings)}
 
     # Anchor for the shared plans symlinks above. Without this the
     # .claude-N/plans links dangle (they did for the whole life of the
@@ -75,7 +104,9 @@ in
       # Existing file: keep everything Claude wrote, only force the key.
       # Fresh install: seed the whole file from the repo.
       if [ -e "$target" ]; then src="$target"; else src="$seed"; fi
-      if "$jq" '.includeCoAuthoredBy = false' "$src" > "$tmp" && [ -s "$tmp" ]; then
+      # `*` deep-merges, so nested keys Claude owns survive alongside
+      # the forced ones.
+      if "$jq" --argjson forced "$forced" '. * $forced' "$src" > "$tmp" && [ -s "$tmp" ]; then
         if [ ! -e "$target" ] || ! cmp -s "$tmp" "$target"; then
           $DRY_RUN_CMD mkdir -p "$HOME/$dir"
           $DRY_RUN_CMD install -m 0600 "$tmp" "$target"
