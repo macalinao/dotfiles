@@ -140,9 +140,9 @@ in
       dev.zed.Zed .md all
       dev.zed.Zed .py all
       dev.zed.Zed .css all
-      # editor role (not "all") so Zed doesn't claim the HTML viewer role,
-      # which macOS treats as the default browser and re-prompts about on every switch
-      dev.zed.Zed .html editor
+      # No .html rule, not even the "editor" role: any handler change on
+      # public.html makes macOS show "change default browser?", and accepting
+      # it hands http/https (every URL) to Zed.
       dev.zed.Zed .sh all
       dev.zed.Zed .zsh all
       dev.zed.Zed public.source-code all
