@@ -48,6 +48,7 @@ in
     "arc"
     "beeper"
     "brave-browser"
+    "chatgpt"
     "claude"
     # "dashlane"
     "discord"
