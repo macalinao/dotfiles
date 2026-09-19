@@ -24,4 +24,12 @@
     claudeInstances = config.igm.claudeInstances;
     numberedFirstInstance = true;
   };
+
+  # The sync is `rsync --delete`, so anything in a skills dir that isn't in
+  # the bundle gets wiped. Keep the upstream default (Codex's `.system`) and
+  # add `synced`, where Claude Code stores skills synced from claude.ai.
+  programs.agent-skills.excludePatterns = [
+    "/.system"
+    "/synced"
+  ];
 }
