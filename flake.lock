@@ -300,11 +300,11 @@
         "vercel-skills": "vercel-skills"
       },
       "locked": {
-        "lastModified": 1787472409,
-        "narHash": "sha256-dGL188TOnCtLdJxAoQVEvTyviTWBFmtkx+38Mve6vqI=",
+        "lastModified": 1789069640,
+        "narHash": "sha256-UqDV2QWT48IOXpvn3YnHMjXm26aG/OlRjgb0BL/uR84=",
         "owner": "macalinao",
         "repo": "my-agent-skills",
-        "rev": "0f4cd32a1db18261901128500f9b0299f158cad7",
+        "rev": "3dbc914ba13ac1d31ac8d08dd59538533bce78b4",
         "type": "github"
       },
       "original": {
