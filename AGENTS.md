@@ -1,6 +1,6 @@
-# CLAUDE.md
+# AGENTS.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to coding agents (Claude Code, Codex, Cursor, etc.) when working with code in this repository.
 
 ## Repository Overview
 
@@ -79,4 +79,4 @@ The repository uses flake-parts with partitions:
 
 ### Claude Code Settings
 
-Claude Code settings are stored in `/config/claude/`. See [config/claude/CLAUDE.md](config/claude/CLAUDE.md) for documentation on the settings format and organization guidelines.
+Claude Code settings are stored in `/config/claude/`. See [config/claude/AGENTS.md](config/claude/AGENTS.md) for documentation on the settings format and organization guidelines.
