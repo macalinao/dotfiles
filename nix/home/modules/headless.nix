@@ -143,6 +143,7 @@ in
 
       yj
       devenv
+      gogcli
 
       # AI coding tools — pulled directly from their flakes (own pinned nixpkgs +
       # cachix caches), bypassing the default overlay so they don't shadow
@@ -156,7 +157,6 @@ in
 
       # from additional-nix-packages overlay
       additional-nix-packages.git-worktree-runner
-      additional-nix-packages.gogcli
       additional-nix-packages.lintel
       additional-nix-packages.wacli
     ]
