@@ -106,7 +106,7 @@ in
 
       # JS tools
       (yarn.override { nodejs = nodejs_24; })
-      pnpm
+      pnpm_12
       oxfmt
       oxlint
 
