@@ -181,6 +181,15 @@ manage = false
 app_name = "qemu-system-aarch64"
 manage = false
 
+# Menu bar apps whose popover windows rift would otherwise tile/resize.
+[[virtual_workspaces.app_rules]]
+app_id = "com.steipete.codexbar"
+manage = false
+
+[[virtual_workspaces.app_rules]]
+app_id = "net.mullvad.vpn"
+manage = false
+
 [[virtual_workspaces.app_rules]]
 app_id = "com.apple.systempreferences"
 floating = true
