@@ -30,6 +30,10 @@
 
   outputStyle = "Concise";
 
+  # Flicker-free fullscreen renderer (alternate screen buffer) instead of the
+  # default inline one.
+  tui = "fullscreen";
+
   # Pre-approved tool calls, so a session does not stop to ask for things that
   # only read state. Roughly: read-only git/gh/nix queries, the bun/cargo
   # subcommands that build or test but do not publish, ordinary file reading
@@ -83,19 +87,19 @@
       # Both spellings of every read-only git query: bare, and `git -C <dir>`
       # for the other checkouts a session reaches into (the vault, dotfiles,
       # worktrees). A pattern without the `-C` form does not cover it.
-      "Bash(git -C * blame:*)"
-      "Bash(git -C * cat-file:*)"
-      "Bash(git -C * describe:*)"
-      "Bash(git -C * diff:*)"
-      "Bash(git -C * log:*)"
-      "Bash(git -C * ls-files:*)"
-      "Bash(git -C * ls-tree:*)"
-      "Bash(git -C * rev-list:*)"
-      "Bash(git -C * rev-parse:*)"
-      "Bash(git -C * shortlog:*)"
-      "Bash(git -C * show:*)"
-      "Bash(git -C * stash list:*)"
-      "Bash(git -C * status:*)"
+      "Bash(git -C * blame*)"
+      "Bash(git -C * cat-file*)"
+      "Bash(git -C * describe*)"
+      "Bash(git -C * diff*)"
+      "Bash(git -C * log*)"
+      "Bash(git -C * ls-files*)"
+      "Bash(git -C * ls-tree*)"
+      "Bash(git -C * rev-list*)"
+      "Bash(git -C * rev-parse*)"
+      "Bash(git -C * shortlog*)"
+      "Bash(git -C * show*)"
+      "Bash(git -C * stash list*)"
+      "Bash(git -C * status*)"
       "Bash(git blame:*)"
       "Bash(git cat-file:*)"
       "Bash(git describe:*)"
