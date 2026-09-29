@@ -8,9 +8,9 @@
 let
   static = ./static;
 
-  # Canonical Claude Code settings, used as the seed for a fresh install.
+  # Canonical Claude Code settings, and the JSON seed rendered from them.
   #
-  # NOTE: this is intentionally NOT symlinked into place. Claude Code
+  # NOTE: the seed is intentionally NOT symlinked into place. Claude Code
   # rewrites ~/.claude/settings.json at runtime (toggling plugins, changing
   # model, etc.). A read-only Nix store symlink can't be written through, so
   # Claude replaces it with a plain mutable file, which then silently drifts
@@ -19,7 +19,8 @@ let
   # first install and re-assert `forcedSettings` on every activation (see
   # home.activation.claudeSettings below), while preserving whatever
   # Claude has written in between.
-  claude-settings = ../../config/claude/settings.json;
+  claudeSettings = import ./claude-settings.nix;
+  claude-settings = (pkgs.formats.json { }).generate "claude-settings.json" claudeSettings;
 
   # Settings re-asserted on every activation, not just seeded.
   #
@@ -28,26 +29,35 @@ let
   # drifts permanently. That is how one machine ended up with six
   # different settings.json variants across its instance dirs.
   #
-  # `model` and `theme` are deliberately NOT here. Claude Code writes
-  # both from its own UI (/model, /theme), so forcing them would silently
-  # revert the user's choice on the next switch. They stay in the seed,
-  # which is a starting point rather than a policy.
+  # So the default is now inverted: everything in claude-settings.nix is
+  # forced, and only the keys listed in `runtimeOwned` are left mutable.
+  # Deriving both the seed and this from one attrset keeps a single source of
+  # truth -- a key added there is policy on every instance without also
+  # having to be restated here.
+  #
+  # `runtimeOwned` is the escape hatch for keys Claude Code writes from its
+  # own UI, where forcing would silently revert a deliberate choice on the
+  # next switch:
+  #   model, theme      -- /model and /theme
+  #   enabledPlugins    -- /plugin (chrome-devtools-mcp and playwright are
+  #                        currently toggled off on this machine; forcing
+  #                        the attrset's `true` would turn them back on)
+  # These stay in the seed, which is a starting point rather than a policy.
   #
   # Host-specific settings whose value depends on which user is running
-  # (per-user storage paths and extra readable directories) are NOT here
-  # either. This repo is shared across users, so a literal path would
-  # point all of them at one user's location; those keys are forced by
-  # the private host module that knows the mapping.
-  forcedSettings = {
-    includeCoAuthoredBy = false;
-    outputStyle = "Concise";
-    attribution = {
-      commit = "";
-      pr = "";
-      sessionUrl = false;
-    };
-    skipDangerousModePermissionPrompt = true;
-  };
+  # (per-user storage paths and extra readable directories) are not in the
+  # canonical attrset at all. This repo is shared across users, so a literal
+  # path would point all of them at one user's location; those keys are
+  # forced by the private host module that knows the mapping. The jq merge
+  # below is a deep merge, so forcing `permissions` here still leaves the
+  # private module's `permissions.additionalDirectories` untouched.
+  runtimeOwned = [
+    "model"
+    "theme"
+    "enabledPlugins"
+  ];
+
+  forcedSettings = removeAttrs claudeSettings runtimeOwned;
 
   # All Claude config dirs: .claude-1 .. .claude-N. Instance 1 is the one
   # bare `claude` uses -- headless.nix exports CLAUDE_CONFIG_DIR=~/.claude-1
@@ -101,13 +111,23 @@ in
     for dir in ${lib.concatStringsSep " " claudeDirs}; do
       target="$HOME/$dir/settings.json"
       tmp="$(mktemp)"
-      # Existing file: keep everything Claude wrote, only force the key.
-      # Fresh install: seed the whole file from the repo.
+      # Existing file: keep everything Claude wrote, re-assert the forced
+      # keys over it. Fresh install: seed the whole file from the repo, with
+      # the same forced keys merged on top, so a forced key lands in the
+      # very first settings.json too.
       if [ -e "$target" ]; then src="$target"; else src="$seed"; fi
       # `*` deep-merges, so nested keys Claude owns survive alongside
       # the forced ones.
       if "$jq" --argjson forced "$forced" '. * $forced' "$src" > "$tmp" && [ -s "$tmp" ]; then
-        if [ ! -e "$target" ] || ! cmp -s "$tmp" "$target"; then
+        # Write only when the merge changes a *value*. This compares parsed
+        # JSON rather than bytes, because Nix attrsets are unordered: the
+        # forced blob's object keys come out alphabetical ({"hooks",
+        # "matcher"}) while Claude Code writes its own order ({"matcher",
+        # "hooks"}). A byte comparison rewrites all ten settings.json on every
+        # activation that follows a Claude-side write, without changing a
+        # single setting. jq's `==` ignores object key order; a malformed
+        # target makes jq fail, which counts as different and heals the file.
+        if [ ! -e "$target" ] || ! "$jq" -e --slurpfile new "$tmp" '. == $new[0]' "$target" >/dev/null; then
           $DRY_RUN_CMD mkdir -p "$HOME/$dir"
           $DRY_RUN_CMD install -m 0600 "$tmp" "$target"
         fi
