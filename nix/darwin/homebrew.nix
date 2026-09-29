@@ -50,6 +50,7 @@ in
     "brave-browser"
     "chatgpt"
     "claude"
+    "codexbar"
     # "dashlane"
     "discord"
     "docker-desktop"
