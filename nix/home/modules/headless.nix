@@ -72,6 +72,7 @@ in
       (callPackage ../../packages/dotfiles-scripts.nix {
         dotfilesPath = config.igm.dotfilesPath;
       })
+      (callPackage ../../packages/ccstatus.nix { })
       eza
       git
       gibo
