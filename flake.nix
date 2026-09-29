@@ -13,7 +13,10 @@
     # the store (second nixpkgs closure) is cheaper than rebuilding these
     # from source.
     claude-code-nix.url = "github:sadjow/claude-code-nix";
-    codex-cli-nix.url = "github:sadjow/codex-cli-nix";
+    # Pinned to sadjow/codex-cli-nix#165 (keeps the full Codex package so the
+    # 0.157+ app-server daemon can bootstrap). Revert to
+    # github:sadjow/codex-cli-nix once it merges; see issue #162.
+    codex-cli-nix.url = "github:juspay/codex-cli-nix/da7e4309d236cbaffffbeea27947713626edcff2";
     # Declarative agent skills (SKILL.md bundles) synced into ~/.claude*/skills
     # and ~/.codex/skills. Extracted into a standalone flake that bundles the
     # agent-skills-nix engine and all the flake=false skill sources behind a

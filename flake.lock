@@ -109,16 +109,17 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1790572652,
-        "narHash": "sha256-30VZlOoLqupVcfUKE+fK89SdqajERhPjuT0QVWsEKes=",
-        "owner": "sadjow",
+        "lastModified": 1790640682,
+        "narHash": "sha256-CVVBDFu+ANd5vYDP4qUb6L4M7r/m4C33gVcWc+526As=",
+        "owner": "juspay",
         "repo": "codex-cli-nix",
-        "rev": "3bc018a4373b5293ecc20dafcb052b93d6471f51",
+        "rev": "da7e4309d236cbaffffbeea27947713626edcff2",
         "type": "github"
       },
       "original": {
-        "owner": "sadjow",
+        "owner": "juspay",
         "repo": "codex-cli-nix",
+        "rev": "da7e4309d236cbaffffbeea27947713626edcff2",
         "type": "github"
       }
     },
