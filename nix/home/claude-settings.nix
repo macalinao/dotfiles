@@ -84,22 +84,10 @@
       "Bash(gh run list:*)"
       "Bash(gh run view:*)"
       "Bash(gh search:*)"
-      # Both spellings of every read-only git query: bare, and `git -C <dir>`
-      # for the other checkouts a session reaches into (the vault, dotfiles,
-      # worktrees). A pattern without the `-C` form does not cover it.
-      "Bash(git -C * blame*)"
-      "Bash(git -C * cat-file*)"
-      "Bash(git -C * describe*)"
-      "Bash(git -C * diff*)"
-      "Bash(git -C * log*)"
-      "Bash(git -C * ls-files*)"
-      "Bash(git -C * ls-tree*)"
-      "Bash(git -C * rev-list*)"
-      "Bash(git -C * rev-parse*)"
-      "Bash(git -C * shortlog*)"
-      "Bash(git -C * show*)"
-      "Bash(git -C * stash list*)"
-      "Bash(git -C * status*)"
+      # Read-only git queries, bare form only. There is no `git -C <dir>` form:
+      # a `*` before the subcommand also matches options such as `-c` and
+      # `--exec-path`, which can run arbitrary commands, so `git -C` calls into
+      # other checkouts (the vault, dotfiles, worktrees) prompt instead.
       "Bash(git blame:*)"
       "Bash(git cat-file:*)"
       "Bash(git describe:*)"
