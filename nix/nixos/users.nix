@@ -15,7 +15,6 @@
           "transmission"
         ];
         openssh.authorizedKeys.keyFiles = [
-          ./authorized-keys/igm-ianix.pub
           ./authorized-keys/ian-mbp.pub
           ./authorized-keys/ian-mbp-2022.pub
         ];
@@ -27,7 +26,6 @@
         shell = pkgs.zsh;
         isNormalUser = true;
         openssh.authorizedKeys.keyFiles = [
-          ./authorized-keys/igm-ianix.pub
           ./authorized-keys/ian-mbp.pub
           ./authorized-keys/ian-mbp-2022.pub
         ];
