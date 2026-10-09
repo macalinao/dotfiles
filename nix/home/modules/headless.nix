@@ -159,7 +159,6 @@ in
       # from additional-nix-packages overlay
       additional-nix-packages.git-worktree-runner
       additional-nix-packages.lintel
-      additional-nix-packages.wacli
     ]
     ++ (lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
       additional-nix-packages.notifykit
