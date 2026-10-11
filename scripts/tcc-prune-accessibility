@@ -1,0 +1,274 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# List (and optionally delete) stale TCC permission rows, e.g. Accessibility
+# grants for binaries that no longer exist after a brew upgrade.
+#
+# Reads both the system and the per-user TCC.db. A row is stale only if:
+#   - path client (client_type 1): the file no longer exists
+#   - bundle-id client (client_type 0): neither Spotlight (mdfind) nor the
+#     LaunchServices database knows the id
+# Apple clients (com.apple.*, /System, /usr, ...) are never touched. When in
+# doubt a row is reported as "unknown" and left alone.
+#
+# macOS only. Reading TCC.db needs SIP filesystem protections disabled or
+# Full Disk Access for the terminal; --apply deletes with sudo sqlite3.
+
+usage() {
+	cat <<EOF
+Usage: $(basename "$0") [-s SERVICE] [--apply] [-y]
+
+  -s SERVICE   TCC service, short or full name (default: Accessibility).
+               e.g. Accessibility, ScreenCapture, ListenEvent, PostEvent,
+               SystemPolicyAllFiles, or kTCCServiceAccessibility
+  --apply      Delete the stale rows (asks for confirmation, uses sudo)
+  -y, --yes    Do not ask for confirmation with --apply
+  -h, --help   Show this help
+
+Without --apply, prints every row with its status and exits.
+EOF
+}
+
+SERVICE="kTCCServiceAccessibility"
+APPLY=0
+ASSUME_YES=0
+
+while [[ $# -gt 0 ]]; do
+	case "$1" in
+	-s | --service)
+		[[ $# -ge 2 ]] || {
+			echo "error: $1 needs an argument" >&2
+			exit 2
+		}
+		SERVICE="$2"
+		shift 2
+		;;
+	--apply)
+		APPLY=1
+		shift
+		;;
+	-y | --yes)
+		ASSUME_YES=1
+		shift
+		;;
+	-h | --help)
+		usage
+		exit 0
+		;;
+	*)
+		echo "error: unknown argument: $1" >&2
+		usage >&2
+		exit 2
+		;;
+	esac
+done
+
+if [[ "$(uname -s)" != "Darwin" ]]; then
+	echo "error: macOS only" >&2
+	exit 1
+fi
+
+case "$SERVICE" in
+kTCCService*) ;;
+*) SERVICE="kTCCService$SERVICE" ;;
+esac
+if ! [[ "$SERVICE" =~ ^kTCCService[A-Za-z0-9]+$ ]]; then
+	echo "error: invalid service name: $SERVICE" >&2
+	exit 2
+fi
+
+SYSTEM_DB="/Library/Application Support/com.apple.TCC/TCC.db"
+USER_DB="$HOME/Library/Application Support/com.apple.TCC/TCC.db"
+LSREGISTER="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister"
+
+TMPDIR_TCC="$(mktemp -d)"
+trap 'rm -rf "$TMPDIR_TCC"' EXIT
+LSDUMP="$TMPDIR_TCC/lsregister.dump"
+
+hex_decode() {
+	printf '%s' "$1" | xxd -r -p
+}
+
+# Prints "ok", "stale" or "unknown" for a bundle id.
+bundle_id_status() {
+	local id="$1"
+	# Anything unusual can't be safely put into an mdfind query or regex.
+	if ! [[ "$id" =~ ^[A-Za-z0-9._-]+$ ]]; then
+		echo unknown
+		return
+	fi
+	if [[ -n "$(mdfind "kMDItemCFBundleIdentifier == '$id'c" 2>/dev/null | head -n 1)" ]]; then
+		echo ok
+		return
+	fi
+	if [[ ! -e "$LSDUMP" ]]; then
+		if ! "$LSREGISTER" -dump >"$LSDUMP" 2>/dev/null || [[ ! -s "$LSDUMP" ]]; then
+			: >"$LSDUMP.failed"
+		fi
+	fi
+	if [[ -e "$LSDUMP.failed" ]]; then
+		echo unknown
+		return
+	fi
+	# Match the id as a whole token anywhere in the dump (bundle ids,
+	# helpers, team-prefixed entitlement references, ...): conservative.
+	local re="(^|[^A-Za-z0-9._-])${id//./\\.}([^A-Za-z0-9._-]|$)"
+	if grep -Eqi -- "$re" "$LSDUMP"; then
+		echo ok
+	else
+		echo stale
+	fi
+}
+
+is_apple_path() {
+	case "$1" in
+	/System/* | /bin/* | /sbin/* | /Library/Apple/*) return 0 ;;
+	/usr/local/*) return 1 ;;
+	/usr/*) return 0 ;;
+	esac
+	return 1
+}
+
+auth_name() {
+	case "$1" in
+	0) echo denied ;;
+	2) echo allowed ;;
+	3) echo limited ;;
+	*) echo "auth=$1" ;;
+	esac
+}
+
+# Rows to delete: "db_label|client_hex|client_type|indirect_hex"
+STALE=()
+UNREADABLE=0
+
+scan_db() {
+	local label="$1" db="$2"
+	local out client_hex client_type auth indirect_hex client indirect status reason
+
+	if [[ ! -e "$db" ]]; then
+		echo "($label db not found: $db)"
+		return
+	fi
+	if ! out="$(sqlite3 -readonly -separator '|' "$db" \
+		"SELECT hex(client), client_type, auth_value, hex(indirect_object_identifier)
+		 FROM access WHERE service = '$SERVICE' ORDER BY client;" 2>&1)"; then
+		UNREADABLE=1
+		echo "error: cannot read $label TCC database: $db" >&2
+		echo "       $out" >&2
+		echo "       Needs SIP filesystem protections disabled, or Full Disk Access for" >&2
+		echo "       this terminal (System Settings > Privacy & Security > Full Disk Access)." >&2
+		return
+	fi
+	[[ -n "$out" ]] || return 0
+
+	while IFS='|' read -r client_hex client_type auth indirect_hex; do
+		client="$(hex_decode "$client_hex")"
+		indirect="$(hex_decode "$indirect_hex")"
+		reason=""
+		case "$client_type" in
+		1)
+			if is_apple_path "$client"; then
+				status=skip
+				reason="Apple path"
+			elif [[ -e "$client" ]]; then
+				status=ok
+			elif [[ "$client" =~ ^/Volumes/([^/]+)/ && ! -d "/Volumes/${BASH_REMATCH[1]}" ]]; then
+				status=unknown
+				reason="volume not mounted"
+			else
+				status=stale
+				reason="file missing"
+			fi
+			;;
+		0)
+			case "$client" in
+			com.apple.* | com.apple)
+				status=skip
+				reason="Apple bundle id"
+				;;
+			*)
+				status="$(bundle_id_status "$client")"
+				case "$status" in
+				stale) reason="unknown to Spotlight and LaunchServices" ;;
+				unknown) reason="could not verify" ;;
+				esac
+				;;
+			esac
+			;;
+		*)
+			status=unknown
+			reason="client_type $client_type"
+			;;
+		esac
+		if [[ "$indirect" != "UNUSED" ]]; then
+			reason="${reason:+$reason; }target $indirect"
+		fi
+		printf '%-8s %-6s %-8s %s%s\n' "$status" "$label" "$(auth_name "$auth")" "$client" "${reason:+  ($reason)}"
+		if [[ "$status" == stale ]]; then
+			STALE+=("$label|$client_hex|$client_type|$indirect_hex")
+		fi
+	done <<<"$out"
+}
+
+echo "Service: $SERVICE"
+printf '%-8s %-6s %-8s %s\n' STATUS DB AUTH CLIENT
+scan_db system "$SYSTEM_DB"
+scan_db user "$USER_DB"
+echo
+echo "${#STALE[@]} stale row(s)."
+
+if [[ "$APPLY" -eq 0 ]]; then
+	[[ "${#STALE[@]}" -eq 0 ]] || echo "Run with --apply to delete them."
+	[[ "$UNREADABLE" -eq 0 ]] || exit 1
+	exit 0
+fi
+
+if [[ "${#STALE[@]}" -eq 0 ]]; then
+	echo "Nothing to delete."
+	exit 0
+fi
+
+echo
+echo "Will delete:"
+for entry in "${STALE[@]}"; do
+	IFS='|' read -r label client_hex client_type indirect_hex <<<"$entry"
+	echo "  [$label] $(hex_decode "$client_hex")"
+done
+
+if [[ "$ASSUME_YES" -eq 0 ]]; then
+	printf 'Delete these %d row(s)? [y/N] ' "${#STALE[@]}"
+	{ read -r answer </dev/tty; } 2>/dev/null || answer=""
+	case "$answer" in
+	y | Y | yes | YES) ;;
+	*)
+		echo "Aborted."
+		exit 1
+		;;
+	esac
+fi
+
+# Every interpolated value is hex ([0-9A-F]), a digit string or the
+# validated service name, so the SQL needs no further escaping.
+delete_from() {
+	local label="$1" db="$2" sql="" entry l client_hex client_type indirect_hex
+	for entry in "${STALE[@]}"; do
+		IFS='|' read -r l client_hex client_type indirect_hex <<<"$entry"
+		[[ "$l" == "$label" ]] || continue
+		[[ "$client_hex" =~ ^[0-9A-F]*$ && "$indirect_hex" =~ ^[0-9A-F]*$ && "$client_type" =~ ^[0-9]+$ ]] || {
+			echo "error: unexpected row data, refusing to delete" >&2
+			exit 1
+		}
+		sql+="DELETE FROM access WHERE service = '$SERVICE' AND hex(client) = '$client_hex' AND client_type = $client_type AND hex(indirect_object_identifier) = '$indirect_hex';"$'\n'
+	done
+	[[ -n "$sql" ]] || return 0
+	printf 'BEGIN;\n%sCOMMIT;\n' "$sql" | sudo sqlite3 "$db" >/dev/null
+	echo "Deleted stale $label rows from $db"
+}
+
+delete_from system "$SYSTEM_DB"
+delete_from user "$USER_DB"
+
+echo
+echo "Done. System Settings may keep showing removed entries until you log out"
+echo "and back in (tccd caches them)."
