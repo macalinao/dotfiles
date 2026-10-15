@@ -32,7 +32,7 @@ in
       kbfs
 
       # Used for Thorium/Animecards
-      ffmpeg
+      ffmpeg-full
 
       pm2
 
