@@ -38,8 +38,28 @@ in
 
     ignore = lib.mkOption {
       type = lib.types.listOf lib.types.str;
-      default = [ ".git" ];
-      description = "Directory names skipped during exploration.";
+      # Never descend into dependency/build/env dirs: rules still mark them
+      # excluded from the parent, but walking them (and the /nix/store
+      # symlinks in .direnv/.devenv/result) ran for days at 27 GB.
+      default = [
+        ".git"
+        "node_modules"
+        ".devenv"
+        ".direnv"
+        ".venv"
+        "venv"
+        "target"
+        ".next"
+        ".turbo"
+        ".cache"
+        "dist"
+        "build"
+        "__pycache__"
+        ".pnpm-store"
+        "result"
+        "result-*"
+      ];
+      description = "Directory names (globs) asimeow never descends into. Rules still apply to them from the parent.";
     };
 
     rules = lib.mkOption {
