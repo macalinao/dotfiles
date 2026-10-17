@@ -198,8 +198,10 @@ floating = true
 ax_subrole = "AXSystemDialog"
 floating = true
 
-# Element (Matrix) always opens on workspace "1". Kept after the AXDialog
-# rules so Element's dialogs still float (equal specificity: earlier wins).
+# Element (Matrix) always opens on workspace "1". Element is installed as a
+# Brave web app, so it has a Brave PWA bundle id rather than im.riot.app.
+# Kept after the AXDialog rules so Element's dialogs still float (equal
+# specificity: earlier wins).
 [[virtual_workspaces.app_rules]]
-app_id = "im.riot.app"
+app_id = "com.brave.Browser.app.kgfmifmjfjldcbnpjechiomlnpdlnkgm"
 workspace = 0
