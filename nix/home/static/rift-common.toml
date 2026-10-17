@@ -197,3 +197,9 @@ floating = true
 [[virtual_workspaces.app_rules]]
 ax_subrole = "AXSystemDialog"
 floating = true
+
+# Element (Matrix) always opens on workspace "1". Kept after the AXDialog
+# rules so Element's dialogs still float (equal specificity: earlier wins).
+[[virtual_workspaces.app_rules]]
+app_id = "im.riot.app"
+workspace = 0
