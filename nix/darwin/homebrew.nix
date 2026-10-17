@@ -57,7 +57,7 @@ in
     "figma"
     "keybase"
     "linear"
-    "logi-options-plus"
+    "logi-options+"
     "moonlight"
     "private-internet-access"
     "slack"
