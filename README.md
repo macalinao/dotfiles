@@ -59,6 +59,16 @@ cachix-push-m1-config
 
 This is required because GitHub Actions does not have an `aarch64-darwin` runner.
 
+## Tips
+
+### Adding an email to a GPG key
+
+```
+gpg --list-secret-keys --keyid-format LONG
+gpg --edit-key <KEY>
+# adduid, then save
+```
+
 ## License
 
 MIT

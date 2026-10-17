@@ -2,7 +2,7 @@
 
 set -x
 
-DOTFILES=$(dirname $0)
+DOTFILES="$(cd "$(dirname "$0")" && pwd)"
 
 bold="$(tput bold)"
 unbold=$(tput sgr0)
@@ -117,17 +117,12 @@ cachix use igm
 
 if $IS_DARWIN; then
   section "Install Nix configuration"
-
-  DOTFILES_SYSTEM_ATTR=ian-mbp
-  if $IS_ARM64; then
-    DOTFILES_SYSTEM_ATTR=ian-mbp-m1
-  fi
-
-  nix build --extra-experimental-features nix-command --extra-experimental-features flakes $DOTFILES/private/flakes/darwin#darwinConfigurations.$DOTFILES_SYSTEM_ATTR.system
-  ./result/sw/bin/darwin-rebuild switch --flake $DOTFILES/private/flakes/darwin
+  # Mac hosts live in the private darwin-configuration flake (cloned above);
+  # its darwin-switch builds darwin-rebuild itself, so it works on first install.
+  DOTFILES="$DOTFILES" NIX_CONFIG="experimental-features = nix-command flakes" ~/proj/macalinao/darwin-configuration/scripts/darwin-switch
   success "nix-darwin installed"
 else
-  sudo nixos-rebuild switch --flake "$HOME/dotfiles/private/flakes/nixos#primary"
+  info "NixOS hosts are managed by github:macalinao/configuration (scripts/devbox-switch); skipping system configuration."
 fi
 
 info "Installation complete. Please restart your shell to contine."

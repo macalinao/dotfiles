@@ -29,7 +29,6 @@ in
 {
   config = lib.mkIf (pkgs.stdenv.hostPlatform.isLinux && !config.igm.headless) {
     xsession.enable = true;
-    xsession.profileExtra = "$HOME/dotfiles/bin/desktop_monitors.sh";
 
     xsession.windowManager.xmonad = {
       enable = true;

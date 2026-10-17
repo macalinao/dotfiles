@@ -8,8 +8,6 @@ fi
 DOTFILES="$(cd "$(dirname "$0")/.." && pwd)"
 cd $DOTFILES
 
-source $DOTFILES/scripts/igm-helpers.sh
-
 SHOW_TRACE=''
 if [ "${1:none}" = '--debug' ]; then
 	SHOW_TRACE='--show-trace'
@@ -29,11 +27,8 @@ if $(uname -a | grep -q "Darwin"); then
 	exec "$DARWIN_CONFIG/scripts/darwin-switch" $SHOW_TRACE
 fi
 
-if $(uname -a | grep -q "NixOS"); then
-	echo "Updating private dotfiles."
-	cd $HOME/dotfiles-private && git add -A . && git commit -m "Updates" && git frp
-
-	cd $DOTFILES
-	SYSTEM_CONFIG_ATTRIBUTE=$(system_config_attribute)
-	sudo nixos-rebuild switch --impure --flake ".#$SYSTEM_CONFIG_ATTRIBUTE" $SHOW_TRACE
-fi
+# NixOS hosts are built from github:macalinao/configuration, which consumes
+# this repo as a flake input; use its scripts/devbox-switch there.
+echo "igm-switch: only macOS is supported; NixOS hosts are managed by" >&2
+echo "github:macalinao/configuration (scripts/devbox-switch)." >&2
+exit 1

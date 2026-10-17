@@ -20,7 +20,6 @@ stdenvNoCC.mkDerivation {
       # Replace hardcoded DOTFILES derivations with the known path
       substituteInPlace "$f" \
         --replace-quiet 'DOTFILES="$(cd "$(dirname "$0")/.." && pwd)"' 'DOTFILES="${dotfilesPath}"' \
-        --replace-quiet 'DOTFILES=$HOME/dotfiles' 'DOTFILES="${dotfilesPath}"' \
         --replace-quiet 'source $DOTFILES/scripts/igm-helpers.sh' "source $out/lib/igm-helpers.sh" \
         --replace-quiet 'source "$DOTFILES/scripts/igm-helpers.sh"' "source $out/lib/igm-helpers.sh"
       # Inject DOTFILES default for scripts that don't set it
