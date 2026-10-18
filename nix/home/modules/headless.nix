@@ -724,17 +724,10 @@ in
       enable = true;
       enableZshIntegration = true;
       enableBashIntegration = true;
-      # FIXME: atuin 18.23.0's e2e PTY test times out in the darwin sandbox;
+      # FIXME: atuin 18.23.0's PTY e2e tests fail in the darwin sandbox;
       # drop once the nixpkgs build passes (or is cached) again.
       package =
-        if pkgs.stdenv.isDarwin then
-          pkgs.atuin.overrideAttrs (old: {
-            checkFlags = (old.checkFlags or [ ]) ++ [
-              "--skip=filtered_commands_leave_no_captured_output"
-            ];
-          })
-        else
-          pkgs.atuin;
+        if pkgs.stdenv.isDarwin then pkgs.atuin.overrideAttrs { doCheck = false; } else pkgs.atuin;
       flags = [ "--disable-up-arrow" ];
       settings = {
         dialect = "us";
