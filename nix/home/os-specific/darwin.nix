@@ -149,6 +149,22 @@ in
       dev.zed.Zed public.plain-text all
     '';
 
+    # Finicky (installed in nix/darwin/modules/default.nix) routes every
+    # clicked link. Finicky has to be made the macOS default browser once by
+    # hand (it offers on first launch); after that this file is the routing.
+    home.file.".finicky.js".text = ''
+      export default {
+        defaultBrowser: "Google Chrome",
+        handlers: [
+          {
+            // Slack links (e.g. clicked in Element Web) open in the desktop app.
+            match: "*.slack.com/*",
+            browser: "Slack",
+          },
+        ],
+      };
+    '';
+
     home.activation.setFileAssociations = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       echo "Setting file associations with duti..."
       ${pkgs.duti}/bin/duti ~/.duti.conf

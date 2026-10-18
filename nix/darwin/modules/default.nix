@@ -90,6 +90,7 @@ in
       vim
       anki-bin
       darktable-app
+      additional-nix-packages.finicky
       ghostty-bin
       google-chrome
       keka
