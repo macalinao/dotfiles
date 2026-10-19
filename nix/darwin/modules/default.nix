@@ -29,7 +29,6 @@ in
 
   nixpkgs = import ../../nixpkgs/config.nix {
     inherit self;
-    isDarwin = true;
   };
 
   environment.systemPackages =
