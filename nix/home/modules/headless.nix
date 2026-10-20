@@ -72,7 +72,6 @@ in
       (callPackage ../../packages/dotfiles-scripts.nix {
         dotfilesPath = config.igm.dotfilesPath;
       })
-      (callPackage ../../packages/ccstatus.nix { })
       (callPackage ../../packages/claude-swap.nix { })
       eza
       git
