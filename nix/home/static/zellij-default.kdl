@@ -1,7 +1,8 @@
 // Default zellij layout. Replaces the built-in tab/status bar with zjstatus
 // so we can show the local hostname alongside session/mode/tabs in one
 // templated bar. The @ZJSTATUS@ placeholder is substituted at build time
-// with the absolute store path of the zjstatus.wasm artifact.
+// with the stable ~/.config/zellij/plugins/zjstatus.wasm symlink, so zellij's
+// plugin-permission grant survives zjstatus bumps.
 layout {
   default_tab_template {
     pane size=1 borderless=true {
