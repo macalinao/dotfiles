@@ -55,6 +55,7 @@ in
     "discord"
     "docker-desktop"
     "figma"
+    "granola"
     "keybase"
     "linear"
     "logi-options+"
