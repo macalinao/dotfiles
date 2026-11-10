@@ -58,6 +58,8 @@ fingers = 3
 skip_empty = true
 
 [virtual_workspaces]
+# Rift 0.8 defaults to global workspaces; keep independent sets per display.
+mode = "per_display"
 enabled = true
 default_workspace_count = 10
 auto_assign_windows = true
