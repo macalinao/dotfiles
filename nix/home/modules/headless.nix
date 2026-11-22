@@ -790,6 +790,17 @@ in
         # automatically and lets sessions upgrade to xterm-ghostty once the
         # remote has the terminfo entry.
       };
+    }
+    # One private repo's read-only deploy key. A repo-scoped alias like the
+    # github-* org aliases, but here: they are per-profile, this is one
+    # repo's key. Only igm holds the key.
+    // lib.optionalAttrs (config.home.username == "igm") {
+      "github-egress-relay" = {
+        HostName = "github.com";
+        User = "git";
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/id_ed25519_egress_relay";
+      };
     };
   };
 
