@@ -673,14 +673,19 @@ in
         };
       };
     };
-
-    # Custom default layout that swaps zellij's built-in tab/status bar for
-    # zjstatus, so we can show the local hostname (and mode/session/tabs) in
-    # one templated bar.
   };
 
+  # zellij keys its plugin-permission cache (~/.cache/zellij/permissions.kdl)
+  # on the plugin location string as configured (symlinks not resolved), so a
+  # store path re-prompts for permissions after every zjstatus bump. Load it
+  # from a stable symlink instead.
+  xdg.configFile."zellij/plugins/zjstatus.wasm".source = "${pkgs.zjstatus}/bin/zjstatus.wasm";
+
+  # Custom default layout that swaps zellij's built-in tab/status bar for
+  # zjstatus, so we can show the local hostname (and mode/session/tabs) in
+  # one templated bar.
   xdg.configFile."zellij/layouts/default.kdl".source = pkgs.replaceVars ../static/zellij-default.kdl {
-    ZJSTATUS = "${pkgs.zjstatus}/bin/zjstatus.wasm";
+    ZJSTATUS = "${config.xdg.configHome}/zellij/plugins/zjstatus.wasm";
   };
 
   # powerlevel10k config generated via `p10k configure`. Regenerate by running
